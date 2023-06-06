@@ -12,8 +12,8 @@
 
 |안동섭|조원영|김지원|박지은|
 | :---: | :---: | :---: | :---: |
-| <img width="180" alt="" src=""> | <img width="180" alt="" src=""> | <img width="180" alt="" src=""> | <img width="180" alt="" src=""> |
-| [안동섭](https://github.com/D-Sup) | [조원영](https://github.com/JoWonYeong) | [김지원](https://github.com/jiwon6635) | [박지은](https://github.com/Eunnnnnnnn) |
+| <img width="180" alt="프로필_안동섭" src="https://avatars.githubusercontent.com/u/96939334?s=400&u=6a4e635ccb574702b10b9464ce61bba61abefc72&v=4"> | <img width="180" alt="프로필_조원영" src="https://avatars.githubusercontent.com/u/92977925?v=4"> | <img width="180" alt="프로필_김지원" src="https://avatars.githubusercontent.com/u/126536438?v=4"> | <img width="180" alt="프로필_박지은" src="https://avatars.githubusercontent.com/u/98686191?v=4"> |
+| [DongSup_Ahn](https://github.com/D-Sup) | [JoWonYeong](https://github.com/JoWonYeong) | [jiwon6635](https://github.com/jiwon6635) | [Eunnnnnnnn](https://github.com/Eunnnnnnnn) |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 
 <br />
@@ -28,6 +28,7 @@
 
 # 폴더 구조 
 
+```
 my-app
 ├── public
 └── src
@@ -36,6 +37,7 @@ my-app
   ├── components
   ├── components/commoon
   ├── hooks
+```
 
 <br />
 
