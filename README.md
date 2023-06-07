@@ -53,20 +53,20 @@ my-app
 
 ## commit
 
-| 커밋 유형 | 의미 |
-| :---: | :---: |
-| 💡 | Feat: 새로운 기능 추가 |
-| 🐛 | Fix: 버그수정 |
-| 📚 | Docs: 문서 수정 |
-| ♻️ | Refactor: 리팩토링 |
-| 🎨 | Design: CSS 등 사용자 UI 디자인 변경 |
-| 💄 | Style: 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 |
-| 💬 | Comment: 필요한 주석 추가 및 변경 |
-| 🌱 | Init: 프로젝트 초기 생성 |
-| 🐾 | Chore: 이외의 변경사항 |
-| ✍🏻 | Rename: 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우 |
-| 🗑️ | Remove: 파일을 삭제하는 작업만 수행한 경우 |
-| 🚀 | Release: 배포 |
+| 커밋 유형 | 커밋 메세지 | 의미 |
+| :---: | :---: | :---: |
+| 💡 | :bulb: Feat: | 새로운 기능 추가 |
+| 🐛 | :bug: Fix: | 버그수정 |
+| 📚 | :books: Docs: | 문서 수정 |
+| ♻️ | :recycle: Refactor: | 리팩토링 |
+| 🎨 | :art: Design: | CSS 등 사용자 UI 디자인 변경 |
+| 💄 | :lipstick: Style: | 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 |
+| 💬 | :speech_balloon: Comment: | 필요한 주석 추가 및 변경 |
+| 🌱 | :seedling Init: | 프로젝트 초기 생성 |
+| 🐾 | :teddy_bear: Chore: | 이외의 변경사항 |
+| ✍🏻 | :writing_hand Rename: | 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우 |
+| 🗑️ | :wastebasket: Remove: | 파일을 삭제하는 작업만 수행한 경우 |
+| 🚀 | :rocket: Release: | 배포 |
 
 ## code
 
