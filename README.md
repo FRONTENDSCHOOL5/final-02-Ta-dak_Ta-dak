@@ -1,32 +1,37 @@
 # final-2-
 
-# 프로젝트 소개
+## 프로젝트 소개
 
-## 개발기간
+### 개발기간
 
-## 개발환경
+### 개발환경
 
 <br />
 
-# 팀원
+## 팀원
 
-|안동섭|조원영|김지원|박지은|
+|안동섭|김지원|박지은|조원영|
 | :---: | :---: | :---: | :---: |
-| <img width="180" alt="프로필_안동섭" src="https://avatars.githubusercontent.com/u/96939334?s=400&u=6a4e635ccb574702b10b9464ce61bba61abefc72&v=4"> | <img width="180" alt="프로필_조원영" src="https://avatars.githubusercontent.com/u/92977925?v=4"> | <img width="180" alt="프로필_김지원" src="https://avatars.githubusercontent.com/u/126536438?v=4"> | <img width="180" alt="프로필_박지은" src="https://avatars.githubusercontent.com/u/98686191?v=4"> |
-| [DongSup_Ahn](https://github.com/D-Sup) | [JoWonYeong](https://github.com/JoWonYeong) | [jiwon6635](https://github.com/jiwon6635) | [Eunnnnnnnn](https://github.com/Eunnnnnnnn) |
+| <img width="180" alt="프로필_안동섭" src="https://avatars.githubusercontent.com/u/96939334?s=400&u=6a4e635ccb574702b10b9464ce61bba61abefc72&v=4"> | <img width="180" alt="프로필_김지원" src="https://avatars.githubusercontent.com/u/126536438?v=4"> | <img width="180" alt="프로필_박지은" src="https://avatars.githubusercontent.com/u/98686191?v=4"> | <img width="180" alt="프로필_조원영" src="https://avatars.githubusercontent.com/u/92977925?v=4"> |
+| [DongSup_Ahn](https://github.com/D-Sup) | [jiwon6635](https://github.com/jiwon6635) | [Eunnnnnnnn](https://github.com/Eunnnnnnnn) | [JoWonYeong](https://github.com/JoWonYeong) |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 
 <br />
 
-# 주요기능
+## 주요기능
 
 <br />
 
-# 역할분담
+## 역할분담
+
+### 안동섭
+### 김지원
+### 박지은
+### 조원영
 
 <br />
 
-# 폴더 구조 
+## 폴더 구조 
 
 ```
 my-app
@@ -41,17 +46,17 @@ my-app
 
 <br />
 
-# 협업방식
+## 협업방식
 
 <br />
 
-# branch 전략
+## branch 전략
 
 <br />
 
-# 컨벤션
+## 컨벤션
 
-## commit
+### commit 컨벤션
 
 | 커밋 유형 | 커밋 메세지 | 의미 |
 | :---: | :---: | :---: |
@@ -68,7 +73,7 @@ my-app
 | 🗑️ | `:wastebasket: Remove:` | 파일을 삭제하는 작업만 수행한 경우 |
 | 🚀 | `:rocket: Release:` | 배포 |
 
-## code
+### code 컨벤션
 
 ```json
 {
