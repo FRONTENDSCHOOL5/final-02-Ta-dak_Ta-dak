@@ -1,0 +1,55 @@
+import React from 'react';
+import styled from 'styled-components'
+import Btn2 from './components/common/Button';
+
+function App() {
+
+  return (
+    <div>
+
+      <Btn2 contents={'test1'} color={'blue'} width={'200px'} height={'100px'} fontColor={'white'}/>
+      <Btn2 contents={'test2'} color={'black'} width={'100px'} height={'50px'} fontColor={'skyblue'}/>
+    </div>
+  );
+}
+export default App;
+
+
+---
+
+
+import React from 'react';
+import styled from 'styled-components'
+
+ function Button({contents, color, width, height, fontColor}) {
+  return (
+      <Btn2 color={color} width={width} height={height} fontColor={fontColor}>
+      {contents}
+      </Btn2>
+  );
+}
+
+
+export default Button
+
+
+---
+
+export function loginButton () {
+  return (
+   <>
+   <div>asd</div>
+   </> 
+  )
+}
+
+export function signupButton () {
+  return (
+<>
+</>
+  )
+}
+
+---
+
+
