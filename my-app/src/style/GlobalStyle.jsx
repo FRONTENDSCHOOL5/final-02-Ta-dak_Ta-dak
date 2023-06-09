@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans KR', sans-serif;
     /* line-height: 1.5; */
-    background-color: royalblue;
   }
 
   :root {
