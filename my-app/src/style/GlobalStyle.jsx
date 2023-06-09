@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans KR', sans-serif;
     /* line-height: 1.5; */
+    background-color: royalblue;
   }
 
   :root {
@@ -17,6 +18,10 @@ export const GlobalStyle = createGlobalStyle`
     --input-active-btn-color: #1C8A00;
     --disabled-font-color: #A2A378;
     --disabled-btn-color: #E6E2E2;
+
+    --label-font-color:#767676;
+    --border-light-color:#dbdbdb;
+
     
     --font--size-lg: 16px;
     --font--size-md: 14px;
