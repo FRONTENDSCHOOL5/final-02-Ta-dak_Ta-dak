@@ -30,14 +30,14 @@ const InputContainerStyle = styled.div`
 const LabelStyle = styled.label`
   display: block;
   font-size: var(--font--size-sm);
-  color: var(--label-font-color);
+  color: var(--basic-color-7);
   line-height: 15px;
   margin-bottom: 10px;
 `;
 
 const InputStyle = styled.input`
   ::placeholder {
-    color: var(--border-light-color);
+    color: var(--basic-color-8);
     font-size: var(--font--size-md);
   }
   background-color: transparent;
@@ -46,10 +46,10 @@ const InputStyle = styled.input`
   line-height: 14px;
   padding-bottom: 8px;
   border: none;
-  border-bottom: 1px solid ${(props) => (props.valid ? 'var(--border-light-color)' : '#eb5757')};
+  border-bottom: 1px solid ${(props) => (props.valid ? 'var(--basic-color-8)' : '#eb5757')};
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${(props) => (props.valid ? 'var(--input-active-btn-color)' : '#eb5757')};
+    border-bottom: 1px solid ${(props) => (props.valid ? 'var(--basic-color-4)' : '#eb5757')};
   }
 `;
 

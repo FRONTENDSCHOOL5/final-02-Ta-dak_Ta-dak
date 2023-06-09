@@ -49,7 +49,7 @@ const NavBarStyle = styled.nav`
   transition: all 0.3s;
 
   width: 390px;
-  background-color: var(--basic-btn-color);
+  background-color: var(--basic-color-2);
 
   article {
     display: flex;

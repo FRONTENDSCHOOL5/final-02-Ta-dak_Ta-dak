@@ -30,14 +30,14 @@ const LoginButtonStyle = styled.button`
   height: 44px;
   border-radius: 44px;
   font-size: var(--font--size-md);
-  background-color: var(--basic-btn-color);
+  background-color: var(--basic-color-2);
 `
 
 const FollowButtonStyle = styled.button`
   width: 120px;
   height: 34px;
   font-size: var(--font--size-md);
-  background-color: var(--basic-btn-color); 
+  background-color: var(--basic-color-2); 
   border-radius: 30px;
 `;
 
@@ -45,6 +45,6 @@ const FollowButtonSmStyle = styled.button`
   width: 56px;
   height: 28px;
   font-size: var(--font--size-sm);
-  background-color: var(--basic-btn-color); 
+  background-color: var(--basic-color-2); 
   border-radius: 30px;
 `;

@@ -11,16 +11,14 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     --background-color: #FCFBF3;
-    --first-feed-btn-color: #FDF5B9;
-    --basic-btn-color: #B9D6A3;
-    --profile-btn-color: #4E683F;
-    --input-active-btn-color: #1C8A00;
-    --disabled-font-color: #A2A378;
-    --disabled-btn-color: #E6E2E2;
-
-    --label-font-color:#767676;
-    --border-light-color:#dbdbdb;
-
+    --basic-color-1: #FDF5B9; // 피드 버튼 색상,
+    --basic-color-2: #B9D6A3; // 기본 버튼 색상,
+    --basic-color-3: #4E683F; // 프로필 버튼 색상,
+    --basic-color-4: #1C8A00; // input active 색상,
+    --basic-color-5: #A2A378; // 글자 비활성화 색상,
+    --basic-color-6: #E6E2E2; // 버튼 비활성화 색상,
+    --basic-color-7:#767676; // label 글자 색상,
+    --basic-color-8:#dbdbdb; // input border bottom 색상,
     
     --font--size-lg: 16px;
     --font--size-md: 14px;
