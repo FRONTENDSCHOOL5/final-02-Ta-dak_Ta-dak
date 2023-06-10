@@ -1,11 +1,11 @@
 import React from 'react'
-
 import { LoginButton, FollowButton, FollowButtonSm } from './components/common/Button'
 import { ResetStyle } from './style/ResetStyle'
 import {GlobalStyle} from './style/GlobalStyle'
 import { NavBar } from './components/common/NavBar'
 import InputTest from './componentTest/InputTest'
 import SaleItemTest from './componentTest/SaleItemTest'
+import UserPostList from './components/UserPostList/UserPostList'
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <NavBar />
         <InputTest />
         <SaleItemTest />
+        <UserPostList />
     </>
 
   )
