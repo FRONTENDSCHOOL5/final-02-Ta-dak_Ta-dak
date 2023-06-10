@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function SaleItem({saleItem}) {  
   return (
     <>
-    {
-      saleItem.map((item, index)=>(
+      {saleItem.map((item, index) => (
         <SaleItemStyle key={item.itemId}>
-          <img src={item.itemImg} alt={item.itemName} />
-          <span className="itemName">{item.itemName}</span>
-          <span className="itemPrice">{item.itemPrice}원</span>
+          <Link to={`/profile/${item.itemId}`}>
+            <img src={item.itemImg} alt={item.itemName} />
+            <span className="itemName">{item.itemName}</span>
+            <span className="itemPrice">{item.itemPrice}원</span>
+          </Link>
         </SaleItemStyle>
-      ))
-    }
+      ))}
     </>
   );
 }
