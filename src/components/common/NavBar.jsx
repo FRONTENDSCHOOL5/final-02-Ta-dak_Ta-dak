@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as IconHome } from '../../assets/img/icon-home.svg';
 import { ReactComponent as IconHeart } from '../../assets/img/icon-heart.svg';
@@ -23,25 +23,23 @@ export function NavBar() {
   ];
 
   return (
-    <BrowserRouter>
-      <NavBarStyle>
-        <article>
-          {navItems.map((item) => (
-            <StyledLink
-              key={item.to}
-              to={item.to}
-              onClick={() => handleIconClick(item.component)}
-            >
-              <item.component
-                stroke={selectedIcon === item.component ? '#4E683F' : '#767676'}
-                fill={selectedIcon === item.component ? '#4E683F' : '#B9D6A3'}
-              />
-              <span>{item.label}</span>
-            </StyledLink>
-          ))}
-        </article>
-      </NavBarStyle>
-    </BrowserRouter>
+    <NavBarStyle>
+      <article>
+        {navItems.map((item) => (
+          <StyledLink
+            key={item.to}
+            to={item.to}
+            onClick={() => handleIconClick(item.component)}
+          >
+            <item.component
+              stroke={selectedIcon === item.component ? '#4E683F' : '#767676'}
+              fill={selectedIcon === item.component ? '#4E683F' : '#B9D6A3'}
+            />
+            <span>{item.label}</span>
+          </StyledLink>
+        ))}
+      </article>
+    </NavBarStyle>
   );
 }
 
