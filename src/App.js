@@ -4,7 +4,8 @@ import { LoginButton, FollowButton, FollowButtonSm } from './components/common/B
 import { ResetStyle } from './style/ResetStyle'
 import {GlobalStyle} from './style/GlobalStyle'
 import { NavBar } from './components/common/NavBar'
-import InputTest from './InputTest'
+import InputTest from './componentTest/InputTest'
+import SaleItemTest from './componentTest/SaleItemTest'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <FollowButtonSm contents={'팔로우'}/>
         <NavBar />
         <InputTest />
+        <SaleItemTest />
     </>
 
   )

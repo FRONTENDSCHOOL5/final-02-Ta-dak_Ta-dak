@@ -1,6 +1,6 @@
 // component/common/Input.jsx 테스트 위한 js파일 - 원영
 import React from 'react';
-import { Input } from './components/common/Input';
+import { Input } from '../components/common/Input';
 
 export default function InputTest() {
   return (
