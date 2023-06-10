@@ -4,7 +4,7 @@ import { LoginButton, FollowButton, FollowButtonSm } from './components/common/B
 import { ResetStyle } from './style/ResetStyle'
 import {GlobalStyle} from './style/GlobalStyle'
 import { NavBar } from './components/common/NavBar'
-import InputTest from './InputTest'
+import InputTest from './componentsTest/InputTest'
 
 function App() {
   return (
