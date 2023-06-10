@@ -41,7 +41,10 @@ my-app
   ├── assets
   ├── components
   ├── components/commoon
+  ├── componentsTest  -- 컴포넌트 테스트를 위해 만든 임시 폴더, 추후 삭제 예정
   ├── hooks
+  ├── pages
+  ├── style
 ```
 
 <br />

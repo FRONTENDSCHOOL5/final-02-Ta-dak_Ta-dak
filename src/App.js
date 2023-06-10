@@ -3,8 +3,8 @@ import { LoginButton, FollowButton, FollowButtonSm } from './components/common/B
 import { ResetStyle } from './style/ResetStyle'
 import {GlobalStyle} from './style/GlobalStyle'
 import { NavBar } from './components/common/NavBar'
-import InputTest from './componentTest/InputTest'
-import SaleItemTest from './componentTest/SaleItemTest'
+import InputTest from './componentsTest/InputTest'
+import SaleItemTest from './componentsTest/SaleItemTest'
 import UserPostList from './components/UserPostList/UserPostList'
 
 function App() {

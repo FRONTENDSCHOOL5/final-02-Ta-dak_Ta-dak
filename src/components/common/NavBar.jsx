@@ -13,7 +13,7 @@ export function NavBar() {
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName);
   };
-  
+
   const navItems = [
     { to: '/home', component: IconHome, label: '홈' },
     { to: '/recommend', component: IconHeart, label: '추천게시글' },
