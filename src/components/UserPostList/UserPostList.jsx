@@ -6,7 +6,7 @@ import { ReactComponent as IconPostAlbumOff } from '../../assets/img/icon-post-a
 import { ReactComponent as IconPostAlbumOn } from '../../assets/img/icon-post-album-on.svg';
 import { ReactComponent as IconPostListOff } from '../../assets/img/icon-post-list-off.svg';
 import { ReactComponent as IconPostListOn } from '../../assets/img/icon-post-list-on.svg';
-import ShopList from './ShopList';
+import SaleItemList from './SaleItemList';
 import PostList from './PostList';
 import AlbumList from './AlbumList';
 
@@ -14,7 +14,6 @@ export default function UserPostList() {
   const [tab, setTab] = useState(0);
   return (
     <>
-      <h2 className="a11y-hidden">포스트</h2>
       <section style={{ backgroundColor: 'var(--background-color)', minWidth: '390px' }}>
         <TypeTabsWrapperStyle>
           <TypeTabsStyle>
@@ -31,7 +30,7 @@ export default function UserPostList() {
           </TypeTabsStyle>
         </TypeTabsWrapperStyle>
         <PostWrapperStyle>
-          {[<ShopList />, <PostList />, <AlbumList />][tab]}
+          {[<SaleItemList />, <PostList />, <AlbumList />][tab]}
         </PostWrapperStyle>
       </section>
     </>
@@ -57,7 +56,7 @@ const TabStyle = styled(Link)`
   margin-left: 10px;
 `;
 
-const PostWrapperStyle = styled.article`
+const PostWrapperStyle = styled.div`
   width: 100%;
   max-width: 390px;
   margin: auto;

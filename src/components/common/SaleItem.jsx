@@ -7,6 +7,7 @@ export default function SaleItem({saleItem}) {
     <>
       {saleItem.map((item, index) => (
         <SaleItemStyle key={item.itemId}>
+          <h3 className="a11y-hidden">{item.itemName}</h3>
           <Link to={`/profile/${item.itemId}`}>
             <img src={item.itemImg} alt={item.itemName} />
             <span className="itemName">{item.itemName}</span>
@@ -27,6 +28,7 @@ const SaleItemStyle = styled.button`
     width: 140px;
     height: 115px;
     border-radius: 8px;
+    border: 0.8px solid #dad3d3;
   }
   span {
     display: block;

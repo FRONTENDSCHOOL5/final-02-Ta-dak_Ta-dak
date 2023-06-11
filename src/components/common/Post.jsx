@@ -1,0 +1,108 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import styled from 'styled-components';
+import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
+import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
+
+export default function Post({post}) {
+  const [like, setLike] = useState(false);
+
+  return (
+    <>
+      {post.map((item, index) => (
+        <PostStyle key={item.postId}>
+          {/* '검색하면 뜨는 프로필' 컴포넌트 */}
+          <div className='profileComponent'></div>
+          <div className='postContainer'>
+            <Link to={`/postdetail/${item.postId}`}>
+              <p>
+                <h3 className='a11y-hidden'>포스트 내용</h3>
+                {item.postContent}
+              </p>
+              {item.postImg && (
+                <img
+                  src={item.postImg}
+                  alt={`${item.postWriterId}의 포스팅 이미지`}
+                />
+              )}
+            </Link>
+            <div className='likeCommentCount'>              
+              <button className='likeButton' onClick={() => {setLike((prev) => !prev)}}>
+                <span className='a11y-hidden'>좋아요 버튼</span>
+                <IconLike
+                  className='iconImg'
+                  fill={like === true ? '#E73C3C' : 'none'}
+                  stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
+                />
+                <span className='count'>{item.postLike.length}</span>
+              </button>
+              <Link to={`/postdetail/${item.postId}`}>
+                <span className='a11y-hidden'>댓글 보기, 남기기</span>
+                <IconComment className='iconImg' />
+                <span className='count'>{item.postComment.length}</span>
+              </Link>
+            </div>
+            <span className='postDate'>{item.postDate}</span>
+          </div>
+        </PostStyle>
+      ))}
+    </>
+  );
+}
+
+const PostStyle = styled.article`
+  margin-bottom: 20px;
+  max-width: 358px;
+  width: 100%;
+
+  .profileComponent {
+    /* width: 358px; */
+    height: 50px;
+    margin-bottom: 12px;
+    box-shadow: inset 0px 0px 0px 1px blue;
+  }
+
+  .postContainer {
+    padding-left: 54px;
+
+    p {
+      font-weight: var(--font--Regular);
+      font-size: var(--font--size-md);
+      line-height: 19px;
+      margin-bottom: 16px;
+      word-break: break-all;
+    }
+    img {
+      min-width: 304px;
+      width: 100%;
+      max-height: 228px;
+      min-height: 228px;
+      border: 0.5px solid var(--basic-color-8);
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+    .likeCommentCount {
+      margin-bottom: 16px;
+      .likeButton {
+        margin-right: 18px;
+      }
+      .iconImg {
+        vertical-align: bottom;
+        margin: 0 6px 0 0;
+      }
+      .count {
+        font-size: var(--font--size-sm);
+        font-weight: var(--font--Regular);
+        line-height: 12px;
+        color: var(--basic-color-7);
+      }
+    }
+    .postDate {
+      font-weight: var(--font--Regular);
+      font-size: var(--font--size-sm);
+      line-height: 12px;
+      color: var(--basic-color-7);
+    }
+  }
+`;
