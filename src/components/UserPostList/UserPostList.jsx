@@ -8,14 +8,14 @@ import { ReactComponent as IconPostListOff } from '../../assets/img/icon-post-li
 import { ReactComponent as IconPostListOn } from '../../assets/img/icon-post-list-on.svg';
 import ShopList from './ShopList';
 import PostList from './PostList';
-import GalleryList from './GalleryList';
+import AlbumList from './AlbumList';
 
 export default function UserPostList() {
   const [tab, setTab] = useState(0);
   return (
     <>
       <h2 className="a11y-hidden">포스트</h2>
-      <section style={{ backgroundColor: 'var(--background-color)' }}>
+      <section style={{ backgroundColor: 'var(--background-color)', minWidth: '390px' }}>
         <TypeTabsWrapperStyle>
           <TypeTabsStyle>
             <TabStyle onClick={() => {setTab(0)}}>
@@ -23,15 +23,15 @@ export default function UserPostList() {
               {tab === 0 ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
             </TabStyle>
             <TabStyle onClick={() => {setTab(1)}}>
-              {tab === 1 ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
+              {tab === 1 ? <IconPostListOn /> : <IconPostListOff />}
             </TabStyle>
             <TabStyle onClick={() => {setTab(2)}}>
-              {tab === 2 ? <IconPostListOn /> : <IconPostListOff />}
+              {tab === 2 ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
             </TabStyle>
           </TypeTabsStyle>
         </TypeTabsWrapperStyle>
         <PostWrapperStyle>
-          {[<ShopList />, <PostList />, <GalleryList />][tab]}
+          {[<ShopList />, <PostList />, <AlbumList />][tab]}
         </PostWrapperStyle>
       </section>
     </>
@@ -45,12 +45,9 @@ const TypeTabsWrapperStyle = styled.div`
 `;
 
 const TypeTabsStyle = styled.div`
-  /* 상위컴포넌트에서 min-width나 width 속성 조절하면 여기 width값 알맞게 선택해주세요! */
-  /* width: 100%;
-  max-width: 390px; */
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
   height: 44px;
-  box-shadow: inset 0px 0px 0px 2px lightcoral;
   margin: auto;
   padding: 10px;
   text-align: right;
@@ -61,9 +58,7 @@ const TabStyle = styled(Link)`
 `;
 
 const PostWrapperStyle = styled.article`
-  /* 상위컴포넌트에서 min-width나 width 속성 조절하면 여기 width값 알맞게 선택해주세요! */
-  /* width: 100%;
-  max-width: 390px; */
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
   margin: auto;
 `;

@@ -22,6 +22,7 @@ const SaleItemStyle = styled.button`
   width: 140px;
   height: 162px;
   text-align: start;
+  margin: auto;
   img {
     width: 140px;
     height: 115px;
