@@ -67,5 +67,4 @@ const PostListStyle = styled.div`
   padding: 30px;
   /* Navbar랑 겹치지 않게 padding-bottom은 70px */
   padding: 16px 16px 70px;
-  box-shadow: inset 0px 0px 0px 2px lightcoral;
 `;

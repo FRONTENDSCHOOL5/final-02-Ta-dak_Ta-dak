@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
+import moreButtonIcon from './../../assets/img/icon-more.svg';
 
 export default function Post({post}) {
   const [like, setLike] = useState(false);
@@ -13,6 +14,7 @@ export default function Post({post}) {
       {post.map((item, index) => (
         <PostStyle key={item.postId}>
           {/* '검색하면 뜨는 프로필' 컴포넌트 */}
+          <button className="postMoreButton" />
           <div className='profileComponent'></div>
           <div className='postContainer'>
             <Link to={`/postdetail/${item.postId}`}>
@@ -52,9 +54,19 @@ export default function Post({post}) {
 }
 
 const PostStyle = styled.article`
+  position: relative;
   margin-bottom: 20px;
   max-width: 358px;
   width: 100%;
+
+  .postMoreButton {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 18px;
+    height: 18px;
+    background: url(${moreButtonIcon}) no-repeat center / auto;
+  }
 
   .profileComponent {
     /* width: 358px; */
@@ -89,6 +101,8 @@ const PostStyle = styled.article`
       }
       .iconImg {
         vertical-align: bottom;
+        width: 20px;
+        height: 20px;
         margin: 0 6px 0 0;
       }
       .count {
