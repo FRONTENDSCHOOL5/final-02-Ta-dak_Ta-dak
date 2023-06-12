@@ -15,16 +15,16 @@ import {
   GreyMdBtn,
   GreyMsBtn,
   GreySmBtn,
-} from './components/common/Button';
-import { ResetStyle } from './style/ResetStyle';
-import { GlobalStyle } from './style/GlobalStyle';
-import { NavBar } from './components/common/NavBar';
-import InputTest from './componentsTest/InputTest';
-import { BasicHeader } from './components/header/BasicHeader';
-import { SearchHeader } from './components/header/SearchHeader';
-import { MainHeader } from './components/header/MainHeader';
-import { UploadHeader } from './components/header/UploadHeader';
-import { ChatHeader } from './components/header/ChatHeader';
+} from '../components/common/Button';
+import { ResetStyle } from '../style/ResetStyle';
+import { GlobalStyle } from '../style/GlobalStyle';
+import { NavBar } from '../components/common/NavBar';
+import InputTest from './InputTest';
+import { BasicHeader } from '../components/header/BasicHeader';
+import { SearchHeader } from '../components/header/SearchHeader';
+import { MainHeader } from '../components/header/MainHeader';
+import { UploadHeader } from '../components/header/UploadHeader';
+import { ChatHeader } from '../components/header/ChatHeader';
 
 export default function ComponentsTest() {
   return (
