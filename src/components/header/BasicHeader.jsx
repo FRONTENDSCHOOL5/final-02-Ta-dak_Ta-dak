@@ -33,7 +33,6 @@ const BasicHeaderStyle = styled.div`
 
 
   img {
-    width: 22px;
-    height: 22px;
+    cursor: pointer;
   }
 `;

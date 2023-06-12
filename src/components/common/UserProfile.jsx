@@ -95,6 +95,7 @@ const ProfileBottomStyle = styled.div`
 
 const ChatShareBtnCommonStyle = css`
   position: absolute;
+  cursor: pointer;
   width: 34px;
   height: 34px;
   display: inline-block;
