@@ -53,10 +53,10 @@ export default function PostList() {
   
   return (
     <>
-      <h2 className='a11y-hidden'>포스트</h2>
+      <h2 className="a11y-hidden">포스트</h2>
       <PostListStyle>
-        { post.map((item, index)=>(
-          <Post post={item}/>
+        {post.map((item, index) => (
+          <Post post={item} key={item.postId} />
         ))}
       </PostListStyle>
     </>

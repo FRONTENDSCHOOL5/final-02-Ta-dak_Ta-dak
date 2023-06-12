@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Album({post}) {
   return (
     post.postImg && 
-    <AlbumStyle key={post.postId}>
+    <AlbumStyle>
       <Link to={`/postdetail/${post.postId}`}>
         <img
           src={post.postImg}

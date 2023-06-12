@@ -5,21 +5,21 @@ import styled from 'styled-components';
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/icon-more.svg';
+import SearchProfile from './SearchProfile';
 
 export default function Post({post}) {
   const [like, setLike] = useState(false);
 
   return (
-    <PostStyle key={post.postId}>
-      {/* '검색하면 뜨는 프로필' 컴포넌트 */}
+    <PostStyle>
       <button className="postMoreButton" />
-      <div className="profileComponent"></div>
+      <div className="profileComponent">
+        <SearchProfile />
+      </div>
       <div className="postContainer">
         <Link to={`/postdetail/${post.postId}`}>
-          <p>
-            <h3 className="a11y-hidden">포스트 내용</h3>
-            {post.postContent}
-          </p>
+          <h3 className="a11y-hidden">포스트 내용</h3>
+          <p>{post.postContent}</p>
           {post.postImg && (
             <img
               src={post.postImg}
@@ -70,10 +70,7 @@ const PostStyle = styled.article`
   }
 
   .profileComponent {
-    /* width: 358px; */
-    height: 50px;
     margin-bottom: 12px;
-    box-shadow: inset 0px 0px 0px 1px blue;
   }
 
   .postContainer {

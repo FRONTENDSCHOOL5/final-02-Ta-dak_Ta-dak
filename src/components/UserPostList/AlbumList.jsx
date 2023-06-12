@@ -56,7 +56,7 @@ export default function AlbumList() {
       <h2 className="a11y-hidden">앨범형 포스트</h2>
       <AlbumListSTyle>
         {post.map((item, index)=>(
-          <Album post={item} />
+          <Album post={item} key={item.postId} />
         ))}
       </AlbumListSTyle>
     </>

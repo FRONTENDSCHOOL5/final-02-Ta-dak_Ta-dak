@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function SaleItem({saleItem}) {  
   return (
-    <SaleItemStyle key={saleItem.itemId}>
+    <SaleItemStyle>
       <h3 className="a11y-hidden">{saleItem.itemName}</h3>
       <Link to={`/profile/${saleItem.itemId}`}>
         <img src={saleItem.itemImg} alt={saleItem.itemName} />
