@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Profile } from './Profile';
+import { ProfileLg } from './Profile';
 import { GreenMdBtn } from './Button';
 import UserId from './UserId';
 import styled, { css } from 'styled-components';
@@ -14,7 +14,7 @@ export default function UserProfile() {
           <strong>2950</strong>
           <p>followers</p>
         </div>
-        <Profile />
+        <ProfileLg />
         <div>
           <strong>128</strong>
           <p>followings</p>

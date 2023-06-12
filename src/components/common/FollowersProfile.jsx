@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { GreenSmBtn, WhiteSmBtn } from './Button';
-import IconSmProfile from '../../assets/img/s-basic-profile.svg';
+import { ProfileSm } from './Profile';
 
 export default function FollowersProfile({isFollow}) {
   return (
     <FollowersProfileStyle>
-      <img src={IconSmProfile} alt="" />
+      <ProfileSm />
       <div>
         <p>애월읍 한라봉 최고 맛집</p>
         <span>정성을 다해 농사짓는 한라봉</span>

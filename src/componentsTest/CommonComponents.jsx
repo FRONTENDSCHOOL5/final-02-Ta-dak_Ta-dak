@@ -25,7 +25,7 @@ import { SearchHeader } from '../components/header/SearchHeader';
 import { MainHeader } from '../components/header/MainHeader';
 import { UploadHeader } from '../components/header/UploadHeader';
 import { ChatHeader } from '../components/header/ChatHeader';
-import { Profile } from '../components/common/Profile';
+import { ProfileLg, ProfileMd, ProfileSm } from '../components/common/Profile';
 import {Modal} from '../components/common/Modal';
 import {Alert} from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
@@ -72,7 +72,9 @@ export default function CommonComponents() {
       <MainHeader />
       <UploadHeader />
       <ChatHeader />
-      <Profile />
+      <ProfileLg />
+      <ProfileMd />
+      <ProfileSm />
       <Modal />
       <Alert />
       <SearchProfile />
