@@ -66,9 +66,11 @@ export default function SaleItemList() {
 
   return (
     <>
-      <h2 className='a11y-hidden'>판매상폼</h2>
+      <h2 className="a11y-hidden">판매상폼</h2>
       <SaleItemListStyle>
-        <SaleItem saleItem={saleItem} />
+        {saleItem.map((item, index) => (
+          <SaleItem saleItem={item} />
+        ))}
       </SaleItemListStyle>
     </>
   );
@@ -78,7 +80,7 @@ const SaleItemListStyle = styled.div`
   display: grid;
   width: 100%;
   max-width: 390px;
-  /* Navbar랑 겹치지 않게 padding-bottom은 70px */
+  /* Navbar랑 겹치지 않게 padding-bottom은 70px - 추후 16px로 바뀔 수 있음 */
   padding: 30px 30px 70px;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;

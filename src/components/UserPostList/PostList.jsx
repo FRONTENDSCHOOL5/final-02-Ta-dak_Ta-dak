@@ -55,7 +55,9 @@ export default function PostList() {
     <>
       <h2 className='a11y-hidden'>포스트</h2>
       <PostListStyle>
-        <Post post={post} />
+        { post.map((item, index)=>(
+          <Post post={item}/>
+        ))}
       </PostListStyle>
     </>
   );
@@ -65,6 +67,6 @@ const PostListStyle = styled.div`
   width: 100%;
   max-width: 390px;
   padding: 30px;
-  /* Navbar랑 겹치지 않게 padding-bottom은 70px */
+  /* Navbar랑 겹치지 않게 padding-bottom은 70px - 추후 16px로 바뀔 수 있음 */
   padding: 16px 16px 70px;
 `;
