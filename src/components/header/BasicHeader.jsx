@@ -1,6 +1,7 @@
 
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
+
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 import IconSMore from '../../assets/img/s-icon-more.svg'
 
@@ -32,7 +33,6 @@ const BasicHeaderStyle = styled.div`
 
 
   img {
-    width: 22px;
-    height: 22px;
+    cursor: pointer;
   }
 `;

@@ -1,16 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import SaleItemList from './SaleItemList';
+import PostList from './PostList';
+import AlbumList from './AlbumList';
+
 import { ReactComponent as IconSaleOff } from './../../assets/img/icon-saleItem-off.svg';
 import { ReactComponent as IconSaleOn } from './../../assets/img/icon-saleItem-on.svg';
 import { ReactComponent as IconPostAlbumOff } from '../../assets/img/icon-post-album-off.svg';
 import { ReactComponent as IconPostAlbumOn } from '../../assets/img/icon-post-album-on.svg';
 import { ReactComponent as IconPostListOff } from '../../assets/img/icon-post-list-off.svg';
 import { ReactComponent as IconPostListOn } from '../../assets/img/icon-post-list-on.svg';
-import SaleItemList from './SaleItemList';
-import PostList from './PostList';
-import AlbumList from './AlbumList';
 
 export default function UserPostList() {
   const [tab, setTab] = useState(0);

@@ -1,7 +1,8 @@
-import React from 'react';
-import UserId from './UserId';
-import basic from './../../assets/img/basic-profile.svg'
 import styled from 'styled-components';
+
+import UserId from './UserId';
+
+import basic from './../../assets/img/basic-profile.svg'
 
 export default function SearchProfile() {
   return (

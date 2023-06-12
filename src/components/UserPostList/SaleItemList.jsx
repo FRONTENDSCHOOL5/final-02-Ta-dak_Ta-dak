@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+
 import SaleItem from '../common/SaleItem';
+
 import saleItemImg1 from './../../assets/testImg/saleItem1.png'
 import saleItemImg2 from './../../assets/testImg/saleItem2.png'
 import saleItemImg3 from './../../assets/testImg/saleItem3.png'

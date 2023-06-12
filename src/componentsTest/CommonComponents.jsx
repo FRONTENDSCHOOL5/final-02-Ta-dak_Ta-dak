@@ -25,14 +25,14 @@ import { SearchHeader } from '../components/header/SearchHeader';
 import { MainHeader } from '../components/header/MainHeader';
 import { UploadHeader } from '../components/header/UploadHeader';
 import { ChatHeader } from '../components/header/ChatHeader';
-import { Profile } from '../components/common/Profile';
+import { ProfileLg, ProfileMd, ProfileSm } from '../components/common/Profile';
 import {Modal} from '../components/common/Modal';
 import {Alert} from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
 import UserId from '../components/common/UserId';
 import SearchProfile from '../components/common/SearchProfile';
-
-
+import UserProfile from '../components/common/UserProfile';
+import FollowersProfile from '../components/common/FollowersProfile';
 
 export default function CommonComponents() {
   return (
@@ -72,11 +72,15 @@ export default function CommonComponents() {
       <MainHeader />
       <UploadHeader />
       <ChatHeader />
-      <Profile />
+      <ProfileLg />
+      <ProfileMd />
+      <ProfileSm />
       <Modal />
       <Alert />
       <SearchProfile />
       <UserPostList />
+      <UserProfile />
+      <FollowersProfile />
     </>
   );
 }

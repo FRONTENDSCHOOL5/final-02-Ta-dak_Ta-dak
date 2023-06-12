@@ -1,11 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';
+
+import SearchProfile from './SearchProfile';
+
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/icon-more.svg';
-import SearchProfile from './SearchProfile';
 
 export default function Post({post}) {
   const [like, setLike] = useState(false);
@@ -37,7 +38,7 @@ export default function Post({post}) {
             <span className="a11y-hidden">좋아요 버튼</span>
             <IconLike
               className="iconImg"
-              fill={like === true ? '#E73C3C' : 'none'}
+              fill={like === true ? '#E73C3C' : 'var(--background-color)'}
               stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
             />
             <span className="count">{post.postLike.length}</span>

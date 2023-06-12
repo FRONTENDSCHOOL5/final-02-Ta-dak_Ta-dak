@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Profile } from './Profile';
-import { GreenMdBtn } from './Button';
 import styled, { css } from 'styled-components';
+
+import { ProfileLg } from './Profile';
+import { GreenMdBtn } from './Button';
+import UserId from './UserId';
+
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
@@ -13,7 +16,7 @@ export default function UserProfile() {
           <strong>2950</strong>
           <p>followers</p>
         </div>
-        <Profile />
+        <ProfileLg />
         <div>
           <strong>128</strong>
           <p>followings</p>
@@ -22,7 +25,7 @@ export default function UserProfile() {
 
       <ProfileMiddleStyle>
         <h2>낭만있는캠린이</h2>
-        <p>@ weniv_Camping</p>
+        <UserId id={'weniv_Camping'}/>
         <span>애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</span>
       </ProfileMiddleStyle>
 
@@ -92,6 +95,7 @@ const ProfileBottomStyle = styled.div`
 
 const ChatShareBtnCommonStyle = css`
   position: absolute;
+  cursor: pointer;
   width: 34px;
   height: 34px;
   display: inline-block;

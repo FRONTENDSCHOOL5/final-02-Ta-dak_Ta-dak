@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import Album from '../common/Album';
+
 import postImg1 from './../../assets/testImg/post1.png';
 import postImg2 from './../../assets/testImg/post2.png';
 
@@ -54,16 +56,16 @@ export default function AlbumList() {
   return (
     <>
       <h2 className="a11y-hidden">앨범형 포스트</h2>
-      <AlbumListSTyle>
+      <AlbumListStyle>
         {post.map((item, index)=>(
           <Album post={item} key={item.postId} />
         ))}
-      </AlbumListSTyle>
+      </AlbumListStyle>
     </>
   );
 }
 
-const AlbumListSTyle = styled.ul`
+const AlbumListStyle = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 8px;
