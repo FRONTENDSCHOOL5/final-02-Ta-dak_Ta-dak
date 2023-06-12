@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+
 import { ProfileLg } from './Profile';
 import { GreenMdBtn } from './Button';
 import UserId from './UserId';
-import styled, { css } from 'styled-components';
+
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import Album from '../common/Album';
+
 import postImg1 from './../../assets/testImg/post1.png';
 import postImg2 from './../../assets/testImg/post2.png';
 

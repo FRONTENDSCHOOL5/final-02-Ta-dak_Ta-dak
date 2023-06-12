@@ -1,13 +1,12 @@
- import styled from 'styled-components'
- import React from 'react'
- 
- export default function UserId({id}) {
-   return (
+import styled from 'styled-components'
+
+export default function UserId({ id }) {
+  return (
     <UserIdStyled>
       @ {id}
     </ UserIdStyled>
-   )
- }
+  )
+}
 
 const UserIdStyled = styled.div`
     color: var(--basic-color-7);

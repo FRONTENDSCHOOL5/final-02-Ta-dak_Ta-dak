@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function SaleItem({saleItem}) {  
   return (

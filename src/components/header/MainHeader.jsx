@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import IconSearch from '../../assets/img/icon-search.svg';
 
 export function MainHeader() {

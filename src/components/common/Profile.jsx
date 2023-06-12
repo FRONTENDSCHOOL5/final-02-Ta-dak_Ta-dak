@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+
 import BasicProfile from '../../assets/img/basic-profile.svg'
 
 export function ProfileLg({ url = false }) {

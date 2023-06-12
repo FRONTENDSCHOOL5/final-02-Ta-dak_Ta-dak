@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { ReactComponent as IconHome } from '../../assets/img/icon-home.svg';
 import { ReactComponent as IconHeart } from '../../assets/img/icon-heart.svg';
 import { ReactComponent as IconMessage } from '../../assets/img/icon-message.svg';
