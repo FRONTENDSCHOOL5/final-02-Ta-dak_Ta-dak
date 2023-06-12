@@ -37,7 +37,7 @@ export default function Post({post}) {
             <span className="a11y-hidden">좋아요 버튼</span>
             <IconLike
               className="iconImg"
-              fill={like === true ? '#E73C3C' : 'none'}
+              fill={like === true ? '#E73C3C' : 'var(--background-color)'}
               stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
             />
             <span className="count">{post.postLike.length}</span>
