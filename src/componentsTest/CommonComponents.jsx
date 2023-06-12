@@ -29,12 +29,16 @@ import { Profile } from '../components/common/Profile';
 import {Modal} from '../components/common/Modal';
 import {Alert} from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
+import UserId from '../components/common/UserId';
+
+
 
 export default function CommonComponents() {
   return (
     <>
       <ResetStyle />
       <GlobalStyle />
+
       <div>
         <GreenLgBtn contents={'버튼'} />
         <GreenMdBtn contents={'버튼'} />
@@ -59,7 +63,7 @@ export default function CommonComponents() {
         <GreyMsBtn contents={'버튼'} />
         <GreySmBtn contents={'버튼'} />
       </div>
-
+      <UserId id={'weniv_Mandarin'} />
       <NavBar />
       <InputTest />
       <BasicHeader />
