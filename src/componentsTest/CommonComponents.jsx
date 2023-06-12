@@ -31,8 +31,8 @@ import {Alert} from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
 import UserId from '../components/common/UserId';
 import SearchProfile from '../components/common/SearchProfile';
-
-
+import UserProfile from '../components/common/UserProfile';
+import FollowersProfile from '../components/common/FollowersProfile';
 
 export default function CommonComponents() {
   return (
@@ -77,6 +77,8 @@ export default function CommonComponents() {
       <Alert />
       <SearchProfile />
       <UserPostList />
+      <UserProfile />
+      <FollowersProfile />
     </>
   );
 }
