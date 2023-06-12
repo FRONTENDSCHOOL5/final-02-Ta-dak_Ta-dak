@@ -30,6 +30,7 @@ import {Modal} from '../components/common/Modal';
 import {Alert} from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
 import UserId from '../components/common/UserId';
+import SearchProfile from '../components/common/SearchProfile';
 
 
 
@@ -74,6 +75,7 @@ export default function CommonComponents() {
       <Profile />
       <Modal />
       <Alert />
+      <SearchProfile />
       <UserPostList />
     </>
   );

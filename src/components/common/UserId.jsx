@@ -4,9 +4,7 @@
  export default function UserId({id}) {
    return (
     <UserIdstyled>
-      <div>
       @ {id}
-      </div>
     </ UserIdstyled>
    )
  }
