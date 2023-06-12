@@ -5,6 +5,7 @@ import { ResetStyle } from './style/ResetStyle'
 import {GlobalStyle} from './style/GlobalStyle'
 import { NavBar } from './components/common/NavBar'
 import InputTest from './componentsTest/InputTest'
+import { Profile } from './components/common/Profile'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <FollowButtonSm contents={'팔로우'}/>
         <NavBar />
         <InputTest />
+        <Profile />
     </>
 
   )
