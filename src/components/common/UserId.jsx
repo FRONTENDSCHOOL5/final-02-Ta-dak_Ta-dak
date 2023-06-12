@@ -3,13 +3,13 @@
  
  export default function UserId({id}) {
    return (
-    <UserIdstyled>
+    <UserIdStyled>
       @ {id}
-    </ UserIdstyled>
+    </ UserIdStyled>
    )
  }
 
-const UserIdstyled = styled.div`
+const UserIdStyled = styled.div`
     color: var(--basic-color-7);
     font-size: var(--font--size-sm);
 `;
