@@ -19,3 +19,4 @@ height: 110px;
 border-radius: 10px;
 font-size: var(--font--size-md);
 background-color: var(--background);
+`
