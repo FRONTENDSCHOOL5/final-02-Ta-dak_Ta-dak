@@ -17,6 +17,9 @@ export const ResetStyle = createGlobalStyle`
     -ms-user-select: auto;
     user-select: auto;
   }
+  input {
+    border: none;
+  }
   input:focus {
     outline: none;
   }

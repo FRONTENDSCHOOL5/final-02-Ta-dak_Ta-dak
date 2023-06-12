@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BasicProfile from '../../assets/img/basic-profile.svg'
+import {ReactComponent as BasicProfile} from '../../assets/img/basic-profile.svg'
 
 export function Profile() {
     return (
