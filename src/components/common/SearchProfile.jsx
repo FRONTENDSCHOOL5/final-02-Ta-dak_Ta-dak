@@ -1,17 +1,15 @@
 import styled from 'styled-components';
-
 import UserId from './UserId';
-
-import basic from './../../assets/img/basic-profile.svg'
+import { ProfileMd } from './Profile'
 
 export default function SearchProfile() {
   return (
     <SearchProfileStyle>
-      <img src={basic} alt="프로필이미지" />
-      <div>
-        <strong>사용자 이름</strong>
-        <UserId id={'exampleId'}/>
-      </div>
+      <ProfileMd url={''}/>
+        <div>
+          <strong>사용자 이름</strong>
+          <UserId id={'exampleId'}/>
+        </div>
     </SearchProfileStyle>
   );
 }
