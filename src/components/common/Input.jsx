@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-// import IconUploadLg from '../../assets/img/upload-file.svg'
-// import IconUploadSm from '../../assets/img/s-upload-file.svg'
+
+import { ProfileLg } from './Profile';
+
+import IconUploadLg from '../../assets/img/upload-file.svg'
+import IconUploadSm from '../../assets/img/s-upload-file.svg'
 
 // 유저 정보 저장하는 state 전역으로 관리해서 <input>에 value, onChange 설정해주기
 
@@ -11,36 +14,46 @@ export function Input(props) {
   return (
     <>
       <InputContainerStyle>
-        <LabelStyle htmlFor={props.inputId}>{props.label}</LabelStyle>
-        <InputStyle {...props} valid={valid} autoComplete='off'></InputStyle>
+        <div>
+          <LabelStyle htmlFor={props.id}>{props.label}</LabelStyle>
+          <InputStyle {...props} valid={valid} autoComplete='off'></InputStyle>
+        </div>
         {
           // 유효성 검사 통과 못할 경우 &&
           !valid&&
           <ValidationErrorStyle>*각각의 type에 맞는 에러메세지</ValidationErrorStyle>
         }
       </InputContainerStyle>
+    </>
+  );
+}
 
-      
-    {/* export function ImgUploadLgBtn() {
-      return <ImgUploadLgLabelStyle type='file'/>
-    }
+export function FileInputLg({id}) {
+  return (
+    <>
+      <FileLgLabelStyle htmlFor={id}>
+        <ProfileLg url={''} />
+      </FileLgLabelStyle>
+      <FileInputStyle id={id} type="file"></FileInputStyle>
+    </>
+  );
+}
 
-    export function ImgUploadSmBtn() {
-      return (
-        <>
-        <ImgUploadSmLabelStyle type='file'/>
-        <input type='file' />
-        </>
-      )
-    } */}
+export function FileInputSm({ id }) {
+  return (
+    <>
+      <FileSmLabelStyle htmlFor={id}></FileSmLabelStyle>
+      <FileInputStyle id={id} type="file"></FileInputStyle>
     </>
   );
 }
 
 const InputContainerStyle = styled.div`
   width: 322px;
-  /* background-color: #ffffff; */
   margin-bottom: 16px;
+  div {
+    background-color: #ffffff;
+  }
 `;
 
 const LabelStyle = styled.label`
@@ -77,24 +90,40 @@ const ValidationErrorStyle = styled.span`
   margin-top: 6px;
 `;
 
-// const ImgUploadCommonStyle = css`
-//   background-repeat: no-repeat;
-//   background-position: center; 
-// `;
+const FileLgLabelStyle = styled.label`
+  display: inline-block;
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  cursor: pointer;
 
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: url(${IconUploadSm}) no-repeat center / auto;
+    cursor: pointer;
+  }
+`;
 
-// const ImgUploadLgLabelStyle = styled.label`
-//   ${ImgUploadCommonStyle}
-//   background-image : url(${IconUploadSm});
-//   width: 36px;
-//   height: 36px;
+const FileSmLabelStyle = styled.label`
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: url(${IconUploadLg}) no-repeat center / auto;
+`;
 
-// `;
-
-// const ImgUploadSmLabelStyle = styled.label`
-//   ${ImgUploadCommonStyle}
-//   background-image : url(${IconUploadLg});
-//   width: 50px;
-//   height: 50px;
-//   opacity: 1;
-// `;
+const FileInputStyle = styled.input`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`;
