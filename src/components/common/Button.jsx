@@ -1,5 +1,7 @@
+import styled from 'styled-components';
+
 export function GreenLgBtn({ contents }) {
-  return <GreenLgBtnStyle>{contents}</GreenLgBtnStyle>
+  return <GreenLgBtnStyle>{contents}</GreenLgBtnStyle>;
 }
 
 export function GreenMdBtn({ contents }) {
@@ -96,22 +98,22 @@ const GreenSmBtnStyle = styled.button`
 
 const BoldLgBtnStyle = styled(GreenLgBtnStyle)`
   background-color: var(--basic-color-3);
-  color : #FCFBF3;
+  color: #fcfbf3;
 `;
 
 const BoldMdBtnStyle = styled(GreenMdBtnStyle)`
   background-color: var(--basic-color-3);
-  color : #FCFBF3;
+  color: #fcfbf3;
 `;
 
 const BoldMsBtnStyle = styled(GreenMsBtnStyle)`
   background-color: var(--basic-color-3);
-  color : #FCFBF3;
+  color: #fcfbf3;
 `;
 
 const BoldSmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: var(--basic-color-3);
-  color : #FCFBF3;
+  color: #fcfbf3;
 `;
 
 const WhiteLgBtnStyle = styled(GreenLgBtnStyle)`
@@ -153,5 +155,3 @@ const GreySmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
 `;
-
-
