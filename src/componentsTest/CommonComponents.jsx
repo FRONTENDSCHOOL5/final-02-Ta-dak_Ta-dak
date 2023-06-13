@@ -33,6 +33,8 @@ import UserId from '../components/common/UserId';
 import SearchProfile from '../components/common/SearchProfile';
 import UserProfile from '../components/common/UserProfile';
 import FollowersProfile from '../components/common/FollowersProfile';
+import CommentInput from '../components/common/CommentInput';
+import Comment from '../components/common/Comment';
 
 export default function CommonComponents() {
   return (
@@ -75,12 +77,14 @@ export default function CommonComponents() {
       <ProfileLg />
       <ProfileMd />
       <ProfileSm />
+      <CommentInput />
       <Modal />
       <Alert />
       <SearchProfile />
       <UserPostList />
       <UserProfile />
       <FollowersProfile />
+      <Comment />
     </>
   );
 }
