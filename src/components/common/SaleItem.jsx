@@ -1,21 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function SaleItem({saleItem}) {  
   return (
-    <>
-      {saleItem.map((item, index) => (
-        <SaleItemStyle key={item.itemId}>
-          <h3 className="a11y-hidden">{item.itemName}</h3>
-          <Link to={`/profile/${item.itemId}`}>
-            <img src={item.itemImg} alt={item.itemName} />
-            <span className="itemName">{item.itemName}</span>
-            <span className="itemPrice">{item.itemPrice}원</span>
-          </Link>
-        </SaleItemStyle>
-      ))}
-    </>
+    <SaleItemStyle>
+      <h3 className="a11y-hidden">{saleItem.itemName}</h3>
+      <Link to={`/profile/${saleItem.itemId}`}>
+        <img src={saleItem.itemImg} alt={saleItem.itemName} />
+        <span className="itemName">{saleItem.itemName}</span>
+        <span className="itemPrice">{saleItem.itemPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
+      </Link>
+    </SaleItemStyle>
   );
 }
 

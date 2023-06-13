@@ -25,12 +25,23 @@ import { SearchHeader } from '../components/header/SearchHeader';
 import { MainHeader } from '../components/header/MainHeader';
 import { UploadHeader } from '../components/header/UploadHeader';
 import { ChatHeader } from '../components/header/ChatHeader';
+import { ProfileLg, ProfileMd, ProfileSm } from '../components/common/Profile';
+import {Modal} from '../components/common/Modal';
+import {Alert} from '../components/common/Alert';
+import UserPostList from '../components/UserPostList/UserPostList';
+import UserId from '../components/common/UserId';
+import SearchProfile from '../components/common/SearchProfile';
+import UserProfile from '../components/common/UserProfile';
+import FollowersProfile from '../components/common/FollowersProfile';
+import CommentInput from '../components/common/CommentInput';
+import Comment from '../components/common/Comment';
 
-export default function ComponentsTest() {
+export default function CommonComponents() {
   return (
     <>
       <ResetStyle />
       <GlobalStyle />
+
       <div>
         <GreenLgBtn contents={'버튼'} />
         <GreenMdBtn contents={'버튼'} />
@@ -55,7 +66,7 @@ export default function ComponentsTest() {
         <GreyMsBtn contents={'버튼'} />
         <GreySmBtn contents={'버튼'} />
       </div>
-
+      <UserId id={'weniv_Mandarin'} />
       <NavBar />
       <InputTest />
       <BasicHeader />
@@ -63,6 +74,17 @@ export default function ComponentsTest() {
       <MainHeader />
       <UploadHeader />
       <ChatHeader />
+      <ProfileLg />
+      <ProfileMd />
+      <ProfileSm />
+      <CommentInput />
+      <Modal />
+      <Alert />
+      <SearchProfile />
+      <UserPostList />
+      <UserProfile />
+      <FollowersProfile />
+      <Comment />
     </>
   );
 }

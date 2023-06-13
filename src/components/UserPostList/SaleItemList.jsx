@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+
 import SaleItem from '../common/SaleItem';
+
 import saleItemImg1 from './../../assets/testImg/saleItem1.png'
 import saleItemImg2 from './../../assets/testImg/saleItem2.png'
 import saleItemImg3 from './../../assets/testImg/saleItem3.png'
@@ -66,9 +68,11 @@ export default function SaleItemList() {
 
   return (
     <>
-      <h2 className='a11y-hidden'>판매상폼</h2>
+      <h2 className="a11y-hidden">판매상폼</h2>
       <SaleItemListStyle>
-        <SaleItem saleItem={saleItem} />
+        {saleItem.map((item, index) => (
+          <SaleItem saleItem={item} key={item.itemId} />
+        ))}
       </SaleItemListStyle>
     </>
   );
@@ -78,7 +82,7 @@ const SaleItemListStyle = styled.div`
   display: grid;
   width: 100%;
   max-width: 390px;
-  /* Navbar랑 겹치지 않게 padding-bottom은 70px */
+  /* Navbar랑 겹치지 않게 padding-bottom은 70px - 추후 16px로 바뀔 수 있음 */
   padding: 30px 30px 70px;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;

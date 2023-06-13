@@ -1,7 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';
+
+import SearchProfile from './SearchProfile';
+
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/icon-more.svg';
@@ -10,46 +12,46 @@ export default function Post({post}) {
   const [like, setLike] = useState(false);
 
   return (
-    <>
-      {post.map((item, index) => (
-        <PostStyle key={item.postId}>
-          {/* '검색하면 뜨는 프로필' 컴포넌트 */}
-          <button className="postMoreButton" />
-          <div className='profileComponent'></div>
-          <div className='postContainer'>
-            <Link to={`/postdetail/${item.postId}`}>
-              <p>
-                <h3 className='a11y-hidden'>포스트 내용</h3>
-                {item.postContent}
-              </p>
-              {item.postImg && (
-                <img
-                  src={item.postImg}
-                  alt={`${item.postWriterId}의 포스팅 이미지`}
-                />
-              )}
-            </Link>
-            <div className='likeCommentCount'>              
-              <button className='likeButton' onClick={() => {setLike((prev) => !prev)}}>
-                <span className='a11y-hidden'>좋아요 버튼</span>
-                <IconLike
-                  className='iconImg'
-                  fill={like === true ? '#E73C3C' : 'none'}
-                  stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
-                />
-                <span className='count'>{item.postLike.length}</span>
-              </button>
-              <Link to={`/postdetail/${item.postId}`}>
-                <span className='a11y-hidden'>댓글 보기, 남기기</span>
-                <IconComment className='iconImg' />
-                <span className='count'>{item.postComment.length}</span>
-              </Link>
-            </div>
-            <span className='postDate'>{item.postDate}</span>
-          </div>
-        </PostStyle>
-      ))}
-    </>
+    <PostStyle>
+      <button className="postMoreButton" />
+      <div className="profileComponent">
+        <SearchProfile />
+      </div>
+      <div className="postContainer">
+        <Link to={`/postdetail/${post.postId}`}>
+          <h3 className="a11y-hidden">포스트 내용</h3>
+          <p>{post.postContent}</p>
+          {post.postImg && (
+            <img
+              src={post.postImg}
+              alt={`${post.postWriterId}의 포스팅 이미지`}
+            />
+          )}
+        </Link>
+        <div className="likeCommentCount">
+          <button
+            className="likeButton"
+            onClick={() => {
+              setLike((prev) => !prev);
+            }}
+          >
+            <span className="a11y-hidden">좋아요 버튼</span>
+            <IconLike
+              className="iconImg"
+              fill={like === true ? '#E73C3C' : 'var(--background-color)'}
+              stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
+            />
+            <span className="count">{post.postLike.length}</span>
+          </button>
+          <Link to={`/postdetail/${post.postId}`}>
+            <span className="a11y-hidden">댓글 보기, 남기기</span>
+            <IconComment className="iconImg" />
+            <span className="count">{post.postComment.length}</span>
+          </Link>
+        </div>
+        <span className="postDate">{post.postDate}</span>
+      </div>
+    </PostStyle>
   );
 }
 
@@ -69,10 +71,7 @@ const PostStyle = styled.article`
   }
 
   .profileComponent {
-    /* width: 358px; */
-    height: 50px;
     margin-bottom: 12px;
-    box-shadow: inset 0px 0px 0px 1px blue;
   }
 
   .postContainer {

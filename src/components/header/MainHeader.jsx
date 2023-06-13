@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import IconSearch from '../../assets/img/icon-search.svg';
 
 export function MainHeader() {
@@ -26,7 +27,6 @@ const MainHeaderStyle = styled.div`
   }
 
   img {
-    width: 22px;
-    height: 22px;
+    cursor: pointer;
   }
 `;
