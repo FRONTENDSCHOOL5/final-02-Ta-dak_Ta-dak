@@ -8,7 +8,7 @@ export default function SaleItem({saleItem}) {
       <Link to={`/profile/${saleItem.itemId}`}>
         <img src={saleItem.itemImg} alt={saleItem.itemName} />
         <span className="itemName">{saleItem.itemName}</span>
-        <span className="itemPrice">{saleItem.itemPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
+        <span className="itemPrice">{saleItem.itemPrice.toLocaleString()}원</span>
       </Link>
     </SaleItemStyle>
   );

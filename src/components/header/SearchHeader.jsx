@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
@@ -14,7 +13,7 @@ export function SearchHeader() {
 
   return (
     <SearchHeaderStyle>
-      <img src={IconArrowLeft} alt="" onClick={handleGoBack}/>
+      <button className="backurl-btn" onClick={handleGoBack}></button>
       <label className="a11y-hidden" htmlFor="search-id">계정 검색</label>
       <input id="search-id" type="text" placeholder='계정 검색'/>
     </SearchHeaderStyle>
@@ -30,9 +29,13 @@ const SearchHeaderStyle = styled.div`
   width: 390px;
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  img {
-    cursor: pointer;
+  
+  .backurl-btn {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image : url(${IconArrowLeft});
   }
 
   #search-id {

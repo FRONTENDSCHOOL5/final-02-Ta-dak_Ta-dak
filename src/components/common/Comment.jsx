@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+
 import { ProfileSm } from './Profile';
+
 import IconMore from '../../assets/img/icon-more.svg'
 
 export default function Comment() {
   return (
     <CommentContainerStyle>
         <ProfileSm url={''}/>
-        <div className='commentRight'>
+        <div className='commentContents'>
           <UserNameStyle>
             username
           </UserNameStyle>
@@ -28,7 +30,7 @@ const CommentContainerStyle = styled.div`
     position: relative;
     margin-bottom: 16px;
 
-    .commentRight{
+    .commentContents{
       padding: 6px 12px 0 12px;
       font-size: var(--font--size-md);
     }

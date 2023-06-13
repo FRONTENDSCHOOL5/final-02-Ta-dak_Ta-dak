@@ -5,8 +5,8 @@ import IconSearch from '../../assets/img/icon-search.svg';
 export function MainHeader() {
   return (
     <MainHeaderStyle>
-      <h2>감귤마켓 피드</h2>
-      <img src={IconSearch} alt="" />
+      <h2>타닥타닥 피드</h2>
+      <button className="icon-search"></button>
     </MainHeaderStyle>
   );
 }
@@ -26,7 +26,11 @@ const MainHeaderStyle = styled.div`
     font-size: 18px;
   }
 
-  img {
-    cursor: pointer;
+  .icon-search {
+    background-image : url(${IconSearch});
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;

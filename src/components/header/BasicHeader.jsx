@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
@@ -15,8 +14,8 @@ export function BasicHeader() {
 
   return (
     <BasicHeaderStyle>
-      <img src={IconArrowLeft} alt="" onClick={handleGoBack}/>
-      <img src={IconSMore} alt="" />
+      <button className="backurl-btn" onClick={handleGoBack}></button>
+      <button className="more-btn"></button>
     </BasicHeaderStyle>
   )
 }
@@ -31,8 +30,18 @@ const BasicHeaderStyle = styled.div`
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-
-  img {
-    cursor: pointer;
+  button {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .backurl-btn {
+    background-image : url(${IconArrowLeft});
+  }
+  
+  .more-btn {
+    background-image : url(${IconSMore});
   }
 `;

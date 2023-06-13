@@ -27,7 +27,6 @@ const AlertStyle = styled.div`
     position: absolute;
     transition: all .3s;
     &:hover{
-      color: var(--basic-color-4);
       background-color: var(--basic-color-1);
     }
   }
@@ -39,12 +38,16 @@ const AlertStyle = styled.div`
     height: 46px;
     border-top: 1px solid var(--basic-color-8);
     border-right: 1px solid var(--basic-color-8);
+    &:hover{
+      color: var(--basic-color-4);
+    }
   }
 
   .delete {
     bottom: 0;
     width: 126px;
     height: 46px;
+    color: #F22222;
     border-top: 1px solid var(--basic-color-8);
   }
 `

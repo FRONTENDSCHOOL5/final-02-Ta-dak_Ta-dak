@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
@@ -16,7 +15,7 @@ export function UploadHeader() {
 
   return (
     <BasicHeaderStyle>
-      <img src={IconArrowLeft} alt="" onClick={handleGoBack}/>
+      <button className="backurl-btn" onClick={handleGoBack}></button>
       <GreyMsBtn contents={'저장'}/>
     </BasicHeaderStyle>
   )
@@ -32,7 +31,11 @@ const BasicHeaderStyle = styled.div`
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  img {
-    cursor: pointer;
+  .backurl-btn {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image : url(${IconArrowLeft});
   }
 `;

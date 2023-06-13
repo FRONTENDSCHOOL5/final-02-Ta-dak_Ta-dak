@@ -16,7 +16,7 @@ export default function UserProfile() {
           <strong>2950</strong>
           <p>followers</p>
         </div>
-        <ProfileLg />
+        <ProfileLg url={''}/>
         <div>
           <strong>128</strong>
           <p>followings</p>
@@ -26,7 +26,7 @@ export default function UserProfile() {
       <ProfileMiddleStyle>
         <h2>낭만있는캠린이</h2>
         <UserId id={'weniv_Camping'}/>
-        <span>애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</span>
+        <span>낭만있게 불멍타임 타닥타닥(ASMR 같네요~🔥)</span>
       </ProfileMiddleStyle>
 
       <ProfileBottomStyle>

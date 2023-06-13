@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export function GreenLgBtn({ contents }) {
   return <GreenLgBtnStyle>{contents}</GreenLgBtnStyle>
 }
@@ -155,3 +153,5 @@ const GreySmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
 `;
+
+

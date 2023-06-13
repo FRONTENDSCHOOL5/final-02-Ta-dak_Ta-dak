@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
@@ -15,9 +14,9 @@ export function ChatHeader() {
 
   return (
     <BasicHeaderStyle>
-      <img src={IconArrowLeft} alt="" onClick={handleGoBack}/>
-      <h2>애월읍 위니브 감귤농장</h2>
-      <img src={IconSMore} alt="" />
+      <button className="backurl-btn" onClick={handleGoBack}></button>
+      <h2>바베큐러버</h2>
+      <button className="more-btn"></button>
     </BasicHeaderStyle>
   )
 }
@@ -40,7 +39,18 @@ const BasicHeaderStyle = styled.div`
     font-size: var(--font--size-md);
   }
 
-  img {
-    cursor: pointer;
+  button {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .backurl-btn {
+    background-image : url(${IconArrowLeft});
+  }
+  
+  .more-btn {
+    background-image : url(${IconSMore});
   }
 `;

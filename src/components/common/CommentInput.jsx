@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import BasicProfile from '../../assets/img/basic-profile.svg'
-import { ProfileSm } from './Profile';
 
+import { ProfileSm } from './Profile';
 
 export default function CommentInput() {
     
@@ -42,13 +41,12 @@ button {
     transition: 0.5s;
     &:hover {
       color: var(--basic-color-4);
-      transition: 0.5s;
   }
 }
 `
 const InputStyle = styled.input`
-   ::placeholder {
+  ::placeholder {
     color: #c4c4c4;
-   } 
+  } 
 `;
 

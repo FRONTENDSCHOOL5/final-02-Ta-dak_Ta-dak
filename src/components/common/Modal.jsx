@@ -25,7 +25,7 @@ const ModalStyle = styled.div`
 
 .bar {
   width: 50px;
-  height: 4px;
+  height: 4px;    
   background: #DBDBDB;
   border-radius: 5px;
 }

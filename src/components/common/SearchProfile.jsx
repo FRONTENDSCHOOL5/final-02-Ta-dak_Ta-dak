@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import UserId from './UserId';
 import { ProfileMd } from './Profile'
 
@@ -6,10 +7,10 @@ export default function SearchProfile() {
   return (
     <SearchProfileStyle>
       <ProfileMd url={''}/>
-        <div>
-          <strong>사용자 이름</strong>
-          <UserId id={'exampleId'}/>
-        </div>
+      <div>
+        <strong>사용자 이름</strong>
+        <UserId id={'exampleId'}/>
+      </div>
     </SearchProfileStyle>
   );
 }

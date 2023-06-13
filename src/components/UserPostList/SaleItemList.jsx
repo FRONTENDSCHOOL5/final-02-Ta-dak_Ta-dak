@@ -13,7 +13,7 @@ export default function SaleItemList() {
       itemId: 'item0',
       itemImg: saleItemImg1,
       itemName: '버너 취사용품 세트',
-      itemPrice: 76000,
+      itemPrice: 7600009999999,
     },
     {
       itemId: 'item1',
