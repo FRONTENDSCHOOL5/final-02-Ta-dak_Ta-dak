@@ -4,8 +4,8 @@ export function Modal() {
   return(
     <ModalStyle>
       <div className='bar'></div>
-      <div className='settingComponent'>설정 및 개인정보</div>
-      <div className='logout'>로그아웃</div>
+      <button className='settingComponent'>설정 및 개인정보</button>
+      <button className='logout'>로그아웃</button>
     </ModalStyle>
   )
 }
@@ -18,8 +18,9 @@ const ModalStyle = styled.div`
   width: 390px;
   height: 138px;
   left: 26px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   font-size: var(--font-size-md);
-  border-radius: 10px 10px 0 0;
   background-color: var(--background-color);
 
 .bar {
@@ -27,6 +28,15 @@ const ModalStyle = styled.div`
   height: 4px;
   background: #DBDBDB;
   border-radius: 5px;
+}
+
+button{
+  text-align: left;
+  transition: all .3s;
+  &:hover{
+    color: var(--basic-color-4);
+    background-color: var(--basic-color-1);
+  }
 }
 
 .settingComponent {
