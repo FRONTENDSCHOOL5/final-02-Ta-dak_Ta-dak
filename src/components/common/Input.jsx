@@ -1,40 +1,54 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ProfileLg } from './Profile';
 
 import IconUploadLg from '../../assets/img/upload-file.svg'
+import IconUploadMd from '../../assets/img/s-upload-file2.svg'
 import IconUploadSm from '../../assets/img/s-upload-file.svg'
+
 
 // 유저 정보 저장하는 state 전역으로 관리해서 <input>에 value, onChange 설정해주기
 
 export function Input(props) {
-  const [valid, setValid] = useState(true)
 
   return (
     <>
       <InputContainerStyle>
         <div>
           <LabelStyle htmlFor={props.id}>{props.label}</LabelStyle>
-          <InputStyle {...props} valid={valid} autoComplete='off'></InputStyle>
+          <InputStyle {...props} autoComplete='off'></InputStyle>
         </div>
         {
+          // 유효성 검사 통과할 경우 &&
+          props.valid &&
+          <ValidationSuccessStyle>{props.alertMsg}</ValidationSuccessStyle>
+        }
+        {
           // 유효성 검사 통과 못할 경우 &&
-          !valid&&
-          <ValidationErrorStyle>*각각의 type에 맞는 에러메세지</ValidationErrorStyle>
+          !props.valid &&
+          <ValidationErrorStyle>{props.alertMsg}</ValidationErrorStyle>
         }
       </InputContainerStyle>
     </>
   );
 }
 
-export function FileInputLg({id}) {
+export function FileInputLg(props) {
   return (
     <>
-      <FileLgLabelStyle htmlFor={id}>
-        <ProfileLg url={''} />
+      <FileLgLabelStyle htmlFor={props.id}>
+        <ProfileLg url={props.url} />
       </FileLgLabelStyle>
-      <FileInputStyle id={id} type="file"></FileInputStyle>
+      <FileInputStyle {...props} id={props.id} type="file"></FileInputStyle>
+    </>
+  ); 
+}
+
+export function FileInputMd({id}) {
+  return (
+    <>
+    <FileMdLabelStyle htmlFor={id}></FileMdLabelStyle>
+    <FileInputStyle id={id} type="file"></FileInputStyle>
     </>
   );
 }
@@ -82,12 +96,16 @@ const InputStyle = styled.input`
   }
 `;
 
-const ValidationErrorStyle = styled.span`
+const ValidationSuccessStyle = styled.span`
   display: block;
   font-size: var(--font--size-sm);
   line-height: 14px;
-  color: #eb5757;
+  color: var(--basic-color-4);
   margin-top: 6px;
+`;
+
+const ValidationErrorStyle = styled(ValidationSuccessStyle)`
+  color: #eb5757;
 `;
 
 const FileLgLabelStyle = styled.label`
@@ -109,6 +127,14 @@ const FileLgLabelStyle = styled.label`
     background: url(${IconUploadSm}) no-repeat center / auto;
     cursor: pointer;
   }
+`;
+
+const FileMdLabelStyle = styled.label`
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: url(${IconUploadMd}) no-repeat center / auto;
 `;
 
 const FileSmLabelStyle = styled.label`
