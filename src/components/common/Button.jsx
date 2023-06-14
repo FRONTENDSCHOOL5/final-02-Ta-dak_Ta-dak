@@ -49,19 +49,19 @@ export function WhiteSmBtn({ contents }) {
 }
 
 export function GreyLgBtn({ contents }) {
-  return <GreyLgBtnStyle>{contents}</GreyLgBtnStyle>;
+  return <GreyLgBtnStyle disabled>{contents}</GreyLgBtnStyle>;
 }
 
 export function GreyMdBtn({ contents }) {
-  return <GreyMdBtnStyle>{contents}</GreyMdBtnStyle>;
+  return <GreyMdBtnStyle disabled>{contents}</GreyMdBtnStyle>;
 }
 
 export function GreyMsBtn({ contents }) {
-  return <GreyMsBtnStyle>{contents}</GreyMsBtnStyle>;
+  return <GreyMsBtnStyle disabled>{contents}</GreyMsBtnStyle>;
 }
 
 export function GreySmBtn({ contents }) {
-  return <GreySmBtnStyle>{contents}</GreySmBtnStyle>;
+  return <GreySmBtnStyle disabled>{contents}</GreySmBtnStyle>;
 }
 
 const GreenLgBtnStyle = styled.button`
@@ -139,19 +139,23 @@ const WhiteSmBtnStyle = styled(GreenSmBtnStyle)`
 const GreyLgBtnStyle = styled(GreenLgBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
+  cursor: default;
 `;
 
 const GreyMdBtnStyle = styled(GreenMdBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
+  cursor: default;
 `;
 
 const GreyMsBtnStyle = styled(GreenMsBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
+  cursor: default;
 `;
 
 const GreySmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: var(--basic-color-6);
   color: var(--basic-color-5);
+  cursor: default;
 `;
