@@ -1,0 +1,138 @@
+import { useEffect, useState } from "react"
+import { useRecoilState } from "recoil"
+import { SignUpAtom } from "../recoil/AtomSignupState"
+import useImageUploader from "../hooks/useImageUploader"
+import styled from "styled-components"
+
+import { Input } from "../components/common/Input"
+import { FileInputLg } from "../components/common/Input"
+import { GreenLgBtn, GreyLgBtn } from "../components/common/Button"
+import PostAccountValid from "../api/SignUpReq/PostAccountValid"
+import PostSignUp from "../api/SignUpReq/PostSignUp"
+
+export default function ProfileSignUpPage() {
+  const [reqFrame, setReqFrame] = useRecoilState(SignUpAtom)
+
+  const { handleImageChange, imageURL, imagePath } = useImageUploader();
+
+  const [username, setUsername] = useState('');
+  const [id, setId] = useState('');
+  const [introduce, setIntroduce] = useState('');
+  const [usernameValid, setUsernameValid] = useState(true)
+  const [idValid, setIdValid] = useState(true)
+  const [usernameAlertMsg, setUsernameAlertMsg] = useState('');
+  const [idAlertMsg, setIdAlertMsg] = useState('');
+
+  const handleIdValid = async () => {
+    const pattern = /^[A-Za-z0-9_.]+$/;
+    if(pattern.test(id)) {
+      const Msg = await PostAccountValid(id)
+      setIdAlertMsg(Msg)
+      Msg === "사용 가능한 계정ID 입니다." ? setIdValid(true) : setIdValid(false)
+    } else {
+      setIdAlertMsg('*영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.');
+      setIdValid(false)
+    }
+  }
+
+  const handleUsernameValid = (event) => {
+    const value = event.target.value;
+    if (value.length >= 2 && value.length <= 10) {
+      setUsernameAlertMsg('');
+      setUsernameValid(true)
+    } else {
+      setUsernameAlertMsg('2~10자 이내여야 합니다.');
+      setUsernameValid(false)
+    }
+    setUsername(value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    if (username && id && usernameValid && idValid) {
+      setReqFrame(prevValue => {
+        return {
+          ...prevValue,
+          username: username,
+          accountname: id,
+          intro: introduce,
+          image: imagePath
+        }
+      })
+    }
+  }
+
+  useEffect(()=> {
+    if(username && id && usernameValid && idValid){
+      PostSignUp(reqFrame);
+    }
+  }, [reqFrame])
+
+  return (
+    <ProfileSignUpPageStyle onSubmit={handleSubmit}>
+      <div>
+        <h1>프로필 설정</h1>
+        <p>나중에 언제든지 변경할 수 있습니다.</p>
+      </div>
+      <FileInputLg id={'user-profile'} onChange={handleImageChange} url={imageURL} />
+      <div>
+        <Input id={'user-username'}
+          type={'text'}
+          label={'사용자 이름'}
+          placeholder={'2~10자 이내여야 합니다.'}
+          value={username}
+          onChange={handleUsernameValid}
+          valid={usernameValid}
+          alertMsg={usernameAlertMsg}
+        />
+        <Input id={'user-id'}
+          type={'text'}
+          label={'계정 ID'}
+          placeholder={'영문, 숫자, 특수문자(.),(...)만 사용 가능합니다.'}
+          value={id}
+          onChange={(event) => setId(event.target.value)}
+          valid={idValid}
+          onBlur={handleIdValid}
+          alertMsg={idAlertMsg}
+        />
+        <Input id={'user-introduce'}
+          type={'text'}
+          label={'소개'}
+          placeholder={'자신과 판매할 상품에 대해 소개해 주세요!'}
+          value={introduce}
+          onChange={(event) => setIntroduce(event.target.value)}
+          valid={true}
+        />
+      </div>
+      {username && id ?
+        <GreenLgBtn type='submit' contents={'타닥타닥 시작하기'} /> :
+        <GreyLgBtn type='submit' contents={'타닥타닥 시작하기'} />}
+
+    </ProfileSignUpPageStyle>
+  )
+}
+
+const ProfileSignUpPageStyle = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 390px;
+  height: 844px;
+  padding: 34px;
+  background-color: var(--background-color);
+  
+  h1 {
+    text-align: center;
+    font-weight: var(--font--Medium);
+    font-size: 24px;
+    padding-bottom: 12px;
+  }
+
+  p {
+    font-weight: var(--font--Regular);
+    font-size: var(--font--size-md);
+    color: var(--basic-color-7);
+  }
+`;
