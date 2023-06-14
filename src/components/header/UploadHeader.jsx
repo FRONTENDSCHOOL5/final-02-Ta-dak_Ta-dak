@@ -16,7 +16,7 @@ export function UploadHeader() {
   return (
     <BasicHeaderStyle>
       <button className="backurl-btn" onClick={handleGoBack}></button>
-      <GreyMsBtn contents={'저장'}/>
+      <GreyMsBtn className="upload-btn" contents={'저장'}/>
     </BasicHeaderStyle>
   )
 }
@@ -37,5 +37,11 @@ const BasicHeaderStyle = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-image : url(${IconArrowLeft});
+  }
+  .upload-btn {
+    transition: 0.5s;
+    &:hover {
+      color: var(--basic-color-4);
+  }
   }
 `;

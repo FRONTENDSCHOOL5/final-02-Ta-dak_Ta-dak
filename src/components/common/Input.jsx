@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { ProfileLg } from './Profile';
 
 import IconUploadLg from '../../assets/img/upload-file.svg'
+import IconUploadMd from '../../assets/img/s-upload-file2.svg'
 import IconUploadSm from '../../assets/img/s-upload-file.svg'
+
 
 // 유저 정보 저장하는 state 전역으로 관리해서 <input>에 value, onChange 설정해주기
 
@@ -35,6 +37,15 @@ export function FileInputLg({id}) {
         <ProfileLg url={''} />
       </FileLgLabelStyle>
       <FileInputStyle id={id} type="file"></FileInputStyle>
+    </>
+  );
+}
+
+export function FileInputMd({id}) {
+  return (
+    <>
+    <FileMdLabelStyle htmlFor={id}></FileMdLabelStyle>
+    <FileInputStyle id={id} type="file"></FileInputStyle>
     </>
   );
 }
@@ -109,6 +120,14 @@ const FileLgLabelStyle = styled.label`
     background: url(${IconUploadSm}) no-repeat center / auto;
     cursor: pointer;
   }
+`;
+
+const FileMdLabelStyle = styled.label`
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: url(${IconUploadMd}) no-repeat center / auto;
 `;
 
 const FileSmLabelStyle = styled.label`
