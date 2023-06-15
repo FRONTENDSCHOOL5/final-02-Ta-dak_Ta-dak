@@ -4,6 +4,8 @@ import GlobalStyle from '../style/GlobalStyle';
 
 import LoginPage from '../pages/LoginPage';
 
+import UploadPage from '../pages/UploadPage';
+
 export default function SignUpTest() {
   return (
     <>
@@ -11,6 +13,8 @@ export default function SignUpTest() {
       <GlobalStyle />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/upload" element={<UploadPage />} />
       </Routes>
     </>
   );
