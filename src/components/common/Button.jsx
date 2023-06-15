@@ -24,8 +24,8 @@ export function BoldMdBtn({ contents }) {
   return <BoldMdBtnStyle>{contents}</BoldMdBtnStyle>;
 }
 
-export function BoldMsBtn({ contents }) {
-  return <BoldMsBtnStyle>{contents}</BoldMsBtnStyle>;
+export function BoldMsBtn({ contents, onClickHandler }) {
+  return <BoldMsBtnStyle onClick={onClickHandler}>{contents}</BoldMsBtnStyle>;
 }
 
 export function BoldSmBtn({ contents }) {
