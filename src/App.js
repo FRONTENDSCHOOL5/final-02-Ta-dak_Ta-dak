@@ -1,10 +1,12 @@
 import React from 'react'
-import CommonComponents from './componentsTest/CommonComponents'
+// import CommonComponents from './componentsTest/CommonComponents'
+import ProfileModification from './pages/ProfileModification'
 
 function App() {
   return (
     <>
-    <CommonComponents />
+    {/* <CommonComponents /> */}
+    <ProfileModification />
     </>
   )
 }
