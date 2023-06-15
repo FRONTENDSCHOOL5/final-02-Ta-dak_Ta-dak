@@ -47,7 +47,7 @@ export function NavBar() {
 const NavBarStyle = styled.nav`
   transition: all 0.3s;
 
-  width: 390px;
+  width: var(--basic-width);
   background-color: var(--basic-color-2);
 
   article {

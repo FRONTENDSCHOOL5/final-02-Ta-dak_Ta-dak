@@ -15,7 +15,7 @@ const ModalStyle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 390px;
+  width: var(--basic-width);
   height: 138px;
   left: 26px;
   border-top-right-radius: 10px;
@@ -42,7 +42,7 @@ button{
 .settingComponent {
   padding-left: 24px;
   line-height: 46px;
-  width: 390px;
+  width: var(--basic-width);
   height: 46px;
   left: 26px;
 }
@@ -50,7 +50,7 @@ button{
 .logout {
   padding-left: 24px;
   line-height: 46px;
-  width: 390px;
+  width: var(--basic-width);
   height: 46px;
   left: 26px;
 }

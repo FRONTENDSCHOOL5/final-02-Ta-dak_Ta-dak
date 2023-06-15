@@ -50,7 +50,7 @@ const TypeTabsWrapperStyle = styled.div`
 
 const TypeTabsStyle = styled.div`
   width: 100%;
-  max-width: 390px;
+  max-width: var(--basic-width);
   height: 44px;
   margin: auto;
   padding: 10px;
@@ -63,6 +63,6 @@ const TabStyle = styled(Link)`
 
 const PostWrapperStyle = styled.div`
   width: 100%;
-  max-width: 390px;
+  max-width: var(--basic-width);
   margin: auto;
 `;
