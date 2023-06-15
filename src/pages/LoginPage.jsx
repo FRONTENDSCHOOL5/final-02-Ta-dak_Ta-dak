@@ -46,7 +46,7 @@ export default function LoginPage() {
         setEmail('');
         setPassword('');
         setIsLogin(true);
-        navigate('/');
+        navigate('/login/success');
       }
     }
   };
