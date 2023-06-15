@@ -8,23 +8,36 @@ import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/icon-more.svg';
 
-export default function Post({post}) {
+export default function Post({ post }) {
   const [like, setLike] = useState(false);
+
+  const timeFormat = (time) => {
+    const originalDate = new Date(time);
+    const formattedDate = `
+      ${originalDate.getFullYear()}년 
+      ${originalDate.getMonth() + 1}월 
+      ${originalDate.getDate()}일`;
+    return formattedDate
+  }
 
   return (
     <PostStyle>
       <button className="postMoreButton" />
       <div className="profileComponent">
-        <SearchProfile />
+        <SearchProfile info={post.author} />
       </div>
       <div className="postContainer">
-        <Link to={`/postdetail/${post.postId}`}>
+
+        <Link to={`/postdetail/${post.id}`}>
           <h3 className="a11y-hidden">포스트 내용</h3>
-          <p>{post.postContent}</p>
-          {post.postImg && (
+          <p>{post.content}</p>
+          {post.image && (
             <img
-              src={post.postImg}
-              alt={`${post.postWriterId}의 포스팅 이미지`}
+              src={post.image}
+              alt={`${post.author.accountname}의 포스팅 이미지`}
+              onError={(event) => {
+                event.target.src = 'https://colorlib.com/wp/wp-content/uploads/sites/2/404-not-found-error-page-examples.png';
+              }}
             />
           )}
         </Link>
@@ -41,15 +54,15 @@ export default function Post({post}) {
               fill={like === true ? '#E73C3C' : 'var(--background-color)'}
               stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
             />
-            <span className="count">{post.postLike.length}</span>
+            <span className="count">{post.heartCount}</span>
           </button>
-          <Link to={`/postdetail/${post.postId}`}>
+          <Link to={`/postdetail/${post.id}`}>
             <span className="a11y-hidden">댓글 보기, 남기기</span>
             <IconComment className="iconImg" />
-            <span className="count">{post.postComment.length}</span>
+            <span className="count">{post.comments.length}</span>
           </Link>
         </div>
-        <span className="postDate">{post.postDate}</span>
+        <span className="postDate">{timeFormat(post.createdAt)}</span>
       </div>
     </PostStyle>
   );
