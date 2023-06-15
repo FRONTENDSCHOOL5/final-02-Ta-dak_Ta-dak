@@ -46,7 +46,7 @@ export default function LoginPage() {
         setEmail('');
         setPassword('');
         setIsLogin(true);
-        navigate('/');
+        navigate('/login/success');
       }
     }
   };
@@ -89,7 +89,6 @@ const LoginPageStyle = styled.section`
   width: 390px;
   height: 844px;
   background-color: var(--background-color);
-
   h1 {
     font-weight: var(--font--Medium);
     font-size: 24px;
