@@ -118,8 +118,8 @@ const ProfileSignUpPageStyle = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  width: 390px;
-  height: 844px;
+  width: var(--basic-width);
+  height: var(--screen-width);;
   padding: 34px;
   background-color: var(--background-color);
   

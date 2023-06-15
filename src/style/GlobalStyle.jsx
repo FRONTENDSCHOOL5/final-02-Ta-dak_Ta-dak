@@ -10,6 +10,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --basic-width : 390px;
+    --screen-width : 844px;
+
     --background-color: #FCFBF3;
     --basic-color-1: #FDF5B9; // 피드 버튼 색상,
     --basic-color-2: #B9D6A3; // 기본 버튼 색상,

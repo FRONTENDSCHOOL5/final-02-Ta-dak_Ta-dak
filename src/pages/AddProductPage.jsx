@@ -29,8 +29,8 @@ export default function AddProductPage() {
   )
 }
 const AddProductPageStyle = styled.div`
-  width: 390px;
-  height: 844px;
+  width: var(--basic-width);
+  height: var(--screen-width);;
   background-color:var(--background-color);
   margin: 0 auto;
   span {

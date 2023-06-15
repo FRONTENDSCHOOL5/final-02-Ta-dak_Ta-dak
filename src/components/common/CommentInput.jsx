@@ -14,7 +14,7 @@ export default function CommentInput() {
 }
 
 const InputContainerStyle = styled.div`
-  width: 390px;
+  width: var(--basic-width);
   height: 61px;
   display: flex;
   align-items: center;

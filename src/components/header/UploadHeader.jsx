@@ -27,7 +27,7 @@ const BasicHeaderStyle = styled.div`
   justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
-  width: 390px;
+  width: var(--basic-width);
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 

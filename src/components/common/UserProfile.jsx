@@ -44,7 +44,7 @@ export default function UserProfile() {
 
 const UserProfileStyle = styled.div`
   background-color: var(--background-color);
-  width: 390px;
+  width: var(--basic-width);
   height: 314px;
   text-align: center;
 `;

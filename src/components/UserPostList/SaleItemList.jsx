@@ -81,7 +81,7 @@ export default function SaleItemList() {
 const SaleItemListStyle = styled.div`
   display: grid;
   width: 100%;
-  max-width: 390px;
+  max-width: var(--basic-width);
   /* Navbar랑 겹치지 않게 padding-bottom은 70px - 추후 16px로 바뀔 수 있음 */
   padding: 30px 30px 70px;
   grid-template-columns: repeat(2, 1fr);
