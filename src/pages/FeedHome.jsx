@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import useScrollBottom from '../hooks/useScrollBottom';
-import getFeed from '../api/getFeed';
+import getFollowingFeed from '../api/getFollowingFeed';
 
 import { MainHeader } from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
@@ -23,7 +23,7 @@ export default function FeedHome() {
   }, [isBottom]);
 
   async function upDateFeed(value) {
-    const posts = await getFeed(value)    
+    const posts = await getFollowingFeed(value)    
     setVisiblePost((PrevValue) => [...PrevValue, ...posts])
   }
 
