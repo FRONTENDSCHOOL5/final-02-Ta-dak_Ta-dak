@@ -13,6 +13,5 @@ export default async function PostLogin(email, password) {
   });
 
   const json = await response.json();
-
   return json;
 }
