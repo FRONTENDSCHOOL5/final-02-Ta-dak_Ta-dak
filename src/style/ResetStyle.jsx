@@ -42,3 +42,5 @@ export const ResetStyle = createGlobalStyle`
   position: absolute;
   }
 `;
+
+export default ResetStyle;
