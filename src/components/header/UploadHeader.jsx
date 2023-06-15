@@ -5,7 +5,7 @@ import { GreyMsBtn } from '../common/Button';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export function UploadHeader() {
+export function UploadHeader({contents}) {
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export function UploadHeader() {
   return (
     <BasicHeaderStyle>
       <button className="backurl-btn" onClick={handleGoBack}></button>
-      <GreyMsBtn className="upload-btn" contents={'저장'}/>
+      <GreyMsBtn className="upload-btn" contents={contents}/>
     </BasicHeaderStyle>
   )
 }

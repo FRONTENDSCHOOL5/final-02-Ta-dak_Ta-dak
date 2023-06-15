@@ -10,7 +10,7 @@ export default function AddProductPage() {
   return (
     <>
     <AddProductPageStyle>
-        <UploadHeader></UploadHeader>
+        <UploadHeader contents={'저장'}></UploadHeader>
     <span>이미지 등록</span>
 
     <div className='addImg'>
