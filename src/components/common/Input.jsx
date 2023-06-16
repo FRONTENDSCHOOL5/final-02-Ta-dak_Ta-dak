@@ -7,8 +7,6 @@ import IconUploadMd from '../../assets/img/s-upload-file2.svg'
 import IconUploadSm from '../../assets/img/s-upload-file.svg'
 
 
-// 유저 정보 저장하는 state 전역으로 관리해서 <input>에 value, onChange 설정해주기
-
 export function Input(props) {
 
   return (
@@ -44,20 +42,20 @@ export function FileInputLg(props) {
   ); 
 }
 
-export function FileInputMd({id}) {
+export function FileInputMd(props) {
   return (
     <>
-    <FileMdLabelStyle htmlFor={id}></FileMdLabelStyle>
-    <FileInputStyle id={id} type="file"></FileInputStyle>
+      <FileMdLabelStyle htmlFor={props.id}></FileMdLabelStyle>
+      <FileInputStyle {...props} id={props.id} type="file"></FileInputStyle>
     </>
   );
 }
 
-export function FileInputSm({ id }) {
+export function FileInputSm(props) {
   return (
     <>
-      <FileSmLabelStyle htmlFor={id}></FileSmLabelStyle>
-      <FileInputStyle id={id} type="file"></FileInputStyle>
+      <FileSmLabelStyle htmlFor={props.id}></FileSmLabelStyle>
+      <FileInputStyle {...props} id={props.id} type="file"></FileInputStyle>
     </>
   );
 }
