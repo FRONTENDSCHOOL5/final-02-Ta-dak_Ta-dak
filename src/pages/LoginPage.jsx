@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { IsLogin, UserAtom } from '../recoil/AtomUserState';
+import { IsLogin, UserAtom} from '../recoil/AtomUserState';
 
 import styled from 'styled-components';
 
@@ -16,6 +16,7 @@ export default function LoginPage() {
   const [alertMsg, setAlertMsg] = useState('');
   const [userValue, setUserValue] = useRecoilState(UserAtom);
   const [isLogin, setIsLogin] = useRecoilState(IsLogin);
+
 
   const navigate = useNavigate();
 
@@ -41,14 +42,23 @@ export default function LoginPage() {
       } else {
         // 로그인 성공한 경우
         // UserAtom에 로그인된 회원 정보 저장
-        setUserValue(User.user);
+        const userInfo = User.user;
+        setUserValue({...userValue,
+          accountname: userInfo.accountname,
+          token: userInfo.token,
+          refreshToken: userInfo.refreshToken,
+          image: userInfo.image,
+        });
         setValid(true);
         // setAlertMsg('');
         // setEmail('');
         // setPassword('');
         setIsLogin(true);
+        alert('로그인성공 - 이부분 코드 나중에 뺄것');
         navigate('/login/success');
       }
+    } else{
+      alert('이미 로그인돼잇음 - 이부분 코드 나중에 뺄것')
     }
   };
 
