@@ -14,8 +14,8 @@ export function BasicHeader() {
 
   return (
     <BasicHeaderStyle>
-      <button className="backurl-btn" onClick={handleGoBack}></button>
-      <button className="more-btn"></button>
+      <button className='backUrlBtn' onClick={handleGoBack}></button>
+      <button className='moreBtn'></button>
     </BasicHeaderStyle>
   )
 }
@@ -37,11 +37,11 @@ const BasicHeaderStyle = styled.div`
     background-position: center;
   }
   
-  .backurl-btn {
+  .backUrlBtn {
     background-image : url(${IconArrowLeft});
   }
   
-  .more-btn {
+  .moreBtn {
     background-image : url(${IconSMore});
   }
 `;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { IsLogin, UserAtom } from '../recoil/AtomUserState';
+
 import styled from 'styled-components';
 
 import { Input } from '../components/common/Input';
@@ -42,9 +43,9 @@ export default function LoginPage() {
         // UserAtom에 로그인된 회원 정보 저장
         setUserValue(User.user);
         setValid(true);
-        setAlertMsg('');
-        setEmail('');
-        setPassword('');
+        // setAlertMsg('');
+        // setEmail('');
+        // setPassword('');
         setIsLogin(true);
         navigate('/login/success');
       }
@@ -74,9 +75,9 @@ export default function LoginPage() {
             onChange={handlePasswordInput}
           />
           {email && password ? (
-            <GreenLgBtn type="submit" contents={'로그인'} />
+            <GreenLgBtn type='submit' contents={'로그인'} />
           ) : (
-            <GreyLgBtn type="submit" contents={'로그인'} />
+            <GreyLgBtn type='submit' contents={'로그인'} />
           )}
         </form>
       </LoginPageStyle>
@@ -86,9 +87,10 @@ export default function LoginPage() {
 
 const LoginPageStyle = styled.section`
   padding: 34px;
-  width: 390px;
-  height: 844px;
+  width: var(--basic-width);
+  height: var(--basic-height);
   background-color: var(--background-color);
+  
   h1 {
     font-weight: var(--font--Medium);
     font-size: 24px;

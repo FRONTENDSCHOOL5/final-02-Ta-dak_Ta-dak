@@ -16,8 +16,6 @@ import {
   GreyMsBtn,
   GreySmBtn,
 } from '../components/common/Button';
-import { ResetStyle } from '../style/ResetStyle';
-import { GlobalStyle } from '../style/GlobalStyle';
 import { NavBar } from '../components/common/NavBar';
 import InputTest from './InputTest';
 import { BasicHeader } from '../components/header/BasicHeader';
@@ -39,9 +37,6 @@ import Comment from '../components/common/Comment';
 export default function CommonComponents() {
   return (
     <>
-      <ResetStyle />
-      <GlobalStyle />
-
       <div>
         <GreenLgBtn contents={'버튼'} />
         <GreenMdBtn contents={'버튼'} />

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { UploadHeader } from '../components/header/UploadHeader';
 import { Input, FileInputLg } from '../components/common/Input';
+
 import { ResetStyle } from '../style/ResetStyle';
 import { GlobalStyle } from '../style/GlobalStyle';
 
@@ -27,8 +28,8 @@ export default function ProfileModification() {
 
 const ProfileModificationStyle = styled.div`
   background-color: var(--background-color);
-  width: 390px;
-  height: 844px;
+  width: var(--basic-width);
+  height: var(--basic-height);
 
   .profileInfo {
     margin: 16px 34px;

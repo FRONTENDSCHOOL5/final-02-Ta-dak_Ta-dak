@@ -1,16 +1,14 @@
 import React from 'react'
 // import CommonComponents from './componentsTest/CommonComponents'
-// import SignUpTest from './componentsTest/SignUpTest'
-import LoginTest from './componentsTest/LoginTest'
+import PageTest from './componentsTest/PageTest'
 
 
 
 function App() {
   return (
     <>
-    {/* <CommonComponents /> */}
-    {/* <SignUpTest /> */}
-    <LoginTest />
+      {/* <CommonComponents /> */}
+      <PageTest />
     </>
   )
 }

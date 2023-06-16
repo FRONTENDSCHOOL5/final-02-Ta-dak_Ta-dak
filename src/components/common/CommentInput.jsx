@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { ProfileSm } from './Profile';
 
 export default function CommentInput() {
-    
+
   return (
     <InputContainerStyle>
-      <ProfileSm url={''}/>
+      <ProfileSm url={''} />
       <InputStyle type={'text'} placeholder='댓글 입력하기...'></InputStyle>
       <button id="comment-post">게시</button>
     </InputContainerStyle>
@@ -20,18 +20,20 @@ const InputContainerStyle = styled.div`
   align-items: center;
   background-color: #FCFBF3;
 
-img {
+  img {
     width: 40px;
     height: 40px;
     margin: 0 16px;
     top: 13px;
   }
-input {
+
+  input {
     width: 260px;
     font-size: var(--font--size-md);
     background-color: var(--background-color);
-}
-button {
+  }
+  
+  button {
     width: 55px;
     height: 19px;
     margin: 0 auto;
@@ -41,8 +43,8 @@ button {
     transition: 0.5s;
     &:hover {
       color: var(--basic-color-4);
+    }
   }
-}
 `
 const InputStyle = styled.input`
   ::placeholder {

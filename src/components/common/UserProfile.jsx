@@ -59,6 +59,7 @@ const ProfileTopStyle = styled.div`
     font-weight: var(--font--Bold);
     font-size: 18px;
   }
+
   p {
     padding-top: 6px;
     font-weight: var(--font--Regular);
@@ -75,6 +76,7 @@ const ProfileMiddleStyle = styled.div`
     font-weight: var(--font--size-lg);
     font-size: 18px;
   }
+  
   span {
     display: inline-block;
     padding-top: 15px;

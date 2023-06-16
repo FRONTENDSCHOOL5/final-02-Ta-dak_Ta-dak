@@ -6,7 +6,7 @@ export function MainHeader() {
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
-      <button className="icon-search"></button>
+      <button className='iconSearch'></button>
     </MainHeaderStyle>
   );
 }
@@ -26,7 +26,7 @@ const MainHeaderStyle = styled.div`
     font-size: 18px;
   }
 
-  .icon-search {
+  .iconSearch {
     background-image : url(${IconSearch});
     width: 22px;
     height: 22px;

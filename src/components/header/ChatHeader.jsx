@@ -14,9 +14,9 @@ export function ChatHeader() {
 
   return (
     <BasicHeaderStyle>
-      <button className="backurl-btn" onClick={handleGoBack}></button>
+      <button className='backUrlBtn' onClick={handleGoBack}></button>
       <h2>바베큐러버</h2>
-      <button className="more-btn"></button>
+      <button className='moreBtn'></button>
     </BasicHeaderStyle>
   )
 }
@@ -46,11 +46,11 @@ const BasicHeaderStyle = styled.div`
     background-position: center;
   }
   
-  .backurl-btn {
+  .backUrlBtn {
     background-image : url(${IconArrowLeft});
   }
   
-  .more-btn {
+  .moreBtn {
     background-image : url(${IconSMore});
   }
 `;

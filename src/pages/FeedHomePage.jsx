@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import useScrollBottom from '../hooks/useScrollBottom';
 import getFollowingFeed from '../api/getFollowingFeed';
+
+import styled from 'styled-components';
 
 import { MainHeader } from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
 import { NavBar } from '../components/common/NavBar';
 
 
-export default function FeedHome() {
+export default function FeedHomePage() {
   const elementRef = useRef(null);
   const isBottom = useScrollBottom(elementRef);
 
@@ -46,12 +47,11 @@ export default function FeedHome() {
 
 const FeedHomeStyle = styled.div`
   width: var(--basic-width);
-  height: var(--screen-width);
-  overflow: hidden;
+  height: var(--basic-height);
   background-color: var(--background-color);
 `;
 
 const PostListStyle = styled.div`
-  height: 712px;
   overflow-y: scroll;
+  overflow-x: hidden;
 `;

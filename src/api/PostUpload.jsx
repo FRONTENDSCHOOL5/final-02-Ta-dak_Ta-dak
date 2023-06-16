@@ -6,9 +6,9 @@ export default async function PostUpload(content, img) {
       'Content-type': 'application/json',
     },
     body: JSON.stringify({
-      post: {
-        content: content,
-        image: img,
+      'post': {
+        'content': content,
+        'image': img,
       },
     }),
   });

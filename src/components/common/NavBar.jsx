@@ -19,7 +19,7 @@ export function NavBar() {
     { to: '/home', component: IconHome, label: '홈' },
     { to: '/recommend', component: IconHeart, label: '추천게시글' },
     { to: '/chat', component: IconMessage, label: '채팅' },
-    { to: '/editpost', component: IconEdit, label: '게시물 작성' },
+    { to: '/upload', component: IconEdit, label: '게시물 작성' },
     { to: '/profile', component: IconUser, label: '프로필' },
   ];
 
@@ -46,7 +46,6 @@ export function NavBar() {
 
 const NavBarStyle = styled.nav`
   transition: all 0.3s;
-
   width: var(--basic-width);
   background-color: var(--basic-color-2);
 

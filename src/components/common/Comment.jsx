@@ -17,34 +17,35 @@ export default function Comment() {
           </TimeStyle>
           <CommentStyle>나는 너랑하는 캠핑 너무좋아좋아좋아 또가자~</CommentStyle>
         </div>
-        <button className="commentMoreButton" />
+        <button className='commentMoreButton' />
     
     </CommentContainerStyle>
   )
 }
 
 const CommentContainerStyle = styled.div`
-    width: 358px;
-    min-height: 58px;
-    display: flex;
-    position: relative;
-    margin-bottom: 16px;
+  width: 358px;
+  min-height: 58px;
+  display: flex;
+  position: relative;
+  margin-bottom: 16px;
 
-    .commentContents{
-      padding: 6px 12px 0 12px;
-      font-size: var(--font--size-md);
-    }
+  .commentContents{
+    padding: 6px 12px 0 12px;
+    font-size: var(--font--size-md);
+  }
 
-    .commentMoreButton{
-      position: absolute;
-      top: 5px;
-      right: 0;
-      background-image: url(${IconMore});
-      background-position: center;
-      width: 20px;
-      height: 20px;
-    }
+  .commentMoreButton{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    background-image: url(${IconMore});
+    background-position: center;
+    width: 20px;
+    height: 20px;
+  }
 `;
+
 const UserNameStyle = styled.span`
   display: inline-block;
   font-size: var(--font--size-md);

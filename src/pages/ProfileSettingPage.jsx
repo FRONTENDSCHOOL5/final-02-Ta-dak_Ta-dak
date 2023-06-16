@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react"
-import { useRecoilState } from "recoil"
-import { SignUpAtom } from "../recoil/AtomSignupState"
-import useImageUploader from "../hooks/useImageUploader"
-import styled from "styled-components"
+import { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { SignUpAtom } from '../recoil/AtomSignupState'
+import useImageUploader from '../hooks/useImageUploader'
 
-import { Input } from "../components/common/Input"
-import { FileInputLg } from "../components/common/Input"
-import { GreenLgBtn, GreyLgBtn } from "../components/common/Button"
-import PostAccountValid from "../api/SignUpReq/PostAccountValid"
-import PostSignUp from "../api/SignUpReq/PostSignUp"
+import styled from 'styled-components'
 
-export default function ProfileSignUpPage() {
+import { Input } from '../components/common/Input'
+import { FileUploadLg } from '../components/common/FileUpload'
+import { GreenLgBtn, GreyLgBtn } from '../components/common/Button'
+import PostAccountValid from '../api/SignUpReq/PostAccountValid'
+import PostSignUp from '../api/SignUpReq/PostSignUp'
+
+export default function ProfileSettingPage() {
   const [reqFrame, setReqFrame] = useRecoilState(SignUpAtom)
 
   const { handleImageChange, imageURL, imagePath } = useImageUploader();
@@ -75,7 +76,7 @@ export default function ProfileSignUpPage() {
         <h1>프로필 설정</h1>
         <p>나중에 언제든지 변경할 수 있습니다.</p>
       </div>
-      <FileInputLg id={'user-profile'} onChange={handleImageChange} url={imageURL} />
+      <FileUploadLg id={'user-profile'} onChange={handleImageChange} url={imageURL} />
       <div>
         <Input id={'user-username'}
           type={'text'}
@@ -119,7 +120,7 @@ const ProfileSignUpPageStyle = styled.form`
   align-items: center;
   gap: 30px;
   width: var(--basic-width);
-  height: var(--screen-width);;
+  height: var(--basic-height);;
   padding: 34px;
   background-color: var(--background-color);
   

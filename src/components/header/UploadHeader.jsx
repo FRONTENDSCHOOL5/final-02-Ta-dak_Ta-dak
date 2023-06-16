@@ -14,11 +14,11 @@ export function UploadHeader({valid, contents,  handleUploadBtnClick}) {
 
   return (
     <BasicHeaderStyle>
-      <button className="backurl-btn" onClick={handleGoBack}></button>
+      <button className='backUrlBtn' onClick={handleGoBack}></button>
       {
         valid
-        ?<BoldMsBtn className="upload-btn" contents={contents} onClickHandler={handleUploadBtnClick}/>
-        :<GreyMsBtn className="upload-btn" contents={contents} />
+        ?<BoldMsBtn contents={contents} onClickHandler={handleUploadBtnClick}/>
+        :<GreyMsBtn contents={contents} />
       }
     </BasicHeaderStyle>
   )
@@ -34,7 +34,7 @@ const BasicHeaderStyle = styled.div`
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  .backurl-btn {
+  .backUrlBtn{
     width: 22px;
     height: 22px;
     background-repeat: no-repeat;

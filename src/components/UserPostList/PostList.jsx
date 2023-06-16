@@ -6,7 +6,7 @@ export default function PostList({ visiblePost }) {
 
   return (
     <>
-      <h2 className="a11y-hidden">포스트</h2>
+      <h2 className='a11y-hidden'>포스트</h2>
       <PostListStyle>
         {visiblePost.map(item => (
           <Post post={item} key={item.id} />

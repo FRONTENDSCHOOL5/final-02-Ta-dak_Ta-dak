@@ -6,13 +6,17 @@ import { ProfileMd } from './Profile'
 export default function SearchProfile({info}) {
   return (
     <SearchProfileStyle>
-      <ProfileMd url={info.image}/>
-      <div>
-        <strong>{info.username}</strong>
-        <UserId id={info.accountname}/>
-      </div>
+      {info &&
+        <>        
+        <ProfileMd url={info.image}/>
+        <div>
+          <strong>{info.username}</strong>
+          <UserId id={info.accountname}/>
+        </div>
+        </>
+      }
     </SearchProfileStyle>
-  );
+  );    
 }
 
 const SearchProfileStyle = styled.section`

@@ -27,24 +27,21 @@ const FollowersProfileStyle = styled.div`
   img {
     width: 50px;
     height: 50px;
-  };
-
+  }
+  
   div {
     position: absolute;
     left: 62px;
-
     p, span {
       width: calc(358px * 0.6);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     p {
       padding-bottom: 6px;
       font-weight: var(--font--Medium);
       font-size: var(--font--size-md);
-
     }
     span {
       display: inline-block;
