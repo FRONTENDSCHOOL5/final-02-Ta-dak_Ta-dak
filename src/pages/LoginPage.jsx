@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { IsLogin, UserAtom} from '../recoil/AtomUserState';
 
 import styled from 'styled-components';
@@ -16,7 +16,6 @@ export default function LoginPage() {
   const [alertMsg, setAlertMsg] = useState('');
   const [userValue, setUserValue] = useRecoilState(UserAtom);
   const [isLogin, setIsLogin] = useRecoilState(IsLogin);
-
 
   const navigate = useNavigate();
 
