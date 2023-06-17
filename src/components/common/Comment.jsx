@@ -4,21 +4,37 @@ import { ProfileSm } from './Profile';
 
 import IconMore from '../../assets/img/icon-more.svg'
 
-export default function Comment() {
+export default function Comment({info, comment, createdAt}) {
+  
+  const history = new Date(createdAt).getTime();
+  const today = new Date().getTime();
+  const subtract = today - history
+  const t = Math.floor(subtract / 60000);
+
+  let timeAgo;
+  if (t < 1) {
+    timeAgo = '방금 전';
+  } else if (t < 60) {
+    timeAgo = `${t}분 전`;
+  } else if (t < 1440) {
+    timeAgo = `${Math.floor(t / 60)}시간 전`;
+  } else {
+    timeAgo = `${Math.floor(t / 1440)}일 전`;
+  }
+
   return (
     <CommentContainerStyle>
-        <ProfileSm url={''}/>
+        <ProfileSm url={info.image}/>
         <div className='commentContents'>
           <UserNameStyle>
-            username
+            {info.username}
           </UserNameStyle>
           <TimeStyle>
-            5분전
+            {timeAgo}
           </TimeStyle>
-          <CommentStyle>나는 너랑하는 캠핑 너무좋아좋아좋아 또가자~</CommentStyle>
+          <CommentStyle>{comment}</CommentStyle>
         </div>
         <button className='commentMoreButton' />
-    
     </CommentContainerStyle>
   )
 }

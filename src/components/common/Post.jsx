@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { useNavigate, useLocation } from 'react-router-dom';
+import { getComment } from '../../api/commentAPI';
 import styled from 'styled-components';
 
 import SearchProfile from './SearchProfile';
@@ -21,6 +21,22 @@ export default function Post({ post }) {
     return formattedDate
   }
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigate = async (post) => {
+    if(location.pathname === '/feed') {
+      const comment = await getComment(post.id)
+
+      navigate(`/postdetail/${post.id}`, {
+        state: {
+          post,
+          comment
+        }
+    })
+    }
+  }
+
   return (
     <PostStyle>
       <button className='postMoreButton' />
@@ -28,7 +44,8 @@ export default function Post({ post }) {
         <SearchProfile info={post.author} />
       </div>
       <PostContainerStyle>
-        <Link to={`/postdetail/${post.id}`}>
+        {/* <Link to={`/postdetail/${post.id}`}> */}
+        <a href={undefined} onClick={() => handleNavigate(post)}>
           <h3 className='a11y-hidden'>포스트 내용</h3>
           <p>{post.content}</p>
           {post.image && (
@@ -40,7 +57,8 @@ export default function Post({ post }) {
               }}
             />
           )}
-        </Link>
+          </a>
+        {/* </Link> */}
         <div className='likeCommentCount'>
           <button
             className='likeButton'
@@ -56,11 +74,11 @@ export default function Post({ post }) {
             />
             <span className='count'>{post.heartCount}</span>
           </button>
-          <Link to={`/postdetail/${post.id}`}>
+          <a href={undefined} onClick={() => handleNavigate(post)}>
             <span className='a11y-hidden'>댓글 보기, 남기기</span>
             <IconComment className='iconImg' />
             <span className='count'>{post.comments.length}</span>
-          </Link>
+          </a>
         </div>
         <span className='postDate'>{timeFormat(post.createdAt)}</span>
       </PostContainerStyle>
