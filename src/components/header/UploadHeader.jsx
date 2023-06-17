@@ -5,7 +5,7 @@ import { GreyMsBtn, BoldMsBtn } from '../common/Button';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export function UploadHeader({valid, contents,  handleUploadBtnClick}) {
+export default function UploadHeader({valid, contents,  handleUploadBtnClick}) {
   const navigate = useNavigate();
 
   function handleGoBack() {

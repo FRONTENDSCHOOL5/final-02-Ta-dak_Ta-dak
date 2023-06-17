@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import IconSearch from '../../assets/img/icon-search.svg';
 
-export function MainHeader() {
+export default function MainHeader() {
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
