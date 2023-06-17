@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export function SearchHeader() {
+export default function SearchHeader() {
 
   const navigate = useNavigate();
 
