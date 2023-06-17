@@ -8,6 +8,7 @@ import ProfileModificationPage from '../pages/ProfileModificationPage'
 import SignUpPage from '../pages/SignUpPage';
 import ProfileSettingPage from '../pages/ProfileSettingPage';
 import PostDetail from '../pages/PostDetail';
+import ProfilePage from '../pages/ProfilePage';
 
 export default function PageTest() {
   return (
@@ -25,6 +26,7 @@ export default function PageTest() {
         <Route path='/postdetail/*' element={<PostDetail />} />
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </>
   );

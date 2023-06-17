@@ -8,31 +8,35 @@ import UserId from './UserId';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile() {
+export default function UserProfile({profile}) {
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
         <div>
-          <strong>2950</strong>
+          <strong>{profile.followerCount}</strong>
           <p>followers</p>
         </div>
-        <ProfileLg url={''}/>
+        <ProfileLg url={''} />
         <div>
-          <strong>128</strong>
+          <strong>{profile.followingCount}</strong>
           <p>followings</p>
         </div>
       </ProfileTopStyle>
 
       <ProfileMiddleStyle>
-        <h2>낭만있는캠린이</h2>
-        <UserId id={'weniv_Camping'}/>
-        <span>낭만있게 불멍타임 타닥타닥(ASMR 같네요~🔥)</span>
+        <h2>{profile.username}</h2>
+        <UserId id={`${profile.accountname}`} />
+        <span>{profile.intro}</span>
       </ProfileMiddleStyle>
 
       <ProfileBottomStyle>
         <LinkChatStyle to="/">
           <img src={IconSmMessage} alt="" />
         </LinkChatStyle>
+        {/* 내 계정일 경우 프로필수정, 상품등록 */}
+        {/* 다른사람 계정일 경우 
+        팔로잉 한사람일 경우 - 언팔로우 
+        팔로잉 안한 사람일경우 - 팔로우*/}
         <GreenMdBtn contents={'팔로우'} />
         <ShareBtnStyle href={undefined}>
           <img src={IconShare} alt="" />
