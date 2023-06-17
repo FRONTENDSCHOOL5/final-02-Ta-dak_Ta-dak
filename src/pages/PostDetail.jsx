@@ -37,6 +37,7 @@ const PostDetailStyle = styled.div`
   display: flex;
   flex-direction: column;
   height: var(--basic-height);
+  width: var(--basic-width);
 
   .postStyle {
     padding: 20px;
