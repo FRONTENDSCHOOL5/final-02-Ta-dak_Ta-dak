@@ -5,10 +5,10 @@ export default function SaleItem({saleItem}) {
   return (
     <SaleItemStyle>
       <h3 className='a11y-hidden'>{saleItem.itemName}</h3>
-      <Link to={`/profile/${saleItem.itemId}`}>
-        <img src={saleItem.itemImg} alt={saleItem.itemName} />
+      <Link to={`/sale/${saleItem.id}`}>
+        <img src={saleItem.itemImage} alt={saleItem.itemName} />
         <span className='itemName'>{saleItem.itemName}</span>
-        <span className='itemPrice'>{saleItem.itemPrice.toLocaleString()}원</span>
+        <span className='itemPrice'>{saleItem.price.toLocaleString()}원</span>
       </Link>
     </SaleItemStyle>
   );

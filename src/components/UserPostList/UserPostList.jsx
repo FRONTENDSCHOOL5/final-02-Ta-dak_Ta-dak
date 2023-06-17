@@ -13,11 +13,11 @@ import { ReactComponent as IconPostAlbumOn } from '../../assets/img/icon-post-al
 import { ReactComponent as IconPostListOff } from '../../assets/img/icon-post-list-off.svg';
 import { ReactComponent as IconPostListOn } from '../../assets/img/icon-post-list-on.svg';
 
-export default function UserPostList() {
+export default function UserPostList({saleItem, post}) {
   const [tab, setTab] = useState(0);
   return (
     <>
-      <section style={{ backgroundColor: 'var(--background-color)', minWidth: '390px' }}>
+      <section style={{ minWidth: '390px' }}>
         <TypeTabsWrapperStyle>
           <TypeTabsStyle>
             <TabStyle onClick={() => {setTab(0)}}>
@@ -35,7 +35,7 @@ export default function UserPostList() {
           </TypeTabsStyle>
         </TypeTabsWrapperStyle>
         <PostWrapperStyle>
-          {[<SaleItemList />, <PostList />, <AlbumList />][tab]}
+          {[<SaleItemList saleItem={saleItem} />, <PostList visiblePost={post}/>, <AlbumList visiblePost={post}/>][tab]}
         </PostWrapperStyle>
       </section>
     </>

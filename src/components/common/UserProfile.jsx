@@ -9,6 +9,8 @@ import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
 export default function UserProfile({profile}) {
+  console.log(profile);
+  
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
@@ -16,7 +18,7 @@ export default function UserProfile({profile}) {
           <strong>{profile.followerCount}</strong>
           <p>followers</p>
         </div>
-        <ProfileLg url={''} />
+        <ProfileLg url={`${profile.image}`} />
         <div>
           <strong>{profile.followingCount}</strong>
           <p>followings</p>
@@ -47,7 +49,7 @@ export default function UserProfile({profile}) {
 }
 
 const UserProfileStyle = styled.div`
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   width: var(--basic-width);
   height: 314px;
   text-align: center;
