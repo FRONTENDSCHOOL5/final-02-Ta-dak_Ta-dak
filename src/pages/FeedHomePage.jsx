@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import useScrollBottom from '../hooks/useScrollBottom';
 import getFollowingFeed from '../api/getFollowingFeed';
-
 import styled from 'styled-components';
 
-import { MainHeader } from '../components/header/MainHeader';
+import MainHeader from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
 import { NavBar } from '../components/common/NavBar';
 
@@ -33,7 +32,6 @@ export default function FeedHomePage() {
   },[])
 
   return (
-    <>
       <FeedHomeStyle>
         <MainHeader />
         <PostListStyle ref={elementRef}>
@@ -41,17 +39,19 @@ export default function FeedHomePage() {
         </PostListStyle>
         <NavBar />
       </FeedHomeStyle>
-    </>
   );
 }
 
 const FeedHomeStyle = styled.div`
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color: var(--background-color);
+width: var(--basic-width);
+background-color: var(--background-color);
 `;
 
 const PostListStyle = styled.div`
-  overflow-y: scroll;
+  height: calc(var(--basic-height) - (60px + 48px));
   overflow-x: hidden;
+  
+    ::-webkit-scrollbar {
+    background-color: var(--background-color);
+    }
 `;
