@@ -7,6 +7,7 @@ export const ResetStyle = createGlobalStyle`
   a{
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
   }
   *,*::before, *::after{
       box-sizing: border-box;

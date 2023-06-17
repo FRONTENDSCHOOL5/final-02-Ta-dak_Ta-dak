@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import ProfileSignUpPage from '../pages/ProfileSettingPage';
 import LoginPage from '../pages/LoginPage';
 import UploadPage from '../pages/UploadPage';
 import FeedHomePage from '../pages/FeedHomePage';
@@ -8,6 +7,7 @@ import AddProductPage from '../pages/AddProductPage';
 import ProfileModificationPage from '../pages/ProfileModificationPage'
 import SignUpPage from '../pages/SignUpPage';
 import ProfileSettingPage from '../pages/ProfileSettingPage';
+import PostDetail from '../pages/PostDetail';
 
 export default function PageTest() {
   return (
@@ -22,6 +22,7 @@ export default function PageTest() {
         {/* 게시물 업로드 */}
         <Route path='/upload' element={<UploadPage />} />
         <Route path='/feed' element={<FeedHomePage />} />
+        <Route path='/postdetail/*' element={<PostDetail />} />
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
       </Routes>
