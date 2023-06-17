@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import UploadHeader from '../components/header/UploadHeader';
+import { UploadHeader } from '../components/header/UploadHeader';
 import { Input } from '../components/common/Input';
 import { FileUploadLg} from '../components/common/FileUpload'
 
