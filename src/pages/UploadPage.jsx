@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import UploadHeader from '../components/header/UploadHeader';
+import { UploadHeader } from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload'
 import PostUpload from '../api/PostUpload';

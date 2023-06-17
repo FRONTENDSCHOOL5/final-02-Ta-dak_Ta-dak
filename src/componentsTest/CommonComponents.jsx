@@ -18,11 +18,11 @@ import {
 } from '../components/common/Button';
 import { NavBar } from '../components/common/NavBar';
 import InputTest from './InputTest';
-import BasicHeader from '../components/header/BasicHeader';
-import SearchHeader from '../components/header/SearchHeader';
-import MainHeader from '../components/header/MainHeader';
-import UploadHeader from '../components/header/UploadHeader';
-import ChatHeader from '../components/header/ChatHeader';
+import { BasicHeader } from '../components/header/BasicHeader';
+import { SearchHeader } from '../components/header/SearchHeader';
+import { MainHeader } from '../components/header/MainHeader';
+import { UploadHeader } from '../components/header/UploadHeader';
+import { ChatHeader } from '../components/header/ChatHeader';
 import { ProfileLg, ProfileMd, ProfileSm } from '../components/common/Profile';
 import {Modal} from '../components/common/Modal';
 import {Alert} from '../components/common/Alert';
@@ -36,7 +36,7 @@ import Comment from '../components/common/Comment';
 
 export default function CommonComponents() {
   return (
-    <div>
+    <>
       <div>
         <GreenLgBtn contents={'버튼'} />
         <GreenMdBtn contents={'버튼'} />
@@ -80,6 +80,6 @@ export default function CommonComponents() {
       <UserProfile />
       <FollowersProfile />
       <Comment />
-    </div>
+    </>
   );
 }

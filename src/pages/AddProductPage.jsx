@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components"
 
-import UploadHeader from '../components/header/UploadHeader';
+import { UploadHeader } from '../components/header/UploadHeader';
 import { Input } from '../components/common/Input';
 import { FileUploadSm } from '../components/common/FileUpload';
 
