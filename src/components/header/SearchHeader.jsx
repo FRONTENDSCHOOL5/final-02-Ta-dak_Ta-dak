@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export default function SearchHeader() {
+export function SearchHeader({value, setValue}) {
 
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export default function SearchHeader() {
     <SearchHeaderStyle>
       <button className='backUrlBtn' onClick={handleGoBack}></button>
       <label className='a11y-hidden' htmlFor='searchId'>계정 검색</label>
-      <input id='searchId' type='text' placeholder='계정 검색'/>
+      <input id='searchId' type='text' placeholder='계정 검색' value={value} onChange={(e) => setValue(e.target.value)}/>
     </SearchHeaderStyle>
   )
 }
