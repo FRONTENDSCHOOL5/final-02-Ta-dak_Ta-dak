@@ -11,7 +11,6 @@ export const getComment = async (postId) => {
   }
 }
 
-
 export const writeComment = async (postId,content) => {
   const reqUrl = `/post/${postId}/comments`;
   const body = {
@@ -27,4 +26,28 @@ export const writeComment = async (postId,content) => {
     throw error
   }
 }
+
+export const deleteComment = async (postId, commentId) => {
+  const reqUrl = `/post/${postId}/comments/${commentId}`;
+  try {
+    const response = await axiosAuth.delete(reqUrl)
+    return response.data
+  } catch (error) {
+    console.error('Request error', error)
+    throw error
+  }
+}
+
+export const reportComment = async (postId, commentId) => {
+  const reqUrl = `/post/${postId}/comments/${commentId}/report`;
+  try {
+    const response = await axiosAuth.post(reqUrl)
+    return response.data
+  } catch (error) {
+    console.error('Request error', error)
+    throw error
+  }
+}
+
+
 
