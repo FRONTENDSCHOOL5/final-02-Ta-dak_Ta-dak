@@ -8,6 +8,8 @@ import AddProductPage from '../pages/AddProductPage';
 import ProfileModificationPage from '../pages/ProfileModificationPage'
 import SignUpPage from '../pages/SignUpPage';
 import ProfileSettingPage from '../pages/ProfileSettingPage';
+import ChatListPage from '../pages/ChatListPage'
+import ChatRoomPage from '../pages/ChatRoomPage'
 
 export default function PageTest() {
   return (
@@ -24,6 +26,8 @@ export default function PageTest() {
         <Route path='/feed' element={<FeedHomePage />} />
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
+        <Route path='/chat' element={<ChatListPage />} />
+        <Route path='/chatroom' element={<ChatRoomPage />} />
       </Routes>
     </>
   );
