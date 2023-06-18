@@ -1,19 +1,24 @@
 import useImageUploader from '../hooks/useImageUploader';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { UserAtom } from '../recoil/AtomUserState';
+import { editPost } from '../api/postAPI';
+import PostUpload from '../api/PostUpload';
 import styled from 'styled-components';
 
 import UploadHeader from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload'
-import PostUpload from '../api/PostUpload';
 
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath } = useImageUploader();
   const navigate = useNavigate();
+  const location = useLocation();
+  const userInfo = useRecoilValue(UserAtom)
 
-  const [text, setText] = useState('');
+  const locationValue = location.state;
+  const [text, setText] = useState(locationValue?.content || '');
   const [valid, setValid] = useState(false);
 
   const handleChange = (event) => {
@@ -27,12 +32,13 @@ export default function UploadPage() {
   };
 
   const handleUploadBtnClick = async () => {
-    const post = await PostUpload(text, imagePath);
-    // setImageURL, setImagePath 있어야 할까요?
-    // setText('')
-    // setValid(false)
-    navigate('/upload/success');
-    console.log(post)
+    if (location.pathname === '/upload') {
+      await PostUpload(text, imagePath);
+      navigate(-1);
+    } else if (location.pathname === '/editpost') {
+      await editPost(locationValue.id, text, imagePath || userInfo.image);
+      navigate(-1);
+    }
   };
 
   const autoResize = (event) => {
@@ -48,7 +54,7 @@ export default function UploadPage() {
         <UploadHeader valid={valid} contents={'업로드'} handleUploadBtnClick={handleUploadBtnClick} />
 
         <PostWrapperStyle>
-          <ProfileMd url={''}/>
+          <ProfileMd url={userInfo.image}/>
           <div className='uploading'>
             <textarea
               onChange={handleChange}
@@ -58,7 +64,7 @@ export default function UploadPage() {
               placeholder='여러분의 캠핑을 기록해 주세요'
               onInput={autoResize}
             />
-            {imageURL && <img src={imageURL} alt='업로드한이미지' className='showImg'/>}
+            {<img src={imageURL || locationValue?.image || 'https://img.freepik.com/premium-vector/colorful-gradient-background-gradient-blur-texture-soft-and-smooth-gradient-for-your-web-poster-b_492281-1056.jpg'} alt='업로드한이미지' className='showImg'/>}
             <div className='uploadImgBtn'>
               <FileUploadMd id={'uploading-img'}  onChange={handleImageChange} />
             </div>
