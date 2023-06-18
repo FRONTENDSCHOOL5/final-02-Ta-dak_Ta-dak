@@ -1,42 +1,65 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Modal } from '../components/common/Modal';
+import { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 export default function useModalControl() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalState, setModalState] = useState(false);
 
   const openModal = () => {
-    setModalOpen(true);
+    setModalState(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false);
+    setModalState(false);
   };
 
-  useEffect(() => {
-    if (modalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [modalOpen]);
-
-  const ModalComponent = () => {
+  const ModalComponent = ({ children }) => {
     return (
-    <ModalComponent>
-      <button>모달 열기</button>
-    </ModalComponent>
+      <>
+        {modalState && (
+          <ModalContainer onClick={closeModal}>
+            <ModalContent>{children}</ModalContent>
+          </ModalContainer>
+        )}
+      </>
     );
   };
 
-  const ModalStyle = styled.div`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: transform .3s;
-    transform: ${({ modalOpen }) => (modalOpen ? 'translateY(0)' : 'translateY(100%)')}; 
+  return { openModal, ModalComponent };
+}
+
+  const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   `;
 
-  return { modalOpen, openModal, closeModal, ModalComponent };
-}
+  const moveTop = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
+
+const ModalContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--basic-width);
+  height: var(--basic-height);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-end; 
+  animation: ${fadeIn} 0.3s ease-in;
+  z-index: 999;
+`;
+
+
+  const ModalContent = styled.div`
+    animation: ${moveTop} .8s ease-in-out forwards;
+  `;
