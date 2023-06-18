@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import IconSearch from '../../assets/img/icon-search.svg';
 
-export function MainHeader() {
+export default function MainHeader() {
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
@@ -12,6 +12,7 @@ export function MainHeader() {
 }
 
 const MainHeaderStyle = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;

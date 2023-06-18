@@ -10,6 +10,7 @@ import SignUpPage from '../pages/SignUpPage';
 import ProfileSettingPage from '../pages/ProfileSettingPage';
 import SearchPage from '../pages/SearchPage';
 
+import PostDetail from '../pages/PostDetail';
 
 export default function PageTest() {
   return (
@@ -27,6 +28,9 @@ export default function PageTest() {
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
         <Route path='/search' element={<SearchPage />}/>
+        <Route path='/postdetail/*' element={<PostDetail />} />
+        <Route path='/addproduct' element={<AddProductPage />} />
+        <Route path='/profilemodification' element={<ProfileModificationPage />} />
       </Routes>
     </>
   );
