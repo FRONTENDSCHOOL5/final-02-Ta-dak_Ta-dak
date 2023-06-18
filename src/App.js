@@ -21,11 +21,10 @@ export default App
 const WrapperStyle = styled.div`
   display: flex;
   justify-content: center;
-overflow: hidden;
 `;
 
 const BaseSizeStyle = styled.div`
-overflow: hidden;
+  overflow: hidden;
   width: var(--basic-width);
   height: var(--basic-height);
   background-color: var(--background-color);
