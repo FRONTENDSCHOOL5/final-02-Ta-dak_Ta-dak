@@ -4,10 +4,10 @@ export default async function PostSignUp(value) {
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type' : 'application/json',
       },
       body: JSON.stringify({
-        "user": value
+        'user': value
       })
     })
   const json = await response.json()

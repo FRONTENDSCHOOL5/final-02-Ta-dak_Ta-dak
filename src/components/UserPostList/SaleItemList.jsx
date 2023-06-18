@@ -68,7 +68,7 @@ export default function SaleItemList() {
 
   return (
     <>
-      <h2 className="a11y-hidden">판매상폼</h2>
+      <h2 className='a11y-hidden'>판매상폼</h2>
       <SaleItemListStyle>
         {saleItem.map((item, index) => (
           <SaleItem saleItem={item} key={item.itemId} />

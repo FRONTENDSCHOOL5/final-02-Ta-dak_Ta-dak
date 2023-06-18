@@ -7,8 +7,8 @@ export default async function PostEmailValid(value) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      "user":{
-				"email": value
+      'user':{
+				'email': value
 		}
     })
   })

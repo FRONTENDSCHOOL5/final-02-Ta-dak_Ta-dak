@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
-import { GreyMsBtn } from '../common/Button';
+import { GreyMsBtn, BoldMsBtn } from '../common/Button';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export function UploadHeader() {
-
+export function UploadHeader({valid, contents,  handleUploadBtnClick}) {
   const navigate = useNavigate();
 
   function handleGoBack() {
@@ -15,8 +14,12 @@ export function UploadHeader() {
 
   return (
     <BasicHeaderStyle>
-      <button className="backurl-btn" onClick={handleGoBack}></button>
-      <GreyMsBtn className="upload-btn" contents={'저장'}/>
+      <button className='backUrlBtn' onClick={handleGoBack}></button>
+      {
+        valid
+        ?<BoldMsBtn contents={contents} onClickHandler={handleUploadBtnClick}/>
+        :<GreyMsBtn contents={contents} />
+      }
     </BasicHeaderStyle>
   )
 }
@@ -31,17 +34,11 @@ const BasicHeaderStyle = styled.div`
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  .backurl-btn {
+  .backUrlBtn{
     width: 22px;
     height: 22px;
     background-repeat: no-repeat;
     background-position: center;
     background-image : url(${IconArrowLeft});
-  }
-  .upload-btn {
-    transition: 0.5s;
-    &:hover {
-      color: var(--basic-color-4);
-  }
   }
 `;

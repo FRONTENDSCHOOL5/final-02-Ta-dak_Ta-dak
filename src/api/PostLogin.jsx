@@ -6,8 +6,8 @@ export default async function PostLogin(email, password) {
     },
     body: JSON.stringify({
       user: {
-        email: email,
-        password: password,
+        'email': email,
+        'password': password,
       },
     }),
   });

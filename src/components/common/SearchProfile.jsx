@@ -3,16 +3,20 @@ import styled from 'styled-components';
 import UserId from './UserId';
 import { ProfileMd } from './Profile'
 
-export default function SearchProfile() {
+export default function SearchProfile({info}) {
   return (
     <SearchProfileStyle>
-      <ProfileMd url={''}/>
-      <div>
-        <strong>사용자 이름</strong>
-        <UserId id={'exampleId'}/>
-      </div>
+      {info &&
+        <>        
+        <ProfileMd url={info.image}/>
+        <div>
+          <strong>{info.username}</strong>
+          <UserId id={info.accountname}/>
+        </div>
+        </>
+      }
     </SearchProfileStyle>
-  );
+  );    
 }
 
 const SearchProfileStyle = styled.section`

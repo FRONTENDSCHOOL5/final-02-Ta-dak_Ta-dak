@@ -1,6 +1,6 @@
 export default async function PostImgFile(value) {
   var formData = new FormData();
-  formData.append("image", value);
+  formData.append('image', value);
   const response = await fetch(`https://api.mandarin.weniv.co.kr/image/uploadfile`, {
     method: 'POST',
     body: formData

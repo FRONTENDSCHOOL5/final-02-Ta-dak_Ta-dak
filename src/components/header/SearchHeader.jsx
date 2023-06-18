@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 
-export function SearchHeader() {
+export function SearchHeader({value, setValue}) {
 
   const navigate = useNavigate();
 
@@ -13,9 +13,9 @@ export function SearchHeader() {
 
   return (
     <SearchHeaderStyle>
-      <button className="backurl-btn" onClick={handleGoBack}></button>
-      <label className="a11y-hidden" htmlFor="search-id">계정 검색</label>
-      <input id="search-id" type="text" placeholder='계정 검색'/>
+      <button className='backUrlBtn' onClick={handleGoBack}></button>
+      <label className='a11y-hidden' htmlFor='searchId'>계정 검색</label>
+      <input id='searchId' type='text' placeholder='계정 검색' value={value} onChange={(e) => setValue(e.target.value)}/>
     </SearchHeaderStyle>
   )
 }
@@ -30,7 +30,7 @@ const SearchHeaderStyle = styled.div`
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   
-  .backurl-btn {
+  .backUrlBtn {
     width: 22px;
     height: 22px;
     background-repeat: no-repeat;
@@ -38,7 +38,7 @@ const SearchHeaderStyle = styled.div`
     background-image : url(${IconArrowLeft});
   }
 
-  #search-id {
+  #searchId {
     width: 316px;
     height: 32px;
     background: #F2F2F2;

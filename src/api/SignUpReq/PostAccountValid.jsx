@@ -6,8 +6,8 @@ export default async function PostAccountValid(value) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "user": {
-          "accountname": value
+        'user': {
+          'accountname': value
         }
       })
     })

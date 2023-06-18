@@ -2,8 +2,6 @@ const { createGlobalStyle } = require('styled-components');
 
 export const GlobalStyle = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
-
   body {
     font-family: 'Noto Sans KR', sans-serif;
     /* line-height: 1.5; */
@@ -11,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     --basic-width : 390px;
-    --screen-width : 844px;
+    --basic-height : 100vh;
 
     --background-color: #FCFBF3;
     --basic-color-1: #FDF5B9; // 피드 버튼 색상,
