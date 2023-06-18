@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import GetSearch from '../api/GetSearch';
-import { SearchHeader } from '../components/header/SearchHeader'
+import  SearchHeader  from '../components/header/SearchHeader'
 import SearchProfile from '../components/common/SearchProfile';
 import { NavBar } from '../components/common/NavBar';
 
