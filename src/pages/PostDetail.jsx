@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom"
+import { getPostDetail } from '../api/postAPI'
+import { getComment } from '../api/commentAPI'
 import styled from "styled-components"
 
 import BasicHeader from "../components/header/BasicHeader"
@@ -8,44 +11,74 @@ import CommentInput from "../components/common/CommentInput"
 
 export default function PostDetail() {
 
-  const location = useLocation();
-  const post = location.state?.post;
-  const comment = location.state?.comment;
+  const [post, setPost] = useState(false);
+  const [comment, setComment] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [reset, setReset] = useState(false);
 
-  console.log(post);
-  console.log(comment);
+  const location = useLocation();
+  const postId = location.pathname.replace('/postdetail/', '');
+
+  const getReq = async () => {
+    const [prePost, preComment] = await Promise.all([getPostDetail(postId), getComment(postId)]);
+    setPost(prePost);
+    setComment(preComment);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getReq()
+    setReset(false)
+  }, [reset])
 
   return (
     <>
-      <PostDetailStyle>
-        <BasicHeader />
-        <div className="postStyle">
-          <Post post={post}></Post>
-        </div>
-        <div className="commentStyle">
-          {comment.comments.map((item)=>{
-            return item.content && <Comment info={post.author} comment={item.content} createdAt={item.createdAt}/>
-          })}
-        </div>
-        <CommentInput />
-      </PostDetailStyle>
+      {
+        loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            <BasicHeader />
+            <PostContainer>
+              <PostStyle>
+                <Post post={post.post}></Post>
+              </PostStyle>
+              <CommentStyle>
+                {comment.comments.map((item) => (
+                  item.content && (
+                    <li key={item.id}>
+                      <Comment info={item.author} comment={item.content} createdAt={item.createdAt} />
+                    </li>
+                  )
+                ))}
+              </CommentStyle>
+              <CommentInput postId={post.post.id} setReset={setReset}/>
+            </PostContainer>
+          </>
+        )
+      }
     </>
   )
 }
 
-const PostDetailStyle = styled.div`
+const PostContainer = styled.div`
+  height: var(--screen-nav-height);
   display: flex;
   flex-direction: column;
-  height: var(--basic-height);
-  width: var(--basic-width);
+`;
 
-  .postStyle {
+const PostStyle = styled.div`
     padding: 20px;
-    box-shadow: 0px 1px var(--basic-color-8);
-  }
+`;
 
-  .commentStyle {
-    padding: 20px 20px 0;
+const CommentStyle = styled.ul`
+    box-shadow: 0px -1px var(--basic-color-8);
     flex-grow: 1;
+    overflow: scroll;
+    padding-top: 20px;
+    height: 100%;
+
+  ::-webkit-scrollbar {
+    background-color: var(--background-color)
   }
 `;

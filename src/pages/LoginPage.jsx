@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { IsLogin, UserAtom} from '../recoil/AtomUserState';
-
 import styled from 'styled-components';
 
 import { Input } from '../components/common/Input';
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button';
 import PostLogin from '../api/PostLogin';
+import { setAuthHeader } from '../api/settingAxios';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -54,7 +54,7 @@ export default function LoginPage() {
         // setPassword('');
         setIsLogin(true);
         alert('로그인성공 - 이부분 코드 나중에 뺄것');
-        navigate('/login/success');
+        navigate('/feed');
       }
     } else{
       alert('이미 로그인돼잇음 - 이부분 코드 나중에 뺄것')

@@ -72,9 +72,7 @@ export default function UploadPage() {
 
 const UploadPageStyle = styled.section`
   position: relative;
-  width: var(--basic-width);
   height: var(--basic-height);
-  background-color: var(--background-color);
   overflow-y: auto;
   overflow-x: hidden;
 

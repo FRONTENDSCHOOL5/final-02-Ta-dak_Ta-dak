@@ -88,9 +88,6 @@ export default function SignUpPage() {
 
 const SignUpPageStyle = styled.div`
   padding: 34px;
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color: var(--background-color);
 
   h1 {
     font-weight: var(--font--Medium);
