@@ -4,10 +4,27 @@ export const getComment = async (postId) => {
   const reqUrl = `/post/${postId}/comments`;
   try {
     const response = await axiosAuth.get(reqUrl)
-    console.log(response.data)
     return response.data
   } catch (error) {
     console.error('Request error', error)
     throw error
   }
 }
+
+
+export const writeComment = async (postId,content) => {
+  const reqUrl = `/post/${postId}/comments`;
+  const body = {
+    "comment":{
+      content
+    }
+  }
+  try {
+    const response = await axiosAuth.post(reqUrl,body)
+    return response.data
+  } catch (error) {
+    console.error('Request error', error)
+    throw error
+  }
+}
+

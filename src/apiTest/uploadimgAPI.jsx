@@ -29,8 +29,8 @@ export const uploadImage = async (content, image) => {
     }
   };
   try {
-    const response = await axiosAuth.post({reqUrl, body})
-    return response
+    const response = await axiosAuth.post(reqUrl, body)
+    return response.data
   } catch (error) {
     console.error('Request error', error)
     throw error

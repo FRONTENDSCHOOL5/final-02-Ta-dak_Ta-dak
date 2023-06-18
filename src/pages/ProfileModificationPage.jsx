@@ -23,9 +23,6 @@ export default function ProfileModificationPage() {
 }
 
 const ProfileModificationStyle = styled.div`
-  background-color: var(--background-color);
-  width: var(--basic-width);
-  height: var(--basic-height);
   
   .profileInfo {
     margin: 16px 34px;

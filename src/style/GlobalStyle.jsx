@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --basic-width : 390px;
     --basic-height : 100vh;
+    --screen-height : calc(var(--basic-height) - 48px);
+    --screen-nav-height : calc(var(--basic-height) - (60px + 48px));
 
     --background-color: #FCFBF3;
     --basic-color-1: #FDF5B9; // 피드 버튼 색상,

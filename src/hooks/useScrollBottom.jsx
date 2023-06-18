@@ -8,7 +8,7 @@ export default function useScrollBottom(ref) {
       const element = ref.current;
       if (element) {
         const { scrollTop, clientHeight, scrollHeight } = element;
-        setIsBottom(scrollTop + clientHeight + 100 >= scrollHeight);
+        setIsBottom(scrollTop + clientHeight + 250 >= scrollHeight);
       }
     };
 

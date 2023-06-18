@@ -30,9 +30,6 @@ export default function AddProductPage() {
   )
 }
 const AddProductPageStyle = styled.div`
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color:var(--background-color);
   margin: 0 auto;
 
   span {

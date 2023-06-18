@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { getComment } from '../../api/commentAPI';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import SearchProfile from './SearchProfile';
 
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
-import moreButtonIcon from './../../assets/img/icon-more.svg';
+import moreButtonIcon from './../../assets/img/s-icon-more.svg';
 
 export default function Post({ post }) {
   const [like, setLike] = useState(false);
@@ -21,22 +20,6 @@ export default function Post({ post }) {
     return formattedDate
   }
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleNavigate = async (post) => {
-    if(location.pathname === '/feed') {
-      const comment = await getComment(post.id)
-
-      navigate(`/postdetail/${post.id}`, {
-        state: {
-          post,
-          comment
-        }
-    })
-    }
-  }
-
   return (
     <PostStyle>
       <button className='postMoreButton' />
@@ -44,8 +27,7 @@ export default function Post({ post }) {
         <SearchProfile info={post.author} />
       </div>
       <PostContainerStyle>
-        {/* <Link to={`/postdetail/${post.id}`}> */}
-        <a href={undefined} onClick={() => handleNavigate(post)}>
+        <Link to={`/postdetail/${post.id}`}>
           <h3 className='a11y-hidden'>포스트 내용</h3>
           <p>{post.content}</p>
           {post.image && (
@@ -57,8 +39,7 @@ export default function Post({ post }) {
               }}
             />
           )}
-          </a>
-        {/* </Link> */}
+        </Link>
         <div className='likeCommentCount'>
           <button
             className='likeButton'
@@ -74,11 +55,11 @@ export default function Post({ post }) {
             />
             <span className='count'>{post.heartCount}</span>
           </button>
-          <a href={undefined} onClick={() => handleNavigate(post)}>
+          <Link to={`/postdetail/${post.id}`}>
             <span className='a11y-hidden'>댓글 보기, 남기기</span>
             <IconComment className='iconImg' />
-            <span className='count'>{post.comments.length}</span>
-          </a>
+            <span className='count'>{post.comments?.length}</span>
+          </Link>
         </div>
         <span className='postDate'>{timeFormat(post.createdAt)}</span>
       </PostContainerStyle>
@@ -125,6 +106,7 @@ const PostContainerStyle = styled.div`
     border: 0.5px solid var(--basic-color-8);
     border-radius: 10px;
     margin-bottom: 16px;
+    object-fit: cover;
   }
 
   .likeCommentCount {
