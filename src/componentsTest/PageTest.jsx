@@ -11,13 +11,14 @@ import ProfileSettingPage from '../pages/ProfileSettingPage';
 import SearchPage from '../pages/SearchPage';
 
 import PostDetail from '../pages/PostDetail';
+import { NavBar } from '../components/common/NavBar';
 
 export default function PageTest() {
   return (
-    <>
+    <div>
       <Routes>
         {/* 회원가입 */}
-        <Route path='/' element={<Navigate to='/signup/' replace />} />
+        <Route path='/' element={<Navigate to='/signup' replace />} />
         <Route path='/signup/' element={<SignUpPage />} />
         <Route path='/signup/profile' element={<ProfileSettingPage />} />
         {/* 로그인 */}
@@ -32,6 +33,7 @@ export default function PageTest() {
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
       </Routes>
-    </>
+      <NavBar/>
+    </div>
   );
 }
