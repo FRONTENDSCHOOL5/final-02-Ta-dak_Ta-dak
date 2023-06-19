@@ -47,14 +47,13 @@ export default function ChatList() {
           </div>
         </ChatContainerStyle>
       </ChatListPageStyle>
-      <NavBar />
     </>
   );
 }
 
 const ChatListPageStyle = styled.div`
   width: var(--basic-width);
-  height: var(--basic-height);
+  height: var(--screen-nav-height);
   background-color: var(--background-color);
   overflow-y: scroll;
   overflow-x: hidden;
