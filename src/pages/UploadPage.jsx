@@ -24,19 +24,21 @@ export default function UploadPage() {
   const handleChange = (event) => {
     const newText = event.target.value;
     setText(newText);
-    if(newText){
+    if (newText) {
       setValid(true)
-    }else{
+    } else {
       setValid(false)
     }
   };
+  console.log(!!imageURL);
+  console.log(!!locationValue?.image);
 
   const handleUploadBtnClick = async () => {
     if (location.pathname === '/upload') {
       await PostUpload(text, imagePath);
       navigate(-1);
     } else if (location.pathname === '/editpost') {
-      await editPost(locationValue.id, text, imagePath || userInfo.image);
+      await editPost(locationValue.id, text, imagePath || locationValue?.image);
       navigate(-1);
     }
   };
@@ -54,7 +56,7 @@ export default function UploadPage() {
         <UploadHeader valid={valid} contents={'업로드'} handleUploadBtnClick={handleUploadBtnClick} />
 
         <PostWrapperStyle>
-          <ProfileMd url={userInfo.image}/>
+          <ProfileMd url={userInfo.image} />
           <div className='uploading'>
             <textarea
               onChange={handleChange}
@@ -64,14 +66,15 @@ export default function UploadPage() {
               placeholder='여러분의 캠핑을 기록해 주세요'
               onInput={autoResize}
             />
-            {<img src={imageURL || locationValue?.image || 'https://img.freepik.com/premium-vector/colorful-gradient-background-gradient-blur-texture-soft-and-smooth-gradient-for-your-web-poster-b_492281-1056.jpg'} alt='업로드한이미지' className='showImg'/>}
+            {imageURL || locationValue?.image ? (
+              <img src={imageURL || locationValue?.image} alt="" className="showImg" />
+            ) : null}
             <div className='uploadImgBtn'>
-              <FileUploadMd id={'uploading-img'}  onChange={handleImageChange} />
+              <FileUploadMd id={'uploading-img'} onChange={handleImageChange} />
             </div>
           </div>
         </PostWrapperStyle>
       </UploadPageStyle>
-      
     </>
   );
 }
@@ -95,6 +98,9 @@ const PostWrapperStyle = styled.article`
   max-height: 696px;
   overflow-y: auto;
   overflow-x: hidden;
+  ::-webkit-scrollbar {
+      background-color: var(--background-color)
+  } 
 
   .uploading {
     margin: 12px 0 0 12px;
