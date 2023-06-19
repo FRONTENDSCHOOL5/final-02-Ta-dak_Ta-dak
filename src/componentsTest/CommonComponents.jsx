@@ -25,7 +25,7 @@ import UploadHeader from '../components/header/UploadHeader';
 import ChatHeader from '../components/header/ChatHeader';
 import { ProfileLg, ProfileMd, ProfileSm } from '../components/common/Profile';
 import {Modal} from '../components/common/Modal';
-import {Alert} from '../components/common/Alert';
+import Alert from '../components/common/Alert';
 import UserPostList from '../components/UserPostList/UserPostList';
 import UserId from '../components/common/UserId';
 import SearchProfile from '../components/common/SearchProfile';

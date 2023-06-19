@@ -1,18 +1,11 @@
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import useModalControl from '../../hooks/useModalControl';
-
 import { ProfileSm } from './Profile';
-import { Modal } from './Modal';
-
 import IconMore from '../../assets/img/icon-more.svg'
 
-export default function Comment({ info, comment, createdAt }) {
+export default function Comment({ item, setSelectComment, openModal }) {
 
-  const [modal, setModal] = useState(false);
-
-  const history = new Date(createdAt).getTime();
+  const history = new Date(item.createdAt).getTime();
   const today = new Date().getTime();
   const subtract = today - history
   const t = Math.floor(subtract / 60000);
@@ -28,45 +21,30 @@ export default function Comment({ info, comment, createdAt }) {
     timeAgo = `${Math.floor(t / 1440)}일 전`;
   }
 
-
-  // useEffect(() => {
-    const { modalOpen, openModal, closeModal, ModalComponent } = useModalControl();
-
-  //   if (modalOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'auto';
-  //   }
-  // }, [modalOpen]);
-
   return (
     <>    
     <CommentContainerStyle >
-      <ProfileSm url={info.image} />
+      <ProfileSm url={item.author.image} />
       <div className='commentContents'>
         <UserNameStyle>
-          {info.username}
+          {item.author.username}
         </UserNameStyle>
         <TimeStyle>
           {timeAgo}
         </TimeStyle>
-        <CommentStyle>{comment}</CommentStyle>
+        <CommentStyle>{item.content}</CommentStyle>
       </div>
-      <button className='commentMoreButton' onClick={openModal} />
+      <button className='commentMoreButton' 
+        onClick={() => {
+          setSelectComment(item);
+          openModal();
+        } 
+        }
+      />
     </CommentContainerStyle>
-    <ModalStyle>
-      <Modal />
-    </ModalStyle>
     </>
   )
 }
-
-const ModalStyle = styled.div`
-  position: absolute;
-  bottom: 0;
-  transition: transform 0.3s;
-  transform: ${({ modalOpen }) => (modalOpen ? 'translateY(0)' : 'translateY(100%)')};
-`;
 
 const CommentContainerStyle = styled.div`
   width: 358px;
