@@ -13,16 +13,17 @@ import UserTutorialPage from '../pages/UserTutorialPage';
 
 import ChatListPage from '../pages/ChatListPage'
 import ChatRoomPage from '../pages/ChatRoomPage'
-import SearchPage from '../pages/SearchPage';
 import PostDetail from '../pages/PostDetail';
 import ProfilePage from '../pages/ProfilePage';
 import { NavBar } from '../components/common/NavBar';
+import SplashPage from '../pages/SplashPage';
 
 
 export default function PageTest() {
   return (
     <div>
       <Routes>
+      <Route path='/splash/' element={<SplashPage/>} />
         {/* 회원가입 */}
         <Route path='/' element={<Navigate to='/signup' replace />} />
         <Route path='/signup/' element={<SignUpPage />} />
