@@ -18,6 +18,21 @@ export function ProfileSm({ url = false }) {
   return <ProfileSmStyle src={getProfileSrc(url)} alt="" />;
 }
 
+const ProfileContainer = styled.div`
+  position: relative;
+  &:after{
+    display: ${({confirm}) => ((confirm) ? 'block' : 'none')};
+    position: absolute;
+    top: 0;
+    left: 15px;
+    content: '';
+    width:  12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FF8B13;
+  }
+`;
+
 const ProfileCommonStyle = css`
   vertical-align: top;
   border-radius: 50%;

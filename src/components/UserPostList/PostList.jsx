@@ -6,12 +6,16 @@ export default function PostList({ visiblePost }) {
 
   return (
     <>
-      <h2 className='a11y-hidden'>포스트</h2>
-      <PostListStyle>
-        {visiblePost.map(item => (
-          <Post post={item} key={item._id} />
-        ))}
-      </PostListStyle>
+      <h2 className="a11y-hidden">포스트</h2>
+      {visiblePost.length !== 0 ? (
+        <PostListStyle>
+          {visiblePost.map((item, index) => (
+            <Post post={item} key={index} />
+          ))}
+        </PostListStyle>
+      ) : (
+        <div>포스트가없음</div>
+      )}
     </>
   );
 }
@@ -19,6 +23,15 @@ export default function PostList({ visiblePost }) {
 const PostListStyle = styled.div`
   width: 100%;
   max-width: var(--basic-width);
-  /* Navbar랑 겹치지 않게 padding-bottom은 70px - 추후 16px로 바뀔 수 있음 */
-  padding: 16px 16px 70px;
+  padding: 30px;
+  padding: 16px;
+
+  p {
+    /* 7줄 넘어가면 말줄임 */
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;

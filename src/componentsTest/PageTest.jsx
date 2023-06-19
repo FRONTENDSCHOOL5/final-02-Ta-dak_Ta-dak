@@ -10,8 +10,14 @@ import SignUpPage from '../pages/SignUpPage';
 import ProfileSettingPage from '../pages/ProfileSettingPage';
 import SearchPage from '../pages/SearchPage';
 import UserTutorialPage from '../pages/UserTutorialPage';
+
+import ChatListPage from '../pages/ChatListPage'
+import ChatRoomPage from '../pages/ChatRoomPage'
+import SearchPage from '../pages/SearchPage';
 import PostDetail from '../pages/PostDetail';
+import ProfilePage from '../pages/ProfilePage';
 import { NavBar } from '../components/common/NavBar';
+
 
 export default function PageTest() {
   return (
@@ -31,8 +37,14 @@ export default function PageTest() {
         <Route path='/recommendfeed' element={<FeedHomePage />} />
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
+
+        <Route path='/chat' element={<ChatListPage />} />
+        <Route path='/chatroom' element={<ChatRoomPage />} />
         <Route path='/search' element={<SearchPage />}/>
         <Route path='/postdetail/*' element={<PostDetail />} />
+        <Route path='/addproduct' element={<AddProductPage />} />
+        <Route path='/profilemodification' element={<ProfileModificationPage />} />
+        <Route path='/profile/:accountname' element={<ProfilePage />} />
       </Routes>
       <NavBar/>
     </div>

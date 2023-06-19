@@ -133,21 +133,25 @@ const BoldSmBtnStyle = styled(GreenSmBtnStyle)`
 const WhiteLgBtnStyle = styled(GreenLgBtnStyle)`
   background-color: #fff;
   color: var(--basic-color-7);
+  box-shadow: inset 0px 0px 0px 0.7px var(--basic-color-8);
 `;
 
 const WhiteMdBtnStyle = styled(GreenMdBtnStyle)`
   background-color: #fff;
   color: var(--basic-color-7);
+  box-shadow: inset 0px 0px 0px 0.7px var(--basic-color-8);
 `;
 
 const WhiteMsBtnStyle = styled(GreenMsBtnStyle)`
   background-color: #fff;
   color: var(--basic-color-7);
+  box-shadow: inset 0px 0px 0px 0.7px var(--basic-color-8);
 `;
 
 const WhiteSmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: #fff;
   color: var(--basic-color-7);
+  box-shadow: inset 0px 0px 0px 0.7px var(--basic-color-8);
 `;
 
 const GreyLgBtnStyle = styled(GreenLgBtnStyle)`
