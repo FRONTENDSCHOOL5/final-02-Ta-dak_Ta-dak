@@ -15,6 +15,18 @@
 import { axiosAuth } from "./settingAxios";
 
 export const getPost = async (loadPostSeq) => {
+  const reqUrl = `/post/feed/?limit=5&skip=${loadPostSeq}`;
+  try {
+    const response = await axiosAuth.get(reqUrl)
+    console.log(response.data);
+    return response.data
+  } catch (error) {
+    console.error('Request error', error)
+    throw error
+  }
+}
+
+export const getPostAll = async (loadPostSeq) => {
   const reqUrl = `/post/?limit=5&skip=${loadPostSeq}`;
   try {
     const response = await axiosAuth.get(reqUrl)

@@ -2,20 +2,20 @@ import styled, { css } from 'styled-components';
 
 import BasicProfile from '../../assets/img/basic-profile.svg';
 
+function getProfileSrc(url) {
+  return (url.includes("http://146.56.183.55:5050/Ellipse.png") || !url.includes("https://")) ? BasicProfile : (url || BasicProfile);
+}
+
 export function ProfileLg({ url = false }) {
-  return <ProfileLgStyle src={url ? url : BasicProfile} alt="" />;
+  return <ProfileLgStyle src={ url || BasicProfile } alt="" />;
 }
 
 export function ProfileMd({ url = false }) {
-  return <ProfileMdStyle src={url ? url : BasicProfile} alt="" />;
+  return <ProfileMdStyle src={getProfileSrc(url)} alt="" />;
 }
 
-export function ProfileSm({ url = false, confirm = false }) {
-  return (
-    <ProfileContainer confirm={confirm}>
-      <ProfileSmStyle src={url ? url : BasicProfile} alt="" />
-    </ProfileContainer>
-  );
+export function ProfileSm({ url = false }) {
+  return <ProfileSmStyle src={getProfileSrc(url)} alt="" />;
 }
 
 const ProfileContainer = styled.div`
@@ -36,6 +36,7 @@ const ProfileContainer = styled.div`
 const ProfileCommonStyle = css`
   vertical-align: top;
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const ProfileLgStyle = styled.img`

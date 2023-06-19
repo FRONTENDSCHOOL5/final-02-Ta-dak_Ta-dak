@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil'
 import { UserAtom } from '../../recoil/AtomUserState';
 import { postLike, deleteLike } from '../../api/heartAPI';
 import { deletePost, reportPost } from '../../api/postAPI';
 import useModalControl from '../../hooks/useModalControl';
 import useAlertControl from '../../hooks/useAlertControl';
+import styled, { keyframes } from 'styled-components';
 
 import { Modal } from './Modal';
 import Alert from './Alert';
-import styled from 'styled-components';
 import SearchProfile from './SearchProfile';
 
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
@@ -18,8 +18,10 @@ import moreButtonIcon from './../../assets/img/s-icon-more.svg';
 
 export default function Post({ post }) {
   const navigate = useNavigate();
-  const myInfo = useRecoilValue(UserAtom)
+  const location = useLocation();
+  const myInfo = useRecoilValue(UserAtom);
   const [like, setLike] = useState(post.hearted);
+  const [contentMore, setContentMore] = useState(true);
   const isLike = post.hearted;
   const { openModal, ModalComponent } = useModalControl();
   const { openAlert, AlertComponent } = useAlertControl();
@@ -28,6 +30,7 @@ export default function Post({ post }) {
   const postLikeReq = async () => {
     await postLike(id);
   }
+
   const deleteLikeReq = async () => {
     await deleteLike(id);
   }
@@ -73,11 +76,11 @@ export default function Post({ post }) {
         <div className='profileComponent'>
           <SearchProfile info={post.author} />
         </div>
-        <PostContainerStyle>
+        <PostContainerStyle locationPathname={location.pathname} contentMore={contentMore}>
           <Link to={`/postdetail/${id}`}>
             <h3 className='a11y-hidden'>포스트 내용</h3>
-            <p>{post.content}</p>
-            {post.image && (
+            <p onClick={()=>setContentMore((prevValue) => !prevValue)}>{post.content}</p>
+            {contentMore && (
               <img
                 src={post.image}
                 alt={`${post.author.accountname}의 포스팅 이미지`}
@@ -125,19 +128,25 @@ export default function Post({ post }) {
           <Modal contents={['삭제', '수정']} handleFunc={handleModal} /> :
           <Modal contents={['신고']} handleFunc={reportPostReq} />}
       </ModalComponent>
-
-
-
-
     </>
   );
 }
+
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
 
 const PostStyle = styled.article`
   position: relative;
   margin-bottom: 20px;
   max-width: 358px;
   width: 100%;
+
   .postMoreButton {
     position: absolute;
     top: 0px;
@@ -146,7 +155,6 @@ const PostStyle = styled.article`
     height: 18px;
     background: url(${moreButtonIcon}) no-repeat center / auto;
   }
-
   .profileComponent {
     margin-bottom: 12px;
   }
@@ -161,9 +169,20 @@ const PostContainerStyle = styled.div`
     line-height: 19px;
     margin-bottom: 16px;
     word-break: break-all;
+    /* transition: 1s; */
+    max-height: ${({locationPathname, contentMore}) => (locationPathname==="/feed") ? '110px' : contentMore ? '70px' : '300px' };
+    text-overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'ellipsis' : 'none' };
+    overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'hidden' : 'scroll'};
+    display: -webkit-box;
+      -webkit-line-clamp: ${({locationPathname}) => (locationPathname==="/feed") ? '6' : '' };
+      -webkit-box-orient: vertical;
+    ::-webkit-scrollbar {
+      background-color: var(--background-color)
+    } 
   }
 
   img {
+    animation: ${fadeIn} 1s ease-in;
     min-width: 304px;
     width: 100%;
     max-height: 228px;
