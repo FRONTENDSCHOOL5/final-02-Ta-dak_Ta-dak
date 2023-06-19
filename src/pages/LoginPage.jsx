@@ -43,6 +43,7 @@ export default function LoginPage() {
         // UserAtom에 로그인된 회원 정보 저장
         const userInfo = User.user;
         setUserValue({...userValue,
+          // _id: userInfo._id,
           accountname: userInfo.accountname,
           token: userInfo.token,
           refreshToken: userInfo.refreshToken,

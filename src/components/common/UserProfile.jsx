@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { ProfileLg } from './Profile';
-import { GreenMdBtn } from './Button';
+import { GreenMdBtn, WhiteMdBtn } from './Button';
 import UserId from './UserId';
 
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile({profile}) {
-  console.log(profile);
+export default function UserProfile({profile, isMyAccount}) {
+  // console.log(profile);
+  
   
   return (
     <UserProfileStyle>
@@ -35,11 +36,20 @@ export default function UserProfile({profile}) {
         <LinkChatStyle to="/">
           <img src={IconSmMessage} alt="" />
         </LinkChatStyle>
-        {/* 내 계정일 경우 프로필수정, 상품등록 */}
-        {/* 다른사람 계정일 경우 
-        팔로잉 한사람일 경우 - 언팔로우 
-        팔로잉 안한 사람일경우 - 팔로우*/}
-        <GreenMdBtn contents={'팔로우'} />
+        {isMyAccount ? (
+          // 내 계정일 경우
+          <>
+            <WhiteMdBtn contents={'프로필 수정'} />
+            <WhiteMdBtn contents={'상품 등록'} />
+          </>
+        ) : (
+          // 다른사람 계정일 경우
+          // 팔로잉 한사람일 경우 - 언팔로우 
+          // 팔로잉 안한 사람일경우 - 팔로우
+          
+          <GreenMdBtn contents={'팔로우'} />
+        )}
+
         <ShareBtnStyle href={undefined}>
           <img src={IconShare} alt="" />
         </ShareBtnStyle>

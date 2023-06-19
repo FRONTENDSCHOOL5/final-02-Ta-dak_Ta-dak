@@ -12,7 +12,7 @@ const useImageUploader = () => {
     console.log('imageURL',imageURL);
 
     const imagePath = await PostImgFile(selectedFile);
-    console.log('imagePath',imagePath);
+    setImageURL(imageURL);
 
     setImagePath(imagePath)
   };
