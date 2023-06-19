@@ -1,51 +1,51 @@
 import styled from 'styled-components';
 
-export function GreenLgBtn({ contents }) {
-  return <GreenLgBtnStyle>{contents}</GreenLgBtnStyle>;
+export function GreenLgBtn({ contents, handleFunc }) {
+  return <GreenLgBtnStyle onClick={handleFunc}>{contents}</GreenLgBtnStyle>;
 }
 
-export function GreenMdBtn({ contents }) {
-  return <GreenMdBtnStyle>{contents}</GreenMdBtnStyle>;
+export function GreenMdBtn({ contents, handleFunc }) {
+  return <GreenMdBtnStyle onClick={handleFunc}>{contents}</GreenMdBtnStyle>;
 }
 
-export function GreenMsBtn({ contents }) {
-  return <GreenMsBtnStyle>{contents}</GreenMsBtnStyle>;
+export function GreenMsBtn({ contents, handleFunc }) {
+  return <GreenMsBtnStyle onClick={handleFunc}>{contents}</GreenMsBtnStyle>;
 }
 
-export function GreenSmBtn({ contents }) {
-  return <GreenSmBtnStyle>{contents}</GreenSmBtnStyle>;
+export function GreenSmBtn({ contents, handleFunc }) {
+  return <GreenSmBtnStyle onClick={handleFunc}>{contents}</GreenSmBtnStyle>;
 }
 
-export function BoldLgBtn({ contents }) {
-  return <BoldLgBtnStyle>{contents}</BoldLgBtnStyle>;
+export function BoldLgBtn({ contents, handleFunc }) {
+  return <BoldLgBtnStyle onClick={handleFunc}>{contents}</BoldLgBtnStyle>;
 }
 
-export function BoldMdBtn({ contents }) {
-  return <BoldMdBtnStyle>{contents}</BoldMdBtnStyle>;
+export function BoldMdBtn({ contents, handleFunc }) {
+  return <BoldMdBtnStyle onClick={handleFunc}>{contents}</BoldMdBtnStyle>;
 }
 
-export function BoldMsBtn({ contents, onClickHandler }) {
-  return <BoldMsBtnStyle onClick={onClickHandler}>{contents}</BoldMsBtnStyle>;
+export function BoldMsBtn({ contents, handleFunc }) {
+  return <BoldMsBtnStyle onClick={handleFunc}>{contents}</BoldMsBtnStyle>;
 }
 
-export function BoldSmBtn({ contents }) {
-  return <BoldSmBtnStyle>{contents}</BoldSmBtnStyle>;
+export function BoldSmBtn({ contents, handleFunc }) {
+  return <BoldSmBtnStyle onClick={handleFunc}>{contents}</BoldSmBtnStyle>;
 }
 
-export function WhiteLgBtn({ contents }) {
-  return <WhiteLgBtnStyle>{contents}</WhiteLgBtnStyle>;
+export function WhiteLgBtn({ contents, handleFunc }) {
+  return <WhiteLgBtnStyle onClick={handleFunc}>{contents}</WhiteLgBtnStyle>;
 }
 
-export function WhiteMdBtn({ contents }) {
-  return <WhiteMdBtnStyle>{contents}</WhiteMdBtnStyle>;
+export function WhiteMdBtn({ contents, handleFunc }) {
+  return <WhiteMdBtnStyle onClick={handleFunc}>{contents}</WhiteMdBtnStyle>;
 }
 
-export function WhiteMsBtn({ contents }) {
-  return <WhiteMsBtnStyle>{contents}</WhiteMsBtnStyle>;
+export function WhiteMsBtn({ contents, handleFunc }) {
+  return <WhiteMsBtnStyle onClick={handleFunc}>{contents}</WhiteMsBtnStyle>;
 }
 
-export function WhiteSmBtn({ contents }) {
-  return <WhiteSmBtnStyle>{contents}</WhiteSmBtnStyle>;
+export function WhiteSmBtn({ contents, handleFunc }) {
+  return <WhiteSmBtnStyle onClick={handleFunc}>{contents}</WhiteSmBtnStyle>;
 }
 
 export function GreyLgBtn({ contents }) {
@@ -63,6 +63,20 @@ export function GreyMsBtn({ contents }) {
 export function GreySmBtn({ contents }) {
   return <GreySmBtnStyle disabled>{contents}</GreySmBtnStyle>;
 }
+
+export function YellowBtn({ contents, handleFunc }) {
+  return <YellowBtnStyle onClick={handleFunc}>{contents}</YellowBtnStyle>;
+}
+
+const YellowBtnStyle = styled.button`
+  width: 120px;
+  height: 41px;
+  font-size: var(--font--size-md);
+  background-color: var(--basic-color-1);
+  border-radius: 44px;
+  color: #000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
 
 const GreenLgBtnStyle = styled.button`
   width: 322px;

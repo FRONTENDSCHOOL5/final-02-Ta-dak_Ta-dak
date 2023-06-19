@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import CommonComponents from './componentsTest/CommonComponents'
 import PageTest from './componentsTest/PageTest'
 import FeedHomePage from './pages/FeedHomePage'
+import SplashPage from './pages/SplashPage'
 
 function App() {
   return (
       <WrapperStyle>
         <BaseSizeStyle>
       {/* <CommonComponents /> */}
-      <PageTest />
+      {/* <PageTest /> */}
       {/* <FeedHomePage /> */}
+      <SplashPage/>
         </BaseSizeStyle>
       </WrapperStyle>
   )

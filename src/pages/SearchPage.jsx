@@ -50,8 +50,8 @@ export default function SearchPage() {
 console.log(searchList) 
   return (
     <>
-      <SearchPageStyle>
       <SearchHeader value={search} setValue={setSearch}></SearchHeader>
+      <SearchPageStyle>
       <SearchResultWrapper>
         {isLoading ? <div>로딩중...</div> : (
           <>
@@ -70,7 +70,6 @@ console.log(searchList)
         </>)}
       
       </SearchResultWrapper>
-      <NavBar></NavBar>
       </SearchPageStyle>
     </>
   );
@@ -78,7 +77,7 @@ console.log(searchList)
 
 const SearchPageStyle = styled.div `
   width: 390px;
-  height: 844px;
+  height: var(--screen-nav-height);
   margin: 0 auto;
   background-color: var(--backgroud-color);
   display: flex;
