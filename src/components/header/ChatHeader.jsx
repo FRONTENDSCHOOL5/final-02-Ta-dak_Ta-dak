@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
-import IconSMore from '../../assets/img/s-icon-more.svg'
+import IconSMore from '../../assets/img/icon-more.svg'
 
-export function ChatHeader() {
+export default function ChatHeader() {
 
   const navigate = useNavigate();
 

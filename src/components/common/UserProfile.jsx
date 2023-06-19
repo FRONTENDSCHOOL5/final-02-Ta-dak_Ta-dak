@@ -2,48 +2,71 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { ProfileLg } from './Profile';
-import { GreenMdBtn } from './Button';
+import { GreenMdBtn, WhiteMdBtn } from './Button';
 import UserId from './UserId';
 
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile() {
+export default function UserProfile({profile, isMyAccount, isFollow}) {
+  console.log('sss '+isFollow);
+  
+  
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
         <div>
-          <strong>2950</strong>
+          <strong>{profile.followerCount}</strong>
           <p>followers</p>
         </div>
-        <ProfileLg url={''}/>
+        <ProfileLg url={`${profile.image}`} />
         <div>
-          <strong>128</strong>
+          <strong>{profile.followingCount}</strong>
           <p>followings</p>
         </div>
       </ProfileTopStyle>
 
       <ProfileMiddleStyle>
-        <h2>낭만있는캠린이</h2>
-        <UserId id={'weniv_Camping'}/>
-        <span>낭만있게 불멍타임 타닥타닥(ASMR 같네요~🔥)</span>
+        <h2>{profile.username}</h2>
+        <UserId id={`${profile.accountname}`} />
+        <span>{profile.intro}</span>
       </ProfileMiddleStyle>
 
       <ProfileBottomStyle>
-        <LinkChatStyle to="/">
-          <img src={IconSmMessage} alt="" />
-        </LinkChatStyle>
-        <GreenMdBtn contents={'팔로우'} />
-        <ShareBtnStyle href={undefined}>
-          <img src={IconShare} alt="" />
-        </ShareBtnStyle>
+        {isMyAccount ? (
+          // 내 계정일 경우
+          <>
+            <WhiteMdBtn contents={'프로필 수정'} />
+            <div className='blank'></div>
+            <WhiteMdBtn contents={'상품 등록'} />
+          </>
+        ) : // 다른사람 계정일 경우
+          (
+          <>
+            <LinkChatStyle to="/">
+              <img src={IconSmMessage} alt="채팅하기" />
+            </LinkChatStyle>
+            {
+              isFollow ? (
+              // 팔로잉 한사람일 경우 - 언팔로우
+              <WhiteMdBtn contents={'언팔로우'} />
+              ) : (
+              // 팔로잉 안한 사람일경우 - 팔로우
+              <GreenMdBtn contents={'팔로우'} />
+            )}
+            <ShareBtnStyle href={undefined}>
+              <img src={IconShare} alt="공유하기" />
+            </ShareBtnStyle>
+          </>
+          )
+        }
       </ProfileBottomStyle>
     </UserProfileStyle>
   );
 }
 
 const UserProfileStyle = styled.div`
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   width: var(--basic-width);
   height: 314px;
   text-align: center;
@@ -92,6 +115,11 @@ const ProfileBottomStyle = styled.div`
   img {
     width: 20px;
     height: 20px;
+  }
+
+  .blank{
+    display: inline-block;
+    width: 12px;
   }
 `;
 

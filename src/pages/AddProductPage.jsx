@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components"
 
-import { UploadHeader } from '../components/header/UploadHeader';
+import UploadHeader from '../components/header/UploadHeader';
 import { Input } from '../components/common/Input';
 import { FileUploadSm } from '../components/common/FileUpload';
 
@@ -30,9 +30,6 @@ export default function AddProductPage() {
   )
 }
 const AddProductPageStyle = styled.div`
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color:var(--background-color);
   margin: 0 auto;
 
   span {

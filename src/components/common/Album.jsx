@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 export default function Album({post}) {
   return (
-    post.postImg && 
+    post.image && 
     <AlbumStyle>
-      <Link to={`/postdetail/${post.postId}`}>
+      <Link to={`/postdetail/${post.id}`}>
         <img
-          src={post.postImg}
-          alt={`${post.postWriterId}의 포스팅 이미지`}
+          src={post.image}
+          alt={`${post.author.username}의 포스팅 이미지`}
         />
       </Link>
     </AlbumStyle>

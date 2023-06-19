@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { getPost } from '../api/postAPI';
 import useScrollBottom from '../hooks/useScrollBottom';
-import getFollowingFeed from '../api/getFollowingFeed';
-
 import styled from 'styled-components';
 
-import { MainHeader } from '../components/header/MainHeader';
+import MainHeader from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
-import { NavBar } from '../components/common/NavBar';
-
 
 export default function FeedHomePage() {
   const elementRef = useRef(null);
@@ -24,34 +21,28 @@ export default function FeedHomePage() {
   }, [isBottom]);
 
   async function upDateFeed(value) {
-    const posts = await getFollowingFeed(value)    
-    setVisiblePost((PrevValue) => [...PrevValue, ...posts])
+    const data = await getPost(value)
+    setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
   }
 
   useEffect(() => {
     upDateFeed(loadPostSeq)
-  },[])
+  }, [])
 
   return (
     <>
-      <FeedHomeStyle>
-        <MainHeader />
-        <PostListStyle ref={elementRef}>
-          {visiblePost.length !== 0 ?  <PostList visiblePost={visiblePost}/> : <div>loading</div>}
-        </PostListStyle>
-        <NavBar />
-      </FeedHomeStyle>
+      <MainHeader />
+      <PostListStyle ref={elementRef}>
+        {visiblePost.length !== 0 ? <PostList visiblePost={visiblePost} /> : <div>loading</div>}
+      </PostListStyle>
     </>
   );
 }
 
-const FeedHomeStyle = styled.div`
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color: var(--background-color);
-`;
-
 const PostListStyle = styled.div`
-  overflow-y: scroll;
-  overflow-x: hidden;
+  height: var(--screen-nav-height);
+  overflow: scroll; 
+  ::-webkit-scrollbar {
+  background-color: var(--background-color);
+  }
 `;

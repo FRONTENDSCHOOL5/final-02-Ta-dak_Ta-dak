@@ -1,25 +1,48 @@
 import styled from 'styled-components';
 
 import { ProfileSm } from './Profile';
-
 import IconMore from '../../assets/img/icon-more.svg'
 
-export default function Comment() {
+export default function Comment({ item, setSelectComment, openModal }) {
+
+  const history = new Date(item.createdAt).getTime();
+  const today = new Date().getTime();
+  const subtract = today - history
+  const t = Math.floor(subtract / 60000);
+
+  let timeAgo;
+  if (t < 1) {
+    timeAgo = '방금 전';
+  } else if (t < 60) {
+    timeAgo = `${t}분 전`;
+  } else if (t < 1440) {
+    timeAgo = `${Math.floor(t / 60)}시간 전`;
+  } else {
+    timeAgo = `${Math.floor(t / 1440)}일 전`;
+  }
+
   return (
-    <CommentContainerStyle>
-        <ProfileSm url={''}/>
-        <div className='commentContents'>
-          <UserNameStyle>
-            username
-          </UserNameStyle>
-          <TimeStyle>
-            5분전
-          </TimeStyle>
-          <CommentStyle>나는 너랑하는 캠핑 너무좋아좋아좋아 또가자~</CommentStyle>
-        </div>
-        <button className='commentMoreButton' />
-    
+    <>    
+    <CommentContainerStyle >
+      <ProfileSm url={item.author.image} />
+      <div className='commentContents'>
+        <UserNameStyle>
+          {item.author.username}
+        </UserNameStyle>
+        <TimeStyle>
+          {timeAgo}
+        </TimeStyle>
+        <CommentStyle>{item.content}</CommentStyle>
+      </div>
+      <button className='commentMoreButton' 
+        onClick={() => {
+          setSelectComment(item);
+          openModal();
+        } 
+        }
+      />
     </CommentContainerStyle>
+    </>
   )
 }
 
@@ -29,6 +52,7 @@ const CommentContainerStyle = styled.div`
   display: flex;
   position: relative;
   margin-bottom: 16px;
+  padding: 0 20px;
 
   .commentContents{
     padding: 6px 12px 0 12px;

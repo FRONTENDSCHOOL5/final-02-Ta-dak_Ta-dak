@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
-import IconSMore from '../../assets/img/s-icon-more.svg'
+import IconSMore from '../../assets/img/icon-more.svg'
 
-export function BasicHeader() {
+export default function BasicHeader() {
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const BasicHeaderStyle = styled.div`
   padding-left: 16px;
   padding-right: 12px;
   width: var(--basic-width);
-  height: 48px;
+  min-height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   button {

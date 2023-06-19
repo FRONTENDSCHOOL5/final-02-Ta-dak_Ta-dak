@@ -8,8 +8,8 @@ const useImageUploader = () => {
   const handleImageChange = async (event) => {
     const selectedFile = event.target.files[0];
     const imageURL = URL.createObjectURL(selectedFile);
-    setImageURL(imageURL);
     const imagePath = await PostImgFile(selectedFile);
+    setImageURL(imageURL)
     setImagePath(imagePath)
   };
 

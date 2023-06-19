@@ -1,21 +1,34 @@
+import { useRecoilValue } from 'recoil';
+import { UserAtom } from '../../recoil/AtomUserState';
+import { writeComment } from '../../api/commentAPI';
 import styled from 'styled-components';
 
 import { ProfileSm } from './Profile';
+import { useState } from 'react';
 
-export default function CommentInput() {
+export default function CommentInput({ postId, setReset }) {
+
+  const userInfo = useRecoilValue(UserAtom)
+  const [content, setContent] = useState('');
+
+  const handleSubmit = async () => {
+    setContent('')
+    await writeComment(postId, content);
+    setReset(true)
+  }
 
   return (
     <InputContainerStyle>
-      <ProfileSm url={''} />
-      <InputStyle type={'text'} placeholder='댓글 입력하기...'></InputStyle>
-      <button id="comment-post">게시</button>
+      <ProfileSm url={userInfo.image} />
+      <InputStyle type={'text'} placeholder='댓글 입력하기...' value={content} onChange={ (event) => setContent(event.target.value) }></InputStyle>
+      <button id="comment-post" onClick={handleSubmit}>게시</button>
     </InputContainerStyle>
   )
 }
 
 const InputContainerStyle = styled.div`
   width: var(--basic-width);
-  height: 61px;
+  min-height: 61px;
   display: flex;
   align-items: center;
   background-color: #FCFBF3;
