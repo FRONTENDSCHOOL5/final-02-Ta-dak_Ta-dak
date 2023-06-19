@@ -33,27 +33,33 @@ export default function UserProfile({profile, isMyAccount, isFollow}) {
       </ProfileMiddleStyle>
 
       <ProfileBottomStyle>
-        <LinkChatStyle to="/">
-          <img src={IconSmMessage} alt="" />
-        </LinkChatStyle>
         {isMyAccount ? (
           // 내 계정일 경우
           <>
             <WhiteMdBtn contents={'프로필 수정'} />
+            <div className='blank'></div>
             <WhiteMdBtn contents={'상품 등록'} />
           </>
         ) : // 다른사람 계정일 경우
-        isFollow ? (
-          // 팔로잉 한사람일 경우 - 언팔로우
-          <WhiteMdBtn contents={'언팔로우'} />
-        ) : (
-          // 팔로잉 안한 사람일경우 - 팔로우
-          <GreenMdBtn contents={'팔로우'} />
-        )}
-
-        <ShareBtnStyle href={undefined}>
-          <img src={IconShare} alt="" />
-        </ShareBtnStyle>
+          (
+          <>
+            <LinkChatStyle to="/">
+              <img src={IconSmMessage} alt="채팅하기" />
+            </LinkChatStyle>
+            {
+              isFollow ? (
+              // 팔로잉 한사람일 경우 - 언팔로우
+              <WhiteMdBtn contents={'언팔로우'} />
+              ) : (
+              // 팔로잉 안한 사람일경우 - 팔로우
+              <GreenMdBtn contents={'팔로우'} />
+            )}
+            <ShareBtnStyle href={undefined}>
+              <img src={IconShare} alt="공유하기" />
+            </ShareBtnStyle>
+          </>
+          )
+        }
       </ProfileBottomStyle>
     </UserProfileStyle>
   );
@@ -109,6 +115,11 @@ const ProfileBottomStyle = styled.div`
   img {
     width: 20px;
     height: 20px;
+  }
+
+  .blank{
+    display: inline-block;
+    width: 12px;
   }
 `;
 
