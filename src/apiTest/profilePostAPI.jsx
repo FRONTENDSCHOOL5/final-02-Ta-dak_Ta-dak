@@ -1,5 +1,6 @@
 import { axiosAuth } from './settingAxios';
 
+// 5-3 나의 게시글 목록
 export const getProfilePost = async (accountname) => {
   const reqUrl = `/post/${accountname}/userpost`;
 

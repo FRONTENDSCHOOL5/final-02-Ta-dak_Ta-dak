@@ -17,16 +17,16 @@ export default function ProfilePage() {
   const [saleItemProps, setSaleItemProps] = useState([]);
   const [profilePostProps, setProfilePostProps] = useState([]);
   const [isMyAccount, setIsMyAccount] = useState(false);  
-  // const [isFollow, setIsFollow] = useState(false)
+  const [isFollow, setIsFollow] = useState(false)
 
   useEffect(()=>{    
     const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
-    // const myId = JSON.parse(sessionStorage.getItem('user')).UserAtom._id;
     accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
 
     const loadProfilePage = async()=>{
       const user = await getProfile(accountname);
-      setProfileProps({...user.profile});      
+      setProfileProps({...user.profile});    
+      setIsFollow(user.profile.isfollow);  
     }
     
 
@@ -51,7 +51,7 @@ export default function ProfilePage() {
   return (
     <ProfilePageStyle>
       <BasicHeader />
-      <UserProfile profile={profileProps} isMyAccount={isMyAccount}/>
+      <UserProfile profile={profileProps} isMyAccount={isMyAccount} isFollow={isFollow}/>
       <UserPostList saleItem={saleItemProps} post={profilePostProps}/>
     </ProfilePageStyle>
   );

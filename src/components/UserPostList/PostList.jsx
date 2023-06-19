@@ -10,7 +10,7 @@ export default function PostList({ visiblePost }) {
       {visiblePost.length !== 0 ? (
         <PostListStyle>
           {visiblePost.map((item, index) => (
-            <Post post={item} key={item.id} />
+            <Post post={item} key={index} />
           ))}
         </PostListStyle>
       ) : (

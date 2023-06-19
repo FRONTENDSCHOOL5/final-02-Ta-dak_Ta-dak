@@ -8,8 +8,8 @@ import UserId from './UserId';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile({profile, isMyAccount}) {
-  // console.log(profile);
+export default function UserProfile({profile, isMyAccount, isFollow}) {
+  console.log('sss '+isFollow);
   
   
   return (
@@ -42,11 +42,12 @@ export default function UserProfile({profile, isMyAccount}) {
             <WhiteMdBtn contents={'프로필 수정'} />
             <WhiteMdBtn contents={'상품 등록'} />
           </>
+        ) : // 다른사람 계정일 경우
+        isFollow ? (
+          // 팔로잉 한사람일 경우 - 언팔로우
+          <WhiteMdBtn contents={'언팔로우'} />
         ) : (
-          // 다른사람 계정일 경우
-          // 팔로잉 한사람일 경우 - 언팔로우 
           // 팔로잉 안한 사람일경우 - 팔로우
-          
           <GreenMdBtn contents={'팔로우'} />
         )}
 
