@@ -16,7 +16,7 @@ export default function UserTutorialPage() {
       <BasicProfile />
       <p>유저를 검색해 팔로우 해보세요.</p>
       <YellowBtn contents={'검색하기'} handleFunc={()=>{navigate('/search')}}/>
-      <YellowBtn contents={'추천 게시글 보기'} handleFunc={()=>{navigate('/feed/recommend')}}/>
+      <YellowBtn contents={'추천 게시글 보기'} handleFunc={()=>{navigate('/recommendfeed')}}/>
     </UserTutorialPageStyle>
     </>
   )
