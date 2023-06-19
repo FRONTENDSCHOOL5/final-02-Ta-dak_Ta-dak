@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BasicHeader from '../components/header/BasicHeader';
+import  BasicHeader  from '../components/header/BasicHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { NavBar } from '../components/common/NavBar';
 import { useNavigate } from 'react-router-dom';
