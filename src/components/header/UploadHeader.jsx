@@ -17,7 +17,7 @@ export default function UploadHeader({valid, contents,  handleUploadBtnClick}) {
       <button className='backUrlBtn' onClick={handleGoBack}></button>
       {
         valid
-        ?<BoldMsBtn contents={contents} onClickHandler={handleUploadBtnClick}/>
+        ?<BoldMsBtn contents={contents} handleFunc={handleUploadBtnClick}/>
         :<GreyMsBtn contents={contents} />
       }
     </BasicHeaderStyle>

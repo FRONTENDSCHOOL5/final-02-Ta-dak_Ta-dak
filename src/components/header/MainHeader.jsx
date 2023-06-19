@@ -1,12 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import IconSearch from '../../assets/img/icon-search.svg';
 
 export default function MainHeader() {
+
+  const navigate = useNavigate();
+
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
-      <button className='iconSearch'></button>
+      <button className='iconSearch' onClick={()=> navigate('/search')}></button>
     </MainHeaderStyle>
   );
 }
