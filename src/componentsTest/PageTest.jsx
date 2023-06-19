@@ -25,6 +25,7 @@ export default function PageTest() {
         <Route path='/login' element={<LoginPage />} />
         {/* 게시물 업로드 */}
         <Route path='/upload' element={<UploadPage />} />
+        <Route path='/editpost' element={<UploadPage />} />
         <Route path='/feed' element={<FeedHomePage />} />
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />

@@ -1,7 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil'
+import { UserAtom } from '../../recoil/AtomUserState';
+import { postLike, deleteLike } from '../../api/heartAPI';
+import { deletePost, reportPost } from '../../api/postAPI';
+import useModalControl from '../../hooks/useModalControl';
+import useAlertControl from '../../hooks/useAlertControl';
 
+import { Modal } from './Modal';
+import Alert from './Alert';
+import styled from 'styled-components';
 import SearchProfile from './SearchProfile';
 
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
@@ -9,7 +17,45 @@ import { ReactComponent as IconComment } from './../../assets/img/s-icon-message
 import moreButtonIcon from './../../assets/img/s-icon-more.svg';
 
 export default function Post({ post }) {
-  const [like, setLike] = useState(false);
+  const navigate = useNavigate();
+  const myInfo = useRecoilValue(UserAtom)
+  const [like, setLike] = useState(post.hearted);
+  const isLike = post.hearted;
+  const { openModal, ModalComponent } = useModalControl();
+  const { openAlert, AlertComponent } = useAlertControl();
+  const id = post.id || post._id;
+
+  const postLikeReq = async () => {
+    await postLike(id);
+  }
+  const deleteLikeReq = async () => {
+    await deleteLike(id);
+  }
+
+  const reportPostReq = async () => {
+    await reportPost(id)
+  }
+
+  const deletePostReq = async () => {
+    await deletePost(id)
+    window.location.reload();
+  }
+
+  const handleModal = (event) => {
+    if (event.target.textContent === "삭제") {
+      openAlert();
+    } else if (event.target.textContent === "수정") {
+      navigate('/editpost', {
+        state: {
+          id: id,
+          content: post.content,
+          image: post.image
+        }
+      })
+    } else if (event.target.textContent === "확인") {
+      deletePostReq();
+    }
+  }
 
   const timeFormat = (time) => {
     const originalDate = new Date(time);
@@ -21,49 +67,69 @@ export default function Post({ post }) {
   }
 
   return (
-    <PostStyle>
-      <button className='postMoreButton' />
-      <div className='profileComponent'>
-        <SearchProfile info={post.author} />
-      </div>
-      <PostContainerStyle>
-        <Link to={`/postdetail/${post.id}`}>
-          <h3 className='a11y-hidden'>포스트 내용</h3>
-          <p>{post.content}</p>
-          {post.image && (
-            <img
-              src={post.image}
-              alt={`${post.author.accountname}의 포스팅 이미지`}
-              onError={(event) => {
-                event.target.src = 'https://colorlib.com/wp/wp-content/uploads/sites/2/404-not-found-error-page-examples.png';
-              }}
-            />
-          )}
-        </Link>
-        <div className='likeCommentCount'>
-          <button
-            className='likeButton'
-            onClick={() => {
-              setLike((prev) => !prev);
-            }}
-          >
-            <span className='a11y-hidden'>좋아요 버튼</span>
-            <IconLike
-              className='iconImg'
-              fill={like === true ? '#E73C3C' : 'var(--background-color)'}
-              stroke={like === true ? '#E73C3C' : 'var(--basic-color-7)'}
-            />
-            <span className='count'>{post.heartCount}</span>
-          </button>
-          <Link to={`/postdetail/${post.id}`}>
-            <span className='a11y-hidden'>댓글 보기, 남기기</span>
-            <IconComment className='iconImg' />
-            <span className='count'>{post.comments?.length}</span>
-          </Link>
+    <>
+      <PostStyle>
+        <button className='postMoreButton' onClick={openModal} />
+        <div className='profileComponent'>
+          <SearchProfile info={post.author} />
         </div>
-        <span className='postDate'>{timeFormat(post.createdAt)}</span>
-      </PostContainerStyle>
-    </PostStyle>
+        <PostContainerStyle>
+          <Link to={`/postdetail/${id}`}>
+            <h3 className='a11y-hidden'>포스트 내용</h3>
+            <p>{post.content}</p>
+            {post.image && (
+              <img
+                src={post.image}
+                alt={`${post.author.accountname}의 포스팅 이미지`}
+                onError={(event) => {
+                  event.target.src = 'https://colorlib.com/wp/wp-content/uploads/sites/2/404-not-found-error-page-examples.png';
+                }}
+              />
+            )}
+          </Link>
+          <div className='likeCommentCount'>
+            <button
+              className='likeButton'
+              onClick={() => {
+                setLike((prev) => !prev);
+              }}
+            >
+              <span className='a11y-hidden'>좋아요 버튼</span>
+              <IconLike
+                className='iconImg'
+                fill={like ? '#E73C3C' : 'var(--background-color)'}
+                stroke={like ? '#E73C3C' : 'var(--basic-color-7)'}
+                onClick={like ? deleteLikeReq : postLikeReq}
+              />
+              {isLike ?
+                <span className='count'>{like ? post.heartCount : post.heartCount - 1}</span> :
+                <span className='count'>{like ? post.heartCount + 1 : post.heartCount}</span>
+              }
+            </button>
+            <Link to={`/postdetail/${id}`}>
+              <span className='a11y-hidden'>댓글 보기, 남기기</span>
+              <IconComment className='iconImg' />
+              <span className='count'>{post.comments?.length}</span>
+            </Link>
+          </div>
+          <span className='postDate'>{timeFormat(post.createdAt)}</span>
+        </PostContainerStyle>
+      </PostStyle>
+
+      <AlertComponent>
+        <Alert alertMsg={'게시글을 삭제할까요?'} choice={['취소', '확인']} handleFunc={handleModal}/>
+      </AlertComponent>
+
+      <ModalComponent>
+        {post.author?.accountname === myInfo.accountname ?
+          <Modal contents={['삭제', '수정']} handleFunc={handleModal} /> :
+          <Modal contents={['신고']} handleFunc={reportPostReq} />}
+      </ModalComponent>
+
+
+
+
+    </>
   );
 }
 
@@ -72,7 +138,6 @@ const PostStyle = styled.article`
   margin-bottom: 20px;
   max-width: 358px;
   width: 100%;
-
   .postMoreButton {
     position: absolute;
     top: 0px;

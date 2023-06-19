@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import useScrollBottom from '../hooks/useScrollBottom';
 import { getPost } from '../api/postAPI';
+import useScrollBottom from '../hooks/useScrollBottom';
 import styled from 'styled-components';
 
 import MainHeader from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
-import { NavBar } from '../components/common/NavBar';
-
 
 export default function FeedHomePage() {
   const elementRef = useRef(null);

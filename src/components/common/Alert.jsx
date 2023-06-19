@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export function Alert() {
+export default function Alert({ alertMsg, choice, handleFunc }) {
   return (
     <div>
     <AlertStyle>
-      <p>상품을 삭제할까요?</p>
-      <button className='cancle'>취소</button>
-      <button className='delete'>삭제</button>
+      <p>{alertMsg}</p>
+      <button className='cancle' onClick={handleFunc}>{choice[0]}</button>
+      <button className='delete' onClick={handleFunc}>{choice[1]}</button>
     </AlertStyle>
     </div>
   );
