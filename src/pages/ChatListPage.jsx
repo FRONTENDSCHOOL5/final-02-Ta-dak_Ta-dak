@@ -67,7 +67,7 @@ const ChatContainerStyle = styled.div`
   height: 66px;
   display: flex;
   align-items: center;
-  background-color: #fcfbf3;
+  background-color: var(--background-color);
   cursor: pointer;
 
   img {
