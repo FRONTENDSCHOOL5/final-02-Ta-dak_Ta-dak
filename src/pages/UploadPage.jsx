@@ -73,8 +73,7 @@ export default function UploadPage() {
 const UploadPageStyle = styled.section`
   position: relative;
   height: var(--basic-height);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .uploadImgBtn {
     position: absolute;
@@ -89,6 +88,10 @@ const PostWrapperStyle = styled.article`
   max-height: 696px;
   overflow-y: auto;
   overflow-x: hidden;
+  ::-webkit-scrollbar {
+    background-color: var(--background-color);
+    width: 0px;
+  }
 
   .uploading {
     margin: 12px 0 0 12px;
@@ -96,7 +99,6 @@ const PostWrapperStyle = styled.article`
       font-family: 'Noto Sans KR', sans-serif;
       width: 308px;
       min-height: 80px;
-      /* max-height: ; */
       resize: none;
       overflow: hidden;
       border: none;
@@ -117,4 +119,4 @@ const PostWrapperStyle = styled.article`
       border: 0.5px solid var(--basic-color-8);
     }
   }
-`
+`;

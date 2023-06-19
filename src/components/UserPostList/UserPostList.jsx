@@ -63,6 +63,14 @@ const TabStyle = styled(Link)`
 
 const PostWrapperStyle = styled.div`
   width: 100%;
+  height: calc( var(--screen-nav-height) - 358px);
+  overflow-y: auto;
+  overflow-x: hidden;
+
   max-width: var(--basic-width);
   margin: auto;
+  ::-webkit-scrollbar {
+    background-color: var(--background-color);
+    width: 0px;
+  }
 `;

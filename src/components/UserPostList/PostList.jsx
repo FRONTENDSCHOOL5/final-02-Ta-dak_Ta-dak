@@ -25,4 +25,13 @@ const PostListStyle = styled.div`
   max-width: var(--basic-width);
   padding: 30px;
   padding: 16px;
+
+  p {
+    /* 7줄 넘어가면 말줄임 */
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
