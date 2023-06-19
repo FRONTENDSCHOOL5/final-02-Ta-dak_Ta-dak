@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ChatHeader } from '../components/header/ChatHeader';
+import ChatHeader from '../components/header/ChatHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { FileUploadSm } from '../components/common/FileUpload';
 import saleItem from '../assets/testImg/saleItem3.png';
@@ -10,7 +10,7 @@ export default function ChatRoom() {
   const chatHistory = [
     {
       Msg: '캠핑 아이스 박스 사고 싶어서 문의드려요. 혹시 상태가 괜찮은가요? 짐도 많이 들어가는 편인지 궁급합니다. 고기도 함께 구입하고 싶어요. 다음주에 캠핑을 가야해서 급하게 연락합니다.',
-      creatAT: '12:39',
+      creatAt: '12:39',
       receive: true,
     },
     {
@@ -68,14 +68,15 @@ export default function ChatRoom() {
 }
 
 const ChatRoomPageStyle = styled.div`
-  width: var(--basic-width);
-  height: var(--basic-height);
-  background-color: var(--background-color);
+
+  height: var(--screen-nav-height);
+  padding-top: 24px;
+
 `;
 
 const ChatContainerStyle = styled.div`
   display: flex;
-  margin: 9px 16px;
+  margin: 0 16px 9px;
 
   p {
     display: inline-block;

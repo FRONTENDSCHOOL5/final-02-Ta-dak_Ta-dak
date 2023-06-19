@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BasicHeader } from '../components/header/BasicHeader';
+import BasicHeader from '../components/header/BasicHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { NavBar } from '../components/common/NavBar';
 import { useNavigate } from 'react-router-dom';
@@ -47,14 +47,13 @@ export default function ChatList() {
           </div>
         </ChatContainerStyle>
       </ChatListPageStyle>
-      <NavBar />
     </>
   );
 }
 
 const ChatListPageStyle = styled.div`
   width: var(--basic-width);
-  height: var(--basic-height);
+  height: var(--screen-nav-height);
   background-color: var(--background-color);
   overflow-y: scroll;
   overflow-x: hidden;

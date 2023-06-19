@@ -63,7 +63,7 @@ const TabStyle = styled(Link)`
 
 const PostWrapperStyle = styled.div`
   width: 100%;
-  height: calc( var(--screen-nav-height) - 358px);
+  height: calc( var(--screen-nav-height) - 360px);
   overflow-y: auto;
   overflow-x: hidden;
 

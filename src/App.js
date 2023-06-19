@@ -10,9 +10,9 @@ function App() {
       <WrapperStyle>
         <BaseSizeStyle>
       {/* <CommonComponents /> */}
-      {/* <PageTest /> */}
+      <PageTest />
       {/* <FeedHomePage /> */}
-      <SplashPage/>
+      {/* <SplashPage/> */}
         </BaseSizeStyle>
       </WrapperStyle>
   )
