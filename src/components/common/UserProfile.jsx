@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { ProfileLg } from './Profile';
@@ -8,19 +8,23 @@ import UserId from './UserId';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile({profile, isMyAccount, isFollow}) {
-  console.log('sss '+isFollow);
-  
+export default function UserProfile({profile, isMyAccount, isFollow}) {  
+  const navigate = useNavigate();
+  const location = useLocation();
   
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
-        <div>
+        <div className='follow' onClick={()=>{
+          navigate(`${location.pathname}/follower`);
+        }}>
           <strong>{profile.followerCount}</strong>
           <p>followers</p>
         </div>
         <ProfileLg url={`${profile.image}`} />
-        <div>
+        <div className='follow' onClick={()=>{
+          navigate(`${location.pathname}/following`);
+        }}>
           <strong>{profile.followingCount}</strong>
           <p>followings</p>
         </div>
@@ -78,16 +82,18 @@ const ProfileTopStyle = styled.div`
   align-items: center;
   justify-content: space-evenly;
 
-  strong {
-    font-weight: var(--font--Bold);
-    font-size: 18px;
-  }
-
-  p {
-    padding-top: 6px;
-    font-weight: var(--font--Regular);
-    font-size: 10px;
-    color: var(--basic-color-7);
+  .follow {
+    cursor: pointer;
+    strong {
+      font-weight: var(--font--Bold);
+      font-size: 18px;
+    }
+    p {
+      padding-top: 6px;
+      font-weight: var(--font--Regular);
+      font-size: 10px;
+      color: var(--basic-color-7);
+    }
   }
 `;
 

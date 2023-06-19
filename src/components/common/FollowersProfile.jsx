@@ -3,15 +3,19 @@ import styled from 'styled-components';
 import { GreenSmBtn, WhiteSmBtn } from './Button';
 import { ProfileSm } from './Profile';
 
-export default function FollowersProfile({isFollow}) {
+export default function FollowersProfile({ followingUser }) {
   return (
     <FollowersProfileStyle>
-      <ProfileSm url={''}/>
+      <ProfileSm url={`${followingUser.image}`} />
       <div>
-        <p>낭만있는캠린이</p>
-        <span>낭만있게 불멍타임 타닥타닥(ASMR 같네요~🔥)</span>
+        <p>{followingUser.username}</p>
+        <span>{followingUser.intro}</span>
       </div>
-      {isFollow ? <WhiteSmBtn contents={'취소'} /> : <GreenSmBtn contents={'팔로우'} />}
+      {followingUser.isfollow ? (
+        <WhiteSmBtn contents={'취소'} />
+      ) : (
+        <GreenSmBtn contents={'팔로우'} />
+      )}
     </FollowersProfileStyle>
   );
 }
@@ -19,10 +23,12 @@ export default function FollowersProfile({isFollow}) {
 const FollowersProfileStyle = styled.div`
   background-color: var(--background-color);
   position: relative;
-  width: 358px;
+  /* width: 358px; */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 16px;
 
   img {
     width: 50px;

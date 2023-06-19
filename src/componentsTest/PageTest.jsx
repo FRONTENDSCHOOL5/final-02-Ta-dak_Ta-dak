@@ -11,6 +11,8 @@ import ProfileSettingPage from '../pages/ProfileSettingPage';
 import SearchPage from '../pages/SearchPage';
 import PostDetail from '../pages/PostDetail';
 import ProfilePage from '../pages/ProfilePage';
+import FollowerListPage from '../pages/FollowerListPage';
+import FollowingListPage from '../pages/FollowingListPage';
 import { NavBar } from '../components/common/NavBar';
 
 export default function PageTest() {
@@ -34,6 +36,8 @@ export default function PageTest() {
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
+        <Route path='/profile/:accountname/follower' element={<FollowerListPage />} />
+        <Route path='/profile/:accountname/following' element={<FollowingListPage />} />
       </Routes>
       <NavBar/>
     </div>
