@@ -67,5 +67,6 @@ const PostListStyle = styled.div`
   overflow: scroll; 
   ::-webkit-scrollbar {
   background-color: var(--background-color);
+  width: 0;
   }
 `;

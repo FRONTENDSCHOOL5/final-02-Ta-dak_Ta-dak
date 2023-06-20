@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Link,useLocation,useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { ProfileLg } from './Profile';
 import { GreenMdBtn, WhiteMdBtn } from './Button';
@@ -60,7 +60,9 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
           <>
             <WhiteMdBtn contents={'프로필 수정'} />
             <div className="blank"></div>
-            <WhiteMdBtn contents={'상품 등록'} />
+            <Link to='/addproduct'>
+              <WhiteMdBtn contents={'상품 등록'} />
+            </Link>
           </>
         ) : (
           // 다른사람 계정일 경우
