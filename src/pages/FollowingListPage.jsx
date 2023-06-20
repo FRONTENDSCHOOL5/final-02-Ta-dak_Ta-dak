@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getFollowingList } from '../apiTest/followAPI';
+import { getFollowingList } from '../apiTest/followListAPI';
 import FollowersProfile from '../components/common/FollowersProfile';
 import ChatHeader from '../components/header/ChatHeader';
 

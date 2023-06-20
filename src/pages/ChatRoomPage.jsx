@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ChatHeader } from '../components/header/ChatHeader';
+import ChatHeader from '../components/header/ChatHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { FileUploadSm } from '../components/common/FileUpload';
 import saleItem from '../assets/testImg/saleItem3.png';

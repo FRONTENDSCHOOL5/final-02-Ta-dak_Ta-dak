@@ -1,9 +1,25 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import { GreenSmBtn, WhiteSmBtn } from './Button';
 import { ProfileSm } from './Profile';
 
+import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
+
+
 export default function FollowersProfile({ followingUser }) {
+  const [isFollow, setIsFollow] = useState(followingUser.isfollow)
+
+  const followBtnHandler = async () => {
+    const following = await doFollowing(followingUser.accountname);
+    setIsFollow(true);
+  };
+
+  const unFollowBtnHandler = async () => {
+    const unfollowing = await doUnfollowing(followingUser.accountname);
+    setIsFollow(false);
+  };
+  
   return (
     <FollowersProfileStyle>
       <ProfileSm url={`${followingUser.image}`} />
@@ -11,10 +27,10 @@ export default function FollowersProfile({ followingUser }) {
         <p>{followingUser.username}</p>
         <span>{followingUser.intro}</span>
       </div>
-      {followingUser.isfollow ? (
-        <WhiteSmBtn contents={'취소'} />
+      {isFollow ? (
+        <WhiteSmBtn contents={'취소'} handleFunc={unFollowBtnHandler} />
       ) : (
-        <GreenSmBtn contents={'팔로우'} />
+        <GreenSmBtn contents={'팔로우'} handleFunc={followBtnHandler} />
       )}
     </FollowersProfileStyle>
   );

@@ -33,7 +33,6 @@ export default function ProfilePage() {
     const loadSaleItem = async() => {
       const saleItems = await getSaleItem(accountname);
       setSaleItemProps([...saleItems.product])
-          
     }
 
     const loadProfilePost = async () => {
@@ -51,8 +50,13 @@ export default function ProfilePage() {
   return (
     <ProfilePageStyle>
       <BasicHeader />
-      <UserProfile profile={profileProps} isMyAccount={isMyAccount} isFollow={isFollow}/>
-      <UserPostList saleItem={saleItemProps} post={profilePostProps}/>
+      <UserProfile
+        profile={profileProps}
+        isMyAccount={isMyAccount}
+        isFollow={isFollow}
+        setIsFollow={setIsFollow}
+      />
+      <UserPostList saleItem={saleItemProps} post={profilePostProps} />
     </ProfilePageStyle>
   );
 }

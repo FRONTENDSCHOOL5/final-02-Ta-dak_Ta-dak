@@ -1,30 +1,48 @@
-import { Link,useLocation,useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { Link,useLocation,useNavigate, useParams } from 'react-router-dom';
 
 import { ProfileLg } from './Profile';
 import { GreenMdBtn, WhiteMdBtn } from './Button';
 import UserId from './UserId';
 
+import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile({profile, isMyAccount, isFollow}) {  
+export default function UserProfile({ profile, isMyAccount, isFollow, setIsFollow }) {
+  const { accountname } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  
+
+  const followBtnHandler = async () => {
+    const following = await doFollowing(accountname);
+    setIsFollow(true);
+  };
+
+  const unFollowBtnHandler = async () => {
+    const unfollowing = await doUnfollowing(accountname);
+    setIsFollow(false);
+  };
+
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
-        <div className='follow' onClick={()=>{
-          navigate(`${location.pathname}/follower`);
-        }}>
+        <div
+          className="follow"
+          onClick={() => {
+            navigate(`${location.pathname}/follower`);
+          }}
+        >
           <strong>{profile.followerCount}</strong>
           <p>followers</p>
         </div>
         <ProfileLg url={`${profile.image}`} />
-        <div className='follow' onClick={()=>{
-          navigate(`${location.pathname}/following`);
-        }}>
+        <div
+          className="follow"
+          onClick={() => {
+            navigate(`${location.pathname}/following`);
+          }}
+        >
           <strong>{profile.followingCount}</strong>
           <p>followings</p>
         </div>
@@ -41,29 +59,27 @@ export default function UserProfile({profile, isMyAccount, isFollow}) {
           // 내 계정일 경우
           <>
             <WhiteMdBtn contents={'프로필 수정'} />
-            <div className='blank'></div>
+            <div className="blank"></div>
             <WhiteMdBtn contents={'상품 등록'} />
           </>
-        ) : // 다른사람 계정일 경우
-          (
+        ) : (
+          // 다른사람 계정일 경우
           <>
             <LinkChatStyle to="/">
               <img src={IconSmMessage} alt="채팅하기" />
             </LinkChatStyle>
-            {
-              isFollow ? (
+            {isFollow ? (
               // 팔로잉 한사람일 경우 - 언팔로우
-              <WhiteMdBtn contents={'언팔로우'} />
-              ) : (
+              <WhiteMdBtn contents={'언팔로우'} handleFunc={unFollowBtnHandler} />
+            ) : (
               // 팔로잉 안한 사람일경우 - 팔로우
-              <GreenMdBtn contents={'팔로우'} />
+              <GreenMdBtn contents={'팔로우'} handleFunc={followBtnHandler} />
             )}
             <ShareBtnStyle href={undefined}>
               <img src={IconShare} alt="공유하기" />
             </ShareBtnStyle>
           </>
-          )
-        }
+        )}
       </ProfileBottomStyle>
     </UserProfileStyle>
   );
