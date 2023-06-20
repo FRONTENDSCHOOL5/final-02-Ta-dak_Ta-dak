@@ -1,10 +1,12 @@
 import { axiosAuth } from './settingAxios';
 
-export const getFollowingList = async (accountname) => {
-  const reqUrl = `/profile/${accountname}/following`;
+export const doFollowing = async (accountname) => {
+  const reqUrl = `/profile/${accountname}/follow`;
 
   try {
-    const response = await axiosAuth.get(reqUrl);
+    const response = await axiosAuth.post(reqUrl);
+    console.log(response.data);
+    
     return response.data;
   } catch (error) {
     console.error('Request error', error);
@@ -12,11 +14,13 @@ export const getFollowingList = async (accountname) => {
   }
 };
 
-export const getFollowerList = async (accountname) => {
-  const reqUrl = `/profile/${accountname}/follower`;
+export const doUnfollowing = async (accountname) => {
+  const reqUrl = `/profile/${accountname}/unfollow`;
 
   try {
-    const response = await axiosAuth.get(reqUrl);
+    const response = await axiosAuth.delete(reqUrl);
+    console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.error('Request error', error);
