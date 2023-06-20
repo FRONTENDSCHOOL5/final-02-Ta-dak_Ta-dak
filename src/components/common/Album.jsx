@@ -26,5 +26,6 @@ const AlbumStyle = styled.li`
     width: 100%;
     aspect-ratio: 1/1;
     vertical-align: top;
+    object-fit: cover;
   }
 `;

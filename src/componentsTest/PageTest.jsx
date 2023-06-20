@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import ProfileSignUpPage from '../pages/ProfileSettingPage';
 import LoginPage from '../pages/LoginPage';
 import UploadPage from '../pages/UploadPage';
 import FeedHomePage from '../pages/FeedHomePage';
@@ -17,15 +16,16 @@ import PostDetail from '../pages/PostDetail';
 import ProfilePage from '../pages/ProfilePage';
 import FollowerListPage from '../pages/FollowerListPage';
 import FollowingListPage from '../pages/FollowingListPage';
+import SplashPage from '../pages/SplashPage';
 import { NavBar } from '../components/common/NavBar';
-
 
 export default function PageTest() {
   return (
     <div>
       <Routes>
+      <Route path='/splash/' element={<SplashPage/>} />
         {/* 회원가입 */}
-        <Route path='/' element={<Navigate to='/signup' replace />} />
+        <Route path='/' element={<Navigate to='/splash' replace />} />
         <Route path='/signup/' element={<SignUpPage />} />
         <Route path='/signup/profile' element={<ProfileSettingPage />} />
         {/* 로그인 */}
@@ -40,6 +40,7 @@ export default function PageTest() {
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
 
         <Route path='/chat' element={<ChatListPage />} />
+        <Route path='/splash' element={<SplashPage />} />
         <Route path='/chatroom' element={<ChatRoomPage />} />
         <Route path='/search' element={<SearchPage />}/>
         <Route path='/postdetail/*' element={<PostDetail />} />

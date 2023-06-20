@@ -1,5 +1,5 @@
-import React from 'react'
-
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, {keyframes} from 'styled-components'
 
 import { ReactComponent as Tadak} from '../assets/img/tadak.svg';
@@ -10,6 +10,16 @@ import { ReactComponent as FireworkR} from '../assets/img/firework-r.svg';
 import { ReactComponent as FireworkL} from '../assets/img/firework-l.svg';
 
 export default function SplashPage() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/signup');
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [])
+
   return (
     <>
     <SplashPageStyle>
