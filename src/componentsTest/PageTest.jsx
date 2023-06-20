@@ -17,6 +17,7 @@ import ProfilePage from '../pages/ProfilePage';
 import FollowerListPage from '../pages/FollowerListPage';
 import FollowingListPage from '../pages/FollowingListPage';
 import SplashPage from '../pages/SplashPage';
+import Page404 from '../pages/404Page';
 import { NavBar } from '../components/common/NavBar';
 
 export default function PageTest() {
@@ -49,6 +50,7 @@ export default function PageTest() {
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/:accountname/follower' element={<FollowerListPage />} />
         <Route path='/profile/:accountname/following' element={<FollowingListPage />} />
+        <Route path='/404page' element={<Page404 />} />
       </Routes>
       <NavBar/>
     </div>

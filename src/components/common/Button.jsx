@@ -16,6 +16,10 @@ export function GreenSmBtn({ contents, handleFunc }) {
   return <GreenSmBtnStyle onClick={handleFunc}>{contents}</GreenSmBtnStyle>;
 }
 
+export function GreenBackBtn({ contents, handleFunc }) {
+  return <GreenBackBtnStyle onClick={handleFunc}>{contents}</GreenBackBtnStyle>;
+}
+
 export function BoldLgBtn({ contents, handleFunc }) {
   return <BoldLgBtnStyle onClick={handleFunc}>{contents}</BoldLgBtnStyle>;
 }
@@ -116,6 +120,14 @@ const GreenSmBtnStyle = styled.button`
   background-color: var(--basic-color-2);
   border-radius: 30px;
   transition: .3s;
+`;
+
+const GreenBackBtnStyle = styled.button`
+  width: 120px;
+  height: 44px;
+  font-size: var(--font--size-md);
+  background-color: var(--basic-color-2);
+  border-radius: 30px;
 `;
 
 const BoldLgBtnStyle = styled(GreenLgBtnStyle)`

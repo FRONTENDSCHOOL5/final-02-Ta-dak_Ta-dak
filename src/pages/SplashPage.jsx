@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 import styled, {keyframes} from 'styled-components'
 
 import { ReactComponent as Tadak} from '../assets/img/tadak.svg';
@@ -8,17 +10,12 @@ import { ReactComponent as WoodFire} from '../assets/img/woodfire.svg';
 import { ReactComponent as SubTitle} from '../assets/img/subtitle.svg';
 import { ReactComponent as FireworkR} from '../assets/img/firework-r.svg';
 import { ReactComponent as FireworkL} from '../assets/img/firework-l.svg';
+import { ReactComponent as Kakao}  from '../assets/img/kakao-login.svg';
+import { ReactComponent as Google} from '../assets/img/google-login.svg';
+import { ReactComponent as Facebook} from '../assets/img/fb-login.svg';
 
 export default function SplashPage() {
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/signup');
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [])
 
   return (
     <>
@@ -30,6 +27,28 @@ export default function SplashPage() {
         <FireStyle></FireStyle>
         <WoodFireStyle></WoodFireStyle>
         <SubTitleStyle></SubTitleStyle>
+        <LoginModalStyle>
+          <li>
+            <BtnSocialStyle>
+              <Kakao></Kakao>
+            </BtnSocialStyle>
+            <BtnSocialStyle>
+              <Google></Google>
+            </BtnSocialStyle>
+            <BtnSocialStyle>
+              <Facebook></Facebook>
+            </BtnSocialStyle>
+          </li>
+          <div>
+            <Link to="/login">
+              <button calssName='email-login'>이메일로 로그인</button>
+            </Link>
+            <span>|</span>
+            <Link to="/signup">
+              <button className='Signup'>회원가입</button>
+            </Link>
+        </div>
+        </LoginModalStyle>
     </SplashPageStyle>
     </>
   )
@@ -73,6 +92,22 @@ const firework3 = keyframes`
 100% {
   opacity: 0;
   transform: translateY(-60px);
+}
+`
+
+const loginmodal = keyframes`
+  0% {
+  opacity: 0;
+  transform: translateY(0px);
+}
+  50% {
+    opacity: 0;
+    transform: translateY(0px);
+
+}
+  100% {
+  opacity: 1;
+  transform: translateY(-280px);
 }
 `
 
@@ -123,4 +158,41 @@ const SubTitleStyle = styled(SubTitle)`
   position: relative;
   top: -150px;
   margin: 10px 88px; 
+`
+
+const LoginModalStyle = styled.article`
+width: 390px;
+height: 362px;
+border-radius: 20px;
+background-color: #ffffff;
+position: relative;
+top: -70px;
+z-index: 101;
+animation: ${loginmodal} 5s forwards;
+  li {
+    list-style: none;
+    position: relative;
+    top: 20px
+  }
+
+  div {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+      button {
+        font-size: var(--font--size-lg);
+        color: var(--basic-color-7);
+      }
+  }
+`
+const BtnSocialStyle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 322px;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 44px;
 `
