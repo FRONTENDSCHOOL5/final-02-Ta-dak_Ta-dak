@@ -15,6 +15,7 @@ import ChatRoomPage from '../pages/ChatRoomPage'
 import PostDetail from '../pages/PostDetail';
 import ProfilePage from '../pages/ProfilePage';
 import SplashPage from '../pages/SplashPage';
+import Page404 from '../pages/404Page';
 import { NavBar } from '../components/common/NavBar';
 
 export default function PageTest() {
@@ -45,6 +46,7 @@ export default function PageTest() {
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
+        <Route path='/404page' element={<Page404 />} />
       </Routes>
       <NavBar/>
     </div>
