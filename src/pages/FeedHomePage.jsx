@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { IsFeedAtom } from '../recoil/AtomFeedState';
 import { getPost, getPostAll } from '../api/postAPI';
 import useScrollBottom from '../hooks/useScrollBottom';
 import styled from 'styled-components';
@@ -14,11 +12,9 @@ export default function FeedHomePage() {
   const isBottom = useScrollBottom(elementRef);
   const navigate = useNavigate();
   const location = useLocation();
-  const isFeed = useRecoilValue(IsFeedAtom);
 
   const [loadPostSeq, setLoadPostSeq] = useState(0);
   const [visiblePost, setVisiblePost] = useState([]);
-
 
   useEffect(() => {
     if (isBottom) {
@@ -26,40 +22,36 @@ export default function FeedHomePage() {
       setLoadPostSeq((PrevValue) => PrevValue + 5)
     }
   }, [isBottom]);
-
+  
+  useEffect(() => {
+    const upDate = async () => {
+      const data = await upDateFeed(0);
+      if (data.posts.length === 0) {
+        navigate('/feed/nonfollow')
+      };
+    }
+    if (location.pathname === '/feed') {
+      upDate()
+    }
+    else if (location.pathname === '/recommendfeed') {
+      upDateFeed(0);
+    }
+    setVisiblePost([]);
+    setLoadPostSeq(0);
+  }, [location.pathname])
+  
   const upDateFeed = async (value) => {
     if (location.pathname === '/feed') {
       const data = await getPost(value)
       setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
       return data
-    } 
-    // else if (location.pathname === '/recommendfeed') {
-    //   const data = await getPostAll(value)
-    //   setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
-    // }
-  }
-
-  useEffect(() => {
-    const upDate = async () => {
-      const data = await upDateFeed(loadPostSeq);
-      if(data.posts?.length === 0) navigate('/feed/nonfollow');
     }
-    if (location.pathname ==='/feed') {
-      console.log('/feed');
-      upDate();
-    } 
-    // else if (location.pathname ==='/recommendfeed') {
-    //   console.log('/recommendfeed');
-    //   upDateFeed(loadPostSeq);
-    //   setVisiblePost([]);
-    //   setLoadPostSeq(0);
-    // }
-
-  }, [isFeed])
-
-  useEffect(() => {
-  }, [])
-
+    else if (location.pathname === '/recommendfeed') {
+      const data = await getPostAll(value)
+      setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
+    }
+  }
+  
   return (
     <>
       <MainHeader />

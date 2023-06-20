@@ -33,24 +33,21 @@ export default function UserPostList({saleItem, post}) {
               {tab === 2 ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
             </TabStyle>
           </TypeTabsStyle>
-        </TypeTabsWrapperStyle>
         <PostWrapperStyle>
           {[<SaleItemList saleItem={saleItem} />, <PostList visiblePost={post}/>, <AlbumList visiblePost={post}/>][tab]}
         </PostWrapperStyle>
+        </TypeTabsWrapperStyle>
       </section>
     </>
   );
 }
 
 const TypeTabsWrapperStyle = styled.div`
-  width: 100%;
   border-top: 0.5px solid var(--basic-color-8);
   border-bottom: 0.5px solid var(--basic-color-8);
 `;
 
 const TypeTabsStyle = styled.div`
-  width: 100%;
-  max-width: var(--basic-width);
   height: 44px;
   margin: auto;
   padding: 10px;
@@ -62,11 +59,9 @@ const TabStyle = styled(Link)`
 `;
 
 const PostWrapperStyle = styled.div`
-  width: 100%;
   height: calc( var(--screen-nav-height) - 358px);
   overflow-y: auto;
   overflow-x: hidden;
-
   max-width: var(--basic-width);
   margin: auto;
   ::-webkit-scrollbar {

@@ -18,36 +18,31 @@ export default function SearchPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   // 입력값이 변경되었을 때 값을 추출해서 search에 저장
-  const inputChange = (e)=>{
-    const {value} = e.target
-    setSearch(value)
-  }
   const navigate = useNavigate();
   
-// GetSearch에 await걸어줌
-// 아무것도 입력하지않아도 api에서 받아온게 뜨니까 입막음완료
-  const setResult = async () => {
-    setSearchList(await GetSearch(search));
-  }
-// 여러번 관리 useEffect 아무것도 입력하지 않았을때 아무것도 안뜨게 하기
+  // GetSearch에 await걸어줌
+  // 아무것도 입력하지않아도 api에서 받아온게 뜨니까 입막음완료
+    const setResult = async () => {
+      setSearchList(await GetSearch(search));
+    }
+  // 여러번 관리 useEffect 아무것도 입력하지 않았을때 아무것도 안뜨게 하기
   useEffect(() => {
-    let time;
+    let timer;
     if(search.length >= 1) {      
       setResult()
       setIsLoading(true)
     } else if (search.length === 0 ){
       setIsLoading(false)
-      time = setTimeout(() => {
+      timer = setTimeout(() => {
         setSearchList([])
       }, 500);
     }
     setIsLoading(false)
     return () => {
-      clearTimeout(time);
+      clearTimeout(timer);
     }
-}, [search])
+  }, [search])
 
-console.log(searchList) 
   return (
     <>
       <SearchHeader value={search} setValue={setSearch}></SearchHeader>
@@ -76,6 +71,7 @@ console.log(searchList)
 }
 
 const SearchPageStyle = styled.div `
+  padding: 20px 16px 0;
   width: 390px;
   height: var(--screen-nav-height);
   margin: 0 auto;

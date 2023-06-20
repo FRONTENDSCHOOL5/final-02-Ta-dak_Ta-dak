@@ -3,25 +3,28 @@ import styled, { css } from 'styled-components';
 import BasicProfile from '../../assets/img/basic-profile.svg';
 
 function getProfileSrc(url) {
-  return (url.includes("http://146.56.183.55:5050/Ellipse.png") || !url.includes("https://")) ? BasicProfile : (url || BasicProfile);
+  return typeof value == "string" && (url.includes("http://146.56.183.55:5050/Ellipse.png") || !url.includes("https://")) ? BasicProfile : (url || BasicProfile);
 }
 
 export function ProfileLg({ url = false }) {
-  return <ProfileLgStyle src={ url || BasicProfile } alt="" />;
+  return <ProfileLgStyle src={url || BasicProfile} alt="" />
 }
 
 export function ProfileMd({ url = false }) {
-  return <ProfileMdStyle src={getProfileSrc(url)} alt="" />;
+  return <ProfileMdStyle src={getProfileSrc(url)} alt="" />
 }
 
-export function ProfileSm({ url = false }) {
-  return <ProfileSmStyle src={getProfileSrc(url)} alt="" />;
+export function ProfileSm({ url = false, confirm }) {
+  return (
+    <ProfileContainer confirm={confirm}>
+      <ProfileSmStyle src={getProfileSrc(url)} alt="" />
+    </ProfileContainer>
+  );
 }
 
 const ProfileContainer = styled.div`
   position: relative;
   &:after{
-    display: ${({confirm}) => ((confirm) ? 'block' : 'none')};
     position: absolute;
     top: 0;
     left: 15px;
@@ -30,6 +33,7 @@ const ProfileContainer = styled.div`
     height: 12px;
     border-radius: 50%;
     background-color: #FF8B13;
+    display: ${({ confirm }) => (confirm) ? 'block' : 'none'};
   }
 `;
 

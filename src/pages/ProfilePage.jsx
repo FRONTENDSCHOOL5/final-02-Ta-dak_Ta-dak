@@ -58,6 +58,5 @@ export default function ProfilePage() {
 }
 
 const ProfilePageStyle = styled.section`
-  /* width: var(--basic-width); */
-  /* background-color: var(--background-color); */
+  height: calc(100vh - 60px);
 `;

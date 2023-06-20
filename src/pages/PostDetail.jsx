@@ -84,16 +84,16 @@ const PostContainer = styled.div`
 
 const PostStyle = styled.div`
   margin: 20px;
-  height: 458px;
+  max-height: 458px;
 `;
 
 const CommentStyle = styled.ul`
   box-shadow: 0px -1px var(--basic-color-8);
+  border-bottom: 1px solid var(--basic-color-8);
   flex-grow: 1;
+  flex-basis: 0;
   overflow: scroll;
   padding-top: 20px;
-  height: 100%;
-
 ::-webkit-scrollbar {
   background-color: var(--background-color)
 }
