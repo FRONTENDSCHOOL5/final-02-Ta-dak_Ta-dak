@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { GreenSmBtn, WhiteSmBtn } from './Button';
 import { ProfileSm } from './Profile';
 
-import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
+import { doFollowing, doUnfollowing } from '../../api/followAPI';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,12 +13,12 @@ export default function FollowersProfile({ followingUser }) {
   const navigate = useNavigate();
 
   const followBtnHandler = async () => {
-    const following = await doFollowing(followingUser.accountname);
+    await doFollowing(followingUser.accountname);
     setIsFollow(true);
   };
 
   const unFollowBtnHandler = async () => {
-    const unfollowing = await doUnfollowing(followingUser.accountname);
+    await doUnfollowing(followingUser.accountname);
     setIsFollow(false);
   };
 

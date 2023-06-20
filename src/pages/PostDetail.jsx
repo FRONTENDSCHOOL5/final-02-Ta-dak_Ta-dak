@@ -93,6 +93,7 @@ const CommentStyle = styled.ul`
   flex-grow: 1;
   flex-basis: 0;
   overflow: scroll;
+  overflow-x: hidden;
   padding-top: 20px;
 ::-webkit-scrollbar {
   background-color: var(--background-color)

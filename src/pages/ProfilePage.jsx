@@ -5,9 +5,9 @@ import styled from "styled-components";
 import UserProfile from "../components/common/UserProfile";
 import UserPostList from '../components/UserPostList/UserPostList';
 import BasicHeader from '../components/header/BasicHeader';
-import { getProfile } from "../apiTest/profilePageAPI"; 
-import { getProfilePost } from "../apiTest/profilePostAPI";
-import { getSaleItem } from "../apiTest/profileSaleItemAPI";
+import { getProfile } from "../api/profilePageAPI"; 
+import { getProfilePost } from "../api/profilePageAPI";
+import { getSaleItem } from "../api/profilePageAPI";
 
 
 export default function ProfilePage() {
