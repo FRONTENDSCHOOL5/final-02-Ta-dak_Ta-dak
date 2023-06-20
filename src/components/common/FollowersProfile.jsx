@@ -23,7 +23,7 @@ export default function FollowersProfile({ followingUser }) {
   return (
     <FollowersProfileStyle>
       <ProfileSm url={`${followingUser.image}`} />
-      <div>
+      <div className='userInfo'>
         <p>{followingUser.username}</p>
         <span>{followingUser.intro}</span>
       </div>
@@ -37,7 +37,6 @@ export default function FollowersProfile({ followingUser }) {
 }
 
 const FollowersProfileStyle = styled.div`
-  background-color: var(--background-color);
   position: relative;
   /* width: 358px; */
   width: 100%;
@@ -50,11 +49,12 @@ const FollowersProfileStyle = styled.div`
     width: 50px;
     height: 50px;
   }
-  
-  div {
+
+  .userInfo {
     position: absolute;
     left: 62px;
-    p, span {
+    p,
+    span {
       width: calc(358px * 0.6);
       white-space: nowrap;
       overflow: hidden;
