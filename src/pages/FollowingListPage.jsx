@@ -18,8 +18,6 @@ export default function FollowingListPage() {
     loadFollowingList()
   },[])
 
-  followingList.length !== 0 && console.log(followingList);
-
   return (
     <>
       <ChatHeader />

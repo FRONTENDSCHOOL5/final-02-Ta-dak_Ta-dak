@@ -9,19 +9,19 @@ import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
-export default function UserProfile({ profile, isMyAccount, isFollow, setIsFollow }) {
+export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
   const { accountname } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
   const followBtnHandler = async () => {
-    const following = await doFollowing(accountname);
-    setIsFollow(true);
+    await doFollowing(accountname);
+    loadProfilePage(accountname);
   };
 
   const unFollowBtnHandler = async () => {
-    const unfollowing = await doUnfollowing(accountname);
-    setIsFollow(false);
+    await doUnfollowing(accountname);
+    loadProfilePage(accountname);
   };
 
   return (
@@ -68,9 +68,12 @@ export default function UserProfile({ profile, isMyAccount, isFollow, setIsFollo
             <LinkChatStyle to="/">
               <img src={IconSmMessage} alt="채팅하기" />
             </LinkChatStyle>
-            {isFollow ? (
+            {profile.isfollow ? (
               // 팔로잉 한사람일 경우 - 언팔로우
-              <WhiteMdBtn contents={'언팔로우'} handleFunc={unFollowBtnHandler} />
+              <WhiteMdBtn
+                contents={'언팔로우'}
+                handleFunc={unFollowBtnHandler}
+              />
             ) : (
               // 팔로잉 안한 사람일경우 - 팔로우
               <GreenMdBtn contents={'팔로우'} handleFunc={followBtnHandler} />
