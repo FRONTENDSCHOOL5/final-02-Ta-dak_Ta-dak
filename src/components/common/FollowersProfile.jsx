@@ -1,38 +1,68 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import { GreenSmBtn, WhiteSmBtn } from './Button';
 import { ProfileSm } from './Profile';
 
-export default function FollowersProfile({isFollow}) {
+import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
+import { useNavigate } from 'react-router-dom';
+
+
+export default function FollowersProfile({ followingUser }) {
+  const [isFollow, setIsFollow] = useState(followingUser.isfollow)
+  const navigate = useNavigate();
+
+  const followBtnHandler = async () => {
+    const following = await doFollowing(followingUser.accountname);
+    setIsFollow(true);
+  };
+
+  const unFollowBtnHandler = async () => {
+    const unfollowing = await doUnfollowing(followingUser.accountname);
+    setIsFollow(false);
+  };
+
+  const followerClickHandler = (event) =>{
+    navigate(`/profile/${followingUser.accountname}`)
+  }
+  
   return (
     <FollowersProfileStyle>
-      <ProfileSm url={''}/>
-      <div>
-        <p>낭만있는캠린이</p>
-        <span>낭만있게 불멍타임 타닥타닥(ASMR 같네요~🔥)</span>
+      <ProfileSm url={`${followingUser.image}`} />
+      <div className='userInfo' onClick={followerClickHandler}>
+        <p>{followingUser.username}</p>
+        <span>{followingUser.intro}</span>
       </div>
-      {isFollow ? <WhiteSmBtn contents={'취소'} /> : <GreenSmBtn contents={'팔로우'} />}
+      {isFollow ? (
+        <WhiteSmBtn contents={'취소'} handleFunc={unFollowBtnHandler} />
+      ) : (
+        <GreenSmBtn contents={'팔로우'} handleFunc={followBtnHandler} />
+      )}
     </FollowersProfileStyle>
   );
 }
 
 const FollowersProfileStyle = styled.div`
-  background-color: var(--background-color);
   position: relative;
-  width: 358px;
+  /* width: 358px; */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 16px;
 
   img {
     width: 50px;
     height: 50px;
   }
-  
-  div {
+
+  .userInfo {
     position: absolute;
-    left: 62px;
-    p, span {
+    padding-left: 62px;
+    cursor: pointer;
+    
+    p,
+    span {
       width: calc(358px * 0.6);
       white-space: nowrap;
       overflow: hidden;

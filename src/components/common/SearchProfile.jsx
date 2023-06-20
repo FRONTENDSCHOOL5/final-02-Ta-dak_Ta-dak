@@ -1,20 +1,29 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import UserId from './UserId';
 import { ProfileMd } from './Profile'
 
 export default function SearchProfile({info}) {
+  const navigate = useNavigate();
+
+  const followerClickHandler = (event) => {
+    navigate(`/profile/${info.accountname}`);
+  };
+
   return (
     <SearchProfileStyle>
-      {info &&
-        <>        
-        <ProfileMd url={info.image}/>
-        <div>
-          <strong>{info.username}</strong>
-          <UserId id={info.accountname}/>
-        </div>
+      {info && (
+        <>
+          <div onClick={followerClickHandler}>
+            <ProfileMd url={info.image} />
+          </div>
+          <div onClick={followerClickHandler}>
+            <strong>{info.username}</strong>
+            <UserId id={info.accountname} />
+          </div>
         </>
-      }
+      )}
     </SearchProfileStyle>
   );    
 }
@@ -33,6 +42,7 @@ const SearchProfileStyle = styled.section`
   }
 
   div {
+    cursor: pointer;
     strong {
       font-weight: var(--font--Medium);
       font-size: var(--font--size-md);

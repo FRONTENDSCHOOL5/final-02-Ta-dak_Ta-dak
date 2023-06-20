@@ -32,7 +32,7 @@ export default function ChatRoom() {
     <>
       <ChatHeader />
       <ChatRoomPageStyle>
-        {chatHistory.map((item) => {
+        {chatHistory.map((item, index) => {
           return (
             <>
               {item.receive && (

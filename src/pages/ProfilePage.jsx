@@ -16,30 +16,27 @@ export default function ProfilePage() {
   const [profileProps, setProfileProps] = useState({});
   const [saleItemProps, setSaleItemProps] = useState([]);
   const [profilePostProps, setProfilePostProps] = useState([]);
+
   const [isMyAccount, setIsMyAccount] = useState(false);  
-  const [isFollow, setIsFollow] = useState(false)
+
+  const loadProfilePage = async () => {
+    const user = await getProfile(accountname);
+    setProfileProps({ ...user.profile });
+  };
+
+  const loadSaleItem = async () => {
+    const saleItems = await getSaleItem(accountname);
+    setSaleItemProps([...saleItems.product]);
+  };
+
+  const loadProfilePost = async () => {
+    const profilePosts = await getProfilePost(accountname);
+    setProfilePostProps([...profilePosts.post]);
+  };    
 
   useEffect(()=>{    
     const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
     accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
-
-    const loadProfilePage = async()=>{
-      const user = await getProfile(accountname);
-      setProfileProps({...user.profile});    
-      setIsFollow(user.profile.isfollow);  
-    }
-    
-
-    const loadSaleItem = async() => {
-      const saleItems = await getSaleItem(accountname);
-      setSaleItemProps([...saleItems.product])
-          
-    }
-
-    const loadProfilePost = async () => {
-      const profilePosts = await getProfilePost(accountname);
-      setProfilePostProps([...profilePosts.post])
-    };
 
     loadProfilePage()
     loadSaleItem()
@@ -51,8 +48,8 @@ export default function ProfilePage() {
   return (
     <ProfilePageStyle>
       <BasicHeader />
-      <UserProfile profile={profileProps} isMyAccount={isMyAccount} isFollow={isFollow}/>
-      <UserPostList saleItem={saleItemProps} post={profilePostProps}/>
+      <UserProfile profile={profileProps} isMyAccount={isMyAccount} loadProfilePage={loadProfilePage} />
+      <UserPostList saleItem={saleItemProps} post={profilePostProps} />
     </ProfilePageStyle>
   );
 }
