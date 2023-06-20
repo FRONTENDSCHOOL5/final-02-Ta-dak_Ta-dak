@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export function Input(props, {valid = true}) {
+export function Input(props) {
 
   return (
     <>
@@ -11,12 +11,12 @@ export function Input(props, {valid = true}) {
         </div>
         {
           // 유효성 검사 통과할 경우 &&
-          valid &&
+          props.valid &&
           <ValidationSuccessStyle>{props.alertMsg}</ValidationSuccessStyle>
         }
         {
           // 유효성 검사 통과 못할 경우 &&
-          !valid &&
+          !props.valid &&
           <ValidationErrorStyle>{props.alertMsg}</ValidationErrorStyle>
         }
       </InputContainerStyle>

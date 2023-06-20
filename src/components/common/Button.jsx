@@ -80,6 +80,10 @@ const YellowBtnStyle = styled.button`
   border-radius: 44px;
   color: #000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: .3s;
+  &:hover {
+    background-color: var(--basic-color-2);
+  }
 `;
 
 const GreenLgBtnStyle = styled.button`
@@ -88,6 +92,7 @@ const GreenLgBtnStyle = styled.button`
   font-size: var(--font--size-md);
   background-color: var(--basic-color-2);
   border-radius: 44px;
+  transition: .3s;
 `;
 
 const GreenMdBtnStyle = styled.button`
@@ -96,6 +101,7 @@ const GreenMdBtnStyle = styled.button`
   font-size: var(--font--size-md);
   background-color: var(--basic-color-2);
   border-radius: 30px;
+  transition: .3s;
 `;
 
 const GreenMsBtnStyle = styled.button`
@@ -104,6 +110,7 @@ const GreenMsBtnStyle = styled.button`
   font-size: var(--font--size-md);
   background-color: var(--basic-color-2);
   border-radius: 30px;
+  transition: .3s;
 `;
 
 const GreenSmBtnStyle = styled.button`
@@ -112,6 +119,7 @@ const GreenSmBtnStyle = styled.button`
   font-size: var(--font--size-sm);
   background-color: var(--basic-color-2);
   border-radius: 30px;
+  transition: .3s;
 `;
 
 const GreenBackBtnStyle = styled.button`
