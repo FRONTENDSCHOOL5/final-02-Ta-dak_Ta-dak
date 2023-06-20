@@ -5,9 +5,11 @@ import { getComment, deleteComment, reportComment } from '../api/commentAPI'
 import { useRecoilValue } from 'recoil'
 import { UserAtom } from '../recoil/AtomUserState'
 import useModalControl from '../hooks/useModalControl'
+import useAlertControl from '../hooks/useAlertControl'
 import styled from "styled-components"
 
 import { Modal } from '../components/common/Modal'
+import Alert from '../components/common/Alert'
 import BasicHeader from "../components/header/BasicHeader"
 import Post from "../components/common/Post"
 import Comment from "../components/common/Comment"
@@ -22,6 +24,7 @@ export default function PostDetail() {
   const [reset, setReset] = useState(false);
   const [selectComment, setSelectComment] = useState('');
   const { openModal, ModalComponent } = useModalControl();
+  const { openAlert, AlertComponent } = useAlertControl();
 
   const location = useLocation();
   const postId = location.pathname.replace('/postdetail/', '');
@@ -41,6 +44,9 @@ export default function PostDetail() {
   const reportReq = async () => {
     await reportComment(postId, selectComment.id)
     setReset(true)
+    setTimeout(() => {
+      openAlert()
+    }, 500);
   }
 
   useEffect(() => {
@@ -72,6 +78,9 @@ export default function PostDetail() {
             <Modal contents={['신고']} handleFunc={reportReq} />
         }
       </ModalComponent>
+      <AlertComponent>
+        <Alert alertMsg={'신고가 접수되었습니다'} choice={['확인']}/>
+      </AlertComponent>
     </>
   )
 }
@@ -84,7 +93,7 @@ const PostContainer = styled.div`
 
 const PostStyle = styled.div`
   margin: 20px;
-  max-height: 458px;
+  max-height: 540px;
 `;
 
 const CommentStyle = styled.ul`
