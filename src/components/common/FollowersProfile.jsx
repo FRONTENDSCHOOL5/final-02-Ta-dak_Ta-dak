@@ -5,10 +5,12 @@ import { GreenSmBtn, WhiteSmBtn } from './Button';
 import { ProfileSm } from './Profile';
 
 import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function FollowersProfile({ followingUser }) {
   const [isFollow, setIsFollow] = useState(followingUser.isfollow)
+  const navigate = useNavigate();
 
   const followBtnHandler = async () => {
     const following = await doFollowing(followingUser.accountname);
@@ -19,11 +21,15 @@ export default function FollowersProfile({ followingUser }) {
     const unfollowing = await doUnfollowing(followingUser.accountname);
     setIsFollow(false);
   };
+
+  const followerClickHandler = (event) =>{
+    navigate(`/profile/${followingUser.accountname}`)
+  }
   
   return (
     <FollowersProfileStyle>
       <ProfileSm url={`${followingUser.image}`} />
-      <div className='userInfo'>
+      <div className='userInfo' onClick={followerClickHandler}>
         <p>{followingUser.username}</p>
         <span>{followingUser.intro}</span>
       </div>
@@ -52,7 +58,9 @@ const FollowersProfileStyle = styled.div`
 
   .userInfo {
     position: absolute;
-    left: 62px;
+    padding-left: 62px;
+    cursor: pointer;
+    
     p,
     span {
       width: calc(358px * 0.6);
