@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import GetSearch from '../api/GetSearch';
+import { getSearch } from '../api/searchAPI';
 import  SearchHeader  from '../components/header/SearchHeader'
 import SearchProfile from '../components/common/SearchProfile';
 import { NavBar } from '../components/common/NavBar';
@@ -23,7 +23,7 @@ export default function SearchPage() {
   // GetSearch에 await걸어줌
   // 아무것도 입력하지않아도 api에서 받아온게 뜨니까 입막음완료
     const setResult = async () => {
-      setSearchList(await GetSearch(search));
+      setSearchList(await getSearch(search));
     }
   // 여러번 관리 useEffect 아무것도 입력하지 않았을때 아무것도 안뜨게 하기
   useEffect(() => {

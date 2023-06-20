@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../recoil/AtomUserState';
 import { editPost } from '../api/postAPI';
-import PostUpload from '../api/PostUpload';
+import { uploadImage } from '../api/uploadimgAPI';
 import styled from 'styled-components';
 
 import UploadHeader from '../components/header/UploadHeader';
@@ -30,12 +30,10 @@ export default function UploadPage() {
       setValid(false)
     }
   };
-  console.log(!!imageURL);
-  console.log(!!locationValue?.image);
 
   const handleUploadBtnClick = async () => {
     if (location.pathname === '/upload') {
-      await PostUpload(text, imagePath);
+      await uploadImage(text, imagePath);
       navigate(-1);
     } else if (location.pathname === '/editpost') {
       await editPost(locationValue.id, text, imagePath || locationValue?.image);

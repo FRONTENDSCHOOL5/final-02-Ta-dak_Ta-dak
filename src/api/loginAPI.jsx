@@ -29,7 +29,7 @@ export const loginReq = async (email, password) => {
   };
   try {
     const response = await axiosUnauth.post(reqUrl, body)
-    return response
+    return response.data
   } catch (error) {
     console.error('Request error', error)
     throw error

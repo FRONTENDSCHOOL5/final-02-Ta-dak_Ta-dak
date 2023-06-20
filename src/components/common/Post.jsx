@@ -173,6 +173,7 @@ const PostContainerStyle = styled.div`
     max-height: ${({locationPathname, contentMore}) => (locationPathname==="/feed") ? '110px' : contentMore ? '70px' : '300px' };
     text-overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'ellipsis' : 'none' };
     overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'hidden' : 'scroll'};
+    overflow-x: hidden;
     display: -webkit-box;
       -webkit-line-clamp: ${({locationPathname}) => (locationPathname==="/feed") ? '6' : '' };
       -webkit-box-orient: vertical;

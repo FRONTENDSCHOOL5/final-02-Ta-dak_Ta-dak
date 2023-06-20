@@ -6,8 +6,7 @@ import styled from 'styled-components';
 
 import { Input } from '../components/common/Input';
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button';
-import PostLogin from '../api/PostLogin';
-import { setAuthHeader } from '../api/settingAxios';
+import { loginReq } from '../api/loginAPI';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -31,7 +30,8 @@ export default function LoginPage() {
     event.preventDefault();
 
     if (!isLogin) {
-      const User = await PostLogin(email, password);
+      const User = await loginReq(email, password);
+      console.log(User)
       if (User.status === 422) {
         // 로그인 실패한 경우
         setValid(false);

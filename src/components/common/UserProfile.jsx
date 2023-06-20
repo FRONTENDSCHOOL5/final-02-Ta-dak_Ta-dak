@@ -5,7 +5,7 @@ import { ProfileLg } from './Profile';
 import { GreenMdBtn, WhiteMdBtn } from './Button';
 import UserId from './UserId';
 
-import { doFollowing, doUnfollowing } from '../../apiTest/followAPI';
+import { doFollowing, doUnfollowing } from '../../api/followAPI';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 

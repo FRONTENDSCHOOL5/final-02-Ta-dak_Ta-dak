@@ -8,8 +8,8 @@ import styled from 'styled-components'
 import { Input } from '../components/common/Input'
 import { FileUploadLg } from '../components/common/FileUpload'
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button'
-import PostAccountValid from '../api/SignUpReq/PostAccountValid'
-import PostSignUp from '../api/SignUpReq/PostSignUp'
+import { postAccountValid } from '../api/signupAPI'
+import { postSignUp } from '../api/signupAPI'
 
 export default function ProfileSettingPage() {
   const [reqFrame, setReqFrame] = useRecoilState(SignUpAtom)
@@ -27,7 +27,7 @@ export default function ProfileSettingPage() {
   const handleIdValid = async () => {
     const pattern = /^[A-Za-z0-9_.]+$/;
     if(pattern.test(id)) {
-      const Msg = await PostAccountValid(id)
+      const Msg = await postAccountValid(id)
       setIdAlertMsg(Msg)
       Msg === "사용 가능한 계정ID 입니다." ? setIdValid(true) : setIdValid(false)
     } else {
@@ -66,7 +66,7 @@ export default function ProfileSettingPage() {
 
   useEffect(()=> {
     if(username && id && usernameValid && idValid){
-      PostSignUp(reqFrame);
+      postSignUp(reqFrame);
     }
   }, [reqFrame])
 

@@ -36,3 +36,36 @@ export const uploadImage = async (content, image) => {
     throw error
   }
 }
+
+// export default async function PostImgFile(value) {
+//   var formData = new FormData();
+//   formData.append('image', value);
+//   const response = await fetch(`https://api.mandarin.weniv.co.kr/image/uploadfile`, {
+//     method: 'POST',
+//     body: formData
+//   });
+//   const json = await response.json();
+//   const Path = `https://api.mandarin.weniv.co.kr/${json.filename}`
+//   console.log(Path)
+//   return Path;
+// }
+
+export const postImgFile = async (value) => {
+  const formData = new FormData();
+  formData.append('image', value);
+  const reqUrl = '/image/uploadfile';
+  const body = formData;
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  };
+  try {
+    const response = await axiosAuth.post(reqUrl, body, config)
+    const Path = `https://api.mandarin.weniv.co.kr/${response.data.filename}`;
+    return Path
+  } catch (error) {
+    console.error('Request error', error)
+    throw error
+  }
+}

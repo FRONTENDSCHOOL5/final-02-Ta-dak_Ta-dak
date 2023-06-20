@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PostImgFile from '../api/PostImgFile';
+import { postImgFile } from '../api/uploadimgAPI';
 
 const useImageUploader = () => {
   const [imageURL, setImageURL] = useState('');
@@ -8,7 +8,7 @@ const useImageUploader = () => {
   const handleImageChange = async (event) => {
     const selectedFile = event.target.files[0];
     const imageURL = URL.createObjectURL(selectedFile);
-    const imagePath = await PostImgFile(selectedFile);
+    const imagePath = await postImgFile(selectedFile);
     setImageURL(imageURL)
     setImagePath(imagePath)
   };

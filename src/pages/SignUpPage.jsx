@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import { Input } from "../components/common/Input"
 import { GreenLgBtn, GreyLgBtn } from "../components/common/Button";
-import PostEmailValid from "../api/SignUpReq/PostEmailValid";
+import { postEmailValid } from "../api/signupAPI";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ export default function SignUpPage() {
   }
 
   const handleEmailValid = async (event) => {
-    const Msg = await PostEmailValid(event.target.value);
+    const Msg = await postEmailValid(event.target.value);
     setEmailAlertMsg(Msg)
     Msg === '사용 가능한 이메일 입니다.' ? setEmailValid(true) : setEmailValid(false)
   }
