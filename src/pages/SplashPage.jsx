@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-
 import styled, {keyframes} from 'styled-components'
 
 import { ReactComponent as Tadak} from '../assets/img/tadak.svg';
@@ -10,6 +9,9 @@ import { ReactComponent as WoodFire} from '../assets/img/woodfire.svg';
 import { ReactComponent as SubTitle} from '../assets/img/subtitle.svg';
 import { ReactComponent as FireworkR} from '../assets/img/firework-r.svg';
 import { ReactComponent as FireworkL} from '../assets/img/firework-l.svg';
+import { ReactComponent as Kakao } from '../assets/img/kakao-login.svg';
+import { ReactComponent as Google } from '../assets/img/google-login.svg';
+import { ReactComponent as Facebook } from '../assets/img/fb-login.svg';
 
 export default function SplashPage() {
   const navigate = useNavigate()
@@ -23,6 +25,11 @@ export default function SplashPage() {
         <FireStyle></FireStyle>
         <WoodFireStyle></WoodFireStyle>
         <SubTitleStyle></SubTitleStyle>
+        <LoginModalStyle>
+          <Kakao></Kakao>
+          <Google></Google>
+          <Facebook></Facebook>
+        </LoginModalStyle>
     </SplashPageStyle>
     </>
   )
@@ -116,4 +123,11 @@ const SubTitleStyle = styled(SubTitle)`
   position: relative;
   top: -150px;
   margin: 10px 88px; 
+`
+
+const LoginModalStyle = styled.div `
+position: relative;
+  width: 390px;
+  height: 362px;
+  background-color: #fff;
 `
