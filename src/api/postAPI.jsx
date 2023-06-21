@@ -66,8 +66,9 @@ export const reportPost = async (postId) => {
   const reqUrl = `/post/${postId}/report`;
   try {
     const response = await axiosAuth.post(reqUrl)
-    console.log(response.data);
-    return response.data
+    if (response.status === 200) {
+      return true;
+    }
   } catch (error) {
     console.error('Request error', error)
     throw error

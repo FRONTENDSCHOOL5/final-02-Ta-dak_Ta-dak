@@ -1,7 +1,8 @@
 import useImageUploader from '../hooks/useImageUploader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
+import useAlertControl from '../hooks/useAlertControl';
 import { UserAtom } from '../recoil/AtomUserState';
 import { editPost } from '../api/postAPI';
 import { uploadImage } from '../api/uploadimgAPI';
@@ -10,13 +11,14 @@ import styled from 'styled-components';
 import UploadHeader from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload'
+import Alert from '../components/common/Alert';
 
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath } = useImageUploader();
+  const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
   const userInfo = useRecoilValue(UserAtom)
-
   const locationValue = location.state;
   const [text, setText] = useState(locationValue?.content || '');
   const [valid, setValid] = useState(false);
@@ -33,13 +35,20 @@ export default function UploadPage() {
 
   const handleUploadBtnClick = async () => {
     if (location.pathname === '/upload') {
-      await uploadImage(text, imagePath);
-      navigate(-1);
+        await uploadImage(text, imagePath);
+        navigate(-1);
+      
     } else if (location.pathname === '/editpost') {
       await editPost(locationValue.id, text, imagePath || locationValue?.image);
       navigate(-1);
     }
   };
+
+  useEffect(()=>{
+    if (imageURL === '잘못된 접근') {
+      openAlert();
+    }
+  }, [imageURL])
 
   const autoResize = (event) => {
     const textarea = event.target;
@@ -64,15 +73,18 @@ export default function UploadPage() {
               placeholder='여러분의 캠핑을 기록해 주세요'
               onInput={autoResize}
             />
-            {imageURL || locationValue?.image ? (
-              <img src={imageURL || locationValue?.image} alt="" className="showImg" />
+            {imageURL !== '잘못된 접근' && imageURL || locationValue?.image ? (
+              <img src={imageURL || locationValue?.image} alt='' className='showImg' />
             ) : null}
-            <div className='uploadImgBtn'>
+            <div className='uploadImgBtn' >
               <FileUploadMd id={'uploading-img'} onChange={handleImageChange} />
             </div>
           </div>
         </PostWrapperStyle>
       </UploadPageStyle>
+      <AlertComponent>
+        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']}/>
+      </AlertComponent>
     </>
   );
 }
