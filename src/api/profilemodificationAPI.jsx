@@ -23,12 +23,12 @@ export default async function putProfilemodification(username,id, intro) {
 //axios
 // import { axiosAuth } from "./settingAxios";
 
-// export const profilemodificationReq = async (username, accountname, intro, image) => {
+// export const profilemodificationReq = async (username, id, intro, image) => {
 //   const reqUrl = '/user/profilemodicationn';
 //   const body = {
 //     user: {
 //       username,
-//       accountname,
+//       id,
 //       intro,
 //       image
 //     }

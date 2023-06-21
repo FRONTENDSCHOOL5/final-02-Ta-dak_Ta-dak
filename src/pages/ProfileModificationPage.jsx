@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useImageUploader from '../hooks/useImageUploader'
 import styled from 'styled-components';
 
 import UploadHeader from '../components/header/UploadHeader';
@@ -22,6 +23,8 @@ export default function ProfileModificationPage() {
     setIntro(event.target.value);
   };
 
+  const { handleImageChange, imageURL, imagePath } = useImageUploader();
+
   const submitModification = async () => {
     const data = await putProfilemodification(name, id, intro);
     console.log(data.user);
@@ -32,7 +35,8 @@ export default function ProfileModificationPage() {
       <ProfileModificationStyle>
         <UploadHeader valid={true} contents={'저장'} handleUploadBtnClick={submitModification} />
         <FileUploadStyle>
-          <FileUploadLg />
+          <FileUploadLg onChange={handleImageChange} /> 
+          {/*onChange={handleImageChange} url={imageURL}  */} 
         </FileUploadStyle>
         <div className='profileInfo'>
           <Input id={'user-name'} type={'text'} label={'사용자 이름'} placeholder='2~10자 이내여야 합니다.' value={name} onChange={handleNameInput}/>
