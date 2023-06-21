@@ -41,7 +41,7 @@ export default function SplashPage() {
           </li>
           <div>
             <Link to="/login">
-              <button calssName='email-login'>이메일로 로그인</button>
+              <button className='email-login'>이메일로 로그인</button>
             </Link>
             <span>|</span>
             <Link to="/signup">
