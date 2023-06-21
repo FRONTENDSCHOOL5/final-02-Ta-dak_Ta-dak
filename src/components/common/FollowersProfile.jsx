@@ -12,10 +12,10 @@ export default function FollowersProfile({ followingUser }) {
   const [isMe, setIsMe] = useState(false);
   
   const [isFollow, setIsFollow] = useState(followingUser.isfollow)
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
 
   useState(()=>{
-    if(JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname === followingUser.username){
+    if(JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname === followingUser.accountname){
       setIsMe(true)
     }
   },[])

@@ -43,7 +43,7 @@ export default function FollowListPage() {
 
   return (
     <>
-      <ChatHeader name={`${title}`}/>
+      <ChatHeader name={`${title}`} isButton={false} />
       <FollowListStyle ref={elementRef}>
         {followList.length !== 0 ? (
           followList.map((item, index) => (

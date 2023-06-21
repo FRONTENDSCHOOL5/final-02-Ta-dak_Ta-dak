@@ -56,7 +56,7 @@ export default function PostDetail() {
 
   return (
     <>
-      <BasicHeader />
+      <BasicHeader isButton={false}/>
       <PostContainer>
         <PostStyle>
           {loading ? <Post post={post.post}></Post> : <div>loading...</div>}

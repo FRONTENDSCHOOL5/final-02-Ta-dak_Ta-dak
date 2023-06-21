@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 import IconSMore from '../../assets/img/icon-more.svg'
 
-export default function ChatHeader({name}) {
+export default function ChatHeader({name, isButton}) {
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function ChatHeader({name}) {
     <BasicHeaderStyle>
       <button className="backUrlBtn" onClick={handleGoBack}></button>
       <h2>{name}</h2>
-      <button className="moreBtn"></button>
+      {isButton && <button className="moreBtn"></button>}
     </BasicHeaderStyle>
   );
 }

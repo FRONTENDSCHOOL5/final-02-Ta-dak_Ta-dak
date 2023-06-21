@@ -30,7 +30,7 @@ export default function ChatRoom() {
 
   return (
     <>
-      <ChatHeader name={'바베큐러버'}/>
+      <ChatHeader name={'바베큐러버'} isButton={true}/>
       <ChatRoomPageStyle>
         {chatHistory.map((item, index) =>
           item.receive ? (
