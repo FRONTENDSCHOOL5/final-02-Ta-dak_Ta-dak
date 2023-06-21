@@ -58,7 +58,7 @@ export const deletePost = async (postId) => {
     return response.data
   } catch (error) {
     console.error('Request error', error)
-    throw error
+    // throw error
   }
 }
 
@@ -71,7 +71,7 @@ export const reportPost = async (postId) => {
     }
   } catch (error) {
     console.error('Request error', error)
-    throw error
+    // throw error
   }
 }
 
