@@ -22,18 +22,21 @@ import { axiosUnauth } from "./settingAxios";
 export const postEmailValid = async (email) => {
   const reqUrl = '/user/emailvalid';
   const body = {
-    'user':{
+    'user': {
       email
     }
   };
   try {
-    const response = await axiosUnauth.post({reqUrl, body})
-    return response.message
+    const response = await axiosUnauth.post(reqUrl, body)
+    return response.data.message;
   } catch (error) {
-    console.error('Request error', error)
-    throw error
+    if (error.response) {
+      return error.response.data.message;
+    }
   }
 }
+
+
 
 // =============================
 
@@ -63,8 +66,8 @@ export const postAccountValid = async (accountname) => {
     }
   };
   try {
-    const response = await axiosUnauth.post({reqUrl, body})
-    return response.message
+    const response = await axiosUnauth.post(reqUrl, body)
+    return response.data.message;
   } catch (error) {
     console.error('Request error', error)
     throw error

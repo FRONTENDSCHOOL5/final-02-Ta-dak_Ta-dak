@@ -3,8 +3,13 @@ import styled, { css } from 'styled-components';
 import BasicProfile from '../../assets/img/basic-profile.svg';
 
 function getProfileSrc(url) {
-  return typeof value == "string" && (url.includes("http://146.56.183.55:5050/Ellipse.png") || !url.includes("https://")) ? BasicProfile : (url || BasicProfile);
+  if (!!url && typeof url === "string" && url.includes("https://") && url !== "http://146.56.183.55:5050/Ellipse.png") {
+    return url;
+  } else {
+    return BasicProfile;
+  }
 }
+
 
 export function ProfileLg({ url = false }) {
   return <ProfileLgStyle src={url || BasicProfile} alt="" />

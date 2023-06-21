@@ -15,6 +15,8 @@ import SearchProfile from './SearchProfile';
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/s-icon-more.svg';
+import downArrow from '../../assets/img/down-arrow.png'
+import errorImg from '../../assets/img/404error.png'
 
 export default function Post({ post }) {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function Post({ post }) {
   const myInfo = useRecoilValue(UserAtom);
   const [like, setLike] = useState(post.hearted);
   const [contentMore, setContentMore] = useState(true);
+  const [alertState, setAlertState] = useState('');
   const isLike = post.hearted;
   const { openModal, ModalComponent } = useModalControl();
   const { openAlert, AlertComponent } = useAlertControl();
@@ -36,7 +39,9 @@ export default function Post({ post }) {
   }
 
   const reportPostReq = async () => {
-    await reportPost(id)
+    const response = await reportPost(id);
+    response && setAlertState('신고가 접수되었습니다.')
+    openAlert();
   }
 
   const deletePostReq = async () => {
@@ -45,9 +50,9 @@ export default function Post({ post }) {
   }
 
   const handleModal = (event) => {
-    if (event.target.textContent === "삭제") {
+    if (event.target.textContent === '삭제') {
       openAlert();
-    } else if (event.target.textContent === "수정") {
+    } else if (event.target.textContent === '수정') {
       navigate('/editpost', {
         state: {
           id: id,
@@ -55,7 +60,7 @@ export default function Post({ post }) {
           image: post.image
         }
       })
-    } else if (event.target.textContent === "확인") {
+    } else if (event.target.textContent === '확인') {
       deletePostReq();
     }
   }
@@ -72,20 +77,26 @@ export default function Post({ post }) {
   return (
     <>
       <PostStyle>
-        <button className='postMoreButton' onClick={openModal} />
+        <button className='postMoreButton' onClick={()=>{
+          openModal()
+          setAlertState('게시글을 삭제할까요?')
+          }} />
         <div className='profileComponent'>
           <SearchProfile info={post.author} />
         </div>
         <PostContainerStyle locationPathname={location.pathname} contentMore={contentMore}>
           <Link to={`/postdetail/${id}`}>
             <h3 className='a11y-hidden'>포스트 내용</h3>
-            <p onClick={()=>setContentMore((prevValue) => !prevValue)}>{post.content}</p>
-            {contentMore && (
+            <div onClick={() => setContentMore((prevValue) => !prevValue)}>
+              <p>{post.content}</p>
+              {post.image && <button className="moreContentBtn"></button>}
+            </div>
+            {contentMore && post.image && (
               <img
                 src={post.image}
                 alt={`${post.author.accountname}의 포스팅 이미지`}
                 onError={(event) => {
-                  event.target.src = 'https://colorlib.com/wp/wp-content/uploads/sites/2/404-not-found-error-page-examples.png';
+                  event.target.src = errorImg;
                 }}
               />
             )}
@@ -120,7 +131,8 @@ export default function Post({ post }) {
       </PostStyle>
 
       <AlertComponent>
-        <Alert alertMsg={'게시글을 삭제할까요?'} choice={['취소', '확인']} handleFunc={handleModal}/>
+        {alertState==='신고가 접수되었습니다.' && <Alert alertMsg={alertState} choice={['확인']} />}
+        {alertState==='게시글을 삭제할까요?' && <Alert alertMsg={alertState} choice={['취소', '확인']} handleFunc={handleModal} />}
       </AlertComponent>
 
       <ModalComponent>
@@ -161,7 +173,20 @@ const PostStyle = styled.article`
 `;
 
 const PostContainerStyle = styled.div`
-  padding-left: 54px;
+  padding-left: 54px;;
+  position: relative;
+  
+  .moreContentBtn {
+    transition: .3s;
+    margin: 0 131px 16px;
+    background: url(${downArrow}) no-repeat center center;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    display: ${({locationPathname}) => (locationPathname.includes('/postdetail')) ? 'block' : 'none'};
+    transform: ${({ contentMore }) => (contentMore) ? 'rotate(0)' : 'rotate(180deg)'};
+  }
+
 
   p {
     font-weight: var(--font--Regular);
@@ -170,12 +195,17 @@ const PostContainerStyle = styled.div`
     margin-bottom: 16px;
     word-break: break-all;
     /* transition: 1s; */
-    max-height: ${({locationPathname, contentMore}) => (locationPathname==="/feed") ? '110px' : contentMore ? '70px' : '300px' };
-    text-overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'ellipsis' : 'none' };
-    overflow: ${({locationPathname}) => (locationPathname==="/feed") ? 'hidden' : 'scroll'};
+    max-height: ${({ locationPathname, contentMore }) =>
+    (!locationPathname.includes('/postdetail')
+    ) ? '77px' : contentMore ? '110px' : '300px'};
+    text-overflow: ${({ locationPathname }) =>
+    (!locationPathname.includes('/postdetail')
+    ) ? 'ellipsis' : 'none'};
+    overflow: ${({ locationPathname }) =>
+    (!locationPathname.includes('/postdetail')) ? 'hidden' : 'scroll'};
     overflow-x: hidden;
     display: -webkit-box;
-      -webkit-line-clamp: ${({locationPathname}) => (locationPathname==="/feed") ? '6' : '' };
+      -webkit-line-clamp: ${({ locationPathname }) => (locationPathname === '/feed') ? '6' : ''};
       -webkit-box-orient: vertical;
     ::-webkit-scrollbar {
       background-color: var(--background-color)

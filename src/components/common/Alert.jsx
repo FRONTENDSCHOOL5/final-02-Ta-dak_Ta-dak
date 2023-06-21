@@ -5,17 +5,24 @@ export default function Alert({ alertMsg, choice, handleFunc }) {
     <div>
     <AlertStyle>
       <p>{alertMsg}</p>
+      <ButtonStyle>
       <button className='cancle' onClick={handleFunc}>{choice[0]}</button>
-      <button className='delete' onClick={handleFunc}>{choice[1]}</button>
+      {choice[1] && <button className='delete' onClick={handleFunc}>{choice[1]}</button>}
+      </ButtonStyle>
     </AlertStyle>
     </div>
   );
 }
 
+const ButtonStyle = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex; 
+`;
+
 const AlertStyle = styled.div`
   position: relative;
-  text-align: center;
-  padding: 20px 0;
   width: 252px;
   height: 110px;
   border-radius: 10px;
@@ -23,8 +30,12 @@ const AlertStyle = styled.div`
   background-color: var(--background-color);
   overflow: hidden;
   
+  p {
+    text-align: center;
+    padding-top: 27px;
+  }
+
   button {
-    position: absolute;
     transition: all .3s;
     &:hover{
       background-color: var(--basic-color-1);
@@ -32,9 +43,9 @@ const AlertStyle = styled.div`
   }
 
   .cancle {
-    bottom: 0;
-    left: 0;
-    width: 126px;
+    flex-grow: 1;
+    flex-basis: 0;
+    display: inline-block;
     height: 46px;
     border-top: 1px solid var(--basic-color-8);
     border-right: 1px solid var(--basic-color-8);
@@ -44,7 +55,7 @@ const AlertStyle = styled.div`
   }
 
   .delete {
-    bottom: 0;
+    /* bottom: 0; */
     width: 126px;
     height: 46px;
     color: #F22222;
