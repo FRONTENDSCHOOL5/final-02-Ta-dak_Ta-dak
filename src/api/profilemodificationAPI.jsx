@@ -1,4 +1,4 @@
-export default async function putProfilemodification(username) {
+export default async function putProfilemodification(username,id, intro) {
   const response = await fetch(`https://api.mandarin.weniv.co.kr/user`, {
     method: 'PUT',
     headers: {
@@ -8,8 +8,8 @@ export default async function putProfilemodification(username) {
     body: JSON.stringify({
       'user':{
           'username': username,
-          'accountname': 'tadak123',
-          'intro': '안녕하세요',
+          'accountname': id,
+          'intro': intro,
           'image': ''
       },
     }),
@@ -23,52 +23,21 @@ export default async function putProfilemodification(username) {
 //axios
 // import { axiosAuth } from "./settingAxios";
 
-// export const loginReq = async (email, password) => {
+// export const profilemodificationReq = async (username, accountname, intro, image) => {
 //   const reqUrl = '/user/profilemodicationn';
 //   const body = {
 //     user: {
-//       email,
-//       password
+//       username,
+//       accountname,
+//       intro,
+//       image
 //     }
 //   };
 //   try {
-//     const response = await axiosUnauth.put(reqUrl, body)
+//     const response = await axiosAuth.put(reqUrl, body)
 //     return response.data
 //   } catch (error) {
 //     console.error('Request error', error)
 //     throw error
 //   }
 // }
-
-
-//settingAxios
-// import axios from 'axios';
-
-// const BASE_URL = 'https://api.mandarin.weniv.co.kr';
-
-// const axiosUnauth = axios.create({
-//   baseURL: BASE_URL,
-//   headers: {
-//     'Content-type': 'application/json',
-//   },
-// });
-
-// const axiosAuth = axios.create({
-//   baseURL: BASE_URL,
-//   headers: {
-//     'Content-type': 'application/json',
-//   },
-// });
-
-// axiosAuth.interceptors.request.use(
-//   (config) => {
-//     const TOKEN = JSON.parse(sessionStorage.getItem('user'))?.UserAtom.token;
-//     config.headers['Authorization'] = `Bearer ${TOKEN}`
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
-
-// export { axiosUnauth, axiosAuth };
