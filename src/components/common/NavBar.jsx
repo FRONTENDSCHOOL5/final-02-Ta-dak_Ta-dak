@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as IconHome } from '../../assets/img/icon-home.svg';
-import { ReactComponent as IconHeart } from '../../assets/img/icon-heart.svg';
+import { ReactComponent as IconHeart } from '../../assets/img/s-icon-heart.svg';
 import { ReactComponent as IconMessage } from '../../assets/img/icon-message.svg';
 import { ReactComponent as IconEdit } from '../../assets/img/icon-edit.svg';
 import { ReactComponent as IconUser } from '../../assets/img/icon-user.svg';
@@ -54,6 +54,8 @@ export function NavBar() {
                 selected={selectedIcon === item.component}
               >
                 <item.component
+                  width={24}
+                  height={24}
                   stroke={selectedIcon === item.component ? '#4E683F' : '#767676'}
                   fill={selectedIcon === item.component ? '#4E683F' : '#B9D6A3'}
                 />
