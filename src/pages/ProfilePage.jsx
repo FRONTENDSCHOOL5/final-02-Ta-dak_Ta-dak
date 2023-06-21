@@ -18,29 +18,29 @@ export default function ProfilePage() {
   const [profilePostProps, setProfilePostProps] = useState([]);
 
   const [isMyAccount, setIsMyAccount] = useState(false);  
+  const [profileLoading, setProfileLoading] = useState(false);
+  const [postLoading, setPostLoading] = useState(false);
 
   const loadProfilePage = async () => {
     const user = await getProfile(accountname);
     setProfileProps({ ...user.profile });
+    setProfileLoading(true);
   };
 
-  const loadSaleItem = async () => {
+  const loadPosts = async() =>{
     const saleItems = await getSaleItem(accountname);
-    setSaleItemProps([...saleItems.product]);
-  };
-
-  const loadProfilePost = async () => {
     const profilePosts = await getProfilePost(accountname);
+    setSaleItemProps([...saleItems.product]);
     setProfilePostProps([...profilePosts.post]);
-  };    
+    setPostLoading(true);
+  }
 
   useEffect(()=>{    
     const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
     accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
 
     loadProfilePage()
-    loadSaleItem()
-    loadProfilePost()
+    loadPosts()
   }, [])
 
   
@@ -48,8 +48,18 @@ export default function ProfilePage() {
   return (
     <ProfilePageStyle>
       <BasicHeader />
-      <UserProfile profile={profileProps} isMyAccount={isMyAccount} loadProfilePage={loadProfilePage} />
-      <UserPostList saleItem={saleItemProps} post={profilePostProps} />
+      {profileLoading && postLoading ? (
+        <>
+          <UserProfile
+            profile={profileProps}
+            isMyAccount={isMyAccount}
+            loadProfilePage={loadProfilePage}
+          />
+          <UserPostList saleItem={saleItemProps} post={profilePostProps} />
+        </>
+      ) : (
+        <div>로딩중</div>
+      )}
     </ProfilePageStyle>
   );
 }
