@@ -15,6 +15,7 @@ export default function FollowListPage() {
   const location = useLocation();
   const [loadFollowSeq, setLoadFollowSeq] = useState(0);
   const [followList, setFollowList] = useState([]);
+  const [title, setTitle] = useState('')
 
   useEffect(() => {
     if (isBottom) {
@@ -31,23 +32,25 @@ export default function FollowListPage() {
     let list
     if(location.pathname === `/profile/${accountname}/following`){
       list = await getFollowingList(accountname, value);
+      setTitle('Followings');
     }
     else if (location.pathname === `/profile/${accountname}/follower`) {
       list = await getFollowerList(accountname, value);
+      setTitle('Followers');
     }
     setFollowList((prevValue) => [...prevValue, ...list]);
   };
 
   return (
     <>
-      <ChatHeader />
+      <ChatHeader name={`${title}`}/>
       <FollowListStyle ref={elementRef}>
         {followList.length !== 0 ? (
           followList.map((item, index) => (
             <FollowersProfile followingUser={item} key={item._id} />
           ))
         ) : (
-          <div>팔로잉한 사람이 없음, 로딩중 같이 나타낼수잇는 이미지</div>
+          <div>팔로잉한 사람이 없음 or 로딩중</div>
         )}
       </FollowListStyle>
     </>

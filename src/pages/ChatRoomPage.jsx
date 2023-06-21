@@ -30,37 +30,29 @@ export default function ChatRoom() {
 
   return (
     <>
-      <ChatHeader />
+      <ChatHeader name={'바베큐러버'}/>
       <ChatRoomPageStyle>
-        {chatHistory.map((item, index) => {
-          return (
-            <>
-              {item.receive && (
-                <ChatContainerStyle>
-                  <ProfileSm />
-                  <p>{item.Msg}</p>
-                  <span className="time">{item.creatAt}</span>
-                </ChatContainerStyle>
-              )}
-              {!item.receive && (
-                <MyChatContainerStyle>
-                  <span className="time">{item.creatAt}</span>
-                  {!!item.Img || <p>{item.Msg}</p>}
-                  <img src={item.Img} alt="" />
-                </MyChatContainerStyle>
-              )}
-            </>
-          );
-        })}
+        {chatHistory.map((item, index) =>
+          item.receive ? (
+            <ChatContainerStyle key={index}>
+              <ProfileSm />
+              <p>{item.Msg}</p>
+              <span className="time">{item.creatAt}</span>
+            </ChatContainerStyle>
+          ) : (
+            <MyChatContainerStyle key={index}>
+              <span className="time">{item.creatAt}</span>
+              {!!item.Img || <p>{item.Msg}</p>}
+              <img src={item.Img} alt="" />
+            </MyChatContainerStyle>
+          )
+        )}
       </ChatRoomPageStyle>
       <SendStyle>
         <div className="upload">
           <FileUploadSm />
         </div>
-        <InputStyle
-          type={'text'}
-          placeholder="메시지 입력하기..."
-        ></InputStyle>
+        <InputStyle type={'text'} placeholder="메시지 입력하기..."></InputStyle>
         <button id="send">전송</button>
       </SendStyle>
     </>

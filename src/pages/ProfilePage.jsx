@@ -12,7 +12,6 @@ import { getSaleItem } from "../api/profilePageAPI";
 
 export default function ProfilePage() {
   const { accountname } = useParams();
-
   const [profileProps, setProfileProps] = useState({});
   const [saleItemProps, setSaleItemProps] = useState([]);
   const [profilePostProps, setProfilePostProps] = useState([]);
@@ -36,12 +35,14 @@ export default function ProfilePage() {
   }
 
   useEffect(()=>{    
+    setProfileLoading(false);
+    setPostLoading(false);
     const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
     accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
 
     loadProfilePage()
     loadPosts()
-  }, [])
+  }, [accountname])
 
   
 
