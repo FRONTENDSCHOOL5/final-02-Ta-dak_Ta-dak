@@ -4,15 +4,15 @@ import CommonComponents from './componentsTest/CommonComponents'
 import PageTest from './componentsTest/PageTest'
 import FeedHomePage from './pages/FeedHomePage'
 import SplashPage from './pages/SplashPage'
-import ProductDtailModal from './components/common/ProductDtailModal'
+import ProductDetailModal from './components/common/ProductDetailModal'
 
 function App() {
   return (
       <WrapperStyle>
         <BaseSizeStyle>
       {/* <CommonComponents /> */}
-      {/* <PageTest /> */}
-      <ProductDtailModal/>
+      <PageTest />
+      {/* <ProductDetailModal/> */}
       {/* <FeedHomePage /> */}
       {/* <SplashPage/> */}
         </BaseSizeStyle>

@@ -10,7 +10,6 @@ function getProfileSrc(url) {
   }
 }
 
-
 export function ProfileLg({ url = false }) {
   return <ProfileLgStyle src={url || BasicProfile} alt="" />
 }

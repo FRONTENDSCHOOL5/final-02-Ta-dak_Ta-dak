@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useImageUploader from "../hooks/useImageUploader";
 import { postProduct } from "../api/productAPI";
 import useAlertControl from "../hooks/useAlertControl";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components"
 
 import UploadHeader from '../components/header/UploadHeader';
@@ -15,6 +15,7 @@ import emptyImg from '../assets/img/emptyImg.jpg'
 export default function AddProductPage() {
 
   const navigate = useNavigate();
+  const location = useLocation();
   const { handleImageChange, imageURL, imagePath } = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
   const [productName, setProductName] = useState('');
@@ -24,6 +25,10 @@ export default function AddProductPage() {
   const [productNameValid, setProductNameValid] = useState(true);
   const [productPriceValid, setProductPriceValid] = useState(true);
   const [alertState, setAlertState] = useState('');
+
+  const getItem = location.state?.saleItem;
+
+  console.log(getItem);
 
   const handleProductName = (event) => {
     setProductName(event.target.value.toLocaleString())

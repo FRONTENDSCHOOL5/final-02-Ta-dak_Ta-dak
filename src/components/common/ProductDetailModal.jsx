@@ -1,40 +1,43 @@
+import React from 'react'
+import { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+
 import styled from 'styled-components';
 
-import { ReactComponent as Xbutton }from '../../assets/img/x.svg'
-import Product from '../../assets/img/product1.svg'
-import { ReactComponent as Garland } from '../../assets/img/garland.svg'
 
+import { ReactComponent as Xbutton }from '../../assets/img/x.svg';
+import Product from '../../assets/img/product1.svg';
+import { ReactComponent as Garland } from '../../assets/img/garland.svg';
+import SaleItem from '../common/SaleItem';
 
-export default function ProductDtailModal() {
+export default function ProductDetailModal({saleItem, setIsModalOpen}) {
+  const navigate = useNavigate();
+
+  const handleGoAddproduct = () => {
+    navigate('/addproduct', 
+    {state: {
+      saleItem
+    }}
+    )
+  }
 
   return (
     <>
     <BackgorundStyle>
-    <ProductDtailModalStyle>
-    <XbuttonStyle>
-        <Xbutton></Xbutton>
-    </XbuttonStyle>
-    <GarlandStyle></GarlandStyle>
-    <img src={ Product } alt="상품사진" />
-    <h2>감성 캠핑 웨건</h2>
-    <h3>40,000원</h3>
-    <p>상품 설명 혹은 링크</p>
-    <div>
-    16만원 주고 구매했던 취사용품 세트입니다.
-    보관 가방을 증정품으로 받은건데 함께 드려요.
-    2인 기준으로 구성된 세트입니다.
-    사용횟수가 두 번이라서 거의 새상품 입니다.
-    16만원 주고 구매했던 취사용품 세트입니다.
-    보관 가방을 증정품으로 받은건데 함께 드려요.
-    2인 기준으로 구성된 세트입니다.
-    사용횟수가 두 번이라서 거의 새상품 입니다.
-    16만원 주고 구매했던 취사용품 세트입니다.
-    보관 가방을 증정품으로 받은건데 함께 드려요.
-    2인 기준으로 구성된 세트입니다.
-    사용횟수가 두 번이라서 거의 새상품 입니다.
-    </div>
-    {/* <button className='modifyBtn'>수정</button> */}
-    </ProductDtailModalStyle>
+      <ProductDtailModalStyle>
+      <XbuttonStyle>
+        <Xbutton onClick={() => setIsModalOpen(false)} />
+      </XbuttonStyle>
+      <GarlandStyle></GarlandStyle>     
+      <img src={saleItem.itemImage} alt={saleItem.itemName} />
+      <h2>{saleItem.itemName}</h2>
+      <h3>{saleItem.price.toLocaleString()}원</h3>
+      <p>상품 설명 혹은 링크</p>
+      <div>
+        {saleItem.link}
+      </div>
+      <button className='modifyBtn' onClick={handleGoAddproduct}>수정</button>
+      </ProductDtailModalStyle>
     </BackgorundStyle>
     </>
 
@@ -42,22 +45,20 @@ export default function ProductDtailModal() {
 }
 
 const BackgorundStyle = styled.div`
-position: absolute;
-  width: var(--basic-width);
-  height: var(--basic-height)-60px;
-  background-color: #302F2F66;
-  margin: 0;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
 `
 
 const ProductDtailModalStyle = styled.div`
-  border: 1px solid #dbdbdb;
+  /* border: 1px solid #dbdbdb; */
   position: relative;
   width: 303px;
   height: 458px;
   background-color: var(--background-color);
   border-radius: 20px;
-  margin: 20vh auto;
-  
+  margin: 0 auto;
+  top: 20vh;
     img {
       display: block;
       width: 235px;
