@@ -34,7 +34,7 @@ export const deleteComment = async (postId, commentId) => {
     return response.data
   } catch (error) {
     console.error('Request error', error)
-    throw error
+    // throw error
   }
 }
 
@@ -45,7 +45,7 @@ export const reportComment = async (postId, commentId) => {
     return response.data
   } catch (error) {
     console.error('Request error', error)
-    throw error
+    // throw error
   }
 }
 
