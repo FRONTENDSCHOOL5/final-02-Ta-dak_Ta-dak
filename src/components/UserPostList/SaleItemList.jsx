@@ -3,8 +3,11 @@ import styled from 'styled-components';
 
 import SaleItem from '../common/SaleItem';
 import { ReactComponent as NoPost } from '../../assets/img/sleepbonfire.svg';
+import ProductDetailModal from '../common/ProductDetailModal';
 
 export default function SaleItemList({saleItem}) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [items, setItems] = useState('');
 
   return (
     <>
@@ -12,8 +15,13 @@ export default function SaleItemList({saleItem}) {
       {saleItem.length !== 0 ? (
         <SaleItemListStyle>
           {saleItem.map((item, index) => (
-            <SaleItem saleItem={item} key={item.id} />
+            <>
+            <SaleItem saleItem={item} setIsModalOpen={setIsModalOpen} setItems={setItems}/>
+            </>
           ))}
+          {isModalOpen && (
+            <ProductDetailModal saleItem={items} setIsModalOpen={setIsModalOpen}/>
+          )}
         </SaleItemListStyle>
       ) : (
         <NoVisiblePost>

@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function SaleItem({saleItem}) {  
+export default function SaleItem({saleItem, setIsModalOpen, setItems}) {  
   return (
-    <SaleItemStyle>
+    <SaleItemStyle onClick={() => {
+      setIsModalOpen(true) 
+      setItems(saleItem)
+      }}>
       <h3 className='a11y-hidden'>{saleItem.itemName}</h3>
-      <Link to={`/sale/${saleItem.id}`}>
+      {/* <Link to={`/sale/${saleItem.id}`}> */}
         <img src={saleItem.itemImage} alt={saleItem.itemName} />
         <span className='itemName'>{saleItem.itemName}</span>
         <span className='itemPrice'>{saleItem.price.toLocaleString()}원</span>
-      </Link>
     </SaleItemStyle>
   );
 }

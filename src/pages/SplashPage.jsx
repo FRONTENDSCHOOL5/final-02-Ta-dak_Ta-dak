@@ -26,6 +26,7 @@ export default function SplashPage() {
         <FireworkLStyle></FireworkLStyle>
         <FireStyle></FireStyle>
         <WoodFireStyle></WoodFireStyle>
+        <section>
         <SubTitleStyle></SubTitleStyle>
         <LoginModalStyle>
           <li>
@@ -49,6 +50,7 @@ export default function SplashPage() {
             </Link>
         </div>
         </LoginModalStyle>
+        </section>
     </SplashPageStyle>
     </>
   )
@@ -94,7 +96,6 @@ const firework3 = keyframes`
   transform: translateY(-60px);
 }
 `
-
 const loginmodal = keyframes`
   0% {
   opacity: 0;
@@ -107,7 +108,7 @@ const loginmodal = keyframes`
 }
   100% {
   opacity: 1;
-  transform: translateY(-280px);
+  transform: translateY(-25vh);
 }
 `
 
@@ -115,10 +116,16 @@ const SplashPageStyle = styled.div `
 background-color: #FFFFEA;
 width: var(--basic-width);
 height: var(--basic-height);
+  section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -150px
+  }
 `
 
 const TitleStyle1 = styled(Tadak)`
-  margin: 160px 96px 0px 50px;
+  margin: 10vh 96px 0px 50px;
 `
 
 const TitleStyle2 = styled(Tadak)`
@@ -128,7 +135,7 @@ const TitleStyle2 = styled(Tadak)`
 const FireStyle = styled(Fire)`
   margin: 0 auto;
   position: relative;
-  top: 110px;
+  top: 80px;
   left: 60px;
   z-index: 100;
   animation: ${firework1} 2s infinite;
@@ -137,12 +144,13 @@ const FireStyle = styled(Fire)`
 const FireworkRStyle = styled(FireworkR)`
   position: relative;
   left: 300px;
+  top: -30px;
   animation: ${firework2} 2s infinite;
 `
 
 const FireworkLStyle = styled(FireworkL)`
   position: relative;
-  top: -20px;
+  top: -40px;
   left: 50px;
   animation: ${firework3} 2s infinite;
 ` 
@@ -151,22 +159,22 @@ const WoodFireStyle = styled(WoodFire)`
   position: relative;
   width: 400px;
   height: 400px;
-  top: -170px;
+  top: -190px;
 `
 
 const SubTitleStyle = styled(SubTitle)`
   position: relative;
-  top: -150px;
-  margin: 10px 88px; 
+  margin: 0 88px;
+  top: -20px 
 `
 
 const LoginModalStyle = styled.article`
 width: 390px;
-height: 362px;
+height: 100vh;
 border-radius: 20px;
 background-color: #ffffff;
 position: relative;
-top: -70px;
+top: -100px;
 z-index: 101;
 animation: ${loginmodal} 5s forwards;
   li {
