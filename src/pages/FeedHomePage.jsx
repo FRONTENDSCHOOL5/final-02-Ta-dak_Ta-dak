@@ -16,6 +16,7 @@ export default function FeedHomePage() {
 
   const [loadPostSeq, setLoadPostSeq] = useState(0);
   const [visiblePost, setVisiblePost] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (isBottom) {
@@ -39,21 +40,24 @@ export default function FeedHomePage() {
     }
     setVisiblePost([]);
     setLoadPostSeq(0);
+    setTimeout(() => {
+      const timer = setLoading(false)
+      return () => {
+        clearTimeout(timer)
+      }
+    }, 1800);
+    setLoading(true)
   }, [location.pathname])
   
   const upDateFeed = async (value) => {
     if (location.pathname === '/feed') {
       const data = await getPost(value)
-      setTimeout(() => {
-        setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
-      }, [1500]);
+      setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
       return data
     }
     else if (location.pathname === '/recommendfeed') {
       const data = await getPostAll(value)
-      setTimeout(() => {
-        setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
-      }, [1500]);
+      setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
       return data;
     }
   }
@@ -62,7 +66,7 @@ export default function FeedHomePage() {
     <>
       <MainHeader />
       <PostListStyle ref={elementRef}>
-        {visiblePost.length !== 0 ? <PostList visiblePost={visiblePost} /> : <Loader />}
+        {loading ? <Loader /> : visiblePost.length !== 0 && <PostList visiblePost={visiblePost} />}
       </PostListStyle>
     </>
   );

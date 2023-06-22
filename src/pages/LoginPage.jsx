@@ -53,7 +53,6 @@ export default function LoginPage() {
         // setEmail('');
         // setPassword('');
         setIsLogin(true);
-        alert('로그인성공 - 이부분 코드 나중에 뺄것');
         navigate('/feed');
       }
     } else{

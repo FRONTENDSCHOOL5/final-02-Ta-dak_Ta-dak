@@ -14,7 +14,7 @@ function App() {
       {/* <CommonComponents /> */}
       <PageTest />
       {/* <ProductDetailModal/> */}
-      <Loader />
+      {/* <Loader /> */}
       {/* <FeedHomePage /> */}
       {/* <SplashPage/> */}
         </BaseSizeStyle>
