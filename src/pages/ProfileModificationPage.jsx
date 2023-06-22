@@ -68,7 +68,6 @@ export default function ProfileModificationPage() {
         <UploadHeader valid={true} contents={'저장'} handleUploadBtnClick={submitModification} />
         <FileUploadStyle>
           <FileUploadLg onChange={handleImageChange} url={imageURL || userInfo.image} id={'profileEdit'}/> 
-          {/*onChange={handleImageChange} url={imageURL}  */} 
         </FileUploadStyle>
         <div className='profileInfo'>
           <Input id={'user-name'} type={'text'} label={'사용자 이름'} placeholder={'2~10자 이내여야 합니다.'} value={name} onChange={handleNameInput} valid={nameValid} alertMsg={nameAlertMsg}/>
