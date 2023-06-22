@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import useModalControl from "../hooks/useModalControl";
 
@@ -36,7 +36,6 @@ export default function ChatRoom() {
   const navigate = useNavigate()
 
   const handleChatRoomOut = () =>{
-    console.log('dd');
     navigate(-1)
   }
 

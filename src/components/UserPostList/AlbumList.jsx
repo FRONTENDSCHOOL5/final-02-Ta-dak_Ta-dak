@@ -5,6 +5,7 @@ import Album from '../common/Album';
 
 import postImg1 from './../../assets/testImg/post1.png';
 import postImg2 from './../../assets/testImg/post2.png';
+import { ReactComponent as NoPost } from '../../assets/img/sleepbonfire.svg';
 
 export default function AlbumList({ visiblePost }) {
 
@@ -18,7 +19,14 @@ export default function AlbumList({ visiblePost }) {
           ))}
         </AlbumListStyle>
       ) : (
-        <div>앨범형 포스트가없음</div>
+        <NoVisiblePost>
+          <div className='noPostWrapper'>
+            <div>
+              <NoPost />
+            </div>
+            <span>포스트가 없습니다</span>
+          </div>
+        </NoVisiblePost>
       )}
     </>
   );
@@ -32,4 +40,21 @@ const AlbumListStyle = styled.ul`
   max-width: var(--basic-width);
   padding: 30px;
   padding: 16px;
+`;
+
+const NoVisiblePost = styled.div`
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .noPostWrapper {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+  }
+  span {
+    color: var(--basic-color-7);
+    font-size: var(--font--size-md);
+  }
 `;
