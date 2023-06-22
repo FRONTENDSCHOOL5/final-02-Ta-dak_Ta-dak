@@ -24,6 +24,18 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
     loadProfilePage(accountname);
   };
 
+  const handleProfileEdit = () => {
+    navigate('/profilemodification', 
+    {
+      state: {
+        username: profile.username,
+        accountname: profile.accountname,
+        intro: profile.intro,
+        image: profile.image
+      }
+    })
+  }
+
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
@@ -58,8 +70,8 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         {isMyAccount ? (
           // 내 계정일 경우
           <>
-            <WhiteMdBtn contents={'프로필 수정'} />
-            <div className="blank"></div>
+
+              <WhiteMdBtn contents={'프로필 수정'} handleFunc={handleProfileEdit}/>
             <Link to='/addproduct'>
               <WhiteMdBtn contents={'상품 등록'} />
             </Link>
