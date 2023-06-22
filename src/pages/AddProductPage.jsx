@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useImageUploader from "../hooks/useImageUploader";
-import { postProduct } from "../api/productAPI";
+import { postProduct, editProduct } from "../api/productAPI";
 import useAlertControl from "../hooks/useAlertControl";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components"
@@ -16,19 +16,16 @@ export default function AddProductPage() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const getItem = location.state?.saleItem || null;
   const { handleImageChange, imageURL, imagePath } = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
-  const [productName, setProductName] = useState('');
-  const [productPrice, setProductPrice] = useState('');
+  const [productName, setProductName] = useState(getItem?.itemName || '');
+  const [productPrice, setProductPrice] = useState(getItem?.price.toLocaleString() || '');
   const [productNameMsg, setProductNameMsg] = useState('');
-  const [productExplain, setProductExplain] = useState(null);
+  const [productExplain, setProductExplain] = useState(getItem?.link || null);
   const [productNameValid, setProductNameValid] = useState(true);
   const [productPriceValid, setProductPriceValid] = useState(true);
   const [alertState, setAlertState] = useState('');
-
-  const getItem = location.state?.saleItem;
-
-  console.log(getItem);
 
   const handleProductName = (event) => {
     setProductName(event.target.value.toLocaleString())
@@ -40,8 +37,6 @@ export default function AddProductPage() {
       setProductNameMsg('2~15자 이내로 입력해주세요.')
     }
   }
-
-  console.log(imagePath);
 
   const handleProductPrice = (event) => {
     const pricePattern = /^[1-9][0-9]*$/
@@ -59,14 +54,16 @@ export default function AddProductPage() {
       if (imageURL === '잘못된 접근') {
         openAlert() 
         setAlertState('상품 이미지가 없습니다.')
-      } else {
+      } else if (location.pathname==='/addproduct') {
         await postProduct(productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath)
+        navigate(-1);
+      } else if (location.pathname==='/editproduct') {
+        await editProduct(getItem.id, productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath || getItem?.itemImage)
         navigate(-1);
       }
     }
   }
-  // console.log(imageURL);
-
+  
   useEffect(()=>{
     if (imageURL === '잘못된 접근') {
       setAlertState('잘못된 업로드입니다.')
@@ -82,7 +79,7 @@ export default function AddProductPage() {
 
         <div className='addImg'>
           <FileInputStyle>
-            <img src={imageURL !== '잘못된 접근' &&  imageURL || emptyImg } alt='' className='showImg' />
+            <img src={imageURL !== '잘못된 접근' && imageURL || getItem?.itemImage || emptyImg } alt='' className='showImg' />
             <div className='uploadImgBtn'>
               <FileUploadSm id={'uploading-img'} onChange={handleImageChange} />
             </div>
@@ -96,7 +93,7 @@ export default function AddProductPage() {
             placeholder={'2~15자 이내여야 합니다.'}
             valid={productNameValid}
             alertMsg={productNameMsg}
-            value={productName}
+            value={productName|| getItem?.productName}
             onChange={handleProductName}
           />
           <Input
@@ -126,6 +123,7 @@ export default function AddProductPage() {
     </>
   )
 }
+
 const AddProductPageStyle = styled.div`
   margin: 0 auto;
   padding: 0 34px;
@@ -136,6 +134,7 @@ const AddProductPageStyle = styled.div`
     margin-top: 15px;
     border-radius: 10px;
     border: 0.5px solid var(--basic-color-8);
+    object-fit: cover;
   }
 
   .uploadImgBtn {

@@ -14,8 +14,7 @@ import ChatListPage from '../pages/ChatListPage'
 import ChatRoomPage from '../pages/ChatRoomPage'
 import PostDetail from '../pages/PostDetail';
 import ProfilePage from '../pages/ProfilePage';
-import FollowerListPage from '../pages/FollowerListPage';
-import FollowingListPage from '../pages/FollowingListPage';
+import FollowListPage from '../pages/FollowListPage';
 import SplashPage from '../pages/SplashPage';
 import Page404 from '../pages/404Page';
 import { NavBar } from '../components/common/NavBar';
@@ -50,8 +49,9 @@ export default function PageTest() {
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/productdetail' element={<ProductDetailModal />} />
-        <Route path='/profile/:accountname/follower' element={<FollowerListPage />} />
-        <Route path='/profile/:accountname/following' element={<FollowingListPage />} />
+        <Route path='/editproduct' element={<AddProductPage />} />
+        <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
+        <Route path='/profile/:accountname/following' element={<FollowListPage />} />
         <Route path='/404page' element={<Page404 />} />
       </Routes>
       <NavBar/>

@@ -70,7 +70,7 @@ export default function SearchPage() {
   );
 }
 
-const SearchPageStyle = styled.div `
+const SearchPageStyle = styled.div`
   padding: 20px 16px 0;
   width: 390px;
   height: var(--screen-nav-height);
@@ -80,7 +80,13 @@ const SearchPageStyle = styled.div `
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-`
+  overflow-y: scroll;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    background-color: var(--background-color);
+    width: 0px;
+  }
+`;
 
 const SearchResultWrapper = styled.ul `
   display: flex;
