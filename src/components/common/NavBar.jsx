@@ -25,7 +25,7 @@ export function NavBar() {
     { to: '/recommendfeed', component: IconHeart, label: '추천게시글' },
     { to: '/chat', component: IconMessage, label: '채팅' },
     { to: '/upload', component: IconEdit, label: '게시물 작성' },
-    { to: '/profile/tadak123', component: IconUser, label: '프로필' },
+    { to: '/profile/', component: IconUser, label: '프로필' },
   ];
 
   const [selectedIcon, setSelectedIcon] = useState(IconHome);
