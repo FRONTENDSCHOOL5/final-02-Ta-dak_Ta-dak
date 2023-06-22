@@ -10,6 +10,8 @@ import { ReactComponent as IconUser } from '../../assets/img/icon-user.svg';
 
 export function NavBar() {
   const location = useLocation();
+  const accountname = sessionStorage.getItem('user') === null?'':JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname
+  
   const hideNavBarPaths = [
     '/login',
     '/signup',
@@ -26,6 +28,7 @@ export function NavBar() {
     { to: '/chat', component: IconMessage, label: '채팅' },
     { to: '/upload', component: IconEdit, label: '게시물 작성' },
     { to: '/profile/', component: IconUser, label: '프로필' },
+    { to: `/profile/${accountname}`, component: IconUser, label: '프로필' },
   ];
 
   const [selectedIcon, setSelectedIcon] = useState(IconHome);

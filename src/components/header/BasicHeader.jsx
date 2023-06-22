@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
 import IconSMore from '../../assets/img/icon-more.svg'
 
-export default function BasicHeader() {
+export default function BasicHeader({isButton, handleFunc}) {
 
   const navigate = useNavigate();
 
@@ -14,10 +14,10 @@ export default function BasicHeader() {
 
   return (
     <BasicHeaderStyle>
-      <button className='backUrlBtn' onClick={handleGoBack}></button>
-      <button className='moreBtn'></button>
+      <button className="backUrlBtn" onClick={handleGoBack}></button>
+      {isButton && <button className="moreBtn" onClick={handleFunc}></button>}
     </BasicHeaderStyle>
-  )
+  );
 }
 
 const BasicHeaderStyle = styled.div`

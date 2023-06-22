@@ -9,8 +9,16 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function FollowersProfile({ followingUser }) {
+  const [isMe, setIsMe] = useState(false);
+  
   const [isFollow, setIsFollow] = useState(followingUser.isfollow)
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
+
+  useState(()=>{
+    if(JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname === followingUser.accountname){
+      setIsMe(true)
+    }
+  },[])
 
   const followBtnHandler = async () => {
     await doFollowing(followingUser.accountname);
@@ -33,11 +41,16 @@ export default function FollowersProfile({ followingUser }) {
         <p>{followingUser.username}</p>
         <span>{followingUser.intro}</span>
       </div>
-      {isFollow ? (
-        <WhiteSmBtn contents={'취소'} handleFunc={unFollowBtnHandler} />
-      ) : (
-        <GreenSmBtn contents={'팔로우'} handleFunc={followBtnHandler} />
-      )}
+      {
+        !isMe?
+          isFollow ? (
+            <WhiteSmBtn contents={'취소'} handleFunc={unFollowBtnHandler} />
+            ) : (
+            <GreenSmBtn contents={'팔로우'} handleFunc={followBtnHandler} />
+          )
+        :null
+      }
+      
     </FollowersProfileStyle>
   );
 }

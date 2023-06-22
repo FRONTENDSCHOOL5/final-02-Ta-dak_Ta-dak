@@ -10,7 +10,7 @@ export default function ChatList() {
 
   return (
     <>
-      <BasicHeader />
+      <BasicHeader isButton={false}/>
       <ChatListPageStyle>
         <ChatContainerStyle
           onClick={() => {

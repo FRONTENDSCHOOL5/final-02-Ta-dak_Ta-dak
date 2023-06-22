@@ -77,10 +77,10 @@ export default function Post({ post }) {
   return (
     <>
       <PostStyle>
-        <button className='postMoreButton' onClick={()=>{
+        <button className='postMoreButton' onClick={() => {
           openModal()
           setAlertState('게시글을 삭제할까요?')
-          }} />
+        }} />
         <div className='profileComponent'>
           <SearchProfile info={post.author} />
         </div>
@@ -89,7 +89,7 @@ export default function Post({ post }) {
             <h3 className='a11y-hidden'>포스트 내용</h3>
             <div onClick={() => setContentMore((prevValue) => !prevValue)}>
               <p>{post.content}</p>
-              {post.image && <button className="moreContentBtn"></button>}
+              {post.content.length >= 180 && <button className="moreContentBtn"></button>}
             </div>
             {contentMore && post.image && (
               <img
@@ -131,8 +131,8 @@ export default function Post({ post }) {
       </PostStyle>
 
       <AlertComponent>
-        {alertState==='신고가 접수되었습니다.' && <Alert alertMsg={alertState} choice={['확인']} />}
-        {alertState==='게시글을 삭제할까요?' && <Alert alertMsg={alertState} choice={['취소', '확인']} handleFunc={handleModal} />}
+        {alertState === '신고가 접수되었습니다.' && <Alert alertMsg={alertState} choice={['확인']} />}
+        {alertState === '게시글을 삭제할까요?' && <Alert alertMsg={alertState} choice={['취소', '확인']} handleFunc={handleModal} />}
       </AlertComponent>
 
       <ModalComponent>
@@ -183,7 +183,7 @@ const PostContainerStyle = styled.div`
     background-size: cover;
     width: 16px;
     height: 16px;
-    display: ${({locationPathname}) => (locationPathname.includes('/postdetail')) ? 'block' : 'none'};
+    display: ${({ locationPathname }) => (locationPathname.includes('/postdetail')) ? 'block' : 'none'};
     transform: ${({ contentMore }) => (contentMore) ? 'rotate(0)' : 'rotate(180deg)'};
   }
 
