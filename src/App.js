@@ -4,6 +4,7 @@ import CommonComponents from './componentsTest/CommonComponents'
 import PageTest from './componentsTest/PageTest'
 import FeedHomePage from './pages/FeedHomePage'
 import SplashPage from './pages/SplashPage'
+import ProductDetailModal from './components/common/ProductDetailModal'
 import Loader from './Loader/Loader'
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
         <BaseSizeStyle>
       {/* <CommonComponents /> */}
       <PageTest />
-      {/* <Loader /> */}
+      {/* <ProductDetailModal/> */}
+      <Loader />
       {/* <FeedHomePage /> */}
       {/* <SplashPage/> */}
         </BaseSizeStyle>

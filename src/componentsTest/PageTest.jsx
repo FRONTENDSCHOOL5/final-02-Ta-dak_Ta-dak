@@ -18,6 +18,7 @@ import FollowListPage from '../pages/FollowListPage';
 import SplashPage from '../pages/SplashPage';
 import Page404 from '../pages/404Page';
 import { NavBar } from '../components/common/NavBar';
+import ProductDetailModal from '../components/common/ProductDetailModal';
 
 export default function PageTest() {
   return (
@@ -47,6 +48,8 @@ export default function PageTest() {
         <Route path='/addproduct' element={<AddProductPage />} />
         <Route path='/profilemodification' element={<ProfileModificationPage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
+        <Route path='/productdetail' element={<ProductDetailModal />} />
+        <Route path='/editproduct' element={<AddProductPage />} />
         <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
         <Route path='/profile/:accountname/following' element={<FollowListPage />} />
         <Route path='/404page' element={<Page404 />} />
