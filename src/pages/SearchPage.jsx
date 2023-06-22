@@ -48,7 +48,7 @@ export default function SearchPage() {
       <SearchHeader value={search} setValue={setSearch}></SearchHeader>
       <SearchPageStyle>
       <SearchResultWrapper>
-        {isLoading ? <div>로딩중...</div> : (
+        {isLoading ? null: (
           <>
           {searchList ? (
         <>

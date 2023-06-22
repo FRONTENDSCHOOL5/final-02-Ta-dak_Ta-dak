@@ -8,7 +8,8 @@ import { Input } from '../components/common/Input';
 import { FileUploadLg } from '../components/common/FileUpload'
 import { profilemodificationReq } from '../api/profilemodificationAPI';
 import { postAccountValid } from '../api/signupAPI';
-
+import { UserAtom } from '../recoil/AtomUserState';
+import { useRecoilState } from 'recoil';
 
 export default function ProfileModificationPage() {
 
@@ -23,6 +24,7 @@ export default function ProfileModificationPage() {
   const [idValid, setIdValid] = useState(true);
   const [idAlertMsg, setIdAlertMsg] = useState('');
   const [intro, setIntro] = useState(userInfo.intro || '')
+  const [userValue, setUserValue] = useRecoilState(UserAtom);
   
   const handleNameInput = (event) => {
     const value = event.target.value;
@@ -58,6 +60,7 @@ export default function ProfileModificationPage() {
 
   const submitModification = async () => {
     const data = await profilemodificationReq(name || userInfo.username, id || userInfo.accountname, intro || userInfo.intro, imagePath || userInfo.image);
+    setUserValue({ ...userValue, accountname: id, image: imagePath });
     navigate(`/profile/${id || userInfo.accountname}`);
     console.log(data.user);
   }

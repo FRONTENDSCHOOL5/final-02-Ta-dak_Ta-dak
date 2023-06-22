@@ -70,8 +70,8 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         {isMyAccount ? (
           // 내 계정일 경우
           <>
-
               <WhiteMdBtn contents={'프로필 수정'} handleFunc={handleProfileEdit}/>
+              <div className='blank'></div>
             <Link to='/addproduct'>
               <WhiteMdBtn contents={'상품 등록'} />
             </Link>

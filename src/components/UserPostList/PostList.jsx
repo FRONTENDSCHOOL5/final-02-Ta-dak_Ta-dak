@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import Post from '../common/Post';
+import { ReactComponent as NoPost } from '../../assets/img/sleepbonfire.svg';
 
 export default function PostList({ visiblePost }) {
 
@@ -14,7 +15,14 @@ export default function PostList({ visiblePost }) {
           ))}
         </PostListStyle>
       ) : (
-        <div>포스트가없음</div>
+        <NoVisiblePost>
+          <div className="noPostWrapper">
+            <div>
+              <NoPost />
+            </div>
+            <span>포스트가 없습니다</span>
+          </div>
+        </NoVisiblePost>
       )}
     </>
   );
@@ -33,5 +41,22 @@ const PostListStyle = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+`;
+
+const NoVisiblePost = styled.div`
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .noPostWrapper {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+  }
+  span {
+    color: var(--basic-color-7);
+    font-size: var(--font--size-md);
   }
 `;
