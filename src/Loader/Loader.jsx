@@ -70,17 +70,24 @@ export default function Loader() {
 
           <div className="face"></div>
         </div>
-        <span class="loader-text">Loading...</span>
+        <span className="loader-text">Loading...</span>
       </div>}
     </LoaderStyle>
   )
 }
 const LoaderStyle = styled.div`
   width: 100%;
+  /* height: (var(--screen-nav-height) - 110px); */
+  height: var(--screen-nav-height);
   padding: 0 130px;
+  position: relative;
 
 
 .loader {
+  position: absolute;
+  left: 80%;
+  top: 45%;
+  transform: translate(-50%, -50%);
   width: 200px;
   height: 110px;
   position: relative;

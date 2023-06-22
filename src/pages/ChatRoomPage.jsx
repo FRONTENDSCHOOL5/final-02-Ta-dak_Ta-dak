@@ -1,8 +1,12 @@
 import styled from 'styled-components';
+import { Navigate, useNavigate } from 'react-router-dom';
+
+import useModalControl from "../hooks/useModalControl";
 
 import  ChatHeader  from '../components/header/ChatHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { FileUploadSm } from '../components/common/FileUpload';
+import { Modal } from './../components/common/Modal';
 import saleItem from '../assets/testImg/saleItem3.png';
 
 export default function ChatRoom() {
@@ -28,9 +32,17 @@ export default function ChatRoom() {
     },
   ];
 
+  const {openModal, ModalComponent} = useModalControl();
+  const navigate = useNavigate()
+
+  const handleChatRoomOut = () =>{
+    console.log('dd');
+    navigate(-1)
+  }
+
   return (
     <>
-      <ChatHeader name={'바베큐러버'} isButton={true}/>
+      <ChatHeader name={'바베큐러버'} isButton={true} handleFunc={openModal} />
       <ChatRoomPageStyle>
         {chatHistory.map((item, index) =>
           item.receive ? (
@@ -55,6 +67,9 @@ export default function ChatRoom() {
         <InputStyle type={'text'} placeholder="메시지 입력하기..."></InputStyle>
         <button id="send">전송</button>
       </SendStyle>
+      <ModalComponent>
+        <Modal contents={['채팅방 나가기']} handleFunc={handleChatRoomOut} />
+      </ModalComponent>
     </>
   );
 }

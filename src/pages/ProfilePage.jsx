@@ -13,6 +13,7 @@ import UserProfile from "../components/common/UserProfile";
 import UserPostList from '../components/UserPostList/UserPostList';
 import { Modal } from './../components/common/Modal';
 import Alert from './../components/common/Alert';
+import Loader from "../Loader/Loader";
 import { useSetRecoilState } from "recoil";
 
 
@@ -81,7 +82,7 @@ export default function ProfilePage() {
             <UserPostList saleItem={saleItemProps} post={profilePostProps} />
           </>
         ) : (
-          <div>로딩중</div>
+          <Loader />
         )}
       </ProfilePageStyle>
       <AlertComponent>

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import MainHeader from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
+import Loader from '../Loader/Loader';
 
 export default function FeedHomePage() {
   const elementRef = useRef(null);
@@ -43,12 +44,17 @@ export default function FeedHomePage() {
   const upDateFeed = async (value) => {
     if (location.pathname === '/feed') {
       const data = await getPost(value)
-      setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
+      setTimeout(() => {
+        setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
+      }, [1500]);
       return data
     }
     else if (location.pathname === '/recommendfeed') {
       const data = await getPostAll(value)
-      setVisiblePost((PrevValue) => [...PrevValue, ...data.posts])
+      setTimeout(() => {
+        setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
+      }, [1500]);
+      return data;
     }
   }
   
@@ -56,7 +62,7 @@ export default function FeedHomePage() {
     <>
       <MainHeader />
       <PostListStyle ref={elementRef}>
-        {visiblePost.length !== 0 ? <PostList visiblePost={visiblePost} /> : <div>loading</div>}
+        {visiblePost.length !== 0 ? <PostList visiblePost={visiblePost} /> : <Loader />}
       </PostListStyle>
     </>
   );

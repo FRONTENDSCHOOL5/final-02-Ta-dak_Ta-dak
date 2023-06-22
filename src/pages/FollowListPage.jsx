@@ -6,6 +6,7 @@ import useScrollBottom from '../hooks/useScrollBottom';
 
 import FollowersProfile from '../components/common/FollowersProfile';
 import ChatHeader from '../components/header/ChatHeader';
+import Loader from '../Loader/Loader';
 
 export default function FollowListPage() {
   const elementRef = useRef(null);
@@ -50,7 +51,7 @@ export default function FollowListPage() {
             <FollowersProfile followingUser={item} key={item._id} />
           ))
         ) : (
-          <div>팔로잉한 사람이 없음 or 로딩중</div>
+          <Loader />
         )}
       </FollowListStyle>
     </>

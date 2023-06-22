@@ -14,6 +14,7 @@ import BasicHeader from "../components/header/BasicHeader"
 import Post from "../components/common/Post"
 import Comment from "../components/common/Comment"
 import CommentInput from "../components/common/CommentInput"
+import Loader from '../Loader/Loader';
 
 export default function PostDetail() {
 
@@ -67,7 +68,7 @@ export default function PostDetail() {
               <li key={item.id}>
                 <Comment item={item} setSelectComment={setSelectComment} openModal={openModal} />
               </li>
-            ))) : <div>loading...</div>}
+            ))) : <Loader />}
         </CommentStyle>
         {loading ? <CommentInput postId={post.post.id} setReset={setReset} /> : <div>loading...</div>}
       </PostContainer>
