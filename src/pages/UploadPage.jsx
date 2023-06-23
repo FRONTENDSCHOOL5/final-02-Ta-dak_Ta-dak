@@ -41,15 +41,7 @@ export default function UploadPage() {
     }
   };
 
-<<<<<<< HEAD
-  const ro = useRecoilValue(IsLogin)
-
-  console.log(ro);
-
-  useEffect(()=>{
-=======
   useEffect(() => {
->>>>>>> 9435b66dfdc321a508c2d98327742e3284eb1622
     if (uploadValidity === '유효하지 않은 파일') {
       openAlert();
     }
