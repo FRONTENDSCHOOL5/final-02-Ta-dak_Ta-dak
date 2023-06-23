@@ -60,7 +60,7 @@ export default function PostDetail() {
       <BasicHeader isButton={false}/>
       <PostContainer>
         <PostStyle>
-          {loading ? <Post post={post.post}></Post> : <div>loading...</div>}
+          {loading ? <Post post={post.post}></Post> : null}
         </PostStyle>
         <CommentStyle>
           {loading ? comment.comments.map((item) => (
