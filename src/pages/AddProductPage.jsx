@@ -17,7 +17,7 @@ export default function AddProductPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const getItem = location.state?.saleItem || null;
-  const { handleImageChange, imageURL, imagePath } = useImageUploader();
+  const { handleImageChange, imageURL, imagePath, uploadValidity} = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
   const [productName, setProductName] = useState(getItem?.itemName || '');
   const [productPrice, setProductPrice] = useState(getItem?.price.toLocaleString() || '');
@@ -49,27 +49,31 @@ export default function AddProductPage() {
       setProductPrice('');
     }
   }
+
+
   const handleUploadBtnClick = async () => {
     if (productName && productPrice ) {
-      if (imageURL === '잘못된 접근') {
+      if (uploadValidity === '유효하지 않은 파일' && imagePath === false) {
         openAlert() 
         setAlertState('상품 이미지가 없습니다.')
       } else if (location.pathname==='/addproduct') {
-        await postProduct(productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath)
+        await postProduct(productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath) 
         navigate(-1);
       } else if (location.pathname==='/editproduct') {
+        console.log('here',imagePath);
         await editProduct(getItem.id, productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath || getItem?.itemImage)
         navigate(-1);
       }
     }
   }
-  
+
   useEffect(()=>{
-    if (imageURL === '잘못된 접근') {
+    console.log(uploadValidity);
+    if (uploadValidity === '유효하지 않은 파일') {
       setAlertState('잘못된 업로드입니다.')
       openAlert();
     }
-  }, [imageURL])
+  }, [uploadValidity])
 
   return (
     <>
@@ -79,9 +83,9 @@ export default function AddProductPage() {
 
         <div className='addImg'>
           <FileInputStyle>
-            <img src={imageURL !== '잘못된 접근' && imageURL || getItem?.itemImage || emptyImg } alt='' className='showImg' />
+            <img src={imageURL || getItem?.itemImage || emptyImg} alt='' className='showImg' />
             <div className='uploadImgBtn'>
-              <FileUploadSm id={'uploading-img'} onChange={handleImageChange} />
+              <FileUploadSm id={'uploading-img'} onChange={handleImageChange}/>
             </div>
           </FileInputStyle>
         </div>
