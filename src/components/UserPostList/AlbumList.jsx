@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import Album from '../common/Album';
 
-import postImg1 from './../../assets/testImg/post1.png';
-import postImg2 from './../../assets/testImg/post2.png';
 import { ReactComponent as NoPost } from '../../assets/img/sleepbonfire.svg';
 
 export default function AlbumList({ visiblePost }) {
