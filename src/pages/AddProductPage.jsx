@@ -10,7 +10,7 @@ import { Input } from '../components/common/Input';
 import { FileUploadSm } from '../components/common/FileUpload';
 import Alert from "../components/common/Alert";
 
-import emptyImg from '../assets/img/emptyImg.jpg'
+import emptyImg from '../assets/img/empty.svg'
 
 export default function AddProductPage() {
 
