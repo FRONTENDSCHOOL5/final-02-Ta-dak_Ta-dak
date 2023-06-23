@@ -25,9 +25,11 @@ export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
     });
   };
 
-  const handleDeleteReq = async () => {
+  const handleDeleteReq = async (event) => {
+    if (event.target.textContent === '확인') {
     await deleteProduct(saleItem.id);
     window.location.reload();
+    }
   };
 
   return (

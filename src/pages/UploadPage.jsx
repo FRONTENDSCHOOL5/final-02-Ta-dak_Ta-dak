@@ -14,28 +14,22 @@ import { FileUploadMd } from '../components/common/FileUpload'
 import Alert from '../components/common/Alert';
 
 export default function UploadPage() {
-  const { handleImageChange, imageURL, imagePath } = useImageUploader();
+  const { handleImageChange, imageURL, imagePath, uploadValidity} = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
   const userInfo = useRecoilValue(UserAtom)
   const locationValue = location.state;
   const [text, setText] = useState(locationValue?.content || '');
-  const [valid, setValid] = useState(false);
 
   const handleChange = (event) => {
     const newText = event.target.value;
     setText(newText);
-    if (newText) {
-      setValid(true)
-    } else {
-      setValid(false)
-    }
   };
 
   const handleUploadBtnClick = async () => {
     if (location.pathname === '/upload') {
-      const uploadPost = await uploadImage(text, imagePath);
+      const uploadPost = await uploadImage(text, imagePath || '');
       navigate(`/postdetail/${uploadPost.post.id}`);
       
     } else if (location.pathname === '/editpost') {
@@ -45,10 +39,10 @@ export default function UploadPage() {
   };
 
   useEffect(()=>{
-    if (imageURL === '잘못된 접근') {
+    if (uploadValidity === '유효하지 않은 파일') {
       openAlert();
     }
-  }, [imageURL])
+  }, [uploadValidity])
 
   const autoResize = (event) => {
     const textarea = event.target;
@@ -60,7 +54,7 @@ export default function UploadPage() {
     <>
       <UploadPageStyle>
         <h1 className='a11y-hidden'>게시물 업로드</h1>
-        <UploadHeader valid={valid} contents={'업로드'} handleUploadBtnClick={handleUploadBtnClick} />
+        <UploadHeader valid={true} contents={'업로드'} handleUploadBtnClick={handleUploadBtnClick} />
 
         <PostWrapperStyle>
           <ProfileMd url={userInfo.image} />
@@ -73,7 +67,7 @@ export default function UploadPage() {
               placeholder='여러분의 캠핑을 기록해 주세요'
               onInput={autoResize}
             />
-            {imageURL !== '잘못된 접근' && imageURL || locationValue?.image ? (
+            {imageURL || locationValue?.image ? (
               <img src={imageURL || locationValue?.image} alt='' className='showImg' />
             ) : null}
             <div className='uploadImgBtn' >
