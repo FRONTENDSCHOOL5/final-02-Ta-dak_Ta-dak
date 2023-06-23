@@ -16,7 +16,7 @@ import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/s-icon-more.svg';
 import downArrow from '../../assets/img/down-arrow.png'
-import errorImg from '../../assets/img/404error.png'
+import errorImg from '../../assets/img/UploadImage404.svg'
 
 export default function Post({ post }) {
   const navigate = useNavigate();
@@ -88,7 +88,7 @@ export default function Post({ post }) {
           <Link to={`/postdetail/${id}`}>
             <h3 className='a11y-hidden'>포스트 내용</h3>
             <div onClick={() => setContentMore((prevValue) => !prevValue)}>
-              <p>{post.content}</p>
+              <pre>{post.content}</pre>
               {post.content?.length >= 180 && <button className="moreContentBtn"></button>}
             </div>
             {contentMore && post.image && (
@@ -188,7 +188,7 @@ const PostContainerStyle = styled.div`
   }
 
 
-  p {
+  pre {
     font-weight: var(--font--Regular);
     font-size: var(--font--size-md);
     line-height: 19px;

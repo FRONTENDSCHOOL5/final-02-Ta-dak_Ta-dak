@@ -31,7 +31,7 @@ export default function Comment({ item, setSelectComment, openModal }) {
     <>
       <CommentContainerStyle>
         <div className="profileClick" onClick={clickHandler}>
-          <ProfileSm url={item.author.imag} />
+          <ProfileSm url={item.author.image} />
         </div>
         <div className="commentContents">
           <UserNameStyle onClick={clickHandler}>

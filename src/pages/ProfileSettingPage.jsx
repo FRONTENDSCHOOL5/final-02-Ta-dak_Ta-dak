@@ -71,7 +71,7 @@ export default function ProfileSettingPage() {
     const postSignUpReq = async () => {
       if (username && id && usernameValid && idValid) {
         const result = await postSignUp(reqFrame);
-        result && navigate('/login')
+        result && navigate('/splash')
       }
     }
     postSignUpReq();

@@ -42,7 +42,7 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         <div
           className="follow"
           onClick={() => {
-            navigate(`${location.pathname}/follower`);
+            navigate(`/profile/${profile.accountname}/follower`);
           }}
         >
           <strong>{profile.followerCount}</strong>
@@ -52,7 +52,7 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         <div
           className="follow"
           onClick={() => {
-            navigate(`${location.pathname}/following`);
+            navigate(`/profile/${profile.accountname}/following`);
           }}
         >
           <strong>{profile.followingCount}</strong>
@@ -79,7 +79,7 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         ) : (
           // 다른사람 계정일 경우
           <>
-            <LinkChatStyle to="/">
+            <LinkChatStyle to="/chat">
               <img src={IconSmMessage} alt="채팅하기" />
             </LinkChatStyle>
             {profile.isfollow ? (

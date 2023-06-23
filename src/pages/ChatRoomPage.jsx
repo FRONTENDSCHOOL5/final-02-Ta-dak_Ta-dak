@@ -7,7 +7,7 @@ import  ChatHeader  from '../components/header/ChatHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { FileUploadSm } from '../components/common/FileUpload';
 import { Modal } from './../components/common/Modal';
-import saleItem from '../assets/testImg/saleItem3.png';
+import saleItem from '../assets/img/SaleItem.png';
 
 export default function ChatRoom() {
   
