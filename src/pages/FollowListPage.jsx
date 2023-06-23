@@ -16,8 +16,8 @@ export default function FollowListPage() {
   const location = useLocation();
   const [loadFollowSeq, setLoadFollowSeq] = useState(0);
   const [followList, setFollowList] = useState([]);
-  const [title, setTitle] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [title, setTitle] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (isBottom) {
@@ -25,19 +25,18 @@ export default function FollowListPage() {
       setLoadFollowSeq((PrevValue) => PrevValue + 20);
     }
   }, [isBottom]);
-  
-  useEffect(()=>{
-    loadFollowList(loadFollowSeq)
-  },[])
+
+  useEffect(() => {
+    loadFollowList(loadFollowSeq);
+  }, []);
 
   const loadFollowList = async (value) => {
-    let list
-    if(location.pathname === `/profile/${accountname}/following`){
+    let list;
+    if (location.pathname === `/profile/${accountname}/following`) {
       list = await getFollowingList(accountname, value);
       setTitle('Followings');
-      setLoading(true)
-    }
-    else if (location.pathname === `/profile/${accountname}/follower`) {
+      setLoading(true);
+    } else if (location.pathname === `/profile/${accountname}/follower`) {
       list = await getFollowerList(accountname, value);
       setTitle('Followers');
       setLoading(true);

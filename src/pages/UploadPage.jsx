@@ -10,18 +10,19 @@ import styled from 'styled-components';
 
 import UploadHeader from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
-import { FileUploadMd } from '../components/common/FileUpload'
+import { FileUploadMd } from '../components/common/FileUpload';
 import Alert from '../components/common/Alert';
 
 import { IsLogin } from '../recoil/AtomUserState';
 
 
 export default function UploadPage() {
-  const { handleImageChange, imageURL, imagePath, uploadValidity} = useImageUploader();
+  const { handleImageChange, imageURL, imagePath, uploadValidity } =
+    useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
-  const userInfo = useRecoilValue(UserAtom)
+  const userInfo = useRecoilValue(UserAtom);
   const locationValue = location.state;
   const [text, setText] = useState(locationValue?.content || '');
 
@@ -40,50 +41,62 @@ export default function UploadPage() {
     }
   };
 
+<<<<<<< HEAD
   const ro = useRecoilValue(IsLogin)
 
   console.log(ro);
 
   useEffect(()=>{
+=======
+  useEffect(() => {
+>>>>>>> 9435b66dfdc321a508c2d98327742e3284eb1622
     if (uploadValidity === '유효하지 않은 파일') {
       openAlert();
     }
-  }, [uploadValidity])
+  }, [uploadValidity]);
 
   const autoResize = (event) => {
     const textarea = event.target;
     textarea.style.height = 'auto';
     textarea.style.height = textarea.scrollHeight + 'px';
-  }
+  };
 
   return (
     <>
       <UploadPageStyle>
-        <h1 className='a11y-hidden'>게시물 업로드</h1>
-        <UploadHeader valid={true} contents={'업로드'} handleUploadBtnClick={handleUploadBtnClick} />
+        <h1 className="a11y-hidden">게시물 업로드</h1>
+        <UploadHeader
+          valid={true}
+          contents={'업로드'}
+          handleUploadBtnClick={handleUploadBtnClick}
+        />
 
         <PostWrapperStyle>
           <ProfileMd url={userInfo.image} />
-          <div className='uploading'>
+          <div className="uploading">
             <textarea
               onChange={handleChange}
               value={text}
-              name='uploading-post'
-              id='uploading-post'
-              placeholder='여러분의 캠핑을 기록해 주세요'
+              name="uploading-post"
+              id="uploading-post"
+              placeholder="여러분의 캠핑을 기록해 주세요"
               onInput={autoResize}
             />
             {imageURL || locationValue?.image ? (
-              <img src={imageURL || locationValue?.image} alt='' className='showImg' />
+              <img
+                src={imageURL || locationValue?.image}
+                alt=""
+                className="showImg"
+              />
             ) : null}
-            <div className='uploadImgBtn' >
+            <div className="uploadImgBtn">
               <FileUploadMd id={'uploading-img'} onChange={handleImageChange} />
             </div>
           </div>
         </PostWrapperStyle>
       </UploadPageStyle>
       <AlertComponent>
-        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']}/>
+        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']} />
       </AlertComponent>
     </>
   );
@@ -108,8 +121,8 @@ const PostWrapperStyle = styled.article`
   overflow-y: auto;
   overflow-x: hidden;
   ::-webkit-scrollbar {
-      background-color: var(--background-color)
-  } 
+    background-color: var(--background-color);
+  }
 
   .uploading {
     margin: 12px 0 0 12px;
