@@ -100,7 +100,7 @@ export const postSignUp = async (user) => {
   };
   try {
     const response = await axiosUnauth.post(reqUrl, body)
-    return response.data
+    return !!response.data
   } catch (error) {
     console.error('Request error', error)
     throw error

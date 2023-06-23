@@ -13,6 +13,9 @@ import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload'
 import Alert from '../components/common/Alert';
 
+import { IsLogin } from '../recoil/AtomUserState';
+
+
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath, uploadValidity} = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
@@ -36,6 +39,10 @@ export default function UploadPage() {
       navigate(-1);
     }
   };
+
+  const ro = useRecoilValue(IsLogin)
+
+  console.log(ro);
 
   useEffect(()=>{
     if (uploadValidity === '유효하지 않은 파일') {

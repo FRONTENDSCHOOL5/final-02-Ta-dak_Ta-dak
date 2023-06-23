@@ -12,9 +12,10 @@ import { GreenLgBtn, GreyLgBtn } from '../components/common/Button'
 import { postAccountValid } from '../api/signupAPI'
 import { postSignUp } from '../api/signupAPI'
 import Alert from '../components/common/Alert';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileSettingPage() {
+  const navigate = useNavigate();
   const [reqFrame, setReqFrame] = useRecoilState(SignUpAtom)
   const { handleImageChange, imageURL, imagePath, uploadValidity } = useImageUploader();
   const { openAlert, AlertComponent } = useAlertControl();
@@ -67,9 +68,13 @@ export default function ProfileSettingPage() {
   }
 
   useEffect(() => {
-    if (username && id && usernameValid && idValid) {
-      postSignUp(reqFrame);
+    const postSignUpReq = async () => {
+      if (username && id && usernameValid && idValid) {
+        const result = await postSignUp(reqFrame);
+        result && navigate('/login')
+      }
     }
+    postSignUpReq();
   }, [reqFrame])
 
   useEffect(() => {
