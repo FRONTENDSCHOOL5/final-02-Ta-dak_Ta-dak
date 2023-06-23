@@ -17,7 +17,6 @@ export default function FollowListPage() {
   const [loadFollowSeq, setLoadFollowSeq] = useState(0);
   const [followList, setFollowList] = useState([]);
   const [title, setTitle] = useState('')
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (isBottom) {
@@ -35,12 +34,10 @@ export default function FollowListPage() {
     if(location.pathname === `/profile/${accountname}/following`){
       list = await getFollowingList(accountname, value);
       setTitle('Followings');
-      setLoading(true)
     }
     else if (location.pathname === `/profile/${accountname}/follower`) {
       list = await getFollowerList(accountname, value);
       setTitle('Followers');
-      setLoading(true);
     }
     setFollowList((prevValue) => [...prevValue, ...list]);
   };
@@ -49,20 +46,10 @@ export default function FollowListPage() {
     <>
       <ChatHeader name={`${title}`} isButton={false} />
       <FollowListStyle ref={elementRef}>
-        {loading ? (
-          followList.length !== 0 ? (
-            followList.map((item, index) => (
-              <FollowersProfile followingUser={item} key={item._id} />
-            ))
-          ) : (
-            <NoFollowListStyle>
-              {title === 'Followings' ? (
-                <span>팔로잉한 사람이 없습니다</span>
-              ) : (
-                <span>팔로워가 없습니다</span>
-              )}
-            </NoFollowListStyle>
-          )
+        {followList.length !== 0 ? (
+          followList.map((item, index) => (
+            <FollowersProfile followingUser={item} key={item._id} />
+          ))
         ) : (
           <Loader />
         )}
@@ -78,19 +65,5 @@ const FollowListStyle = styled.section`
   ::-webkit-scrollbar {
     background-color: var(--background-color);
     width: 0px;
-  }
-`;
-
-const NoFollowListStyle = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--basic-color-7);
-    font-size: var(--font--size-md);
   }
 `;
