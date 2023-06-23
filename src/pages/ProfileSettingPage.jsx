@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { SignUpAtom } from '../recoil/AtomSignupState'
 import useImageUploader from '../hooks/useImageUploader'
+import useAlertControl from '../hooks/useAlertControl';
 
 import styled from 'styled-components'
 
@@ -10,12 +11,13 @@ import { FileUploadLg } from '../components/common/FileUpload'
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button'
 import { postAccountValid } from '../api/signupAPI'
 import { postSignUp } from '../api/signupAPI'
+import Alert from '../components/common/Alert';
+
 
 export default function ProfileSettingPage() {
   const [reqFrame, setReqFrame] = useRecoilState(SignUpAtom)
-
-  const { handleImageChange, imageURL, imagePath } = useImageUploader();
-
+  const { handleImageChange, imageURL, imagePath, uploadValidity } = useImageUploader();
+  const { openAlert, AlertComponent } = useAlertControl();
   const [username, setUsername] = useState('');
   const [id, setId] = useState('');
   const [introduce, setIntroduce] = useState('');
@@ -26,7 +28,7 @@ export default function ProfileSettingPage() {
 
   const handleIdValid = async () => {
     const pattern = /^[A-Za-z0-9_.]+$/;
-    if(pattern.test(id)) {
+    if (pattern.test(id)) {
       const Msg = await postAccountValid(id)
       setIdAlertMsg(Msg)
       Msg === "사용 가능한 계정ID 입니다." ? setIdValid(true) : setIdValid(false)
@@ -50,7 +52,7 @@ export default function ProfileSettingPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     if (username && id && usernameValid && idValid) {
       setReqFrame(prevValue => {
         return {
@@ -58,59 +60,69 @@ export default function ProfileSettingPage() {
           username: username,
           accountname: id,
           intro: introduce,
-          image: imagePath
+          image: imagePath || 'https://api.mandarin.weniv.co.kr/1687452108456.png'
         }
       })
     }
   }
 
-  useEffect(()=> {
-    if(username && id && usernameValid && idValid){
+  useEffect(() => {
+    if (username && id && usernameValid && idValid) {
       postSignUp(reqFrame);
     }
   }, [reqFrame])
 
-  return (
-    <ProfileSignUpPageStyle onSubmit={handleSubmit}>
-      <div>
-        <h1>프로필 설정</h1>
-        <p>나중에 언제든지 변경할 수 있습니다.</p>
-      </div>
-      <FileUploadLg id={'user-profile'} onChange={handleImageChange} url={imageURL} />
-      <div>
-        <Input id={'user-username'}
-          type={'text'}
-          label={'사용자 이름'}
-          placeholder={'2~10자 이내여야 합니다.'}
-          value={username}
-          onChange={handleUsernameValid}
-          valid={usernameValid}
-          alertMsg={usernameAlertMsg}
-        />
-        <Input id={'user-id'}
-          type={'text'}
-          label={'계정 ID'}
-          placeholder={'영문, 숫자, 특수문자(.),(...)만 사용 가능합니다.'}
-          value={id}
-          onChange={(event) => setId(event.target.value)}
-          valid={idValid}
-          onBlur={handleIdValid}
-          alertMsg={idAlertMsg}
-        />
-        <Input id={'user-introduce'}
-          type={'text'}
-          label={'소개'}
-          placeholder={'자신과 판매할 상품에 대해 소개해 주세요!'}
-          value={introduce}
-          onChange={(event) => setIntroduce(event.target.value)}
-          valid={true}
-        />
-      </div>
-      {username && id ?
-        <GreenLgBtn type='submit' contents={'타닥타닥 시작하기'} /> :
-        <GreyLgBtn type='submit' contents={'타닥타닥 시작하기'} />}
+  useEffect(() => {
+    if (uploadValidity === '유효하지 않은 파일') {
+      openAlert();
+    }
+  }, [uploadValidity])
 
-    </ProfileSignUpPageStyle>
+  return (
+    <>
+      <ProfileSignUpPageStyle onSubmit={handleSubmit}>
+        <div>
+          <h1>프로필 설정</h1>
+          <p>나중에 언제든지 변경할 수 있습니다.</p>
+        </div>
+        <FileUploadLg id={'user-profile'} onChange={handleImageChange} url={imageURL} />
+        <div>
+          <Input id={'user-username'}
+            type={'text'}
+            label={'사용자 이름'}
+            placeholder={'2~10자 이내여야 합니다.'}
+            value={username}
+            onChange={handleUsernameValid}
+            valid={usernameValid}
+            alertMsg={usernameAlertMsg}
+          />
+          <Input id={'user-id'}
+            type={'text'}
+            label={'계정 ID'}
+            placeholder={'영문, 숫자, 특수문자(.),(...)만 사용 가능합니다.'}
+            value={id}
+            onChange={(event) => setId(event.target.value)}
+            valid={idValid}
+            onBlur={handleIdValid}
+            alertMsg={idAlertMsg}
+          />
+          <Input id={'user-introduce'}
+            type={'text'}
+            label={'소개'}
+            placeholder={'자신과 판매할 상품에 대해 소개해 주세요!'}
+            value={introduce}
+            onChange={(event) => setIntroduce(event.target.value)}
+            valid={true}
+          />
+        </div>
+        {username && id ?
+          <GreenLgBtn type='submit' contents={'타닥타닥 시작하기'} /> :
+          <GreyLgBtn type='submit' contents={'타닥타닥 시작하기'} />}
+      </ProfileSignUpPageStyle>
+      <AlertComponent>
+        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']}/>
+      </AlertComponent>
+    </>
   )
 }
 
