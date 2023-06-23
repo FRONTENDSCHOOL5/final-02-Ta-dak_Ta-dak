@@ -13,6 +13,9 @@ import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload';
 import Alert from '../components/common/Alert';
 
+import { IsLogin } from '../recoil/AtomUserState';
+
+
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath, uploadValidity } =
     useImageUploader();

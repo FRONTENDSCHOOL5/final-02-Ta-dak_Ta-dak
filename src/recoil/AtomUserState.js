@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 
 const sessionStorage = typeof window !== 'undefined' ? window.sessionStorage : undefined
@@ -21,3 +21,8 @@ export const IsLogin = atom({
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
+
+export const IsLoginSelector = selector({
+  key: 'IsLoginSelector',
+  get: ({get}) => !!get(IsLogin)
+})
