@@ -36,8 +36,7 @@ export default function UploadPage() {
   const handleUploadBtnClick = async () => {
     if (location.pathname === '/upload') {
       const uploadPost = await uploadImage(text, imagePath);
-      navigate(`/postdetail/${uploadPost.post.id}`);
-      
+      navigate(`/profile/${uploadPost.post.author.accountname}`);
     } else if (location.pathname === '/editpost') {
       await editPost(locationValue.id, text, imagePath || locationValue?.image);
       navigate(-1);
