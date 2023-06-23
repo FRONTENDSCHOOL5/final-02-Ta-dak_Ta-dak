@@ -89,7 +89,7 @@ export default function Post({ post }) {
             <h3 className='a11y-hidden'>포스트 내용</h3>
             <div onClick={() => setContentMore((prevValue) => !prevValue)}>
               <p>{post.content}</p>
-              {post.content.length >= 180 && <button className="moreContentBtn"></button>}
+              {post.content?.length >= 180 && <button className="moreContentBtn"></button>}
             </div>
             {contentMore && post.image && (
               <img

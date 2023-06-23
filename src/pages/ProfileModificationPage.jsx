@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useImageUploader from '../hooks/useImageUploader'
+import useAlertControl from '../hooks/useAlertControl';
 import styled from 'styled-components';
 
 import UploadHeader from '../components/header/UploadHeader';
@@ -10,10 +11,12 @@ import { profilemodificationReq } from '../api/profilemodificationAPI';
 import { postAccountValid } from '../api/signupAPI';
 import { UserAtom } from '../recoil/AtomUserState';
 import { useRecoilState } from 'recoil';
+import Alert from '../components/common/Alert';
 
 export default function ProfileModificationPage() {
 
-  const { handleImageChange, imageURL, imagePath } = useImageUploader();
+  const { handleImageChange, imageURL, imagePath, uploadValidity} = useImageUploader();
+  const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
   const userInfo = location.state;
@@ -65,6 +68,12 @@ export default function ProfileModificationPage() {
     console.log(data.user);
   }
 
+  useEffect(()=>{
+    if (uploadValidity === '유효하지 않은 파일') {
+      openAlert();
+    }
+  }, [uploadValidity])
+
   return(
     <>
       <ProfileModificationStyle>
@@ -75,9 +84,12 @@ export default function ProfileModificationPage() {
         <div className='profileInfo'>
           <Input id={'user-name'} type={'text'} label={'사용자 이름'} placeholder={'2~10자 이내여야 합니다.'} value={name} onChange={handleNameInput} valid={nameValid} alertMsg={nameAlertMsg}/>
           <Input id={'user-id'} type={'text'} label={'계정 ID'} placeholder={'영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.'} value={id} onChange={handleIdInput} valid={idValid} onBlur={handleIdProfile} alertMsg={idAlertMsg}/>
-          <Input id={'user-intro'} type={'text'} label={'소개'} placeholder={'자신과 판매할 상품에 대해 소개해 주세요!'} value={intro} onChange={handleIntroInput} />
+          <Input id={'user-intro'} type={'text'} label={'소개'} placeholder={'자신과 판매할 상품에 대해 소개해 주세요!'} value={intro} onChange={handleIntroInput} valid={'true'}/>
         </div>
       </ProfileModificationStyle>
+      <AlertComponent>
+        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']}/>
+      </AlertComponent>
     </>
   )
 }
