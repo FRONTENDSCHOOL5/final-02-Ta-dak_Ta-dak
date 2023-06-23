@@ -70,7 +70,7 @@ export default function PostDetail() {
               </li>
             ))) : <Loader />}
         </CommentStyle>
-        {loading ? <CommentInput postId={post.post.id} setReset={setReset} /> : <div>loading...</div>}
+        {loading ? <CommentInput postId={post.post.id} setReset={setReset} /> : null}
       </PostContainer>
       <ModalComponent>
         {
