@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import { ProfileSm } from './Profile';
 import IconMore from '../../assets/img/icon-more.svg'
@@ -21,12 +22,19 @@ export default function Comment({ item, setSelectComment, openModal }) {
     timeAgo = `${Math.floor(t / 1440)}일 전`;
   }
 
+  const navigate = useNavigate();
+  const clickHandler = ()=>{
+    navigate(`/profile/${item.author.accountname}`)
+  }
+
   return (
     <>    
     <CommentContainerStyle >
-      <ProfileSm url={item.author.image} />
+      <div className='profileClick' onClick={clickHandler}>
+        <ProfileSm url={item.author.imag}/>
+      </div>
       <div className='commentContents'>
-        <UserNameStyle>
+        <UserNameStyle onClick={clickHandler}>
           {item.author.username}
         </UserNameStyle>
         <TimeStyle>
@@ -54,12 +62,18 @@ const CommentContainerStyle = styled.div`
   margin-bottom: 16px;
   padding: 0 20px;
 
-  .commentContents{
+  .commentContents {
     padding: 6px 12px 0 12px;
     font-size: var(--font--size-md);
   }
 
-  .commentMoreButton{
+  .profileClick {
+    div {
+      cursor: pointer;
+    }
+  }
+
+  .commentMoreButton {
     position: absolute;
     top: 5px;
     right: 0;
@@ -72,6 +86,7 @@ const CommentContainerStyle = styled.div`
 
 const UserNameStyle = styled.span`
   display: inline-block;
+  cursor: pointer;
   font-size: var(--font--size-md);
 `;
 
