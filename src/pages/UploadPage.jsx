@@ -13,9 +13,6 @@ import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload';
 import Alert from '../components/common/Alert';
 
-import { IsLogin } from '../recoil/AtomUserState';
-
-
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath, uploadValidity } =
     useImageUploader();
@@ -25,10 +22,12 @@ export default function UploadPage() {
   const userInfo = useRecoilValue(UserAtom);
   const locationValue = location.state;
   const [text, setText] = useState(locationValue?.content || '');
+  const [valid, setValid] = useState(false);
 
   const handleChange = (event) => {
     const newText = event.target.value;
     setText(newText);
+    setValid(!!newText);
   };
 
   const handleUploadBtnClick = async () => {
@@ -45,7 +44,10 @@ export default function UploadPage() {
     if (uploadValidity === '유효하지 않은 파일') {
       openAlert();
     }
-  }, [uploadValidity]);
+    else if (location.pathname === '/editpost') {
+      setValid(true);
+    }
+  }, [uploadValidity, location.pathname]);
 
   const autoResize = (event) => {
     const textarea = event.target;
@@ -58,7 +60,7 @@ export default function UploadPage() {
       <UploadPageStyle>
         <h1 className="a11y-hidden">게시물 업로드</h1>
         <UploadHeader
-          valid={true}
+          valid={valid}
           contents={'업로드'}
           handleUploadBtnClick={handleUploadBtnClick}
         />

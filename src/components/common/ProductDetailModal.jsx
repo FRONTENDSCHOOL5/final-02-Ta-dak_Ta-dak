@@ -76,6 +76,7 @@ const BackgorundStyle = styled.div`
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   animation: ${fadeIn} 0.3s ease-in;
 
 `;

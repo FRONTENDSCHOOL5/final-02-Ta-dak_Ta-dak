@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Page404() {
   const navigate = useNavigate();
 
-  const handleGoBack = () => {
-    navigate(-1);
+  const handleGoHome = () => {
+    navigate('/feed');
   }
 
   return (
@@ -17,7 +17,7 @@ export default function Page404() {
     <Page404Wrapper>
       <SleepBonFire />
       <CantFindPage />
-      <GreenBackBtn handleFunc={handleGoBack} type='button' contents={'이전 페이지'} />
+      <GreenBackBtn handleFunc={handleGoHome} type='button' contents={'홈으로 돌아가기'} />
     </Page404Wrapper>
     </>
   )

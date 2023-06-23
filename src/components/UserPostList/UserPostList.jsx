@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import SaleItemList from './SaleItemList';
@@ -13,29 +13,42 @@ import { ReactComponent as IconPostListOn } from '../../assets/img/icon-post-lis
 import { ReactComponent as IconSaleOff } from './../../assets/img/icon-saleItem-off.svg';
 import { ReactComponent as IconSaleOn } from './../../assets/img/icon-saleItem-on.svg';
 
-export default function UserPostList({saleItem, post}) {
-  const [tab, setTab] = useState(0);
+export default function UserPostList({ saleItem, post }) {
+  const { accountname } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const path = location.pathname;
+  const selectedPath = path.substring(path.lastIndexOf('/') + 1);
+  
+  useEffect(()=> {
+    if(path  === `/profile/${accountname}`) {
+      navigate(`/profile/${accountname}/post`);
+    }
+  }, [path])
+
   return (
     <>
       <section style={{ minWidth: '390px' }}>
         <TypeTabsWrapperStyle>
           <TypeTabsStyle>
-            <TabStyle onClick={() => {setTab(0)}}>
+            <TabStyle to={`/profile/${accountname}/post`}>
               <span className='a11y-hidden'>포스트 버튼</span>
-              {tab === 0 ? <IconPostListOn /> : <IconPostListOff />}
+              {selectedPath==='post' ? <IconPostListOn /> : <IconPostListOff />}
             </TabStyle>
-            <TabStyle onClick={() => {setTab(1)}}>
+            <TabStyle to={`/profile/${accountname}/album`}>
               <span className='a11y-hidden'>앨범형 포스트 버튼</span>
-              {tab === 1 ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
+              {selectedPath==='album' ? <IconPostAlbumOn /> : <IconPostAlbumOff />}
             </TabStyle>
-            <TabStyle onClick={() => {setTab(2)}}>
+            <TabStyle to={`/profile/${accountname}/saleitem`}>
               <span className='a11y-hidden'>판매상품 버튼</span>
-              {tab === 2 ? <IconSaleOn /> : <IconSaleOff  />}
+              {selectedPath==='saleitem' ? <IconSaleOn /> : <IconSaleOff />}
             </TabStyle>
           </TypeTabsStyle>
-        <PostWrapperStyle>
-          {[<PostList visiblePost={post}/>, <AlbumList visiblePost={post}/>, <SaleItemList saleItem={saleItem} />][tab]}
-        </PostWrapperStyle>
+          <PostWrapperStyle>
+            {selectedPath==='post' && <PostList visiblePost={post} />}
+            {selectedPath==='album' && <AlbumList visiblePost={post} />}
+            {selectedPath==='saleitem' && <SaleItemList saleItem={saleItem} />}
+          </PostWrapperStyle>
         </TypeTabsWrapperStyle>
       </section>
     </>

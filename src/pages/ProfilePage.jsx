@@ -15,6 +15,7 @@ import { Modal } from './../components/common/Modal';
 import Alert from './../components/common/Alert';
 import Loader from "../Loader/Loader";
 import { useSetRecoilState } from "recoil";
+import { postAccountValid } from "../api/signupAPI";
 
 
 export default function ProfilePage() {
@@ -32,6 +33,13 @@ export default function ProfilePage() {
 
   const setUserValue = useSetRecoilState(UserAtom);
   const setIsLogin = useSetRecoilState(IsLogin);
+
+  
+
+  async function isValidAccountName (value) {
+    return await postAccountValid(value)
+  }
+
 
   const loadProfilePage = async () => {
     const user = await getProfile(accountname);
@@ -57,13 +65,26 @@ export default function ProfilePage() {
   }
 
   useEffect(()=>{    
-    setProfileLoading(false);
-    setPostLoading(false);
-    const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
-    accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
+    async function fetchData() {
+      const data = await isValidAccountName(accountname);
+      console.log(data);
 
-    loadProfilePage()
-    loadPosts()
+      if (data !== '이미 가입된 계정ID 입니다.') {
+
+        navigate('/404page');
+      }
+      else {
+        setProfileLoading(false);
+        setPostLoading(false);
+        const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
+        accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
+    
+        loadProfilePage()
+        loadPosts()
+      }
+    }
+
+    fetchData();
   }, [accountname])
 
   

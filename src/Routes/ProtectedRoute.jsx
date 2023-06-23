@@ -1,9 +1,9 @@
-import { Navigate, Outlet, useLocation } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import { useRecoilValue } from "recoil";
 import { IsLoginSelector } from "../recoil/AtomUserState";
 
-const ProtectedRoute = () => {
-  const isLogin = useRecoilValue(IsLoginSelector)
+export const NonLoginProtectedRoute = () => {
+  const isLogin = useRecoilValue(IsLoginSelector);
 
   return isLogin ? (
     <Outlet />
@@ -15,4 +15,14 @@ const ProtectedRoute = () => {
   );
 };
 
-export default ProtectedRoute;
+export const LoginProtectedRoute = () => {
+  const isLogin = useRecoilValue(IsLoginSelector);
+  return !isLogin ? (
+    <Outlet />
+  ) : (
+    <Navigate
+      to={"/feed"}
+      replace
+    />
+  );
+}
