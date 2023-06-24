@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import SaleItemList from './SaleItemList';
@@ -16,24 +15,17 @@ import { ReactComponent as IconSaleOn } from './../../assets/img/icon-saleItem-o
 export default function UserPostList({ saleItem, post }) {
   const { accountname } = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
   const path = location.pathname;
-  const selectedPath = path.substring(path.lastIndexOf('/') + 1);
-  
-  useEffect(()=> {
-    if(path  === `/profile/${accountname}`) {
-      navigate(`/profile/${accountname}/post`);
-    }
-  }, [path])
+  const selectedPath = (path.split('/'))[3];
 
   return (
     <>
       <section style={{ minWidth: '390px' }}>
         <TypeTabsWrapperStyle>
           <TypeTabsStyle>
-            <TabStyle to={`/profile/${accountname}/post`}>
+            <TabStyle to={`/profile/${accountname}`}>
               <span className='a11y-hidden'>포스트 버튼</span>
-              {selectedPath==='post' ? <IconPostListOn /> : <IconPostListOff />}
+              {selectedPath===undefined ? <IconPostListOn /> : <IconPostListOff />}
             </TabStyle>
             <TabStyle to={`/profile/${accountname}/album`}>
               <span className='a11y-hidden'>앨범형 포스트 버튼</span>
@@ -45,7 +37,7 @@ export default function UserPostList({ saleItem, post }) {
             </TabStyle>
           </TypeTabsStyle>
           <PostWrapperStyle>
-            {selectedPath==='post' && <PostList visiblePost={post} />}
+            {selectedPath===undefined && <PostList visiblePost={post} />}
             {selectedPath==='album' && <AlbumList visiblePost={post} />}
             {selectedPath==='saleitem' && <SaleItemList saleItem={saleItem} />}
           </PostWrapperStyle>
