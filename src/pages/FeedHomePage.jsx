@@ -17,6 +17,8 @@ export default function FeedHomePage() {
   const [loadPostSeq, setLoadPostSeq] = useState(0);
   const [visiblePost, setVisiblePost] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [initialMount, setInitialMount] = useState(true);
+
 
   useEffect(() => {
     if (isBottom) {
@@ -24,8 +26,9 @@ export default function FeedHomePage() {
       setLoadPostSeq((PrevValue) => PrevValue + 5)
     }
   }, [isBottom]);
-  
+
   useEffect(() => {
+    setLoading(true);
     const upDate = async () => {
       const data = await upDateFeed(0);
       if (data.posts.length === 0) {
@@ -34,34 +37,41 @@ export default function FeedHomePage() {
     }
     if (location.pathname === '/feed') {
       upDate()
+
     }
     else if (location.pathname === '/recommendfeed') {
       upDateFeed(0);
+
     }
     setVisiblePost([]);
     setLoadPostSeq(0);
-    setTimeout(() => {
-      const timer = setLoading(false)
-      return () => {
-        clearTimeout(timer)
-      }
-    }, 1800);
-    setLoading(true)
+    initialMount && setInitialMount(false);
+
   }, [location.pathname])
+
   
+  const firstMount = () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1800);
+  }
+
+
   const upDateFeed = async (value) => {
     if (location.pathname === '/feed') {
       const data = await getPost(value)
       setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
+      initialMount ? firstMount() : setLoading(false)
       return data
     }
     else if (location.pathname === '/recommendfeed') {
       const data = await getPostAll(value)
       setVisiblePost((PrevValue) => [...PrevValue, ...data.posts]);
+      initialMount ? firstMount() : setLoading(false);
       return data;
     }
   }
-  
+
   return (
     <>
       <MainHeader />

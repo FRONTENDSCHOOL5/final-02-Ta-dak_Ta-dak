@@ -1,18 +1,17 @@
-import styled, { css } from 'styled-components';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { doFollowing, doUnfollowing } from '../../api/followAPI';
+import styled, { css } from 'styled-components';
 
 import { ProfileLg } from './Profile';
 import { GreenMdBtn, WhiteMdBtn } from './Button';
 import UserId from './UserId';
 
-import { doFollowing, doUnfollowing } from '../../api/followAPI';
 import IconSmMessage from '../../assets/img/s-icon-message.svg';
 import IconShare from '../../assets/img/icon-share.svg';
 
 export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
   const { accountname } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const followBtnHandler = async () => {
     await doFollowing(accountname);
@@ -141,7 +140,7 @@ const ProfileMiddleStyle = styled.div`
   
   span {
     display: inline-block;
-    padding-top: 15px;
+    padding: 15px 30px;
     font-weight: var(--font--Regular);
     font-size: var(--font--size-md);
     color: var(--basic-color-7);

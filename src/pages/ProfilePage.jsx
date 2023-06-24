@@ -1,45 +1,44 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
 import { IsLogin, UserAtom } from '../recoil/AtomUserState';
 import { getProfile } from "../api/profilePageAPI"; 
 import { getProfilePost } from "../api/profilePageAPI";
 import { getSaleItem } from "../api/profilePageAPI";
+import { postAccountValid } from "../api/signupAPI";
 import useModalControl from "../hooks/useModalControl";
 import useAlertControl from "../hooks/useAlertControl";
+import styled from "styled-components";
 
 import BasicHeader from '../components/header/BasicHeader';
 import UserProfile from "../components/common/UserProfile";
 import UserPostList from '../components/UserPostList/UserPostList';
+import Loader from "../Loader/Loader";
 import { Modal } from './../components/common/Modal';
 import Alert from './../components/common/Alert';
-import Loader from "../Loader/Loader";
-import { useSetRecoilState } from "recoil";
-import { postAccountValid } from "../api/signupAPI";
 
 
 export default function ProfilePage() {
+
   const { accountname } = useParams();
   const navigate = useNavigate();
+
   const [profileProps, setProfileProps] = useState({});
   const [saleItemProps, setSaleItemProps] = useState([]);
   const [profilePostProps, setProfilePostProps] = useState([]);
-  const {openModal, ModalComponent} = useModalControl();
-  const { openAlert, AlertComponent } = useAlertControl();
-
   const [isMyAccount, setIsMyAccount] = useState(false);  
   const [profileLoading, setProfileLoading] = useState(false);
   const [postLoading, setPostLoading] = useState(false);
 
+  const {openModal, ModalComponent} = useModalControl();
+  const { openAlert, AlertComponent } = useAlertControl();
+
   const setUserValue = useSetRecoilState(UserAtom);
   const setIsLogin = useSetRecoilState(IsLogin);
-
-  
 
   async function isValidAccountName (value) {
     return await postAccountValid(value)
   }
-
 
   const loadProfilePage = async () => {
     const user = await getProfile(accountname);
@@ -60,17 +59,14 @@ export default function ProfilePage() {
       setUserValue({})
       setIsLogin(false)
       sessionStorage.removeItem('user')
-      navigate('/');
+      navigate('/splash');
     } 
   }
 
   useEffect(()=>{    
     async function fetchData() {
       const data = await isValidAccountName(accountname);
-      console.log(data);
-
       if (data !== '이미 가입된 계정ID 입니다.') {
-
         navigate('/404page');
       }
       else {
@@ -78,7 +74,6 @@ export default function ProfilePage() {
         setPostLoading(false);
         const myAccountName = JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname;
         accountname === myAccountName ? setIsMyAccount(true) : setIsMyAccount(false)    
-    
         loadProfilePage()
         loadPosts()
       }
@@ -86,8 +81,6 @@ export default function ProfilePage() {
 
     fetchData();
   }, [accountname])
-
-  
 
   return (
     <>

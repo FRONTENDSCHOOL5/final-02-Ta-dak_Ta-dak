@@ -1,5 +1,3 @@
-import React from 'react';
-import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { deleteProduct } from '../../api/productAPI';
 import useAlertControl from '../../hooks/useAlertControl';
@@ -7,15 +5,13 @@ import styled, { keyframes } from 'styled-components';
 
 import Alert from './Alert';
 import { ReactComponent as Xbutton } from '../../assets/img/x.svg';
-import Product from '../../assets/img/product1.svg';
 import { ReactComponent as Garland } from '../../assets/img/garland.svg';
-import SaleItem from '../common/SaleItem';
 
 export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
   const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
-  const selectedId = location.pathname.replace('/profile/', '');
+  const selectedId = (location.pathname.split('/'))[2];
 
   const handleGoAddproduct = () => {
     navigate('/editproduct', {
@@ -44,7 +40,7 @@ export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
           <h2>{saleItem.itemName}</h2>
           <h3>{saleItem.price.toLocaleString()}원</h3>
           <p>상품 설명 혹은 링크</p>
-          <div>{saleItem.link}</div>
+          <pre>{saleItem.link}</pre>
           {selectedId === JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname && (
             <>
               <button className="modifyBtn" onClick={handleGoAddproduct}>
@@ -130,7 +126,7 @@ const ProductDtailModalStyle = styled.div`
     top: -80px;
   }
 
-  div {
+  pre {
     position: relative;
     top: -80px;
     width: 241px;

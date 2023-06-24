@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil'
 import { SignUpAtom } from '../recoil/AtomSignupState'
+import { postAccountValid } from '../api/signupAPI'
+import { postSignUp } from '../api/signupAPI'
 import useImageUploader from '../hooks/useImageUploader'
 import useAlertControl from '../hooks/useAlertControl';
-
 import styled from 'styled-components'
 
 import { Input } from '../components/common/Input'
 import { FileUploadLg } from '../components/common/FileUpload'
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button'
-import { postAccountValid } from '../api/signupAPI'
-import { postSignUp } from '../api/signupAPI'
 import Alert from '../components/common/Alert';
-import { useNavigate } from 'react-router-dom';
 
 export default function ProfileSettingPage() {
   const navigate = useNavigate();
@@ -26,6 +25,7 @@ export default function ProfileSettingPage() {
   const [idValid, setIdValid] = useState(true)
   const [usernameAlertMsg, setUsernameAlertMsg] = useState('');
   const [idAlertMsg, setIdAlertMsg] = useState('');
+  const [beforeBtnClick, setBeforeBtnClick] = useState(true);
 
   const handleIdValid = async () => {
     const pattern = /^[A-Za-z0-9_.]+$/;
@@ -51,6 +51,10 @@ export default function ProfileSettingPage() {
     setUsername(value);
   }
 
+  const handleAlert = () => {
+    navigate('/splash')
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -71,7 +75,16 @@ export default function ProfileSettingPage() {
     const postSignUpReq = async () => {
       if (username && id && usernameValid && idValid) {
         const result = await postSignUp(reqFrame);
-        result && navigate('/splash')
+        if (result) {
+          setBeforeBtnClick(false);
+          openAlert();
+          const timer = setTimeout(() => {
+            navigate('/splash')
+          }, 3000)
+          return () => {
+            clearTimeout(timer);
+          }
+        }
       }
     }
     postSignUpReq();
@@ -125,7 +138,9 @@ export default function ProfileSettingPage() {
           <GreyLgBtn type='submit' contents={'타닥타닥 시작하기'} />}
       </ProfileSignUpPageStyle>
       <AlertComponent>
-        <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']}/>
+        {beforeBtnClick ?
+          <Alert alertMsg={'잘못된 업로드입니다.'} choice={['확인']} /> :
+          <Alert alertMsg={'회원가입이 완료되었습니다.'} choice={['확인']} handleFunc={handleAlert} />}
       </AlertComponent>
     </>
   )
