@@ -4,12 +4,11 @@ import { IsLoginSelector } from "../recoil/AtomUserState";
 
 export const NonLoginProtectedRoute = () => {
   const isLogin = useRecoilValue(IsLoginSelector);
-
   return isLogin ? (
     <Outlet />
   ) : (
     <Navigate
-      to={"/login"}
+      to={"/splash"}
       replace
     />
   );
