@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import useImageUploader from "../hooks/useImageUploader";
-import { postProduct, editProduct } from "../api/productAPI";
-import useAlertControl from "../hooks/useAlertControl";
 import { useNavigate, useLocation } from "react-router-dom";
+import { postProduct, editProduct } from "../api/productAPI";
+import useImageUploader from "../hooks/useImageUploader";
+import useAlertControl from "../hooks/useAlertControl";
 import styled from "styled-components"
 
 import UploadHeader from '../components/header/UploadHeader';
@@ -50,10 +50,9 @@ export default function AddProductPage() {
     }
   }
 
-
   const handleUploadBtnClick = async () => {
     if (productName && productPrice ) {
-      if (uploadValidity === '유효하지 않은 파일' && imagePath === false) {
+      if (imagePath === false) {
         openAlert() 
         setAlertState('상품 이미지가 없습니다.')
       } else if (location.pathname==='/addproduct') {
