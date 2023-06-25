@@ -6,13 +6,23 @@ import FeedHomePage from './pages/FeedHomePage'
 import SplashPage from './pages/SplashPage'
 import ProductDetailModal from './components/common/ProductDetailModal'
 import Loader from './Loader/Loader'
+import DarkModeBtn from './style/DarkModeBtn'
+import { useRecoilValue } from 'recoil'
+import { DarkModeAtom } from './recoil/AtomDarkModeState'
+import DefaultTheme from './style/theme/DefaultTheme'
+import DarkTheme from './style/theme/DarkTheme'
 
 function App() {
+
+  const darkMode = useRecoilValue(DarkModeAtom);
+  
   return (
       <WrapperStyle>
         <BaseSizeStyle>
       {/* <CommonComponents /> */}
       <PageTest />
+      {darkMode ? <DarkTheme /> : <DefaultTheme />}
+      <DarkModeBtn />
       {/* <ProductDetailModal/> */}
       {/* <Loader /> */}
       {/* <FeedHomePage /> */}
