@@ -57,18 +57,20 @@ export default function PostDetail() {
 
   return (
     <>
-      <BasicHeader isButton={false}/>
+      <BasicHeader isButton={false} />
       <PostContainer>
+        {loading ? 
         <PostStyle>
-          {loading ? <Post post={post.post}></Post> : null}
-        </PostStyle>
+          <Post post={post.post}></Post>
+        </PostStyle> : 
+        <Loader />}
         <CommentStyle>
           {loading ? comment.comments.map((item) => (
             item.content && (
               <li key={item.id}>
                 <Comment item={item} setSelectComment={setSelectComment} openModal={openModal} />
               </li>
-            ))) : <Loader />}
+            ))) : undefined}
         </CommentStyle>
         {loading ? <CommentInput postId={post.post.id} setReset={setReset} /> : null}
       </PostContainer>
@@ -80,7 +82,7 @@ export default function PostDetail() {
         }
       </ModalComponent>
       <AlertComponent>
-        <Alert alertMsg={'신고가 접수되었습니다'} choice={['확인']}/>
+        <Alert alertMsg={'신고가 접수되었습니다'} choice={['확인']} />
       </AlertComponent>
     </>
   )

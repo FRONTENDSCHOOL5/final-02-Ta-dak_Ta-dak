@@ -16,7 +16,7 @@ export const DarkTheme = createGlobalStyle`
     --modal-color: #FCFBF3;
     --alert-color: #FCFBF3;
 
-    --border-color: #8e6d5b;
+    --border-color: #FCFBF3;
 
     --btn-text-color-1: #dbdbdb;
     --btn-text-color-2: #BFBFBF;

@@ -173,7 +173,7 @@ const PostStyle = styled.article`
 `;
 
 const PostContainerStyle = styled.div`
-  padding-left: 54px;;
+  padding-left: 54px;
   position: relative;
   
   .moreContentBtn {
@@ -222,7 +222,7 @@ const PostContainerStyle = styled.div`
     width: 100%;
     max-height: 228px;
     min-height: 228px;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     margin-bottom: 16px;
     object-fit: cover;
