@@ -27,7 +27,7 @@ const AlertStyle = styled.div`
   height: 110px;
   border-radius: 10px;
   font-size: var(--font--size-lg);
-  background-color: var(--background-color);
+  background-color: var(--modal-color);
   overflow: hidden;
   
   p {
@@ -38,7 +38,7 @@ const AlertStyle = styled.div`
   button {
     transition: all .3s;
     &:hover{
-      background-color: var(--basic-color-1);
+      background-color: var(--basic-color-3);
     }
   }
 
@@ -47,10 +47,10 @@ const AlertStyle = styled.div`
     flex-basis: 0;
     display: inline-block;
     height: 46px;
-    border-top: 1px solid var(--basic-color-8);
-    border-right: 1px solid var(--basic-color-8);
+    border-top: 1px solid var(--basic-color-6);
+    border-right: 1px solid var(--basic-color-6);
     &:hover{
-      color: var(--basic-color-4);
+      color: var(--basic-color-5);
     }
   }
 
@@ -59,6 +59,6 @@ const AlertStyle = styled.div`
     width: 126px;
     height: 46px;
     color: #F22222;
-    border-top: 1px solid var(--basic-color-8);
+    border-top: 1px solid var(--basic-color-6);
   }
 `

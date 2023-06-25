@@ -90,7 +90,7 @@ const FollowersProfileStyle = styled.div`
       display: inline-block;
       font-weight: var(--font--Regular);
       font-size: var(--font--size-sm);
-      color: var(--basic-color-7);
+      color: var(--text-color-1);
     }
   }
 `;

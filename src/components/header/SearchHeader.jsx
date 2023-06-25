@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
-import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
+import {ReactComponent as IconArrowLeft} from '../../assets/img/icon-arrow-left.svg'
 
 export default function SearchHeader({value, setValue}) {
 
@@ -13,7 +13,7 @@ export default function SearchHeader({value, setValue}) {
 
   return (
     <SearchHeaderStyle>
-      <button className='backUrlBtn' onClick={handleGoBack}></button>
+      <IconArrowLeft onClick={handleGoBack} />
       <label className='a11y-hidden' htmlFor='searchId'>계정 검색</label>
       <input id='searchId' type='text' placeholder='계정 검색' value={value} onChange={(e) => setValue(e.target.value)}/>
     </SearchHeaderStyle>
@@ -28,7 +28,7 @@ const SearchHeaderStyle = styled.div`
   padding-right: 16px;
   width: var(--basic-width);
   height: 48px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--header-shadow);
   
   .backUrlBtn {
     width: 22px;

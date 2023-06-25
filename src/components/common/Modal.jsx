@@ -28,7 +28,7 @@ const ModalStyle = styled.div`
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   font-size: var(--font-size-md);
-  background-color: var(--background-color);
+  background-color: var(--modal-color);
 
 .bar {
   width: 50px;
@@ -42,8 +42,8 @@ button{
   text-align: left;
   transition: all .3s;
   &:hover{
-    color: var(--basic-color-4);
-    background-color: var(--basic-color-1);
+    color: var(--basic-color-5);
+    background-color: var(--basic-color-3);
   }
 }
 

@@ -56,7 +56,7 @@ const NoVisiblePost = styled.div`
     transform: translate(-50%, -50%);
   }
   span {
-    color: var(--basic-color-7);
+    color: var(--text-color-1);
     font-size: var(--font--size-md);
   }
 `;

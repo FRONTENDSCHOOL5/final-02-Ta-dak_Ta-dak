@@ -48,6 +48,7 @@ const SearchProfileStyle = styled.section`
       font-size: var(--font--size-md);
       line-height: 18px;
       margin-bottom: 2px;
+      color : var(--text-color-1)
     }
   }
 `;

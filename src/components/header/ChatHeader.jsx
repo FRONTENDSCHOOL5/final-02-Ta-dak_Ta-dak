@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
-import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
-import IconSMore from '../../assets/img/icon-more.svg'
+import {ReactComponent as IconArrowLeft} from '../../assets/img/icon-arrow-left.svg'
+import {ReactComponent as IconSMore} from '../../assets/img/icon-more.svg'
 
 export default function ChatHeader({name, isButton, handleFunc}) {
 
@@ -13,15 +13,15 @@ export default function ChatHeader({name, isButton, handleFunc}) {
   }
 
   return (
-    <BasicHeaderStyle>
-      <button className="backUrlBtn" onClick={handleGoBack}></button>
+    <ChatHeaderStyle>
+      <IconArrowLeft onClick={handleGoBack}/>
       <h2>{name}</h2>
-      {isButton && <button className="moreBtn" onClick={handleFunc}></button>}
-    </BasicHeaderStyle>
+      {isButton && <IconSMore onClick={handleFunc}/>}
+    </ChatHeaderStyle>
   );
 }
 
-const BasicHeaderStyle = styled.div`
+const ChatHeaderStyle = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -30,27 +30,13 @@ const BasicHeaderStyle = styled.div`
   padding-right: 12px;
   width: var(--basic-width);
   height: 48px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--header-shadow);
 
   h2 {
     position: absolute;
     left: 48px;
     font-weight: var(--font--Medium);
     font-size: var(--font--size-md);
-  }
-
-  button {
-    width: 22px;
-    height: 22px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  .backUrlBtn {
-    background-image : url(${IconArrowLeft});
-  }
-  
-  .moreBtn {
-    background-image : url(${IconSMore});
+    color: var(--text-color-1)
   }
 `;

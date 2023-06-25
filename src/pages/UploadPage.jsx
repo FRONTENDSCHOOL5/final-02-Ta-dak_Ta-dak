@@ -132,8 +132,9 @@ const PostWrapperStyle = styled.article`
       background-color: transparent;
       font-size: var(--font--size-md);
       text-align: justify;
+      color: var(--text-color-1);
       ::placeholder {
-        color: var(--basic-color-7);
+        color: var(--text-color-2);
       }
     }
     .showImg {
@@ -141,7 +142,7 @@ const PostWrapperStyle = styled.article`
       height: 228px;
       margin-top: 15px;
       border-radius: 10px;
-      border: 0.5px solid var(--basic-color-8);
+      border: 0.5px solid var(--basic-color-6);
     }
   }
 `;

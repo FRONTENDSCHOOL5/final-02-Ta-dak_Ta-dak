@@ -58,8 +58,8 @@ export function NavBar() {
                 <item.component
                   width={24}
                   height={24}
-                  stroke={selectedIcon === item.component ? '#4E683F' : '#767676'}
-                  fill={selectedIcon === item.component ? '#4E683F' : '#B9D6A3'}
+                  stroke={selectedIcon === item.component ? 'var(--basic-color-2)' : 'var(--text-color-2)'}
+                  fill={selectedIcon === item.component ? 'var(--basic-color-2)' : 'var(--basic-color-1)'}
                 />
                 <span>{item.label}</span>
               </StyledLink>
@@ -72,9 +72,9 @@ export function NavBar() {
 }
 
 const NavBarStyle = styled.nav`
-  transition: all 0.3s;
+  position: relative;
   width: var(--basic-width);
-  background-color: var(--basic-color-2);
+  background-color: var(--basic-color-1);
 
   article {
     display: flex;
@@ -92,7 +92,7 @@ const StyledLink = styled(Link)`
   span {
     display: block;
     font-size: 0.6em;
-    color: #767676;
+    color: var(--text-color-2);
     line-height: 1.5;
   }
 

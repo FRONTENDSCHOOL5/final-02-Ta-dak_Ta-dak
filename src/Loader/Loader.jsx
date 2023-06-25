@@ -32,6 +32,7 @@ export default function Loader() {
     <LoaderStyle>
       {isLoading && <div className="loader">
         <div>
+          <div className="circle"></div>
           <div className="bar-1"></div>
           <div className="bar-2"></div>
           <div className="cover"></div>
@@ -91,6 +92,18 @@ const LoaderStyle = styled.div`
   width: 200px;
   height: 110px;
   position: relative;
+}
+
+.circle {
+  position: absolute;
+  left: 70px;
+  top: 60%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ab908b;
+  animation: circle .3s ease forwards;
 }
 
 .loader-text {
@@ -487,6 +500,12 @@ const LoaderStyle = styled.div`
   transform: scale(0);
   animation: fire .5s ease forwards; 
   animation-delay: .8s;
+}
+
+@keyframes circle {
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+  }
 }
 
 @keyframes text {

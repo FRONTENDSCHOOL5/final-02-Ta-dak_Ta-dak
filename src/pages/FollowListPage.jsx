@@ -89,7 +89,7 @@ const NoFollowListStyle = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: var(--basic-color-7);
+    color: var(--text-color-1);
     font-size: var(--font--size-md);
   }
 `;

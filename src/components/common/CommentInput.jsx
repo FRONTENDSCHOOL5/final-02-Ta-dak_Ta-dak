@@ -31,7 +31,7 @@ const InputContainerStyle = styled.div`
   min-height: 61px;
   display: flex;
   align-items: center;
-  background-color: #FCFBF3;
+  background-color: var(--background-color);
 
   img {
     width: 40px;
@@ -55,7 +55,7 @@ const InputContainerStyle = styled.div`
     display: inline-block;
     transition: 0.5s;
     &:hover {
-      color: var(--basic-color-4);
+      color: var(--basic-color-5);
     }
   }
 `

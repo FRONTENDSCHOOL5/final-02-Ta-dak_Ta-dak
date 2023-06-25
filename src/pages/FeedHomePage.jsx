@@ -84,7 +84,8 @@ export default function FeedHomePage() {
 
 const PostListStyle = styled.div`
   height: var(--screen-nav-height);
-  overflow: scroll; 
+  overflow-y: scroll; 
+  overflow-x: hidden;
   ::-webkit-scrollbar {
   background-color: var(--background-color);
   width: 0px;

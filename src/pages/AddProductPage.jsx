@@ -136,7 +136,7 @@ const AddProductPageStyle = styled.div`
     height: 204px;
     margin-top: 15px;
     border-radius: 10px;
-    border: 0.5px solid var(--basic-color-8);
+    border: 0.5px solid var(--basic-color-6);
     object-fit: cover;
   }
 
@@ -149,23 +149,25 @@ const AddProductPageStyle = styled.div`
   p {
     display: inline-block;
     font-size: var(--font--size-sm);
-    font-weight: var(--basic-color-7);
+    font-weight: var(--text-color-1);
     font-weight: var(--font--Regular);
     margin-top: 30px;
-    margin-bottom: 18px
+    margin-bottom: 18px;
+    color: var(--text-color-1);
   }
 
   .inputProductInfo {
     margin-top: 20px;
   }
 
-  label {
-    color: #000;
-  }
-
   .textAreaTitle {
     font-size: var(--font--size-sm);
     margin: 0;
+  }
+
+  textarea {
+    background-color: var(--basic-color-4);
+    color: var(--text-color-1);
   }
   
   #product-detail {

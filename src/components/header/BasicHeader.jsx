@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
-import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
-import IconSMore from '../../assets/img/icon-more.svg'
+import {ReactComponent as IconArrowLeft} from '../../assets/img/icon-arrow-left.svg'
+import {ReactComponent as IconSMore} from '../../assets/img/icon-more.svg'
 
 export default function BasicHeader({isButton, handleFunc}) {
 
@@ -14,8 +14,8 @@ export default function BasicHeader({isButton, handleFunc}) {
 
   return (
     <BasicHeaderStyle>
-      <button className="backUrlBtn" onClick={handleGoBack}></button>
-      {isButton && <button className="moreBtn" onClick={handleFunc}></button>}
+      <IconArrowLeft onClick={handleGoBack} />
+      {isButton && <IconSMore onClick={handleFunc} />}
     </BasicHeaderStyle>
   );
 }
@@ -30,7 +30,7 @@ const BasicHeaderStyle = styled.div`
   padding-right: 12px;
   width: var(--basic-width);
   min-height: 48px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--header-shadow);
 
   button {
     width: 22px;

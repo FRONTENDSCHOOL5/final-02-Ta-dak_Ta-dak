@@ -119,12 +119,13 @@ const ProfileTopStyle = styled.div`
     strong {
       font-weight: var(--font--Bold);
       font-size: 18px;
+      color: var(--text-color-1);
     }
     p {
       padding-top: 6px;
       font-weight: var(--font--Regular);
       font-size: 10px;
-      color: var(--basic-color-7);
+      color: var(--text-color-1);
     }
   }
 `;
@@ -136,6 +137,7 @@ const ProfileMiddleStyle = styled.div`
     padding-bottom: 5px;
     font-weight: var(--font--size-lg);
     font-size: 18px;
+    color: var(--text-color-1);
   }
   
   span {
@@ -143,7 +145,7 @@ const ProfileMiddleStyle = styled.div`
     padding: 15px 30px;
     font-weight: var(--font--Regular);
     font-size: var(--font--size-md);
-    color: var(--basic-color-7);
+    color: var(--text-color-1);
   }
 `;
 
@@ -169,7 +171,7 @@ const ChatShareBtnCommonStyle = css`
   display: inline-block;
   padding: 6px;
   background: var(--background-color);
-  border: 1px solid var(--basic-color-8);
+  border: 1px solid var(--basic-color-6);
   border-radius: 50%;
 `;
 

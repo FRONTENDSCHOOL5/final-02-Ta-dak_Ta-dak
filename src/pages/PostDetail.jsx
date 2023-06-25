@@ -98,14 +98,15 @@ const PostStyle = styled.div`
 `;
 
 const CommentStyle = styled.ul`
-  box-shadow: 0px -1px var(--basic-color-8);
-  border-bottom: 1px solid var(--basic-color-8);
+  box-shadow: 0px -1px var(--basic-color-6);
+  border-bottom: 1px solid var(--basic-color-6);
   flex-grow: 1;
   flex-basis: 0;
   overflow: scroll;
   overflow-x: hidden;
   padding-top: 20px;
 ::-webkit-scrollbar {
-  background-color: var(--background-color)
+  background-color: var(--background-color);
+  width: 0px;
 }
 `;

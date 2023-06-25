@@ -104,5 +104,6 @@ const LoginPageStyle = styled.section`
     font-size: 24px;
     text-align: center;
     padding-bottom: 40px;
+    color: var(--text-color-1);
   }
 `;

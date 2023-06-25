@@ -191,7 +191,7 @@ animation: ${loginmodal} 5s forwards;
     gap: 10px;
       button {
         font-size: var(--font--size-lg);
-        color: var(--basic-color-7);
+        color: var(--common-text-color-2);
       }
   }
 `
