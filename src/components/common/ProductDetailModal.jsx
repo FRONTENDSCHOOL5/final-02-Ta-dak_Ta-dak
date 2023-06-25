@@ -138,6 +138,9 @@ const ProductDtailModalStyle = styled.div`
     font-size: var(--font--size-sm);
     line-height: 18px;
     padding: 10px 8px;
+    word-break: break-all;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     /* border: 1px solid #000; */
     overflow: auto;
     ::-webkit-scrollbar {

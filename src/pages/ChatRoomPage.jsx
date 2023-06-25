@@ -7,7 +7,7 @@ import  ChatHeader  from '../components/header/ChatHeader';
 import { ProfileSm } from '../components/common/Profile';
 import { FileUploadSm } from '../components/common/FileUpload';
 import { Modal } from './../components/common/Modal';
-import saleItem from '../assets/img/SaleItem.png';
+import SaleItem from '../assets/img/saleItem.png';
 
 export default function ChatRoom() {
   
@@ -27,7 +27,7 @@ export default function ChatRoom() {
       creatAt: '12:50',
     },
     {
-      Img: saleItem,
+      Img: SaleItem,
       creatAt: '12:51',
     },
   ];

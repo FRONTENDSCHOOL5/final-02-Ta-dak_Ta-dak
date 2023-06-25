@@ -194,6 +194,8 @@ const PostContainerStyle = styled.div`
     line-height: 19px;
     margin-bottom: 16px;
     word-break: break-all;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     /* transition: 1s; */
     max-height: ${({ locationPathname, contentMore }) =>
     (!locationPathname.includes('/postdetail')
