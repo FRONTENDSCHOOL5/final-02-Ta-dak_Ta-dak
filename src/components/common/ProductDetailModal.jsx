@@ -109,7 +109,7 @@ const ProductDtailModalStyle = styled.div`
   h3 {
     font-size: var(--font--size-md);
     font-weight: var(--font--Bold);
-    color: var(--basic-color-4);
+    color: var(--basic-color-5);
     margin-left: 32px;
     margin-top: 6px;
     line-height: 19px;
@@ -155,7 +155,7 @@ const ProductDtailModalStyle = styled.div`
   .modifyBtn {
     width: 75px;
     height: 35px;
-    background-color: var(--basic-color-2);
+    background-color: var(--basic-color-1);
     border-radius: 25px;
     position: relative;
     left: 130px;

@@ -59,6 +59,7 @@ const ChatListPageStyle = styled.div`
   overflow-x: hidden;
   ::-webkit-scrollbar {
     background-color: var(--background-color);
+    width: 0;
   }
 `;
 
@@ -84,6 +85,7 @@ const ChatContainerStyle = styled.div`
     height: 19px;
     font-weight: bold;
     font-size: var(--font--size-md);
+    color: var(--text-color-1);
   }
 
   .chatroomlink {
@@ -100,11 +102,12 @@ const ChatContainerStyle = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 220px;
+    color: var(--text-color-3);
   }
 
   .date {
-    color: var(--basic-color-7);
+    color: var(--text-color-1);
     font-size: 10px;
-    margin-right: 7px;
+    margin-right: 16px;
   }
 `;

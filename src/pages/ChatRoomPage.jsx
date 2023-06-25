@@ -93,6 +93,7 @@ const ChatContainerStyle = styled.div`
     border-radius: 0 10px 10px;
     font-size: var(--font--size-md);
     line-height: 19px;
+    color: var(--text-color-1);
   }
 
   .time {
@@ -114,10 +115,11 @@ const MyChatContainerStyle = styled.div`
   p {
     display: inline-block;
     padding: 10px;
-    background-color: var(--basic-color-3);
+    background-color: var(--basic-color-2);
     border-radius: 10px 0 10px 10px;
     color: #fff;
     font-size: var(--font--size-md);
+    color: var(--common-text-color-1);
   }
 
   img {
@@ -159,7 +161,7 @@ const SendStyle = styled.div`
     display: inline-block;
     transition: 0.5s;
     &:hover {
-      color: var(--basic-color-4);
+      color: var(--basic-color-5);
     }
   }
 `;

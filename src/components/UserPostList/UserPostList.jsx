@@ -48,8 +48,8 @@ export default function UserPostList({ saleItem, post }) {
 }
 
 const TypeTabsWrapperStyle = styled.div`
-  border-top: 0.5px solid var(--basic-color-8);
-  border-bottom: 0.5px solid var(--basic-color-8);
+  border-top: 0.5px solid var(--basic-color-6);
+  border-bottom: 0.5px solid var(--basic-color-6);
 `;
 
 const TypeTabsStyle = styled.div`

@@ -112,7 +112,7 @@ export default function Post({ post }) {
               <IconLike
                 className='iconImg'
                 fill={like ? '#E73C3C' : 'var(--background-color)'}
-                stroke={like ? '#E73C3C' : 'var(--basic-color-7)'}
+                stroke={like ? '#E73C3C' : '#767676'}
                 onClick={like ? deleteLikeReq : postLikeReq}
               />
               {isLike ?
@@ -187,7 +187,6 @@ const PostContainerStyle = styled.div`
     transform: ${({ contentMore }) => (contentMore) ? 'rotate(0)' : 'rotate(180deg)'};
   }
 
-
   pre {
     font-weight: var(--font--Regular);
     font-size: var(--font--size-md);
@@ -196,6 +195,7 @@ const PostContainerStyle = styled.div`
     word-break: break-all;
     white-space: pre-wrap;
     word-wrap: break-word;
+    color: var(--text-color-1);
     /* transition: 1s; */
     max-height: ${({ locationPathname, contentMore }) =>
     (!locationPathname.includes('/postdetail')
@@ -205,12 +205,14 @@ const PostContainerStyle = styled.div`
     ) ? 'ellipsis' : 'none'};
     overflow: ${({ locationPathname }) =>
     (!locationPathname.includes('/postdetail')) ? 'hidden' : 'scroll'};
-    overflow-x: hidden;
     display: -webkit-box;
       -webkit-line-clamp: ${({ locationPathname }) => (locationPathname === '/feed') ? '6' : ''};
       -webkit-box-orient: vertical;
+      overflow-y: scroll; 
+      overflow-x: hidden;
     ::-webkit-scrollbar {
-      background-color: var(--background-color)
+      background-color: var(--background-color);
+      width: 0px;
     } 
   }
 
@@ -220,7 +222,7 @@ const PostContainerStyle = styled.div`
     width: 100%;
     max-height: 228px;
     min-height: 228px;
-    border: 0.5px solid var(--basic-color-8);
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     margin-bottom: 16px;
     object-fit: cover;
@@ -241,7 +243,7 @@ const PostContainerStyle = styled.div`
       font-size: var(--font--size-sm);
       font-weight: var(--font--Regular);
       line-height: 12px;
-      color: var(--basic-color-7);
+      color: var(--text-color-2);
     }
   }
 
@@ -249,6 +251,6 @@ const PostContainerStyle = styled.div`
     font-weight: var(--font--Regular);
     font-size: var(--font--size-sm);
     line-height: 12px;
-    color: var(--basic-color-7);
+    color: var(--text-color-2);
   }
 `;

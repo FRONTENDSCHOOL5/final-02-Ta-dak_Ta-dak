@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import IconSearch from '../../assets/img/icon-search.svg';
+import {ReactComponent as IconSearch} from '../../assets/img/icon-search.svg';
 
 export default function MainHeader() {
 
@@ -10,7 +10,7 @@ export default function MainHeader() {
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
-      <button className='iconSearch' onClick={()=> navigate('/search')}></button>
+      <IconSearch style={{cursor: 'pointer'}} onClick={()=> navigate('/search')}/>
     </MainHeaderStyle>
   );
 }
@@ -25,18 +25,11 @@ const MainHeaderStyle = styled.div`
   padding-right: 16px;
   width: var(--basic-width);
   min-height: 48px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--header-shadow);
 
   h2 {
     font-weight: var(--font--Medium);
     font-size: 18px;
-  }
-
-  .iconSearch {
-    background-image : url(${IconSearch});
-    width: 22px;
-    height: 22px;
-    background-repeat: no-repeat;
-    background-position: center;
+    color: var(--text-color-1);
   }
 `;

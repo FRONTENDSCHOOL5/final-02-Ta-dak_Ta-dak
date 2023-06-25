@@ -9,6 +9,6 @@ export default function UserId({ id }) {
 }
 
 const UserIdStyled = styled.div`
-    color: var(--basic-color-7);
+    color: var(--text-color-2);
     font-size: var(--font--size-sm);
 `;

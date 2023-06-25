@@ -86,11 +86,12 @@ const UserNameStyle = styled.span`
   display: inline-block;
   font-size: var(--font--size-md);
   cursor: pointer;
+  color: var(--text-color-1);
 `;
 
 const TimeStyle = styled.span`
   display: inline-block;
-  color: var(--basic-color-7);
+  color: var(--text-color-2);
   font-size: 10px;
   margin-left: 10px;
   position: relative;
@@ -101,7 +102,7 @@ const TimeStyle = styled.span`
     width: 2px;
     height: 2px;
     border-radius: 50%;
-    background: var(--basic-color-7);
+    background: var(--text-color-1);
     position: absolute;
     top: 50%;
     left: -5px;
@@ -110,7 +111,7 @@ const TimeStyle = styled.span`
 
 const CommentStyle = styled.div`
   margin-top : 15px;
-  color: #333333;
+  color: var(--text-color-3);
   padding-right: 15px;
   padding-bottom: 10px;
   font-size:var(--font--size-md);

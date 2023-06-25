@@ -32,7 +32,7 @@ const UserTutorialPageStyle = styled.div`
   p {
     font-weight: var(--font--Regular);
     font-size: var(--font--size-md);
-    color: var(--basic-color-7);
+    color: var(--text-color-1);
     padding-bottom: 18px;
   }
 `;

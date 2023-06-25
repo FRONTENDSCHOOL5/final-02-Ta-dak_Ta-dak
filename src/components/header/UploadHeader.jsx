@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { GreyMsBtn, BoldMsBtn } from '../common/Button';
 
-import IconArrowLeft from '../../assets/img/icon-arrow-left.svg'
+import {ReactComponent as IconArrowLeft} from '../../assets/img/icon-arrow-left.svg'
 
 export default function UploadHeader({valid, contents, handleUploadBtnClick}) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function UploadHeader({valid, contents, handleUploadBtnClick}) {
 
   return (
     <BasicHeaderStyle>
-      <button className='backUrlBtn' onClick={handleGoBack}></button>
+      <IconArrowLeft onClick={handleGoBack} />
       {
         valid
         ?<BoldMsBtn contents={contents} handleFunc={handleUploadBtnClick}/>
@@ -32,13 +32,5 @@ const BasicHeaderStyle = styled.div`
   padding-right: 16px;
   width: var(--basic-width);
   height: 48px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  .backUrlBtn{
-    width: 22px;
-    height: 22px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image : url(${IconArrowLeft});
-  }
+  box-shadow: var(--header-shadow);
 `;

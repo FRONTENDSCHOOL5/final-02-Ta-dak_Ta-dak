@@ -39,10 +39,11 @@ const SaleItemStyle = styled.button`
   
   .itemName {
     font-size: var(--font--size-l);
+    color: var(--text-color-1);
   }
 
   .itemPrice {
-    color: var(--basic-color-4);
+    color: var(--basic-color-5);
     font-size: var(--font--size-md);
     font-weight: var(--font--Bold);
   }
