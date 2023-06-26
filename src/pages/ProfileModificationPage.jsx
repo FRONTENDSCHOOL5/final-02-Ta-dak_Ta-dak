@@ -63,7 +63,7 @@ export default function ProfileModificationPage() {
 
   const submitModification = async () => {
     const data = await profilemodificationReq(name || userInfo.username, id || userInfo.accountname, intro || userInfo.intro, imagePath || userInfo.image);
-    setUserValue({ ...userValue, accountname: id, image: userInfo.image || imagePath });
+    setUserValue({ ...userValue, accountname: id, image: imagePath || userInfo.image });
     navigate(`/profile/${id || userInfo.accountname}`);
     console.log(data.user);
   }
