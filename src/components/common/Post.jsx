@@ -12,7 +12,9 @@ import { Modal } from './Modal';
 import Alert from './Alert';
 import SearchProfile from './SearchProfile';
 
-import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
+// import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
+import { ReactComponent as IconLike } from './../../assets/img/after.svg';
+
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/s-icon-more.svg';
 import downArrow from '../../assets/img/down-arrow.png'
@@ -110,7 +112,7 @@ export default function Post({ post }) {
             >
               <span className='a11y-hidden'>좋아요 버튼</span>
               <IconLike
-                className='iconImg'
+                className='iconImg likeIcon'
                 fill={like ? '#E73C3C' : 'var(--background-color)'}
                 stroke={like ? '#E73C3C' : 'var(--basic-color-7)'}
                 onClick={like ? deleteLikeReq : postLikeReq}
