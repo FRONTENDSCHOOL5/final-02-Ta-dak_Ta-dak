@@ -11,7 +11,7 @@ export const DefaultTheme = createGlobalStyle`
     --basic-color-3: #FDF5B9;
     --basic-color-4: #ffffff;
     --basic-color-5: #1C8A00;
-    --basic-color-6:#dbdbdb;
+    --basic-color-6: #dbdbdb;
 
     --modal-color: #FCFBF3;
     --alert-color: #FCFBF3;
@@ -36,6 +36,7 @@ export const DefaultTheme = createGlobalStyle`
     --icon-active-off: #DBDBDB;
     
     --header-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --header-color: #FCFBF3;
   }
 `;
 

@@ -91,7 +91,7 @@ const GreenLgBtnStyle = styled.button`
   height: 44px;
   font-size: var(--font--size-md);
   background-color: var(--basic-btn-color);
-  color: var(--btn-text-color-1);
+  color: var(--common-text-color-2);
   border-radius: 44px;
   transition: .3s;
 `;
@@ -101,7 +101,7 @@ const GreenMdBtnStyle = styled.button`
   height: 34px;
   font-size: var(--font--size-md);
   background-color: var(--basic-btn-color);
-  color: var(--btn-text-color-1);
+  color: var(--common-text-color-2);
   border-radius: 30px;
   transition: .3s;
 `;
@@ -111,7 +111,7 @@ const GreenMsBtnStyle = styled.button`
   height: 32px;
   font-size: var(--font--size-md);
   background-color: var(--basic-btn-color);
-  color: var(--btn-text-color-1);
+  color: var(--common-text-color-2);
   border-radius: 30px;
   transition: .3s;
 `;
@@ -121,7 +121,7 @@ const GreenSmBtnStyle = styled.button`
   height: 28px;
   font-size: var(--font--size-sm);
   background-color: var(--basic-btn-color);
-  color: var(--btn-text-color-1);
+  color: var(--common-text-color-2);
   border-radius: 30px;
   transition: .3s;
 `;

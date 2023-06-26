@@ -71,7 +71,7 @@ const DarkModeBtnStyle = styled.button`
 }
 
 .slider {
-  --background: #000;
+  --background: #75665D;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -96,11 +96,11 @@ const DarkModeBtnStyle = styled.button`
 }
 
 input:checked + .slider {
-  background-color: #7FB3D5;
+  background-color: #B9D6A3;
 }
 
 input:checked + .slider:before {
   transform: translateX(100%);
-  box-shadow: inset 15px -4px 0px 15px #ff983f;
+  box-shadow: inset 15px -4px 0px 15px #FEFFE1;
 }
 `;

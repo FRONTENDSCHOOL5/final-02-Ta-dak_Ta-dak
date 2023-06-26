@@ -26,10 +26,11 @@ const MainHeaderStyle = styled.div`
   width: var(--basic-width);
   min-height: 48px;
   box-shadow: var(--header-shadow);
+  background-color: var(--header-color);
 
   h2 {
     font-weight: var(--font--Medium);
     font-size: 18px;
-    color: var(--text-color-1);
+    color: var(--common-text-color-2);
   }
 `;

@@ -85,12 +85,13 @@ const FollowersProfileStyle = styled.div`
       padding-bottom: 6px;
       font-weight: var(--font--Medium);
       font-size: var(--font--size-md);
+      color: var(--text-color-1)
     }
     span {
       display: inline-block;
       font-weight: var(--font--Regular);
       font-size: var(--font--size-sm);
-      color: var(--text-color-1);
+      color: var(--text-color-3);
     }
   }
 `;

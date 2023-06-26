@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useRecoilValue } from 'recoil';
+import { DarkModeAtom } from '../recoil/AtomDarkModeState';
 import styled from "styled-components"
 import Leaf_1 from "./img/leaf.svg"
 import Leaf_2 from "./img/leaf-2.svg"
@@ -16,6 +18,7 @@ import Mouse from "./img/mouse.svg"
 export default function Loader() {
 
   const [isLoading, setIsLoading] = useState(true);
+  const darkMode  = useRecoilValue(DarkModeAtom);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,7 +35,7 @@ export default function Loader() {
     <LoaderStyle>
       {isLoading && <div className="loader">
         <div>
-          <div className="circle"></div>
+          <Circle darkMode={darkMode}></Circle>
           <div className="bar-1"></div>
           <div className="bar-2"></div>
           <div className="cover"></div>
@@ -76,6 +79,21 @@ export default function Loader() {
     </LoaderStyle>
   )
 }
+
+const Circle = styled.div`
+  position: absolute;
+  left: 70px;
+  top: 60%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /* background-color: ; */
+  background-color: ${({darkMode}) => (darkMode) ? 'rgb(229, 214, 174)' : ''};
+  /* filter: blur(3px); */
+  animation: circle .3s ease forwards;
+`;
+
 const LoaderStyle = styled.div`
   width: 100%;
   /* height: (var(--screen-nav-height) - 110px); */
@@ -92,18 +110,6 @@ const LoaderStyle = styled.div`
   width: 200px;
   height: 110px;
   position: relative;
-}
-
-.circle {
-  position: absolute;
-  left: 70px;
-  top: 60%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: #ab908b;
-  animation: circle .3s ease forwards;
 }
 
 .loader-text {
