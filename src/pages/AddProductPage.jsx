@@ -168,7 +168,7 @@ const AddProductPageStyle = styled.div`
 
   textarea {
     background-color: var(--basic-color-4);
-    color: var(--text-color-1);
+    color: var(--common-text-color-2);
   }
   
   #product-detail {

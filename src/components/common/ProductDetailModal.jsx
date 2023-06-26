@@ -146,7 +146,7 @@ const ProductDtailModalStyle = styled.div`
     white-space: pre-wrap;
     word-wrap: break-word;
     background-color: var(--basic-color-4);
-    color: var(--common-text-color-2);
+    color: var(--common-text-color-2); 
     /* border: 1px solid #000; */
     overflow: auto;
     ::-webkit-scrollbar {
