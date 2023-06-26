@@ -89,7 +89,7 @@ export default function PostDetail() {
 }
 
 const PostContainer = styled.div`
-  min-height: var(--screen-nav-height);
+  height: var(--screen-nav-height);
   display: flex;
   flex-direction: column;
 `;

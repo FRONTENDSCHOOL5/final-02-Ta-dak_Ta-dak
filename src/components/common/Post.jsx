@@ -45,8 +45,13 @@ export default function Post({ post }) {
   }
 
   const deletePostReq = async () => {
-    await deletePost(id)
-    window.location.reload();
+    if (location.pathname.includes('/postdetail')) {
+      await deletePost(id)
+      navigate(-1);
+    } else {
+      await deletePost(id)
+      window.location.reload();
+    }
   }
 
   const handleModal = (event) => {
