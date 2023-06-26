@@ -52,14 +52,13 @@ export default function AddProductPage() {
 
   const handleUploadBtnClick = async () => {
     if (productName && productPrice ) {
-      if (imagePath === false) {
+      if (location.pathname==='/addproduct' && imagePath === false) {
         openAlert() 
         setAlertState('상품 이미지가 없습니다.')
       } else if (location.pathname==='/addproduct') {
         await postProduct(productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath) 
         navigate(-1);
       } else if (location.pathname==='/editproduct') {
-        console.log('here',imagePath);
         await editProduct(getItem.id, productName, Number(productPrice.replace(/,/g, '')), productExplain, imagePath || getItem?.itemImage)
         navigate(-1);
       }
