@@ -14,9 +14,9 @@ export default function ChatHeader({name, isButton, handleFunc}) {
 
   return (
     <ChatHeaderStyle>
-      <IconArrowLeft onClick={handleGoBack}/>
+      <IconArrowLeft onClick={handleGoBack} style={{cursor:'pointer'}}/>
       <h2>{name}</h2>
-      {isButton && <IconSMore onClick={handleFunc}/>}
+      {isButton && <IconSMore onClick={handleFunc} style={{cursor:'pointer'}}/>}
     </ChatHeaderStyle>
   );
 }

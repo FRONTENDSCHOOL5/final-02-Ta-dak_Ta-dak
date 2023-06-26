@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import { ProfileSm } from './Profile';
-import IconMore from '../../assets/img/icon-more.svg'
+import { ReactComponent as IconMore } from '../../assets/img/s-icon-more.svg'
 
 export default function Comment({ item, setSelectComment, openModal }) {
 
@@ -40,13 +40,15 @@ export default function Comment({ item, setSelectComment, openModal }) {
           <TimeStyle>{timeAgo}</TimeStyle>
           <CommentStyle>{item.content}</CommentStyle>
         </div>
-        <button
-          className="commentMoreButton"
-          onClick={() => {
-            setSelectComment(item);
-            openModal();
-          }}
-        />
+        <div className="commentMoreButton">
+          <IconMore
+            className="commentMoreButton"
+            onClick={() => {
+              setSelectComment(item);
+              openModal();
+            }}
+          />
+        </div>
       </CommentContainerStyle>
     </>
   );
@@ -79,6 +81,7 @@ const CommentContainerStyle = styled.div`
     background-position: center;
     width: 20px;
     height: 20px;
+    cursor: pointer;
   }
 `;
 

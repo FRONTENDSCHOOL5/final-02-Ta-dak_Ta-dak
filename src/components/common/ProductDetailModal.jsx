@@ -69,12 +69,15 @@ to {
 `;
 
 const BackgorundStyle = styled.div`
+  width : var(--basic-width);
+  height: var(--basic-height);
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--modal-blur-color);
+  backdrop-filter: blur(2px);
   animation: ${fadeIn} 0.3s ease-in;
-
 `;
 
 const ProductDtailModalStyle = styled.div`
@@ -82,7 +85,7 @@ const ProductDtailModalStyle = styled.div`
   position: relative;
   width: 303px;
   height: 458px;
-  background-color: var(--background-color);
+  background-color: var(--modal-background-color);
   border-radius: 20px;
   margin: 0 auto;
   top: 20vh;
@@ -104,6 +107,7 @@ const ProductDtailModalStyle = styled.div`
     margin-top: 12px;
     position: relative;
     top: -80px;
+    color: var(--common-text-color-2);
   }
 
   h3 {
@@ -124,6 +128,7 @@ const ProductDtailModalStyle = styled.div`
     line-height: 16px;
     position: relative;
     top: -80px;
+    color: var(--common-text-color-2);
   }
 
   pre {
@@ -131,7 +136,6 @@ const ProductDtailModalStyle = styled.div`
     top: -80px;
     width: 241px;
     height: 110px;
-    background-color: #ffffff;
     margin-left: 30px;
     margin-top: 5px;
     font-weight: var(--font--Regular);
@@ -141,6 +145,8 @@ const ProductDtailModalStyle = styled.div`
     word-break: break-all;
     white-space: pre-wrap;
     word-wrap: break-word;
+    background-color: var(--basic-color-4);
+    color: var(--common-text-color-2);
     /* border: 1px solid #000; */
     overflow: auto;
     ::-webkit-scrollbar {
@@ -155,7 +161,7 @@ const ProductDtailModalStyle = styled.div`
   .modifyBtn {
     width: 75px;
     height: 35px;
-    background-color: var(--basic-color-1);
+    background-color: #B9d6a3;
     border-radius: 25px;
     position: relative;
     left: 130px;

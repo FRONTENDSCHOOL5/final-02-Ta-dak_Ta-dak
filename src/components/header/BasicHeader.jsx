@@ -14,8 +14,8 @@ export default function BasicHeader({isButton, handleFunc}) {
 
   return (
     <BasicHeaderStyle>
-      <IconArrowLeft onClick={handleGoBack} />
-      {isButton && <IconSMore onClick={handleFunc} />}
+      <IconArrowLeft onClick={handleGoBack} style={{cursor:'pointer'}}/>
+      {isButton && <IconSMore onClick={handleFunc} style={{cursor:'pointer'}}/>}
     </BasicHeaderStyle>
   );
 }

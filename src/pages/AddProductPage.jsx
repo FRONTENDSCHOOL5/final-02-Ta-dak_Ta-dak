@@ -128,6 +128,7 @@ export default function AddProductPage() {
 }
 
 const AddProductPageStyle = styled.div`
+  height: var(--screen-nav-height);
   margin: 0 auto;
   padding: 0 34px;
 

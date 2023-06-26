@@ -14,7 +14,7 @@ export default function UploadHeader({valid, contents, handleUploadBtnClick}) {
 
   return (
     <BasicHeaderStyle>
-      <IconArrowLeft onClick={handleGoBack} />
+      <IconArrowLeft onClick={handleGoBack} style={{cursor:'pointer'}}/>
       {
         valid
         ?<BoldMsBtn contents={contents} handleFunc={handleUploadBtnClick}/>

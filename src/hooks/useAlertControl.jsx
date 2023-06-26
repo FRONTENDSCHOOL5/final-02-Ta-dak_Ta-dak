@@ -43,7 +43,7 @@ const AlertContainer = styled.div`
   transform: translate(-50%, -50%);
   width: var(--basic-width);
   height: var(--basic-height);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--modal-blur-color);
   display: flex;
   align-items: center; 
   justify-content: center;

@@ -44,6 +44,7 @@ const InputContainerStyle = styled.div`
     width: 260px;
     font-size: var(--font--size-md);
     background-color: var(--background-color);
+    color: var(--text-color-1);
   }
   
   button {

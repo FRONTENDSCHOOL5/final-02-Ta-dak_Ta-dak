@@ -162,7 +162,7 @@ const WhiteLgBtnStyle = styled(GreenLgBtnStyle)`
 `;
 
 const WhiteMdBtnStyle = styled(GreenMdBtnStyle)`
-  background-color: #fff;
+  background-color: #ddd;
   color: var(--common-text-color-2);
   box-shadow: inset 0px 0px 0px 0.7px var(--basic-color-6);
 `;

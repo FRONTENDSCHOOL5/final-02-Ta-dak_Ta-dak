@@ -37,7 +37,7 @@ const LabelStyle = styled.label`
   font-size: var(--font--size-sm);
   line-height: 15px;
   margin-bottom: 10px;
-  color: var(--text-color-1);
+  color: var(--common-text-color-2);
 `;
 
 const InputStyle = styled.input`
@@ -48,7 +48,7 @@ const InputStyle = styled.input`
   padding-bottom: 8px;
   border: none;
   border-bottom: 1px solid ${(props) => (props.valid ? 'var(--basic-color-6)' : '#eb5757')};
-  color: var(--text-color-1);
+  color: var(--common-text-color-2);
 
   ::placeholder {
     color: var(--text-color-2);
