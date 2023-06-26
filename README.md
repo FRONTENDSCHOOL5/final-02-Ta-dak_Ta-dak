@@ -81,7 +81,6 @@
 ## 폴더 구조 
 
 ```
-my-app
 FINAL-02-TA-DAK-TA-DAK
 ├── node_modules
 ├── public
