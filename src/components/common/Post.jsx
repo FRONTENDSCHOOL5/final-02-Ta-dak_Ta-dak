@@ -89,7 +89,7 @@ export default function Post({ post }) {
             <h3 className='a11y-hidden'>포스트 내용</h3>
             <div onClick={() => setContentMore((prevValue) => !prevValue)}>
               <pre>{post.content}</pre>
-              {post.content?.length >= 180 && <button className="moreContentBtn"></button>}
+              {post.content?.length >= 180 && <button className="moreContentBtn" ></button>}
             </div>
             {contentMore && post.image && (
               <img
@@ -180,6 +180,7 @@ const PostContainerStyle = styled.div`
     transition: .3s;
     margin: 0 131px 16px;
     background: url(${downArrow}) no-repeat center center;
+    filter: invert(50%);
     background-size: cover;
     width: 16px;
     height: 16px;

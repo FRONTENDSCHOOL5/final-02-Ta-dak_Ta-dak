@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { DarkModeAtom } from "../recoil/AtomDarkModeState";
+import sun from "../assets/img/sun.svg"
 import styled from "styled-components"
 
 export default function DarkModeBtn() {
@@ -101,6 +102,7 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(100%);
-  box-shadow: inset 15px -4px 0px 15px #FEFFE1;
+  box-shadow: inset 15px -4px 0px 15px rgb(254, 255, 225, 0.0);
+  background: url(${sun}) no-repeat center / auto 100%;
 }
 `;
