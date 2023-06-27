@@ -6,7 +6,7 @@
 <br />
 
 ## 프로젝트 소개
-![image](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/5df2fe0b-8d2f-47b2-9292-2c7c85e99a7d)
+![썸네일](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/4dbeb9a3-bf29-43e6-8627-eda7f237e32d)
 **타닥타닥**은 캠핑의 낭만적인 순간을 기록하여 자신만의 캠핑 이야기를 공유하고, 캠핑 용품들을 중고거래할 수 있는 SNS입니다.
 - 타닥타닥 서비스는 캠핑을 즐기는 누구나 이용할 수 있는 SNS입니다.
 - 글과 사진을 함께 게시물로 작성하여 자신만의 캠핑 이야기를 공유할 수 있습니다. 
