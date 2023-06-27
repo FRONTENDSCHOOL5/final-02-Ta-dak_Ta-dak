@@ -49,7 +49,7 @@ const SearchHeaderStyle = styled.div`
     font-weight: var(--font--Regular);
 
     &::placeholder {
-      color: #c4c4c4;
+      color: var(--text-color-2);
     }
   }
 `;

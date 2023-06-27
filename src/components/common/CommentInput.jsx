@@ -62,7 +62,7 @@ const InputContainerStyle = styled.div`
 `
 const InputStyle = styled.input`
   ::placeholder {
-    color: #c4c4c4;
+    color: var(--text-color-2);
   } 
 `;
 

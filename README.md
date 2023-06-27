@@ -6,16 +6,23 @@
 <br />
 
 ## 프로젝트 소개
-**타닥타닥**은 캠핑의 낭만적인 순간을 기록하여 자신만의 캠핑 이야기를 공유하고, 캠핑 용품들을 거래하는 SNS입니다.
+**타닥타닥**은 캠핑의 낭만적인 순간을 기록하여 자신만의 캠핑 이야기를 공유하고, 캠핑 용품들을 중고거래할 수 있는 SNS입니다.
 - 타닥타닥 서비스는 캠핑을 즐기는 누구나 이용할 수 있는 SNS입니다.
-- 글과 사진을 함께 게시물로 작성하여 자신만의 캠핑 이야기를 공유할 수 있습니다.
-- 다른 사용자를 팔로우하지 않아도 캠핑 이야기를 확인할 수 있고, 팔로우하여 댓글과 좋아요를 통해 직접 소통할 수 있습니다.
-- 각종 캠핑 상품을 등록하여 다른 사용자에게 판매할 수 있습니다.
+- 글과 사진을 함께 게시물로 작성하여 자신만의 캠핑 이야기를 공유할 수 있습니다. 
+- 다른 사용자를 팔로우하지 않아도 추천 게시물을 통해 많은 사람들의 캠핑 이야기를 확인할 수 있고, 팔로우를 통해 홈 피드에서는 팔로잉을 한 사용자의 글을 볼 수 있습니다. 
+  댓글과 좋아요를 통해 직접 소통할 수도 있습니다.
+- 사용자가 직접 각종 캠핑 상품을 등록하여 다른 사용자들과 중고거래 할 수 있습니다.
 
 ### 개발기간
 2023.06.01 - 2023.06.30
 
 ### 개발환경
+
+| 프론트엔드 | 백엔드 | 디자인 | 협업방식 |
+| :---: | :---: | :---: | :---: | 
+| <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=pink"> | 멋쟁이사자처럼에서 제공된 API 사용 | <img src="https://img.shields.io/badge/figma-FBCEB1?style=for-the-badge&logo=figma&logoColor=white"> | <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img src="https://img.shields.io/badge/notion-ECE0CC?style=for-the-badge&logo=notion&logoColor=white">|
+
+
 
 <br />
 
@@ -76,44 +83,55 @@
 <br />
 
 ## 역할분담
+![역할분담](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/b2756ac9-f1c8-40e0-999d-a3101f7c09ba)
 
+<br />
 
 ## 폴더 구조 
 
 ```
 FINAL-02-TA-DAK-TA-DAK
-├── node_modules
-├── public
-└── src
-  ├── api
-  ├── assets
-     ├── img
-  ├── components
-     ├── common
-     ├── header
-     ├── UserPostList
-  ├── hooks
-  ├── Loader
-     ├── img
-  ├── pages
-  ├── recoil
-  ├── Routes
-  ├── style
-     ├── theme
-  ├─ .gitignore
-  ├─ .prettierrc.json
-  ├─ package-lock.json
-  ├─ package.json
-  └─ README.md
+├── 📁node_modules
+├── .gitignore
+├── .prettierrc.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── 📁public
+├── 📂src
+      ├── 📁api
+      ├── 📂assets
+            ├── 📁img
+      ├── 📂components
+            ├── 📁common
+            ├── 📁header
+            ├── 📁UserPostList
+      ├── 📁hooks
+      ├── 📂Loader
+            ├── 📁img
+      ├── 📁pages
+      ├── 📁recoil
+      ├── 📁Routes
+      ├── 📂style
+            ├── 📁theme
 ```
 
 <br />
 
-## 협업방식
+## branch 전략
+GitHub Flow
+- 지속적인 배포를 진행하기 보다는 하나의 프로젝트가 완성되었을때 배포하는 개념이었기 때문에 지속적인 통합과 기능 개발에 중점을 두어 Git Flow 전략보다는 GitHub Flow 전략이 적합하다고 생각했습니다.
+- 프로젝트 기간 동안 팀원들이 지속적으로 작업을 진행하기 때문에 충돌을 최소한으로 줄이고자 GitHub Flow 전략을 선택하였습니다. 
+- 빠른 피드백과 이슈를 생성 할 수 있었고, 체계적인 협력 규칙을 정해서 관리 하였기 때문에 필요 이상의 복잡함을 줄이고 효율적인 과정으로 기능개발을 진행할 수 있었습니다.
 
 <br />
 
-## branch 전략
+## 협업방식
+1. 매주 월요일, 목요일 회의를 진행하여 세부적인 역할 분담을 하고 이슈를 생성합니다.
+2. 이슈 넘버에 맞게 각자 브랜치를 생성하여 지속적으로 작업을 진행합니다.
+3. 브랜치에서 작업이 완료되면 각자 브랜치에서 컨벤션에 맞게 커밋후 PR(Pull Request)을 오픈합니다.
+4. 다른 멤버들의 컨펌이 완료되면 main으로 merge합니다.
+5. 각자 맡은 작업 진행후 LiveShare을 통해 문제가 생긴 부분을 함께 수정하고 추가한 코드를 리뷰하고 이슈를 Close합니다.
 
 <br />
 
@@ -238,6 +256,18 @@ FINAL-02-TA-DAK-TA-DAK
 | gif | gif |
 
 <br />
+
+## 코드 특징
+
+**custom Hook 사용**
+- `useAlertControl`, `useModalControl` : 모달컴포넌트를 감싸서 모달을 컨트롤 할 수 있는 훅을 생성했습니다. children 속성을 이용해서 컨트롤 하고자 하는 모달을 동적으로 받아와서 관리했습니다. 
+- `useScrollBottom` : useRef Hook을 호출해서 객체를 생성하여 객체를 훅의 인자로 전달하고, 스크롤 이벤트를 감지하고 싶은 요소에 ref 속성을 전달하여 스크롤이 바닥에 닿을 때 작동하도록 했습니다.
+- `useImageUploader` 
+
+**axios 라이브러리 활용**
+**컴포넌트의 재사용성 고려**
+**로그인 여부에 따른 페이지 접근**
+
 
 ## 프로젝트를 마치며
 

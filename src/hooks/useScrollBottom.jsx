@@ -4,19 +4,19 @@ export default function useScrollBottom(ref) {
   const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
+    const element = ref.current;
+
     const handleScroll = () => {
-      const element = ref.current;
       if (element) {
         const { scrollTop, clientHeight, scrollHeight } = element;
         setIsBottom(scrollTop + clientHeight + 250 >= scrollHeight);
       }
     };
 
-    const scrollElement = ref.current;
-    scrollElement.addEventListener('scroll', handleScroll);
+    element.addEventListener('scroll', handleScroll);
 
     return () => {
-      scrollElement.removeEventListener('scroll', handleScroll);
+      element.removeEventListener('scroll', handleScroll);
     };
   }, [ref]);
 

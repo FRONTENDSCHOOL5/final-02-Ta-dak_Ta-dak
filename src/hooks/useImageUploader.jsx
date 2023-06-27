@@ -8,17 +8,14 @@ const useImageUploader = () => {
 
   const handleImageChange = async (event) => {
     const selectedFile = event.target.files[0];
-    console.log(selectedFile);
     const allowedExtensions = ['jpg', 'gif', 'png', 'jpeg', 'bmp', 'tif', 'heic'];
     const selectedExtension =  !!selectedFile && selectedFile.name.split('.').pop().toLowerCase();
     
     if (allowedExtensions.includes(selectedExtension)) {
-
-      const imageURL = URL.createObjectURL(selectedFile);
-      const imagePath = await postImgFile(selectedFile);
-      console.log(imagePath);
-      setImageURL(imageURL);
-      setImagePath(imagePath);
+      const preImageURL = URL.createObjectURL(selectedFile);
+      const preImagePath = await postImgFile(selectedFile);
+      setImageURL(preImageURL);
+      setImagePath(preImagePath);
     } else {
       setUploadValidity(false)
     }

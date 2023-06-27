@@ -167,7 +167,8 @@ const SendStyle = styled.div`
 `;
 
 const InputStyle = styled.input`
+  color: var(--text-color-1);
   ::placeholder {
-    color: #c4c4c4;
+    color: var(--text-color-2);
   }
 `;
