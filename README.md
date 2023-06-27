@@ -156,110 +156,85 @@ GitHub Flow
 
 ### code 컨벤션
 
+> Prettier에 대한 사용자 정의 설정
 ```json
 {
-  "tabWidth": 2,
-  "singleQuote": true,
-  "semi": true,
-  "printWidth": 80,
-  "trailingComma": "es5"
+  "tabWidth": 2, // 들여쓰기 간격을 2로 설정
+  "singleQuote": true, // 문자열에는 작은 따옴표를 사용
+  "semi": true, // 문장의 끝에 세미콜론을 추가
+  "printWidth": 80, // 한 줄의 최대 길이를 80으로 제한
+  "trailingComma": "es5" // ES5 문법에서만 뒷콤마를 허용
 }
+```
+
+> import 순서 규칙
+```jsx
+// 1. hook
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+// 2. styled-component
+import styled from 'styled-components';
+// 한줄 공백
+// 3. import로 가져오는 컴포넌트 파일
+import Album from '../common/Album';
+// 한줄공백
+// 4. 불러오는 이미지 파일
+import postImg1 from './../../assets/testImg/post1.png';
+import postImg2 from './../../assets/testImg/post2.png';
 ```
 
 <br />
 
 ## 기능 UI
-- 🏕 타닥타닥 첫 화면 <br />
+### Splash, 회원가입, 로그인
+| Splash | 회원가입/프로필 설정 | 로그인 |
+| --- | --- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/315d059e-a43f-4050-aaab-14c84a08a5df" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/10a33310-9661-4fc5-9138-a08840bf9118" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/750e0b25-e97f-479a-b977-9649ae803173" width="250" height="497"/> |
 
-| Splash | 회원가입 | 회원가입실패 |
-| :---: | :---: | :---:|
-| gif | gif | gif |
+### 홈, 추천 게시글
+| 홈 게시글 | 추천 게시글 | 
+| --- | --- | 
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/193a3ba7-d878-4f03-bb1c-4416f8c9e0c4" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/71f72bcb-b6a1-4fa6-bff1-d93f9df1c2d2" width="250" height="497"/> | 
 
-<br />
+### 검색, 팔로우 
+| 검색 | 팔로우/언팔로우 | 팔로잉/팔로워 리스트 |
+| --- | --- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/9a6fe9e6-1e77-40f0-9a6c-6a1973eb889d" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/75de274e-3e32-4220-a5f2-af8a5ad10447" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/5dd82896-a5cb-4e6e-b922-7e41b090e3ea" width="250" height="497"/> |
 
-- 🏕 로그인 / 로그 아웃 <br />
+### 게시물
+| 게시물 업로드 | 게시물 수정 | 
+| --- | --- | 
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/3874936a-fc61-4949-956a-256ec1eaff1a" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/643afea7-d22e-4ce4-8c5d-9e0a81e629c6" width="250" height="497"/>|
 
-| 로그인 | 로그아웃 |
-| :---: | :---: |
-| gif | gif |
+| 게시물 삭제 | 게시물 신고 |
+|--- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/14910d0d-19d6-421d-a4a1-615fffb96380" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/efdacf15-f91e-47d0-bf9e-49cccb8a5fc6" width="250" height="497"/> |
 
-<br />
+### 댓글, 프로필
+| 좋아요/댓글 작성/댓글 삭제 | 프로필 | 프로필 수정 |
+| --- | --- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/c2d5cd68-84b2-4f88-be58-df7b0cd5137f" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/8611dbb5-e9aa-4fef-8791-ef5f805050ac" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/696e72c0-2b99-4059-b9ce-537bf5b3316b" width="250" height="497"/> |
 
-- 🏕 홈 / 피드 페이지 <br />
+### 상품
+| 상품 등록 | 상품 수정 | 상품 삭제 |
+| --- | --- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/0383218d-686f-44b3-8981-0445622b920f" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/6689e76a-c02b-4450-875d-7c5aa83cd300" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/96513887-5be3-43ff-a11f-e594829666db" width="250" height="497"/> |
 
-| 첫 가입 이후 홈 피드 | 홈 피드 | 로그인 |
-| :---: | :---: | :---: |
-| gif | gif | gif |
+### 채팅, 로그아웃, 404
+| 채팅 | 로그아웃 | 404 |
+| --- | --- | --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/99c915aa-0bda-42cf-83e5-d39314edf90b" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/70606c20-e804-4193-9345-c6fdc114352f" width="250" height="497"/> | <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/beb35fa0-82d8-4f98-a917-541ae1ec3645" width="250" height="497"/> |
 
-<br />
-
-- 🏕 검색 <br />
-
-| 검색 | ?? | ?? |
-| :---: | :---: | :---: |
-| gif | gif | gif |
-
-<br />
-
-- 🏕 프로필 <br />
-
-| 프로필 수정 | 프로필 하단 게시물 유형 선택 |
-| :---: | :---: | 
-| gif | gif | 
-
-<br />
-
-- 🏕 상품 등록 <br />
-
-| 상품 등록후 클릭 | 상품 수정 | 상품 삭제 | 
-| :---: | :---: | :---: |
-| gif | gif | gif |
-
-<br />
-
-- 🏕 게시글 <br />
-
-| 게시글 작성 | 게시글 수정 | 게시글 삭제 | 게시글 신고 |
-| :---: | :---: | :---: | :---: |
-| gif | gif | gif | gif |
-
-<br />
-
-- 🏕 댓글 / 좋아요 <br />
-
-| 게시글 작성 | 게시글 수정 | 게시글 삭제 | 게시글 신고 | 좋아요 |
-| :---: | :---: | :---: | :---: | :---: |
-| gif | gif | gif | gif | gif |
-
-<br />
-
-- 🏕 채팅 <br />
-
-| 채팅 리스트 | 채팅룸 |  나가기 | 게시글 신고 | 좋아요 |
-| :---: | :---: | :---: | :---: | :---: |
-| gif | gif | gif | gif | gif |
-
-<br />
-
-- 🏕 다크모드 <br />
-
-| 다크모드 |
-| :---: |
-| gif |
-
-<br />
-
-- 🏕 404Error / 로딩 <br />
-
-| 404 Error | 로딩페이지 |
-| :---: | :---: |
-| gif | gif |
+### 다크모드
+| 다크모드 | 
+| --- |
+| <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/ef2471fe-5470-4dfc-b6b6-4316e175e83b" width="250" height="497"/> <img src="https://github.com/JoWonYeong/coding-test/assets/92977925/ef96db44-3080-4aa6-a6b5-f6ecb72826ba" width="250" height="497"/> | 
 
 <br />
 
 ## 코드 특징
 
-**custom Hook 사용**
+> custom Hook 사용
 1. `useAlertControl`, `useModalControl` 
   - 모달컴포넌트를 감싸서 모달을 컨트롤 할 수 있는 훅을 생성했습니다. 
   - children 속성을 이용해서 컨트롤 하고자 하는 모달을 동적으로 받아와서 관리했습니다. 
@@ -273,16 +248,26 @@ GitHub Flow
   - 이미지 파일을 미리보기 위해 사용할 수 있는 URL을 생성하고 반환합니다.
   - 선택한 파일로 API 요청을 보내 업로드된 이미지의 URL을 반환받은 뒤에 반환합니다. 
 
-**axios 라이브러리 활용**
-  - API 요청을 보낼 기본 틀의 URL과 header을 포함하고 있는 jsx 파일을 별도로 생성해서, 요청할 URL과 HTTP 메서드만으로 API 요청이 가능하게끔 했습니다.
-  - 토근이 필요한 API 요청의 경우 axios 라이브러리에서 제공하는 interceptors 을 이용해서 인증 헤더를 추가해서 인증된 요청을 보내도록 했습니다.
+> axios 라이브러리 활용 `settingAxios.jsx`
+  - API 요청을 보낼 기본 틀의 URL과 header을 포함하고 있는 jsx 파일을 별도로 생성하고 재사용하도록 하여, 요청할 URL과 HTTP 메서드만으로 API 요청이 가능하게끔 했습니다.
+  - 토큰이 필요한 API 요청의 경우 axios 라이브러리에서 제공하는 interceptors 를 이용해서 인증 헤더를 추가하여 인증된 요청을 보내도록 했습니다.
 
-**컴포넌트의 재사용성 고려**
-  - useLocation Hook을 호출해서 생성한 객체의 속성인 `pathname` 으로 현재 페이지의 경로를 확인하고, 이를 조건문에 활용하여 게시물 등록/수정, 상품 등록/수정 컴포넌트를 재사용하도록 했습니다.
-**로그인 여부에 따른 페이지 접근**
+> 컴포넌트의 재사용성 고려 `FollowListPage.jsx` / `UploadPage.jsx` / `AddProductPage.jsx`
+  - useLocation Hook을 호출해서 생성한 객체의 속성인 `pathname` 으로 현재 페이지의 경로를 확인하고, 이를 조건문에 활용하여 컴포넌트를 재사용하도록 했습니다.
+
+> 로그인 여부에 따른 페이지 접근 `AtomUserState.js` / `ProtectedRoute.jsx` / `App.js`
   - Recoil의 `Selector`와 React-router의 `<Outlet/>`, `<Navigate>` 컴포넌트를 이용해서 
     로그인 유무에 따라 특정 페이지에 접근 시 페이지를 보호하고 특정 페이지로 리다이렉팅 시키는 Protected Route를 만들었습니다. 
 
+## 상태관리
+
+## 리팩토링
+
+1. 잘못된 확장자로 파일 업로드 시 에러처리
+
+2. 프로필 페이지에서의 탭바 활성화 상태 유지처리
+
+3. 프로필 이미지가 유효하지 않을 시 기본이미지로 대체
 
 ## 프로젝트를 마치며
 
