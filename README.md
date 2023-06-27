@@ -30,7 +30,7 @@
 
 |안동섭|김지원|박지은|조원영|
 | :---: | :---: | :---: | :---: |
-| <img width="180" alt="프로필_안동섭" src="https://avatars.githubusercontent.com/u/96939334?s=400&u=6a4e635ccb574702b10b9464ce61bba61abefc72&v=4"> | <img width="180" alt="프로필_김지원" src="https://avatars.githubusercontent.com/u/126536438?v=4"> | <img width="180" alt="프로필_박지은" src="https://avatars.githubusercontent.com/u/98686191?v=4"> | <img width="180" alt="프로필_조원영" src="https://avatars.githubusercontent.com/u/92977925?v=4"> |
+| <img width="180" alt="프로필_안동섭" src="https://avatars.githubusercontent.com/u/96939334?s=400&u=6a4e635ccb574702b10b9464ce61bba61abefc72&v=4"> | <img width="180" alt="프로필_김지원" src="https://avatars.githubusercontent.com/u/126536438?v=4"> | <img width="180" alt="프로필_박지은" src="https://github.com/Eunnnnnnnn/Memo/assets/98686191/f5960459-4d30-4ec6-b991-fa2e03d2352e"> | <img width="180" alt="프로필_조원영" src="https://avatars.githubusercontent.com/u/92977925?v=4"> |
 | [DongSup_Ahn](https://github.com/D-Sup) | [jiwon6635](https://github.com/jiwon6635) | [Eunnnnnnnn](https://github.com/Eunnnnnnnn) | [JoWonYeong](https://github.com/JoWonYeong) |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 
@@ -83,7 +83,7 @@
 <br />
 
 ## 역할분담
-![역할분담](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/b2756ac9-f1c8-40e0-999d-a3101f7c09ba)
+![역할분담](https://github.com/Eunnnnnnnn/Memo/assets/98686191/b0044bc2-eb16-4473-89a0-2811b6e38b62)
 
 <br />
 
@@ -153,6 +153,8 @@ GitHub Flow
 | ✍🏻 | `:writing_hand: Rename:` | 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우 |
 | 🗑️ | `:wastebasket: Remove:` | 파일을 삭제하는 작업만 수행한 경우 |
 | 🚀 | `:rocket: Release:` | 배포 |
+
+<br />
 
 ### code 컨벤션
 
@@ -245,40 +247,65 @@ import postImg2 from './../../assets/testImg/post2.png';
   - children 속성을 이용해서 컨트롤 하고자 하는 모달을 동적으로 받아와서 관리했습니다. 
 2. `useScrollBottom` 
   - 요소의 스크롤을 감지할 수 있는 훅을 생성했습니다. 
-  - useRef Hook을 호출해서 객체를 생성하여 객체를 훅의 인자로 전달하고, 
+  - useRef Hook을 호출해서 객체를 생성하여 객체를 훅의 인자로 전달하고,  
     스크롤 이벤트를 감지하고 싶은 요소에 ref 속성을 전달하여 스크롤이 바닥에 닿을 때 작동하도록 했습니다.
 3. `useImageUploader`
   - 선택한 파일을 통해 유효성 검사를 하고 미리보기 URL과 업로드된 이미지의 URL을 반환해주는 훅을 생성했습니다.
   - input 태그의 onChange 이벤트에서 선택한 파일을 통해 전달 받아 파일이 유효한 확장자인지 검사합니다.
   - 이미지 파일을 미리보기 위해 사용할 수 있는 URL을 생성하고 반환합니다.
   - 선택한 파일로 API 요청을 보내 업로드된 이미지의 URL을 반환받은 뒤에 반환합니다. 
+  
+<table>
+<caption>hook이 사용된 파일</caption>
+  <tr>
+    <th>useModalControl</th>
+    <th>useAlertControl</th>
+    <th>useScrollBottom</th>
+    <th>useImageUploader</th>
+  </tr>
+  <tr>
+    <td rowspan="4">`Post.jsx` <br /> `ChatRoomPage.jsx` <br /> `PostDetail.jsx` <br /> `ProfilePage.jsx` </td>
+    <td> `Post.jsx` <br /> `ProductDetail.jsx` <br /> `AddProductPage.jsx` <br /> `PostDetail.jsx` <br /> `ProfileModificationPage.jsx` <br /> `ProfilePage.jsx` <br /> `ProfileSettingPage.jsx` <br /> `UploadPage.jsx`</td>
+    <td> `FeedHomePage.jsx` <br /> `FollowListPage.jsx` </td>
+    <td> `AddProductPage.jsx` <br /> `ProfileModificationPage.jsx` <br /> `ProfileSettingPage.jsx` <br /> `UploadPage.jsx` </td>
+  </tr>
+</table>
 
 <br />
 
 **axios 라이브러리 활용** `settingAxios.jsx`
-  - API 요청을 보낼 기본 틀의 URL과 header을 포함하고 있는 jsx 파일을 별도로 생성하고 재사용하도록 하여, 요청할 URL과 HTTP 메서드만으로 API 요청이 가능하게끔 했습니다.
-  - 토큰이 필요한 API 요청의 경우 axios 라이브러리에서 제공하는 interceptors 를 이용해서 인증 헤더를 추가하여 인증된 요청을 보내도록 했습니다.
+  - API 요청을 보낼 기본 틀의 URL과 header을 포함하고 있는 jsx 파일을 별도로 생성하고 재사용하도록 하여,   
+    요청할 URL과 HTTP 메서드만으로 API 요청이 가능하게끔 했습니다.
+  - 토큰이 필요한 API 요청의 경우 axios 라이브러리에서 제공하는 interceptors 를 이용해서  
+    인증 헤더를 추가하여 인증된 요청을 보내도록 했습니다.
 
 <br />
 
 **컴포넌트의 재사용성 고려** `FollowListPage.jsx` / `UploadPage.jsx` / `AddProductPage.jsx`
-  - useLocation Hook을 호출해서 생성한 객체의 속성인 `pathname` 으로 현재 페이지의 경로를 확인하고, 이를 조건문에 활용하여 컴포넌트를 재사용하도록 했습니다.
+  - useLocation Hook을 호출해서 생성한 객체의 속성인 `pathname` 으로 현재 페이지의 경로를 확인하고,  
+    이를 조건문에 활용하여 컴포넌트를 재사용하도록 했습니다.
 
 <br />
 
 **로그인 여부에 따른 페이지 접근** `AtomUserState.js` / `ProtectedRoute.jsx` / `App.js`
-  - Recoil의 `Selector`와 React-router의 `<Outlet/>`, `<Navigate>` 컴포넌트를 이용해서 
-    로그인 유무에 따라 특정 페이지에 접근 시 페이지를 보호하고 특정 페이지로 리다이렉팅 시키는 Protected Route를 만들었습니다. 
+  - Recoil의 `Selector`와 React-router의 `<Outlet/>`, `<Navigate>` 컴포넌트를 이용해서  
+    로그인 유무에 따라 특정 페이지에 접근 시 페이지를 보호하고 특정 페이지로 리다이렉팅 시키는 Protected Route를 생성했습니다.
 
 <br />
 
 ## 리팩토링
 
-1. 잘못된 확장자로 파일 업로드 시 에러처리
+1. 잘못된 확장자로 여러번 파일 업로드 시 예외처리
+  - 문제: 잘못된 확장자로 파일 업로드를 할 경우 조건문으로 인해 동작되어야하는 state의 변화가 이루어지지 않아서,  
+    사용자 입장에서 잘못된 접근임을 인지하기 어려웠습니다.
+  - 해결: useEffect Hook을 이용해서 state의 상태값의 변화를 감지하도록 하여  
+    상태의 boolean 값에 따라 state의 변화를 일으키도록 했습니다.  
+    이를 통해 상태값이 변화하지 않는 현상에 대응하고 처리할 수 있었습니다.
 
 2. 프로필 페이지에서의 탭바 활성화 상태 유지처리
-
-3. 프로필 이미지가 유효하지 않을 시 기본이미지로 대체
+  - 문제: 프로필 페이지에서 탭바를 useState Hook으로 state를 관리하기 때문에,  
+    다른 컴포넌트로 이동 후에 뒤로가기를 버튼을 누를 경우 설정해놓은 state의 초기값에 해당하는 탭바가 활성화됐었습니다.
+  - 해결: useParams Hook 이용해서 추출한 경로를 활용하여 유저 프로필 페이지에서 탭을 선택하고 해당하는 컨텐츠를 표시할 수 있게 했습니다. 
 
 <br />
 
