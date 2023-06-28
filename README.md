@@ -1,4 +1,6 @@
 # 🔥 타닥타닥 Tadak-Tadak
+
+🏕[타닥타닥 Tadak-Tadak](https://frontendschool5.github.io/final-02-Ta-dak_Ta-dak/#/splash) <br />
 > 타닥타닥 테스트 계정 <br />
 > ID : tadak123@email.com <br />
 > PW : tadak123
