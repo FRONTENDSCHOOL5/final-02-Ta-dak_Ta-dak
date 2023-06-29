@@ -103,6 +103,8 @@ GitHub Flow
 ## 컨벤션
 
 ### commit 컨벤션
+![image](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/42952a45-3e13-467b-92aa-f12bdfb724c5)
+이슈 넘버이자 브랜치명을 끝에 표기해줌
 
 | 커밋 유형 | 커밋 메세지 | 의미 |
 | :---: | :---: | :---: |
