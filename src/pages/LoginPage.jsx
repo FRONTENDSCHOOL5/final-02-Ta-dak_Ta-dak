@@ -26,6 +26,11 @@ export default function LoginPage() {
     setPassword(event.target.value);
   };
 
+  const handleInputFocus = (event) => {
+    setValid(true);
+    setAlertMsg('');
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -56,7 +61,7 @@ export default function LoginPage() {
         navigate('/feed');
       }
     } else{
-      alert('이미 로그인돼잇음 - 이부분 코드 나중에 뺄것')
+      alert('이미 로그인돼잇음')
     }
   };
 
@@ -72,6 +77,7 @@ export default function LoginPage() {
             value={email}
             valid={valid}
             onChange={handleEmailInput}
+            onFocus={handleInputFocus}
           />
           <Input
             id={'user-password'}
@@ -81,11 +87,12 @@ export default function LoginPage() {
             valid={valid}
             alertMsg={alertMsg}
             onChange={handlePasswordInput}
+            onFocus={handleInputFocus}
           />
           {email && password ? (
-            <GreenLgBtn type='submit' contents={'로그인'} />
+            <GreenLgBtn type="submit" contents={'로그인'} />
           ) : (
-            <GreyLgBtn type='submit' contents={'로그인'} />
+            <GreyLgBtn type="submit" contents={'로그인'} />
           )}
         </form>
       </LoginPageStyle>
