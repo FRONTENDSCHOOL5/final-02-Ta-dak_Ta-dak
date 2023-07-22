@@ -77,7 +77,7 @@ export default function SignUpPage() {
             alertMsg={passwordAlertMsg}
             onChange={handlePasswordInput}
           />
-          {email && password ?
+          {email && password && emailValid && passwordValid?
             <GreenLgBtn type='submit' contents={'다음'} /> :
             <GreyLgBtn type='submit' contents={'다음'} />}
         </form>
