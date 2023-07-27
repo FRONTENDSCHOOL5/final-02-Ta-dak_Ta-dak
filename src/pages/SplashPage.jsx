@@ -101,7 +101,7 @@ const loginmodal = keyframes`
   opacity: 0;
   transform: translateY(0px);
 }
-  50% {
+  40% {
     opacity: 0;
     transform: translateY(0px);
 
@@ -176,7 +176,7 @@ background-color: #ffffff;
 position: relative;
 top: -100px;
 z-index: 101;
-animation: ${loginmodal} 5s forwards;
+animation: ${loginmodal} 3.6s forwards;
   li {
     list-style: none;
     position: relative;
