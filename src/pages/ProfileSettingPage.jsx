@@ -79,7 +79,7 @@ export default function ProfileSettingPage() {
           setBeforeBtnClick(false);
           openAlert();
           const timer = setTimeout(() => {
-            navigate('/splash')
+            navigate('/login')
           }, 3000)
           return () => {
             clearTimeout(timer);
