@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../../recoil/AtomUserState';
 import { postLike, deleteLike } from '../../api/heartAPI';
 import { deletePost, reportPost } from '../../api/postAPI';
@@ -15,8 +15,8 @@ import SearchProfile from './SearchProfile';
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
 import moreButtonIcon from './../../assets/img/s-icon-more.svg';
-import downArrow from '../../assets/img/down-arrow.png'
-import errorImg from '../../assets/img/UploadImage404.svg'
+import downArrow from '../../assets/img/down-arrow.png';
+import errorImg from '../../assets/img/UploadImage404.svg';
 
 export default function Post({ post }) {
   const navigate = useNavigate();
@@ -82,7 +82,9 @@ export default function Post({ post }) {
   return (
     <>
       <PostStyle>
-        <button className='postMoreButton' onClick={() => {
+        <button className='postMoreButton' 
+          aria-label='게시글 삭제, 수정 버튼'
+          onClick={() => {
           openModal()
           setAlertState('게시글을 삭제할까요?')
         }} />
