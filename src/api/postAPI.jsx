@@ -17,6 +17,8 @@ import { axiosAuth } from "./settingAxios";
 export const getPost = async (loadPostSeq) => {
   const reqUrl = `/post/feed/?limit=5&skip=${loadPostSeq}`;
   try {
+    // axios 인스턴스에 메소드를 붙여서 사용
+    // .get(url주소) .post() .delete() .put() 형태
     const response = await axiosAuth.get(reqUrl)
     console.log(response.data);
     return response.data
