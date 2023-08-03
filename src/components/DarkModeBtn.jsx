@@ -24,10 +24,10 @@ export default function DarkModeBtn() {
   return (
     <DarkModeBtnContainer>
       {!hideBtn &&
-      <DarkModeBtnStyle >
-        <label class="switch">
-          {darkMode ? <input type="checkbox" onClick={handleMode}/> :
-          <input type="checkbox" onClick={handleMode} checked/>}
+      <DarkModeBtnStyle>
+        <label className="switch">
+          {darkMode ? <input type="checkbox" aria-label="DarkModeSwitch" onClick={handleMode}/> :
+          <input type="checkbox" aria-label="DarkModeSwitch" onClick={handleMode} checked/>}
           <span class="slider"></span>
         </label>
       </DarkModeBtnStyle>
