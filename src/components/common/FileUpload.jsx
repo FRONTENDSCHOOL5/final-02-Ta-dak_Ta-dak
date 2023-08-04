@@ -13,7 +13,7 @@ export function FileUploadLg(props) {
       <FileLgLabelStyle htmlFor={props.id}>
         <ProfileLg url={props.url} />
       </FileLgLabelStyle>
-      <FileInputStyle {...props} id={props.id} type='file'></FileInputStyle>
+      <FileInputStyle {...props} id={props.id} aria-label="FileInput" type='file'></FileInputStyle>
     </>
   ); 
 }
