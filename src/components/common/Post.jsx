@@ -82,9 +82,7 @@ export default function Post({ post }) {
   return (
     <>
       <PostStyle>
-        <button className='postMoreButton' 
-          aria-label='게시글 삭제, 수정 버튼'
-          onClick={() => {
+        <button className='postMoreButton' aria-label="PostMoreBtn" onClick={() => {
           openModal()
           setAlertState('게시글을 삭제할까요?')
         }} />
