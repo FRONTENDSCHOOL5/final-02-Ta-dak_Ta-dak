@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Top from '../../assets/img/Top.png';
 
 export function GreenLgBtn({ contents, handleFunc }) {
   return <GreenLgBtnStyle onClick={handleFunc}>{contents}</GreenLgBtnStyle>;
@@ -70,6 +71,10 @@ export function GreySmBtn({ contents }) {
 
 export function YellowBtn({ contents, handleFunc }) {
   return <YellowBtnStyle onClick={handleFunc}>{contents}</YellowBtnStyle>;
+}
+
+export function TopBtn({ handleFunc }) {
+  return <TopBtnStyle onClick={handleFunc}></TopBtnStyle>;
 }
 
 const YellowBtnStyle = styled.button`
@@ -201,4 +206,11 @@ const GreySmBtnStyle = styled(GreenSmBtnStyle)`
   background-color: var(--disabled-btn-color);
   color: var(--btn-text-color-2);
   cursor: default;
+`;
+
+const TopBtnStyle = styled.button`
+  width: 50px;
+  height: 50px;
+  background: url(${Top}) no-repeat center center;
+  border-radius: 50px;
 `;
