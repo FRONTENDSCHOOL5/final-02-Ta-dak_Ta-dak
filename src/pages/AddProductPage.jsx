@@ -83,7 +83,7 @@ export default function AddProductPage() {
           <FileInputStyle>
             <img src={imageURL || getItem?.itemImage || emptyImg} alt='' className='showImg' />
             <div className='uploadImgBtn'>
-              <FileUploadSm id={'uploading-img'} onChange={handleImageChange}/>
+              <FileUploadSm id={'uploading-img'} onChange={handleImageChange} aria-label="FileInput"/>
             </div>
           </FileInputStyle>
         </div>
@@ -116,6 +116,7 @@ export default function AddProductPage() {
           rows='10'
           value={productExplain}
           onChange={(event) => setProductExplain(event.target.value)}
+          aria-label="상품 설명 편집기"
         ></textarea>
       </AddProductPageStyle>
       <AlertComponent>
