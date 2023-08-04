@@ -59,12 +59,12 @@ export default function ChatRoom() {
           )
         )}
       </ChatRoomPageStyle>
-      <SendStyle>
-        <div className="upload">
-          <FileUploadSm />
+      <SendStyle aria-label='전송'>
+        <div className='upload' >
+          <FileUploadSm aria-label='파일 업로드' />
         </div>
-        <InputStyle type={'text'} placeholder="메시지 입력하기..."></InputStyle>
-        <button id="send">전송</button>
+        <InputStyle type={'text'} placeholder='메시지 입력하기...' aria-label='텍스트 입력'></InputStyle>
+        <button id='send' aria-label='전송 버튼'>전송</button>
       </SendStyle>
       <ModalComponent>
         <Modal contents={['채팅방 나가기']} handleFunc={handleChatRoomOut} />
