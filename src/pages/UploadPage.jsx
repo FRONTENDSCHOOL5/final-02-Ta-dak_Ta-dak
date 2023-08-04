@@ -79,12 +79,12 @@ export default function UploadPage() {
             {imageURL || locationValue?.image ? (
               <img
                 src={imageURL || locationValue?.image}
-                alt=""
+                alt="게시글 이미지"
                 className="showImg"
               />
             ) : null}
             <div className="uploadImgBtn">
-              <FileUploadMd id={'uploading-img'} onChange={handleImageChange} />
+              <FileUploadMd id={'uploading-img'} onChange={handleImageChange} aria-label="FileInput" />
             </div>
           </div>
         </PostWrapperStyle>
