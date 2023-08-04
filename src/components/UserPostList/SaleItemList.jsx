@@ -15,9 +15,7 @@ export default function SaleItemList({saleItem}) {
       {saleItem.length !== 0 ? (
         <SaleItemListStyle>
           {saleItem.map((item, index) => (
-            <>
-            <SaleItem saleItem={item} setIsModalOpen={setIsModalOpen} setItems={setItems}/>
-            </>
+            <SaleItem saleItem={item} key={item.id} setIsModalOpen={setIsModalOpen} setItems={setItems}/>
           ))}
           {isModalOpen && (
             <ProductDetailModal saleItem={items} setIsModalOpen={setIsModalOpen}/>
