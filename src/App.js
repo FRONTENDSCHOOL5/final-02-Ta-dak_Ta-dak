@@ -26,7 +26,6 @@ import Page404 from './pages/404Page';
 import { NavBar } from './components/common/NavBar';
 import ProductDetailModal from './components/common/ProductDetailModal';
 import { NonLoginProtectedRoute, LoginProtectedRoute } from './Routes/ProtectedRoute';
-import FollowersRecommend from './components/common/FollowersRecommend';
 
 function App() {
 
@@ -69,8 +68,6 @@ function App() {
               <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
               <Route path='/profile/:accountname/following' element={<FollowListPage />} />
               <Route path='/productdetail' element={<ProductDetailModal />} />
-              <Route path='/editproduct' element={<AddProductPage />} />
-              <Route path='test' element={<FollowersRecommend />} />
             </Route>
           </Routes>
           <NavBar />
