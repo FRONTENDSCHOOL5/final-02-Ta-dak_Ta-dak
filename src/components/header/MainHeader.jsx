@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import DarkModeBtn from '../DarkModeBtn';
 import {ReactComponent as IconSearch} from '../../assets/img/icon-search.svg';
 
 export default function MainHeader() {
@@ -10,6 +11,9 @@ export default function MainHeader() {
   return (
     <MainHeaderStyle>
       <h2>타닥타닥 피드</h2>
+      <DarkModeBtnPosition>
+        <DarkModeBtn />
+      </DarkModeBtnPosition>
       <IconSearch style={{cursor: 'pointer'}} onClick={()=> navigate('/search')}/>
     </MainHeaderStyle>
   );
@@ -33,4 +37,9 @@ const MainHeaderStyle = styled.div`
     font-size: 18px;
     color: var(--common-text-color-2);
   }
+`;
+
+const DarkModeBtnPosition = styled.div`
+  position: absolute;
+  right: 56px;
 `;
