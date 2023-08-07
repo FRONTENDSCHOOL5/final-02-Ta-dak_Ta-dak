@@ -23,3 +23,15 @@ export const getFollowerList = async (accountname, loadFollowSeq) => {
     throw error;
   }
 };
+
+export const getRecFollowingList = async (accountname) => {
+  const reqUrl = `/profile/${accountname}/following?limit=100`;
+
+  try {
+    const response = await axiosAuth.get(reqUrl);
+    return response.data;
+  } catch (error) {
+    console.error('Request error', error);
+    throw error;
+  }
+};

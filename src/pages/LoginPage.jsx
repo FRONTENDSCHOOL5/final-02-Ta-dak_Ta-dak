@@ -48,15 +48,13 @@ export default function LoginPage() {
         // UserAtom에 로그인된 회원 정보 저장
         const userInfo = User.user;
         setUserValue({...userValue,
+          id:userInfo._id,
           accountname: userInfo.accountname,
           token: userInfo.token,
           refreshToken: userInfo.refreshToken,
           image: userInfo.image,
         });
         setValid(true);
-        // setAlertMsg('');
-        // setEmail('');
-        // setPassword('');
         setIsLogin(true);
         navigate('/feed');
       }

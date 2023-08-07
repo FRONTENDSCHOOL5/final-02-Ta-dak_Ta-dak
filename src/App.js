@@ -68,7 +68,6 @@ function App() {
               <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
               <Route path='/profile/:accountname/following' element={<FollowListPage />} />
               <Route path='/productdetail' element={<ProductDetailModal />} />
-              <Route path='/editproduct' element={<AddProductPage />} />
             </Route>
           </Routes>
           <NavBar />
