@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
+import DarkModeBtn from '../DarkModeBtn';
 import {ReactComponent as IconArrowLeft} from '../../assets/img/icon-arrow-left.svg'
 import {ReactComponent as IconSMore} from '../../assets/img/icon-more.svg'
 
@@ -16,6 +17,9 @@ export default function ChatHeader({name, isButton, handleFunc}) {
     <ChatHeaderStyle>
       <IconArrowLeft onClick={handleGoBack} style={{cursor:'pointer'}}/>
       <h2>{name}</h2>
+      <DarkModeBtnPosition>
+        <DarkModeBtn />
+      </DarkModeBtnPosition>
       {isButton && <IconSMore onClick={handleFunc} style={{cursor:'pointer'}}/>}
     </ChatHeaderStyle>
   );
@@ -40,4 +44,9 @@ const ChatHeaderStyle = styled.div`
     font-size: var(--font--size-md);
     color: var(--common-text-color-2);
   }
+`;
+
+const DarkModeBtnPosition = styled.div`
+  position: absolute;
+  right: 56px;
 `;

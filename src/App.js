@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import DefaultTheme from './style/theme/DefaultTheme'
 import DarkTheme from './style/theme/DarkTheme'
 
-import DarkModeBtn from './components/DarkModeBtn'
 import LoginPage from './pages/LoginPage';
 import UploadPage from './pages/UploadPage';
 import FeedHomePage from './pages/FeedHomePage';
@@ -26,6 +25,7 @@ import Page404 from './pages/404Page';
 import { NavBar } from './components/common/NavBar';
 import ProductDetailModal from './components/common/ProductDetailModal';
 import { NonLoginProtectedRoute, LoginProtectedRoute } from './Routes/ProtectedRoute';
+import TopButton from './components/common/TopButton';
 
 function App() {
 
@@ -73,7 +73,6 @@ function App() {
           </Routes>
           <NavBar />
         {darkMode ? <DarkTheme /> : <DefaultTheme />}
-        <DarkModeBtn />
       </BaseSizeStyle>
     </WrapperStyle>
   )

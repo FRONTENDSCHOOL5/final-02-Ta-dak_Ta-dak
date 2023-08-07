@@ -4,6 +4,7 @@ import { getPost, getPostAll } from '../api/postAPI';
 import useScrollBottom from '../hooks/useScrollBottom';
 import styled from 'styled-components';
 
+import TopButton from '../components/common/TopButton';
 import MainHeader from '../components/header/MainHeader';
 import PostList from '../components/UserPostList/PostList';
 import Loader from '../Loader/Loader';
@@ -78,6 +79,7 @@ export default function FeedHomePage() {
       <PostListStyle ref={elementRef}>
         {loading ? <Loader /> : visiblePost.length !== 0 && <PostList visiblePost={visiblePost} />}
       </PostListStyle>
+      <TopButton elementRef={elementRef} />
     </>
   );
 }
