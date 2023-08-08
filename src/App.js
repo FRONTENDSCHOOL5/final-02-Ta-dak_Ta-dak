@@ -81,7 +81,7 @@ export default App
 
 const WrapperStyle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: center;    
 `;
 
 const BaseSizeStyle = styled.div`

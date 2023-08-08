@@ -234,6 +234,14 @@ const PostContainerStyle = styled.div`
     object-fit: cover;
   }
 
+  @media (min-width: 768px) {
+    img {
+      min-width: 436px;
+      max-height: 332px;
+      min-height: 332px;
+    }
+  }
+
   .likeCommentCount {
     margin-bottom: 16px;
     .likeButton {
