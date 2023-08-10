@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
-import FollowersProfile from "./FollowersProfile";
+import FollowersProfile from "./../common/FollowersProfile";
 
 import { getRecFollowingList } from '../../api/followListAPI';
 
@@ -79,6 +79,9 @@ export default function FollowersRecommend() {
 
 const RecWrapperStyle = styled.div`
   /* width, height 지정? */
+  box-shadow: inset 0px 0px 0px 2px lightcoral;
+  width: 362px;
+  height: 434px;
 `;
 
 // h태그 페이지 숫자 맞춰서 바꾸기
