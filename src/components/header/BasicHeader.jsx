@@ -38,6 +38,10 @@ const BasicHeaderStyle = styled.div`
   box-shadow: var(--header-shadow);
   background-color: var(--header-color);
 
+  @media (min-width: 768px) {
+    display: none;
+  }
+
   /* button {
     width: 22px;
     height: 22px;

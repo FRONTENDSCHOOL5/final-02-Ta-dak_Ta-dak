@@ -34,4 +34,8 @@ const BasicHeaderStyle = styled.div`
   height: 48px;
   box-shadow: var(--header-shadow);
   background-color: var(--header-color);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

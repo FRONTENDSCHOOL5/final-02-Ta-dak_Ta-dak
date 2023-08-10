@@ -26,59 +26,54 @@ import { NavBar } from './components/common/NavBar';
 import ProductDetailModal from './components/common/ProductDetailModal';
 import { NonLoginProtectedRoute, LoginProtectedRoute } from './Routes/ProtectedRoute';
 import TopButton from './components/common/TopButton';
-import WebNavBar from './components/pcVersion/WebNavBar';
 
 function App() {
 
   const darkMode = useRecoilValue(DarkModeAtom);
 
   return (
-    // <WrapperStyle>
-    //   <BaseSizeStyle>
-    //       <Routes>
-    //         <Route path='/' element={<Navigate to='/splash' replace />} />
-    //         <Route path='/404page' element={<Page404 />} />
-    //         <Route path='/*' element={<Page404 />} />
-    //         {/* 회원가입 */}
+    <WrapperStyle>
+      <BaseSizeStyle>
+          <Routes>
+            <Route path='/' element={<Navigate to='/splash' replace />} />
+            <Route path='/404page' element={<Page404 />} />
+            <Route path='/*' element={<Page404 />} />
+            {/* 회원가입 */}
 
-    //         <Route element={<LoginProtectedRoute />}>
-    //           <Route path='/splash' element={<SplashPage />} />
-    //           <Route path='/signup/' element={<SignUpPage />} />
-    //           <Route path='/signup/profile' element={<ProfileSettingPage />} />
-    //           {/* 로그인 */}
-    //           <Route path='/login' element={<LoginPage />} />
-    //         </Route>
+            <Route element={<LoginProtectedRoute />}>
+              <Route path='/splash' element={<SplashPage />} />
+              <Route path='/signup/' element={<SignUpPage />} />
+              <Route path='/signup/profile' element={<ProfileSettingPage />} />
+              {/* 로그인 */}
+              <Route path='/login' element={<LoginPage />} />
+            </Route>
 
-    //         <Route element={<NonLoginProtectedRoute />}>
-    //           {/* 게시물 업로드 */}
-    //           <Route path='/upload' element={<UploadPage />} />
-    //           <Route path='/feed/nonfollow' element={<UserTutorialPage />} />
-    //           <Route path='/editpost' element={<UploadPage />} />
-    //           <Route path='/feed' element={<FeedHomePage />} />
-    //           <Route path='/recommendfeed' element={<FeedHomePage />} />
-    //           <Route path='/addproduct' element={<AddProductPage />} />
-    //           <Route path='/profilemodification' element={<ProfileModificationPage />} />
-    //           <Route path='/chat' element={<ChatListPage />} />
-    //           <Route path='/chatroom' element={<ChatRoomPage />} />
-    //           <Route path='/search' element={<SearchPage />} />
-    //           <Route path='/postdetail/*' element={<PostDetail />} />
-    //           <Route path='/addproduct' element={<AddProductPage />} />
-    //           <Route path='/profilemodification' element={<ProfileModificationPage />} />
-    //           <Route path='/profile/:accountname/*' element={<ProfilePage />} />
-    //           <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
-    //           <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
-    //           <Route path='/profile/:accountname/following' element={<FollowListPage />} />
-    //           <Route path='/productdetail' element={<ProductDetailModal />} />
-    //         </Route>
-    //       </Routes>
-    //       <NavBar />
-    //     {darkMode ? <DarkTheme /> : <DefaultTheme />}
-    //   </BaseSizeStyle>
-    // </WrapperStyle>
-    <>
-    <DefaultTheme />
-    <WebNavBar />
-    </>
+            <Route element={<NonLoginProtectedRoute />}>
+              {/* 게시물 업로드 */}
+              <Route path='/upload' element={<UploadPage />} />
+              <Route path='/feed/nonfollow' element={<UserTutorialPage />} />
+              <Route path='/editpost' element={<UploadPage />} />
+              <Route path='/feed' element={<FeedHomePage />} />
+              <Route path='/recommendfeed' element={<FeedHomePage />} />
+              <Route path='/addproduct' element={<AddProductPage />} />
+              <Route path='/profilemodification' element={<ProfileModificationPage />} />
+              <Route path='/chat' element={<ChatListPage />} />
+              <Route path='/chatroom' element={<ChatRoomPage />} />
+              <Route path='/search' element={<SearchPage />} />
+              <Route path='/postdetail/*' element={<PostDetail />} />
+              <Route path='/addproduct' element={<AddProductPage />} />
+              <Route path='/profilemodification' element={<ProfileModificationPage />} />
+              <Route path='/profile/:accountname/*' element={<ProfilePage />} />
+              <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
+              <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
+              <Route path='/profile/:accountname/following' element={<FollowListPage />} />
+              <Route path='/productdetail' element={<ProductDetailModal />} />
+            </Route>
+          </Routes>
+          <NavBar />
+        {darkMode ? <DarkTheme /> : <DefaultTheme />}
+      </BaseSizeStyle>
+    </WrapperStyle>
   )
 }
 

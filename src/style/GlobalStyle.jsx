@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     --screen-height : calc(var(--basic-height) - 48px);
     --screen-nav-height : calc(var(--basic-height) - (60px + 48px));
 
+
     --font--size-lg: 16px;                  
     --font--size-md: 14px;                  
     --font--size-sm: 12px;    
@@ -32,10 +33,12 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width: 768px) {
 
       --basic-width : 520px;
+      --screen-nav-height : 100vh;
       
       --font--size-lg: 18px;                  
       --font--size-md: 16px;
       --font--size-sm: 14px;   
+
     }
   }
 `;

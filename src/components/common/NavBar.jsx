@@ -80,6 +80,10 @@ const NavBarStyle = styled.nav`
     display: flex;
     height: 60px;
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled(Link)`
