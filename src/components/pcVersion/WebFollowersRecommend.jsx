@@ -65,23 +65,23 @@ export default function FollowersRecommend() {
     <RecWrapperStyle>
       <RecTitleStyle>팔로우 추천</RecTitleStyle>
       <RecBoxStyle>
-        {recFollowList.length !== 0 ? (
-          recFollowList.map((item, index) => (
-            <FollowersProfile followingUser={item} key={index} />
-          ))
-        ) : (
-          <div>추천할사람 없음</div>
-        )}
+        <div className='followListWrapper'>
+          {recFollowList.length !== 0 ? (
+            recFollowList.map((item, index) => (
+              <FollowersProfile followingUser={item} key={index} />
+            ))
+          ) : (
+            <div>추천할사람 없음</div>
+          )}
+        </div>
       </RecBoxStyle>
     </RecWrapperStyle>
   );
 }
 
 const RecWrapperStyle = styled.div`
-  /* width, height 지정? */
-  box-shadow: inset 0px 0px 0px 2px lightcoral;
-  width: 362px;
-  height: 434px;
+  width: 392px;
+  min-height: 38px;
 `;
 
 // h태그 페이지 숫자 맞춰서 바꾸기
@@ -92,6 +92,22 @@ const RecTitleStyle = styled.h3`
 `;
 
 const RecBoxStyle = styled.div`
-  /* width, height 지정? */
+  height: 396px;
+  overflow-y: auto;
+
+  .followListWrapper {
+    width: 362px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 30px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e5e4df;
+    background-clip: padding-box;
+    border: 10px solid transparent;
+    border-radius: 50px;
+  }
 `;
 
