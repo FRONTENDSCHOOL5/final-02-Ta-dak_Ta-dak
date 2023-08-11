@@ -4,24 +4,24 @@ import styled from 'styled-components';
 
 import { ReactComponent as Tadak} from '../../assets/img/tadak.svg';
 import { ReactComponent as WebLogo} from '../../assets/img/weblogo.svg';
-import { ReactComponent as IconSearch} from '../../assets/img/icon-search.svg';
+import { ReactComponent as IconLogout}  from '../../assets/img/icon-logout.svg';
+import DarkModeBtn from '../DarkModeBtn';
 
 
-// GlobalStyle width 변경 확인
 export default function WebHeader() {
   const navigate = useNavigate();
   return (
     <WebHeaderStyle>
         <WebLogoStyle>
             <WebLogo></WebLogo>
+            <TadakStyle>
+              <Tadak style={{ width: '104px', height: '25.58 px' }}/>
+            </TadakStyle>
         </WebLogoStyle>
-        <TadakStyle>
-        <Tadak style={{ width: '104px', height: '25.58 px' }}/>
-        </TadakStyle>
-        <SearchBarContainer>
-        <IconSearch style={{ width: '20px', height: '20px', margin: '9px 12px', cursor: 'pointer'}}/>
-          <SearchInput type="text" placeholder="검색" />
-        </SearchBarContainer>
+        <BtnStyle>
+          <DarkModeBtn style={{ width: '44px', height: '44px'}}/>
+          <IconLogout style={{ width: '30px', height: '30px', cursor: 'pointer', margin: '25px 0'}}/>
+        </BtnStyle>
     </WebHeaderStyle>
   )
 }
@@ -31,29 +31,23 @@ const WebHeaderStyle = styled.div`
     height: 80px;
     background-color: #B9D6A3;
     display: flex;
+    justify-content: space-between;
 `;
 
 const WebLogoStyle = styled.div`
     padding-top:12px;
-    margin-left: 364px;
+    margin-left: 10%;
+    display: flex;
+    gap: 16px;
 `;
 
 const TadakStyle = styled.div`
-    margin-left: 16px;
+position: relative;
+top: -10px; 
 `;
 
-const SearchBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  border-radius: 10px; 
-  width: 358px;
-  height: 38px;
-  background-color: #fff;
-  margin: 21px 202px 21px 819px;
-`;
-
-const SearchInput = styled.input`
-  border: none;
-  outline: none;
-  width: 300px;
+const BtnStyle = styled.div`
+ display: flex;
+ gap: 28px;
+ margin-right: 10%;
 `;
