@@ -98,7 +98,12 @@ const GreenLgBtnStyle = styled.button`
   background-color: var(--basic-btn-color);
   color: var(--common-text-color-2);
   border-radius: 44px;
-  transition: .3s;
+  transition: 0.3s;
+
+  @media (min-width: 768px) {
+    width: 500px;
+    /* height: 48px; */
+  }
 `;
 
 const GreenMdBtnStyle = styled.button`
@@ -108,7 +113,12 @@ const GreenMdBtnStyle = styled.button`
   background-color: var(--basic-btn-color);
   color: var(--common-text-color-2);
   border-radius: 30px;
-  transition: .3s;
+  transition: 0.3s;
+
+  @media (min-width: 768px) {
+    width: 163px;
+    height: 38px;
+  }
 `;
 
 const GreenMsBtnStyle = styled.button`

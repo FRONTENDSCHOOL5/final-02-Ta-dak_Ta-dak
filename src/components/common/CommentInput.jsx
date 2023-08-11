@@ -45,8 +45,12 @@ const InputContainerStyle = styled.div`
     font-size: var(--font--size-md);
     background-color: var(--background-color);
     color: var(--text-color-1);
+
+    @media (min-width: 768px) {
+      width: 393px;
+    }
   }
-  
+
   button {
     width: 55px;
     height: 19px;
@@ -59,7 +63,7 @@ const InputContainerStyle = styled.div`
       color: var(--basic-color-5);
     }
   }
-`
+`;
 const InputStyle = styled.input`
   ::placeholder {
     color: var(--text-color-2);

@@ -26,6 +26,7 @@ import { NavBar } from './components/common/NavBar';
 import ProductDetailModal from './components/common/ProductDetailModal';
 import { NonLoginProtectedRoute, LoginProtectedRoute } from './Routes/ProtectedRoute';
 import TopButton from './components/common/TopButton';
+import FollowersRecommend from './components/pcVersion/WebFollowersRecommend';
 
 function App() {
 
@@ -68,6 +69,8 @@ function App() {
               <Route path='/profile/:accountname/follower' element={<FollowListPage />} />
               <Route path='/profile/:accountname/following' element={<FollowListPage />} />
               <Route path='/productdetail' element={<ProductDetailModal />} />
+
+              <Route path='/test' element={<FollowersRecommend />} />
             </Route>
           </Routes>
           <NavBar />
