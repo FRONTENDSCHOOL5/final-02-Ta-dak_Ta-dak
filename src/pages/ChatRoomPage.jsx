@@ -139,7 +139,6 @@ const MyChatContainerStyle = styled.div`
 `;
 
 const SendStyle = styled.div`
-  box-shadow: inset 0px 0px 0px 2px skyblue;
   position: absolute;
   bottom: 0px;
   width: var(--basic-width);
@@ -153,10 +152,14 @@ const SendStyle = styled.div`
   }
 
   input {
-    width: 230px;
+    width: 260px;
     margin: 0 18px;
     font-size: var(--font--size-md);
     background-color: var(--background-color);
+    
+    @media (min-width: 768px) {
+      width: 393px;
+    }
   }
 
   button {

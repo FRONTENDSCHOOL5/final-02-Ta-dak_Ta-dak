@@ -161,8 +161,11 @@ to {
 const PostStyle = styled.article`
   position: relative;
   margin-bottom: 20px;
-  max-width: 358px;
-  width: 100%;
+  width: 358px;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 
   .postMoreButton {
     position: absolute;
@@ -170,7 +173,12 @@ const PostStyle = styled.article`
     right: 0px;
     width: 18px;
     height: 18px;
-    background: url(${moreButtonIcon}) no-repeat center / auto;
+    background: url(${moreButtonIcon}) no-repeat center / auto 100%;
+
+    @media (min-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
   }
   .profileComponent {
     margin-bottom: 12px;
@@ -183,7 +191,7 @@ const PostContainerStyle = styled.div`
   
   .moreContentBtn {
     transition: .3s;
-    margin: 0 131px 16px;
+    margin: 0 auto 16px auto;
     background: url(${downArrow}) no-repeat center center;
     filter: invert(50%);
     background-size: cover;
