@@ -115,6 +115,7 @@ const PostWrapperStyle = styled.article`
   overflow-y: auto;
   overflow-x: hidden;
   ::-webkit-scrollbar {
+    width: 0px;
     background-color: var(--background-color);
   }
 
@@ -136,13 +137,19 @@ const PostWrapperStyle = styled.article`
       ::placeholder {
         color: var(--text-color-2);
       }
+      @media (min-width: 768px) {
+        width: 420px;
+      }
     }
     .showImg {
       width: 304px;
-      height: 228px;
+      aspect-ratio: 304/228;
       margin-top: 15px;
       border-radius: 10px;
       border: 0.5px solid var(--basic-color-6);
+      @media (min-width: 768px) {
+        width: 404px;
+      }
     }
   }
 `;
