@@ -33,7 +33,8 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width: 768px) {
 
       --basic-width : 500px;
-      --screen-nav-height : 100vh;
+      /* --screen-nav-height : 100vh; */
+      --screen-nav-height : calc(var(--basic-height) - (80px));
       
       --font--size-lg: 18px;                  
       --font--size-md: 16px;
