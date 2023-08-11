@@ -140,9 +140,12 @@ const WebFollowersRecommendStyle = styled.div`
 `;
 
 const WrapperStyle = styled.div`
-  margin-top:26px;
   display: flex;
-  justify-content: center;    
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    margin-top: 26px;
+  }
 `;
 
 const BaseSizeStyle = styled.div`
