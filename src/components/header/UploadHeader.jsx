@@ -14,7 +14,7 @@ export default function UploadHeader({valid, contents, handleUploadBtnClick}) {
 
   return (
     <BasicHeaderStyle>
-      <IconArrowLeft onClick={handleGoBack} style={{cursor:'pointer'}}/>
+      <IconArrowLeft className='arrowLeft' onClick={handleGoBack} style={{cursor:'pointer'}}/>
       {
         valid
         ?<BoldMsBtn contents={contents} handleFunc={handleUploadBtnClick}/>
@@ -36,6 +36,11 @@ const BasicHeaderStyle = styled.div`
   background-color: var(--header-color);
 
   @media (min-width: 768px) {
-    display: none;
+    justify-content: right;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+
+    .arrowLeft {
+      display: none;
+    }
   }
 `;

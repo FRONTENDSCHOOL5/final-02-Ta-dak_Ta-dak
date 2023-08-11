@@ -119,6 +119,10 @@ const PostWrapperStyle = styled.article`
     background-color: var(--background-color);
   }
 
+  @media (min-width: 768px) {
+    margin: 0px 10px 20px 10px;
+  }
+
   .uploading {
     margin: 12px 0 0 12px;
     textarea {
