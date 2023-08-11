@@ -16,11 +16,9 @@ export default function Album({post}) {
 }
 
 const AlbumStyle = styled.li`
-    display: inline-block;
-    min-width: 114px;
-    max-width: 114px;
-    min-height: 114px;
-    max-height: 114px;
+  display: inline-block;
+  width: calc((var(--basic-width) - 48) / 3) px;
+  aspect-ratio: 1/1;
 
   img {
     width: 100%;

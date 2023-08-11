@@ -17,14 +17,14 @@ export default function SaleItem({saleItem, setIsModalOpen, setItems}) {
 }
 
 const SaleItemStyle = styled.button`
-  width: 140px;
-  height: 162px;
+  width: calc((var(--basic-width) - 90) / 2) px;
+  aspect-ratio: 140/162;
   text-align: start;
   margin: auto;
 
   img {
-    width: 140px;
-    height: 115px;
+    width: 100%;
+    aspect-ratio: 150/115;
     border-radius: 8px;
     border: 0.8px solid #dad3d3;
   }
@@ -36,7 +36,7 @@ const SaleItemStyle = styled.button`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  
+
   .itemName {
     font-size: var(--font--size-l);
     color: var(--text-color-1);

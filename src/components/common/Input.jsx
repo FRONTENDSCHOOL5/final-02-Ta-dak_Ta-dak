@@ -30,6 +30,9 @@ const InputContainerStyle = styled.div`
   div {
     background-color: var(--basic-color-4);
   }
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 const LabelStyle = styled.label`
