@@ -7,7 +7,6 @@ import { ReactComponent as WebLogo} from '../../assets/img/weblogo.svg';
 import { ReactComponent as IconLogout}  from '../../assets/img/icon-logout.svg';
 import DarkModeBtn from '../DarkModeBtn';
 
-
 export default function WebHeader() {
   const navigate = useNavigate();
   return (
