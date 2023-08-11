@@ -31,8 +31,11 @@ export default function PostList({ visiblePost }) {
 const PostListStyle = styled.div`
   width: 100%;
   max-width: var(--basic-width);
-  padding: 30px;
   padding: 16px;
+
+  @media (min-width: 768px) {
+    padding: 0px;
+  }
 
   p {
     /* 7줄 넘어가면 말줄임 */

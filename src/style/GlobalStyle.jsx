@@ -32,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
 
     @media (min-width: 768px) {
 
-      --basic-width : 520px;
+      --basic-width : 500px;
       --screen-nav-height : 100vh;
       
       --font--size-lg: 18px;                  
