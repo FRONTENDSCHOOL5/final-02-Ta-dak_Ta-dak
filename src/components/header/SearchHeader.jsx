@@ -52,4 +52,8 @@ const SearchHeaderStyle = styled.div`
       color: var(--text-color-2);
     }
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

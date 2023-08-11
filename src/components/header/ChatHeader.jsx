@@ -44,6 +44,10 @@ const ChatHeaderStyle = styled.div`
     font-size: var(--font--size-md);
     color: var(--common-text-color-2);
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const DarkModeBtnPosition = styled.div`

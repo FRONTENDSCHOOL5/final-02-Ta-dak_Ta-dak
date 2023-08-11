@@ -37,6 +37,10 @@ const MainHeaderStyle = styled.div`
     font-size: 18px;
     color: var(--common-text-color-2);
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const DarkModeBtnPosition = styled.div`

@@ -7,8 +7,8 @@ import { ReactComponent as IconHeart } from '../../assets/img/s-icon-heart.svg';
 import { ReactComponent as IconMessage } from '../../assets/img/icon-message.svg';
 import { ReactComponent as IconEdit } from '../../assets/img/icon-edit.svg';
 import { ReactComponent as IconUser } from '../../assets/img/icon-user.svg';
-import { ReactComponent as IconDarkmode } from '../../assets/img/icon-darkmode.svg';
-import { ReactComponent as IconLogout } from '../../assets/img/icon-logout.svg';
+import { ReactComponent as IconSearch } from '../../assets/img/icon-web-search.svg';
+
 
 export default function WebNavBar() {
 
@@ -21,6 +21,7 @@ export default function WebNavBar() {
     { to: '/chat', component: IconMessage, label: '채팅' },
     { to: '/upload', component: IconEdit, label: '게시물 작성' },
     { to: `/profile/${accountname}`, component: IconUser, label: '프로필' },
+    { to: `/search`, component: IconSearch, label: '검색' },
   ];
 
   const [selectedIcon, setSelectedIcon] = useState(IconHome);
@@ -58,22 +59,6 @@ export default function WebNavBar() {
           </NavBarItemStyle>
         ))}
       </NavBarStyle>
-      <SettingStyle>
-        <SettingItemStyle>
-          <IconDarkmode/>
-            <span>다크모드</span>
-          </SettingItemStyle>
-        <SettingItemStyle
-          onMouseEnter={() => setSettingIcon(Prev => !Prev)} 
-          onMouseLeave={() => setSettingIcon(Prev => !Prev)} 
-        >
-          <IconLogout 
-            stroke={ settingIcon ? 'var(--text-color-2)' : '#FE0000' }
-            fill={ settingIcon ? 'var(--text-color-2)' : '#FE0000' }
-          />
-            <strong style={{ color: settingIcon ? 'var(--text-color-2)' : '#FE0000' }}>로그아웃</strong>
-        </SettingItemStyle>
-      </SettingStyle>
     </WebNavBarStyle>
   )
 }
@@ -95,7 +80,7 @@ const WebNavBarStyle = styled.div`
 
 const NavBarStyle = styled.div`
   width: 220px;
-  height: 385px;
+  height: 555px;
   padding: 25px 23px;
   background-color: var(--background-color);
   border: 2px solid var(--basic-color-1);
@@ -107,7 +92,7 @@ const NavBarItemStyle = styled(Link)`
   width: 174px;
   height: 60px;
   border-radius: 15px;
-  margin-bottom: 8px;
+  margin-bottom: 28px;
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
