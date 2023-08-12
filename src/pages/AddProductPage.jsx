@@ -128,9 +128,15 @@ export default function AddProductPage() {
 }
 
 const AddProductPageStyle = styled.div`
-  height: var(--screen-nav-height);
+  height: var(--screen-height);
+  box-shadow: inset 0px 0px 0px 2px lightcoral;
   margin: 0 auto;
   padding: 0 34px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+  }
 
   .showImg {
     width: 322px;
@@ -148,12 +154,10 @@ const AddProductPageStyle = styled.div`
   }
 
   p {
-    display: inline-block;
     font-size: var(--font--size-sm);
     font-weight: var(--text-color-1);
     font-weight: var(--font--Regular);
     margin-top: 30px;
-    margin-bottom: 18px;
     color: var(--text-color-1);
   }
 
@@ -170,7 +174,7 @@ const AddProductPageStyle = styled.div`
     background-color: var(--basic-color-4);
     color: var(--common-text-color-2);
   }
-  
+
   #product-detail {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: var(--font--size-sm);
@@ -181,8 +185,25 @@ const AddProductPageStyle = styled.div`
     resize: none;
     margin-top: 20px;
   }
+
+  @media (min-width: 768px) {
+    height: calc(var(--screen-height) - 48px);
+    padding: 0px 0px 26px 0px;
+    
+    p {
+      margin: 0;
+    }
+    .showImg {
+      width: 500px;
+    }
+    #product-detail {
+      width: 500px;
+    }
+  }
 `;
 
 const FileInputStyle = styled.button`
     position: relative;
+    display: block;
+    margin: 0 auto;
   `;

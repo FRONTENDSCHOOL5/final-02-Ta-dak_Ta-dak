@@ -47,24 +47,24 @@ export default function SearchPage() {
     <>
       <SearchHeader value={search} setValue={setSearch}></SearchHeader>
       <SearchPageStyle>
-      <SearchResultWrapper>
-        {isLoading ? null: (
+        <SearchResultWrapper>
+          {isLoading ? null: (
+            <>
+            {searchList ? (
           <>
-          {searchList ? (
-        <>
-        {searchList.map((item, index) => {
-        return (<li key={index}>
-          <SearchProfile info={item}/>
-        </li>)
-      })}</>) : (
-        <>
-        <div>
-          <h2>검색결과가 없습니다!</h2>
-        </div>
-        </>)}
-        </>)}
-      
-      </SearchResultWrapper>
+          {searchList.map((item, index) => {
+          return (<li key={index}>
+            <SearchProfile info={item}/>
+          </li>)
+        })}</>) : (
+          <>
+          <div>
+            <h2>검색결과가 없습니다!</h2>
+          </div>
+          </>)}
+          </>)}
+        
+        </SearchResultWrapper>
       </SearchPageStyle>
     </>
   );
@@ -85,6 +85,10 @@ const SearchPageStyle = styled.div`
   ::-webkit-scrollbar {
     background-color: var(--background-color);
     width: 0px;
+  }
+
+  @media (min-width: 768px) {
+    width: 500px;
   }
 `;
 
