@@ -129,7 +129,6 @@ export default function AddProductPage() {
 
 const AddProductPageStyle = styled.div`
   height: var(--screen-height);
-  box-shadow: inset 0px 0px 0px 2px lightcoral;
   margin: 0 auto;
   padding: 0 34px;
   overflow-y: scroll;
