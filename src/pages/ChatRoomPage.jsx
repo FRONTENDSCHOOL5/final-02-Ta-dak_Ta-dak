@@ -58,14 +58,14 @@ export default function ChatRoom() {
             </MyChatContainerStyle>
           )
         )}
+        <SendStyle aria-label='전송'>
+          <div className='upload' >
+            <FileUploadSm aria-label='파일 업로드' />
+          </div>
+          <InputStyle type={'text'} placeholder='메시지 입력하기...' aria-label='텍스트 입력'></InputStyle>
+          <button id='send' aria-label='전송 버튼'>전송</button>
+        </SendStyle>
       </ChatRoomPageStyle>
-      <SendStyle aria-label='전송'>
-        <div className='upload' >
-          <FileUploadSm aria-label='파일 업로드' />
-        </div>
-        <InputStyle type={'text'} placeholder='메시지 입력하기...' aria-label='텍스트 입력'></InputStyle>
-        <button id='send' aria-label='전송 버튼'>전송</button>
-      </SendStyle>
       <ModalComponent>
         <Modal contents={['채팅방 나가기']} handleFunc={handleChatRoomOut} />
       </ModalComponent>
@@ -74,10 +74,13 @@ export default function ChatRoom() {
 }
 
 const ChatRoomPageStyle = styled.div`
-
-  height: var(--screen-nav-height);
+  position: relative;
+  height: var(--screen-height);
   padding-top: 24px;
 
+  @media (min-width: 768px) {
+    height: var(--screen-nav-height);
+  }
 `;
 
 const ChatContainerStyle = styled.div`
@@ -136,6 +139,8 @@ const MyChatContainerStyle = styled.div`
 `;
 
 const SendStyle = styled.div`
+  position: absolute;
+  bottom: 0px;
   width: var(--basic-width);
   height: 61px;
   display: flex;
@@ -147,10 +152,14 @@ const SendStyle = styled.div`
   }
 
   input {
-    width: 230px;
+    width: 260px;
     margin: 0 18px;
     font-size: var(--font--size-md);
     background-color: var(--background-color);
+    
+    @media (min-width: 768px) {
+      width: 393px;
+    }
   }
 
   button {

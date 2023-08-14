@@ -164,7 +164,6 @@ const WrapperStyle = styled.div`
   /* margin-top:26px; */
   display: flex;
   justify-content: center;    
-
 `;
 
 const BaseSizeStyle = styled.div`

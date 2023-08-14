@@ -55,12 +55,16 @@ export default function Comment({ item, setSelectComment, openModal }) {
 }
 
 const CommentContainerStyle = styled.div`
-  width: 358px;
+  width: 390px;
   min-height: 58px;
   display: flex;
   position: relative;
   margin-bottom: 16px;
   padding: 0 20px;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 
   .commentContents {
     padding: 6px 12px 0 12px;
@@ -74,14 +78,16 @@ const CommentContainerStyle = styled.div`
   }
 
   .commentMoreButton {
-    position: absolute;
-    top: 5px;
-    right: 0;
-    background-image: url(${IconMore});
-    background-position: center;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+    svg{
+      position: absolute;
+      top: 5px;
+      right: 20px;
+      background-image: url(${IconMore});
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
   }
 `;
 

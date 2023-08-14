@@ -76,8 +76,8 @@ export default function ProfileModificationPage() {
 
   return(
     <>
+      <UploadHeader valid={true} contents={'저장'} handleUploadBtnClick={submitModification} />
       <ProfileModificationStyle>
-        <UploadHeader valid={true} contents={'저장'} handleUploadBtnClick={submitModification} />
         <FileUploadStyle>
           <FileUploadLg onChange={handleImageChange} url={imageURL || userInfo.image} id={'profileEdit'}/> 
         </FileUploadStyle>
@@ -95,14 +95,29 @@ export default function ProfileModificationPage() {
 }
 
 const ProfileModificationStyle = styled.div`
-  
+  height: var(--screen-height);
+
   .profileInfo {
-    margin: 16px 34px;
-    margin-top: 30px;
+    margin: 30px 34px 16px 34px;
+  }
+
+  @media (min-width: 768px) {
+    height: calc(var(--screen-height) - 48px);
+    .profileInfo{
+      margin: 30px 0px;
+    }
   }
 `;
 
 const FileUploadStyle = styled.div`
-  margin-left: 140px;
-  margin-top: 78px;
-`
+  padding-top: 78px;
+
+  label {
+    display: block;
+    margin: auto;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 20px;
+  }
+`;

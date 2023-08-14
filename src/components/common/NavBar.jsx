@@ -18,7 +18,8 @@ export function NavBar() {
     '/signup/profile',
     '/upload',
     '/addproduct',
-    '/profilemodification'
+    '/profilemodification',
+    '/chatroom',
   ];
   const hideNavBar = hideNavBarPaths.includes(location.pathname);
 

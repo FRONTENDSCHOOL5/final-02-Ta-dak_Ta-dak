@@ -57,13 +57,13 @@ export default function UploadPage() {
 
   return (
     <>
-      <UploadPageStyle>
         <h1 className="a11y-hidden">게시물 업로드</h1>
         <UploadHeader
           valid={valid}
           contents={'업로드'}
           handleUploadBtnClick={handleUploadBtnClick}
         />
+      <UploadPageStyle>
 
         <PostWrapperStyle>
           <ProfileMd url={userInfo.image} />
@@ -98,8 +98,12 @@ export default function UploadPage() {
 
 const UploadPageStyle = styled.section`
   position: relative;
-  height: var(--basic-height);
+  height: var(--screen-height);
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    height: calc(var(--screen-height) - 48px);
+  }
 
   .uploadImgBtn {
     position: absolute;
@@ -117,6 +121,10 @@ const PostWrapperStyle = styled.article`
   ::-webkit-scrollbar {
     width: 0px;
     background-color: var(--background-color);
+  }
+
+  @media (min-width: 768px) {
+    margin: 0px 10px 20px 10px;
   }
 
   .uploading {

@@ -81,32 +81,27 @@ const BackgorundStyle = styled.div`
 `;
 
 const ProductDtailModalStyle = styled.div`
-  /* border: 1px solid #dbdbdb; */
   position: relative;
   width: 303px;
   height: 458px;
   background-color: var(--modal-background-color);
   border-radius: 20px;
-  margin: 0 auto;
-  top: 20vh;
+  margin: calc((var(--basic-height) - 458px) / 2) auto;
+  padding: 50px 34px 20px 34px;
+
   img {
     display: block;
     width: 235px;
     height: 153px;
     margin: 0 auto;
-    position: relative;
-    top: -85px;
     z-index: 1;
     object-fit: cover;
   }
 
   h2 {
-    font-size: 15px;
+    font-size: var(--font--size-lg);
     font-weight: 500;
-    margin-left: 32px;
     margin-top: 12px;
-    position: relative;
-    top: -80px;
     color: var(--common-text-color-2);
   }
 
@@ -114,29 +109,21 @@ const ProductDtailModalStyle = styled.div`
     font-size: var(--font--size-md);
     font-weight: var(--font--Bold);
     color: var(--basic-color-5);
-    margin-left: 32px;
     margin-top: 6px;
     line-height: 19px;
-    position: relative;
-    top: -80px;
   }
 
   p {
     font-size: var(--font--size-sm);
-    margin-left: 32px;
     margin-top: 7px;
     line-height: 16px;
-    position: relative;
-    top: -80px;
     color: var(--common-text-color-2);
   }
 
   pre {
-    position: relative;
-    top: -80px;
-    width: 241px;
+    min-width: 241px;
+    width: 100%;
     height: 110px;
-    margin-left: 30px;
     margin-top: 5px;
     font-weight: var(--font--Regular);
     font-size: var(--font--size-sm);
@@ -146,8 +133,7 @@ const ProductDtailModalStyle = styled.div`
     white-space: pre-wrap;
     word-wrap: break-word;
     background-color: var(--basic-color-4);
-    color: var(--common-text-color-2); 
-    /* border: 1px solid #000; */
+    color: var(--common-text-color-2);
     overflow: auto;
     ::-webkit-scrollbar {
       width: 5px;
@@ -161,34 +147,70 @@ const ProductDtailModalStyle = styled.div`
   .modifyBtn {
     width: 75px;
     height: 35px;
-    background-color: #B9d6a3;
+    font-size: var(--font--size-md);
+    background-color: #b9d6a3;
     border-radius: 25px;
-    position: relative;
-    left: 130px;
-    top: -67px;
+    position: absolute;
+    right: 112px;
+    bottom: 22px;
   }
 
   .deleteBtn {
     width: 75px;
     height: 35px;
+    font-size: var(--font--size-md);
     background-color: #f6cece;
     border-radius: 25px;
-    position: relative;
-    top: -67px;
-    left: 140px;
+    position: absolute;
+    right: 32px;
+    bottom: 22px;
+  }
+
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 600px;
+    padding: 50px 44px 20px 44px;
+    margin: calc((var(--basic-height) - 600px) / 2) auto;
+
+    img {
+      width: 308px;
+      height: 200px;
+    }
+
+    h2 {
+      margin-top: 16px;
+    }
+
+    pre {
+      height: 166px;
+    }
+    .modifyBtn {
+      width: 100px;
+      height: 47px;
+      right: 138px;
+      bottom: 22px;
+    }
+
+    .deleteBtn {
+      width: 100px;
+      height: 47px;
+      right: 32px;
+      bottom: 22px;
+    }
   }
 `;
 
 const XbuttonStyle = styled.button`
   display: block;
-  padding: 5px;
-  position: relative;
+  padding: 10px;
+  position: absolute;
   top: 10px;
-  margin-left: 259px;
+  right: 10px;
 `;
 
 const GarlandStyle = styled(Garland)`
-  position: relative;
-  top: -40px;
+  position: absolute;
+  top: -12px;
+  left: 0;
   z-index: 3;
 `;
