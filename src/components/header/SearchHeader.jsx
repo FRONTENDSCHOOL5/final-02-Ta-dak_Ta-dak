@@ -13,7 +13,9 @@ export default function SearchHeader({value, setValue}) {
 
   return (
     <SearchHeaderStyle>
+      <BackBtnStyle>
       <IconArrowLeft onClick={handleGoBack} />
+      </BackBtnStyle>
       <label className='a11y-hidden' htmlFor='searchId'>계정 검색</label>
       <input id='searchId' type='text' placeholder='계정 검색' value={value} onChange={(e) => setValue(e.target.value)}/>
     </SearchHeaderStyle>
@@ -30,13 +32,8 @@ const SearchHeaderStyle = styled.div`
   height: 48px;
   box-shadow: var(--header-shadow);
   background-color: var(--header-color);
-  
-  .backUrlBtn {
-    width: 22px;
-    height: 22px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image : url(${IconArrowLeft});
+  @media (min-width: 768px) {
+    background-color: var(--background-color);
   }
 
   #searchId {
@@ -54,6 +51,17 @@ const SearchHeaderStyle = styled.div`
   }
 
   @media (min-width: 768px) {
+    box-shadow: none;
+    #searchId {
+      margin: auto;
+    }
+  }
+  `;
+
+const BackBtnStyle = styled.div`
+  display: block;
+  @media (min-width: 768px) {
     display: none;
   }
+
 `;
