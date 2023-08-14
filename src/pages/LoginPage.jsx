@@ -105,7 +105,7 @@ const LoginPageStyle = styled.section`
   background-color: var(--background-color);
 
   @media (min-width: 768px) {
-    padding: 0px;
+    padding: 34px 0px;
   }
   
   h1 {
