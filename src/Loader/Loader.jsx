@@ -110,6 +110,11 @@ const LoaderStyle = styled.div`
   width: 200px;
   height: 110px;
   position: relative;
+
+  @media (min-width: 768px) {
+  left: 62%;
+  top: 40%;
+  }
 }
 
 .loader-text {
