@@ -1,8 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { DarkModeAtom } from './recoil/AtomDarkModeState'
 import styled from 'styled-components'
 
+import { IsLogin, UserAtom } from './recoil/AtomUserState';
 import DefaultTheme from './style/theme/DefaultTheme'
 import DarkTheme from './style/theme/DarkTheme'
 
@@ -25,20 +26,36 @@ import Page404 from './pages/404Page';
 import { NavBar } from './components/common/NavBar';
 import ProductDetailModal from './components/common/ProductDetailModal';
 import { NonLoginProtectedRoute, LoginProtectedRoute } from './Routes/ProtectedRoute';
-import TopButton from './components/common/TopButton';
 import WebHeader from './components/pcVersion/WebHeader';
 import WebNavBar from './components/pcVersion/WebNavBar';
-import PostList from './components/UserPostList/PostList';
 import WebFollowersRecommend from './components/pcVersion/WebFollowersRecommend';
+import WebBillboard from './components/pcVersion/WebBillboard';
+import Alert from './components/common/Alert';
+import useAlertControl from './hooks/useAlertControl';
+
 
 function App() {
 
   const darkMode = useRecoilValue(DarkModeAtom);
+  const { openAlert, AlertComponent } = useAlertControl();
+
+  const setUserValue = useSetRecoilState(UserAtom);
+  const setIsLogin = useSetRecoilState(IsLogin);
+  const navigate = useNavigate();
+
+  const handleLogout = (event) =>{
+    if (event.target.textContent === '로그아웃') {
+      setUserValue({})
+      setIsLogin(false)
+      sessionStorage.removeItem('user')
+      navigate('/splash');
+    } 
+  }
 
   return (
     <PcStyle>
       <WebHeaderStyle>
-        <WebHeader />
+        <WebHeader handleFunc={openAlert}/>
       </WebHeaderStyle>
       <MainStyle>
         <WebNavBarStyle>
@@ -85,6 +102,9 @@ function App() {
             </Routes>
             <NavBar />
             {darkMode ? <DarkTheme /> : <DefaultTheme />}
+          <AlertComponent>
+            <Alert alertMsg={'로그아웃 하시겠습니까?'} choice={['취소', '로그아웃']} handleFunc={handleLogout} />
+          </AlertComponent>
           </BaseSizeStyle>
         </WrapperStyle>
 
@@ -94,6 +114,7 @@ function App() {
             <Route path='/recommendfeed' element={<WebFollowersRecommend />} />
             <Route path='/profile/*' element={<WebFollowersRecommend />} />
           </Routes>
+          <WebBillboard />
         </WebFollowersRecommendStyle>
       </MainStyle>
     </PcStyle>
@@ -140,9 +161,10 @@ const WebFollowersRecommendStyle = styled.div`
 `;
 
 const WrapperStyle = styled.div`
-  margin-top:26px;
+  /* margin-top:26px; */
   display: flex;
   justify-content: center;    
+
 `;
 
 const BaseSizeStyle = styled.div`

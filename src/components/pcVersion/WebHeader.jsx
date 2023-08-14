@@ -7,8 +7,7 @@ import { ReactComponent as WebLogo} from '../../assets/img/weblogo.svg';
 import { ReactComponent as IconLogout}  from '../../assets/img/icon-logout.svg';
 import DarkModeBtn from '../DarkModeBtn';
 
-export default function WebHeader() {
-  const navigate = useNavigate();
+export default function WebHeader({handleFunc}) {
   return (
     <WebHeaderStyle>
         <WebLogoStyle>
@@ -19,7 +18,7 @@ export default function WebHeader() {
         </WebLogoStyle>
         <BtnStyle>
           <DarkModeBtn style={{ width: '44px', height: '44px'}}/>
-          <IconLogout style={{ width: '30px', height: '30px', cursor: 'pointer', margin: '25px 0'}}/>
+          <IconLogout onClick={handleFunc} style={{ width: '30px', height: '30px', cursor: 'pointer', margin: '25px 0'}}/>
         </BtnStyle>
     </WebHeaderStyle>
   )
