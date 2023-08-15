@@ -8,12 +8,18 @@ import { ReactComponent as IconLogout}  from '../../assets/img/icon-logout.svg';
 import DarkModeBtn from '../DarkModeBtn';
 
 export default function WebHeader({handleFunc}) {
+  const navigate = useNavigate()
+
+  const handleGoFeed = () =>{
+    navigate('/feed');
+  }
+
   return (
     <WebHeaderStyle>
         <WebLogoStyle>
-            <WebLogo></WebLogo>
+            <WebLogo onClick={handleGoFeed}></WebLogo>
             <TadakStyle>
-              <Tadak style={{ width: '104px', height: '25.58 px' }}/>
+              <Tadak onClick={handleGoFeed} style={{ width: '104px', height: '25.58 px' }}/>
             </TadakStyle>
         </WebLogoStyle>
         <BtnStyle>
