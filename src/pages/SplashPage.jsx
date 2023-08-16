@@ -20,14 +20,16 @@ export default function SplashPage() {
   return (
     <>
     <SplashPageStyle>
+      <SplashCharacterContainer>
         <TitleStyle1></TitleStyle1>
         <TitleStyle2></TitleStyle2>
         <FireworkRStyle></FireworkRStyle>
         <FireworkLStyle></FireworkLStyle>
         <FireStyle></FireStyle>
         <WoodFireStyle></WoodFireStyle>
-        <section>
         <SubTitleStyle></SubTitleStyle>
+      </SplashCharacterContainer>
+        <section>
         <LoginModalStyle>
           <ul>
             <li>
@@ -61,6 +63,10 @@ export default function SplashPage() {
     </>
   )
 }
+
+const SplashCharacterContainer = styled.div`
+  text-align: center; 
+`;
 
 const firework1 = keyframes`
   0% {
@@ -142,7 +148,7 @@ const FireStyle = styled(Fire)`
   margin: 0 auto;
   position: relative;
   top: 80px;
-  left: 60px;
+  left: 0px;
   z-index: 100;
   animation: ${firework1} 2s infinite;
 `  
@@ -170,12 +176,12 @@ const WoodFireStyle = styled(WoodFire)`
 
 const SubTitleStyle = styled(SubTitle)`
   position: relative;
-  margin: 0 88px;
+  text-align: center;
   top: -20px 
 `
 
 const LoginModalStyle = styled.article`
-width: 390px;
+width: var(--basic-width);
 height: 100vh;
 border-radius: 20px;
 background-color: #ffffff;
