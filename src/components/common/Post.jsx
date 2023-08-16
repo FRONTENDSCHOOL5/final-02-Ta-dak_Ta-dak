@@ -159,17 +159,19 @@ to {
 `;
 
 const PostStyle = styled.article`
+  padding-top: 0px;
   position: relative;
   margin-bottom: 20px;
   width: 358px;
-
+  
   @media (min-width: 768px) {
+    padding-top: 26px;
     width: 500px;
   }
 
   .postMoreButton {
     position: absolute;
-    top: 0px;
+    top: 26px;
     right: 0px;
     width: 18px;
     height: 18px;
