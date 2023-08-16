@@ -53,7 +53,10 @@ const SearchHeaderStyle = styled.div`
   @media (min-width: 768px) {
     box-shadow: none;
     #searchId {
+      width: var(--basic-width);
       margin: auto;
+      margin-bottom: -5px;
+      border-radius: 10px;
     }
   }
   `;
