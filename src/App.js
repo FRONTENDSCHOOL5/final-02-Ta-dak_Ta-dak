@@ -101,7 +101,6 @@ function App() {
               </Route>
             </Routes>
             <NavBar />
-            {darkMode ? <DarkTheme /> : <DefaultTheme />}
           <AlertComponent>
             <Alert alertMsg={'로그아웃 하시겠습니까?'} choice={['취소', '로그아웃']} handleFunc={handleLogout} />
           </AlertComponent>
@@ -117,6 +116,7 @@ function App() {
           <WebBillboard />
         </WebFollowersRecommendStyle>
       </MainStyle>
+      {darkMode ? <DarkTheme /> : <DefaultTheme />}
     </PcStyle>
   )
 }

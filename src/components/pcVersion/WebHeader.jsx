@@ -33,7 +33,7 @@ export default function WebHeader({handleFunc}) {
 const WebHeaderStyle = styled.div`
     width: 100vw;
     height: 80px;
-    background-color: #B9D6A3;
+    background-color: var(--basic-color-1);
     display: flex;
     justify-content: space-between;
 `;
