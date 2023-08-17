@@ -78,6 +78,12 @@ const BackgorundStyle = styled.div`
   background: var(--modal-blur-color);
   backdrop-filter: blur(2px);
   animation: ${fadeIn} 0.3s ease-in;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    z-index: 2;
+  }
+
 `;
 
 const ProductDtailModalStyle = styled.div`
