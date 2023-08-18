@@ -1,4 +1,5 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+import { useNavigate, useLocation} from 'react-router-dom';
 import { deleteProduct } from '../../api/productAPI';
 import useAlertControl from '../../hooks/useAlertControl';
 import styled, { keyframes } from 'styled-components';
@@ -12,6 +13,18 @@ export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
   const navigate = useNavigate();
   const location = useLocation();
   const selectedId = (location.pathname.split('/'))[2];
+
+  const productDetailModalRef = useRef(null);
+
+  const handleBackgroundClick = (event) => {
+    // 클릭한 대상이 컴포넌트 내부가 아닌지 확인
+    if (
+      productDetailModalRef.current &&
+      !productDetailModalRef.current.contains(event.target)
+    ) {
+      setIsModalOpen(false);
+    }
+  };
 
   const handleGoAddproduct = () => {
     navigate('/editproduct', {
@@ -30,8 +43,8 @@ export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
 
   return (
     <>
-      <BackgorundStyle>
-        <ProductDtailModalStyle>
+      <BackgorundStyle onClick={handleBackgroundClick}>
+        <ProductDtailModalStyle ref={productDetailModalRef}>
           <XbuttonStyle>
             <Xbutton onClick={() => setIsModalOpen(false)} />
           </XbuttonStyle>
@@ -78,12 +91,13 @@ const BackgorundStyle = styled.div`
   background: var(--modal-blur-color);
   backdrop-filter: blur(2px);
   animation: ${fadeIn} 0.3s ease-in;
+  cursor: pointer;
+  /* 팔로우 추천 프로필 이미지 배경 위에 나타나는 것 방지 */
+  z-index: 2;
 
   @media (min-width: 768px) {
     width: 100%;
-    z-index: 2;
   }
-
 `;
 
 const ProductDtailModalStyle = styled.div`
@@ -94,6 +108,7 @@ const ProductDtailModalStyle = styled.div`
   border-radius: 20px;
   margin: calc((var(--basic-height) - 458px) / 2) auto;
   padding: 50px 34px 20px 34px;
+  cursor: auto;
 
   img {
     display: block;
