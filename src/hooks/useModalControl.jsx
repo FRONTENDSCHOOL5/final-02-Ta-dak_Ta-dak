@@ -67,4 +67,9 @@ const ModalContainer = styled.div`
 
   const ModalContent = styled.div`
     animation: ${moveTop} .8s ease-in-out forwards;
+
+    @media (min-width: 768px) and (max-width: 1300px) {
+      position: absolute;
+      margin-left: 395px;
+  }
   `;

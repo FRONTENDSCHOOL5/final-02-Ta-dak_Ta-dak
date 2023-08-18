@@ -15,7 +15,6 @@ export default function ProductDetailModal({ saleItem, setIsModalOpen }) {
   const selectedId = (location.pathname.split('/'))[2];
 
   const productDetailModalRef = useRef(null);
-
   const handleBackgroundClick = (event) => {
     // 클릭한 대상이 컴포넌트 내부가 아닌지 확인
     if (
