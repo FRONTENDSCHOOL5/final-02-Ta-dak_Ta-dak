@@ -49,4 +49,9 @@ const AlertContainer = styled.div`
   justify-content: center;
   animation: ${fadeIn} 0.3s ease-in;
   z-index: 999;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: var(--basic-height);
+  }
 `;

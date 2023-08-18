@@ -55,11 +55,21 @@ const ModalContainer = styled.div`
   background-color: var(--modal-blur-color);
   display: flex;
   align-items: flex-end; 
+  justify-content: center;
   animation: ${fadeIn} 0.3s ease-in;
   z-index: 999;
-`;
 
+  @media (min-width: 768px) {
+    width: 100%;
+    height: var(--basic-height);
+  }
+`;
 
   const ModalContent = styled.div`
     animation: ${moveTop} .8s ease-in-out forwards;
+
+    @media (min-width: 768px) and (max-width: 1300px) {
+      position: absolute;
+      margin-left: 395px;
+  }
   `;
