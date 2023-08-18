@@ -17,9 +17,9 @@ export default function WebHeader({handleFunc}) {
   return (
     <WebHeaderStyle>
         <WebLogoStyle>
-            <WebLogo onClick={handleGoFeed}></WebLogo>
+            <WebLogo onClick={handleGoFeed} style={{cursor: 'pointer'}}></WebLogo>
             <TadakStyle>
-              <Tadak onClick={handleGoFeed} style={{ width: '104px', height: '25.58 px' }}/>
+              <Tadak onClick={handleGoFeed} style={{ width: '104px', height: '25.58 px', cursor: 'pointer' }}/>
             </TadakStyle>
         </WebLogoStyle>
         <BtnStyle>
