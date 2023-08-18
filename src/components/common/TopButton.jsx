@@ -43,7 +43,7 @@ export default function TopButton({elementRef}) {
   )
 }
 
-const DarkModeBtnContainer = styled.div`  
+const DarkModeBtnContainer = styled.div`
   pointer-events: none;
   position: absolute;
   top: 50%;
@@ -51,18 +51,23 @@ const DarkModeBtnContainer = styled.div`
   transform: translate(-50%, -50%);
   width: var(--basic-width);
   height: var(--basic-height);
-  transition: .3s;
-  opacity: ${({scrolling}) => (scrolling) ? 1 : 0};
-  animation: visible .3s ease forwards;
+  transition: 0.3s;
+  opacity: ${({ scrolling }) => (scrolling ? 1 : 0)};
+  animation: visible 0.3s ease forwards;
 
   @keyframes visible {
-  0% {
-    opacity: 0;
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
   }
-  100% {
-    opacity: 100;
+
+  @media ((min-width: 768px) and (max-width: 1300px)) {
+    /* WebFollowersRecommend 컴포넌트 너비/2 만큼 옆으로 밀어줌 */
+    margin-left: 196px;
   }
-}
 `;
 
 const DarkModeBtnStyle = styled.button`
