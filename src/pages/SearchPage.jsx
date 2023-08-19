@@ -1,12 +1,10 @@
 import { useState , useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 import { getSearch } from '../api/searchAPI';
 import  SearchHeader  from '../components/header/SearchHeader'
 import SearchProfile from '../components/common/SearchProfile';
-import { NavBar } from '../components/common/NavBar';
 
 
 export default function SearchPage() {
@@ -14,56 +12,47 @@ export default function SearchPage() {
   const [search, setSearch] = useState('')
   // 검색창에 뜨는 데이터 
   const [searchList, setSearchList] = useState([]) 
-  // 로딩 상태 관리
-  const [isLoading, setIsLoading] = useState(false)
-
-  // 입력값이 변경되었을 때 값을 추출해서 search에 저장
-  const navigate = useNavigate();
   
-  // GetSearch에 await걸어줌
-  // 아무것도 입력하지않아도 api에서 받아온게 뜨니까 입막음완료
-    const setResult = async () => {
+  // getSearch에 await걸어줌
+  const setResult = async () => {
+    // 입력할 때마다 search 값 바뀜
+    // 입력할 때마다 search 값으로 검색 API 요청 보내서 받아온 리스트 searchList에 저장
+    if(search){
+      // 입력창에 한 글자라도 입력한 것이 있을 때
+      console.log(search + '요청됨');
       setSearchList(await getSearch(search));
-    }
-  // 여러번 관리 useEffect 아무것도 입력하지 않았을때 아무것도 안뜨게 하기
-  useEffect(() => {
-    let timer;
-    if(search.length >= 1) {      
-      setResult()
-      setIsLoading(true)
-    } else if (search.length === 0 ){
-      setIsLoading(false)
-      timer = setTimeout(() => {
-        setSearchList([])
+    }else{
+      // 입력창에 입력한 것이 없을 때
+      console.log('입력된 값이 없음');
+      // 아무것도 입력하지 않았을때 아무것도 안뜨게 하기
+      // 처음에 검색창을 눌렀을 때는 api 요청 안이뤄져서 searchList 빈 배열
+      // 참고 : query에 아무 값이 없는 상태로 요청 발생 -> 모든 유저 정보 다 불러와짐
+      // 입력했다가 지웠을 때 0.5초 뒤에 비우는 이유 : 진짜 모르겠음.. 그냥 setSearchList([]) 해도 비워져야되는거 아닌가?
+      setTimeout(() => {
+        setSearchList([]);
       }, 500);
     }
-    setIsLoading(false)
-    return () => {
-      clearTimeout(timer);
-    }
-  }, [search])
+  }
+
+  useEffect(()=>{
+    setResult();
+  },[search])
 
   return (
     <>
+      {/* 입력값이 변경되었을 때 값을 추출해서 search에 저장 */}
       <SearchHeader value={search} setValue={setSearch}></SearchHeader>
       <SearchPageStyle>
         <SearchResultWrapper>
-          {isLoading ? null: (
-            <>
-            {searchList ? (
-          <>
-          {searchList.map((item, index) => {
-          return (<li key={index}>
-            <SearchProfile info={item}/>
-          </li>)
-        })}</>) : (
-          <>
-          <div>
-            <h2>검색결과가 없습니다!</h2>
-          </div>
-          </>)}
-          </>)}
-        
+          {searchList.length
+            ? searchList.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <SearchProfile info={item} />
+                  </li>
+                );
+              })
+            : null}
         </SearchResultWrapper>
       </SearchPageStyle>
     </>
