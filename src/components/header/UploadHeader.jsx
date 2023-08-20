@@ -36,6 +36,7 @@ const BasicHeaderStyle = styled.div`
   background-color: var(--header-color);
 
   @media (min-width: 768px) {
+    background-color: var(--background-color);
     justify-content: right;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 
