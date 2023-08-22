@@ -9,12 +9,17 @@ import { ReactComponent as IconEdit } from '../../assets/img/icon-edit.svg';
 import { ReactComponent as IconUser } from '../../assets/img/icon-user.svg';
 import { ReactComponent as IconSearch } from '../../assets/img/icon-web-search.svg';
 
-
 export default function WebNavBar() {
 
-  const location = useLocation();
-  const accountname = sessionStorage.getItem('user') === null?'':JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname
 
+  const location = useLocation();
+  const accountname = sessionStorage.getItem('user') === null ? '' : JSON.parse(sessionStorage.getItem('user')).UserAtom.accountname
+  const hideNavbarPaths = [
+    '/splash',
+    '/login',
+    '/signup'
+  ]
+  const hideNavbar = hideNavbarPaths.includes(location.pathname);
   const navItems = [
     { to: '/feed', component: IconHome, label: '홈' },
     { to: '/recommendfeed', component: IconHeart, label: '추천게시글' },
@@ -39,6 +44,9 @@ export default function WebNavBar() {
   }, [location.pathname, selectedIcon]);
 
   return (
+    <>
+    {
+    !hideNavbar &&
     <WebNavBarStyle>
       <NavBarStyle>
         {navItems.map((item) => (
@@ -60,6 +68,8 @@ export default function WebNavBar() {
         ))}
       </NavBarStyle>
     </WebNavBarStyle>
+    }    
+    </>
   )
 }
 
@@ -76,6 +86,10 @@ const SettingStyle = styled.div`
 const WebNavBarStyle = styled.div`
   width: 220px;
   height: 594px;
+  margin: 0 100px 0 0;
+  @media (min-width: 1500px) {
+    margin: 0 0 0 172px; // 팔로우 추천, 네비게이션 바의 너비 차이 만큼 오른쪽으로 땡기기
+  }
 `;
 
 const NavBarStyle = styled.div`
