@@ -10,9 +10,9 @@ import { ReactComponent as WoodFire} from '../assets/img/woodfire.svg';
 import { ReactComponent as SubTitle} from '../assets/img/subtitle.svg';
 import { ReactComponent as FireworkR} from '../assets/img/firework-r.svg';
 import { ReactComponent as FireworkL} from '../assets/img/firework-l.svg';
-import { ReactComponent as Kakao}  from '../assets/img/icon-kakao.svg';
-import { ReactComponent as Google} from '../assets/img/icon-google.svg';
-import { ReactComponent as Facebook} from '../assets/img/icon-facebook.svg';
+import { ReactComponent as Kakao}  from '../assets/img/kakao-login.svg';
+import { ReactComponent as Google} from '../assets/img/google-login.svg';
+import { ReactComponent as Facebook} from '../assets/img/fb-login.svg';
 
 export default function SplashPage() {
   const navigate = useNavigate();
@@ -30,24 +30,21 @@ export default function SplashPage() {
         <SubTitleStyle></SubTitleStyle>
       </SplashCharacterContainer>
         <section>
-        <LoginModalStyle>
+        {/* <LoginModalStyle>
           <ul>
             <li>
-              <BtnSocialStyle className='kakao' aria-label='카카오로 로그인'>
+              <BtnSocialStyle aria-label='카카오로 로그인'>
                 <Kakao></Kakao>
-                <p>카카오톡 계정으로 로그인</p>
               </BtnSocialStyle>
             </li>
             <li>
-              <BtnSocialStyle className='google' aria-label='구글로 로그인'>
+              <BtnSocialStyle aria-label='구글로 로그인'>
                 <Google></Google>
-                <p>구글 계정으로 로그인</p>
               </BtnSocialStyle>
             </li>
             <li>
-              <BtnSocialStyle className='facebook' aria-label='페이스북으로 로그인'>
+              <BtnSocialStyle aria-label='페이스북으로 로그인'>
                 <Facebook></Facebook>
-                <p>페이스북 계정으로 로그인</p>
               </BtnSocialStyle>
             </li>
         </ul>
@@ -60,7 +57,7 @@ export default function SplashPage() {
               <button className='Signup'>회원가입</button>
             </Link>
         </div>
-        </LoginModalStyle>
+        </LoginModalStyle> */}
         </section>
     </SplashPageStyle>
     </>
@@ -68,7 +65,8 @@ export default function SplashPage() {
 }
 
 const SplashCharacterContainer = styled.div`
-  text-align: center; 
+  position: relative;
+  /* text-align: center;  */
 `;
 
 const firework1 = keyframes`
@@ -129,7 +127,7 @@ const loginmodal = keyframes`
 
 const SplashPageStyle = styled.div `
 background-color: #FFFFEA;
-width: var(--basic-width);
+width: 100%;
 height: var(--basic-height);
   section {
     display: flex;
@@ -137,69 +135,58 @@ height: var(--basic-height);
     position: relative;
     top: -150px
   }
-  @media (min-width: 390px) {
-    width: 100%;
-    height: var(--basic-height);
-    }  
 `
 
 const TitleStyle1 = styled(Tadak)`
-  margin: 10vh 96px 0px 50px;
-`
+  position: absolute;
+  /* margin: 10vh 96px 0px 50px; */
+` 
+
 
 const TitleStyle2 = styled(Tadak)`
-  margin: 10px 50px 0px 96px;
+  position: absolute;
+
+  /* margin: 10px 50px 0px 96px; */
 `
 
 const FireStyle = styled(Fire)`
   margin: 0 auto;
-  position: relative;
+  position: absolute;
   top: 80px;
-  left: -20px;
+  left: 0px;
   z-index: 100;
   animation: ${firework1} 2s infinite;
-  @media (min-width: 768px) {
-    left: -10px;
-    }  
 `  
 
 const FireworkRStyle = styled(FireworkR)`
-  position: relative;
-  left: 240px;
+  position: absolute;
+  left: 300px;
   top: -30px;
   animation: ${firework2} 2s infinite;
-  @media (min-width: 768px) {
-    left: -50px;
-    top: 150px;
-    }  
 `
 
 const FireworkLStyle = styled(FireworkL)`
-  position: relative;
+  position: absolute;
   top: -40px;
-  left: -30px;
+  left: 50px;
   animation: ${firework3} 2s infinite;
-  @media (min-width: 768px) {
-    left: -350px;
-    top: 160px;
-    }  
 ` 
 
 const WoodFireStyle = styled(WoodFire)`
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 400px;
   top: -190px;
 `
 
 const SubTitleStyle = styled(SubTitle)`
-  position: relative;
+  position: absolute;
   text-align: center;
   top: -20px 
 `
 
 const LoginModalStyle = styled.article`
-width: var(--basic-width);
+width: 100%;
 height: 100vh;
 border-radius: 20px;
 background-color: #ffffff;
@@ -224,43 +211,13 @@ animation: ${loginmodal} 3.6s forwards;
         color: var(--common-text-color-2);
       }
   }
-  @media (min-width: 390px) {
-    width: 100%;
-    }
 `
 const BtnSocialStyle = styled.button`
   display: flex;
   align-items: center;
-  gap: 50px;
+  justify-content: center;
   width: 322px;
-  height: 44px;
   margin: 20px auto;
   position: relative;
   border-radius: 44px;
-
-  p {
-    font-size: var(--font--size-md);
-  }
-  svg {
-    margin-left: 14px;
-  }
-
-  &.kakao {
-    border: solid 1px #F2C94C;
-  }
-  &.google {
-    border: solid 1px #767676;
-  }
-  &.facebook {
-    border: solid 1px #2D9CDB;
-  }
-
-  @media (min-width: 768px) {
-    width: calc(100% - 40px);
-    justify-content: center;
-    gap: 10px;
-    
-    svg {
-      margin-left: 0px;
-    }
-  }`
+`

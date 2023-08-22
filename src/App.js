@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { DarkModeAtom } from './recoil/AtomDarkModeState'
 import styled from 'styled-components'
@@ -34,6 +34,14 @@ function App() {
 
   const darkMode = useRecoilValue(DarkModeAtom);
 
+  const location = useLocation();
+  const hidePaths = [
+    '/splash',
+    '/login',
+    '/signup'
+  ]
+  const hide = hidePaths.includes(location.pathname);
+
   return (
     <PcStyle>
       <WebHeaderStyle>
@@ -44,8 +52,8 @@ function App() {
           <WebNavBar />
         </WebNavBarStyle>
 
-        <WrapperStyle>
-          <BaseSizeStyle>
+        <WrapperStyle hide={hide}>
+          <BaseSizeStyle hide={hide}>
             <Routes>
               <Route path='/' element={<Navigate to='/splash' replace />} />
               <Route path='/404page' element={<Page404 />} />
@@ -140,14 +148,15 @@ const WrapperStyle = styled.div`
   justify-content: center;
 
   @media (min-width: 768px) {
-    margin-top: 26px;
+    margin-top: ${(props) => (props.hide ? '-26px' : '26px')};
   }
 `;
 
 const BaseSizeStyle = styled.div`
   margin: 0; // 팔로우 추천, 네비게이션 바 간격 고정되도록 가운데에 마진값 주기
   overflow: hidden;
-  width: var(--basic-width);
+  width: ${(props) => (props.hide ? '100vw' : 'var(--basic-width)')};
+  /* width: var(--basic-width); */
   height: var(--basic-height);
   background-color: var(--background-color);
 
