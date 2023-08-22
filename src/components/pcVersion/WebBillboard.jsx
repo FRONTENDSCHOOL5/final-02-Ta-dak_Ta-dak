@@ -4,13 +4,22 @@ import styled from "styled-components"
 export default function WebBillboard() {
 
   const location = useLocation();
+  const hideBillboardPaths = [
+    '/splash',
+    '/login',
+    '/signup',
+    '/feed',
+    '/recommendfeed',
+    '/profile'
+  ]
 
+  const hideBillboard = hideBillboardPaths.includes(location.pathname);
   return (
     <>
-    {location.pathname !== '/feed' && location.pathname !== '/recommendfeed' && location.pathname !== '/profile' && 
-    <AreaOccupy>
-    </AreaOccupy>
-    }
+      {!hideBillboard &&
+        <AreaOccupy>
+        </AreaOccupy>
+      }
     </>
   )
 }
