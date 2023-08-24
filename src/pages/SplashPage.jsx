@@ -20,10 +20,12 @@ export default function SplashPage() {
       <SplashCharacterContainer>
         <TitleStyle1></TitleStyle1>
         <TitleStyle2></TitleStyle2>
-        <FireworkRStyle></FireworkRStyle>
-        <FireworkLStyle></FireworkLStyle>
-        <FireStyle></FireStyle>
-        <WoodFireStyle></WoodFireStyle>
+        <CharacterStyle>
+          <FireworkRStyle></FireworkRStyle>
+          <FireworkLStyle></FireworkLStyle>
+          <FireStyle></FireStyle>
+          <WoodFireStyle></WoodFireStyle>
+        </CharacterStyle>
         <SubTitleStyle></SubTitleStyle>
       </SplashCharacterContainer>
         <section>
@@ -65,7 +67,10 @@ export default function SplashPage() {
 }
 
 const SplashCharacterContainer = styled.div`
-  text-align: center; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const firework1 = keyframes`
@@ -123,7 +128,7 @@ const loginmodal = keyframes`
 
 const SplashPageStyle = styled.div `
 background-color: #FFFFEA;
-width: var(--basic-width);
+width: 100%;
 height: var(--basic-height);
   section {
     display: flex;
@@ -138,58 +143,58 @@ height: var(--basic-height);
 `
 
 const TitleStyle1 = styled(Tadak)`
-  margin: 10vh 96px 0px 50px;
+  position: absolute;
+  transform: translate(-80%, -50%);
+  margin-top: -250px;
 `
 
 const TitleStyle2 = styled(Tadak)`
-  margin: 10px 50px 0px 96px;
+  position: absolute;
+  transform: translate(-20%, -50%);
+  margin-top: -150px;
+`
+
+const CharacterStyle = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 const FireStyle = styled(Fire)`
-  margin: 0 auto;
-  position: relative;
-  top: 80px;
-  left: -20px;
+  margin-left: 80px;
+  margin-top: 200px;
   z-index: 100;
   animation: ${firework1} 2s infinite;
-  @media (min-width: 768px) {
-    left: -10px;
-    }  
 `  
 
+const WoodFireStyle = styled(WoodFire)`
+  margin-top: -260px;
+`
+
+
 const FireworkRStyle = styled(FireworkR)`
-  position: relative;
-  left: 240px;
-  top: -30px;
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 250px;
   animation: ${firework2} 2s infinite;
-  @media (min-width: 768px) {
-    left: -50px;
-    top: 150px;
-    }  
 `
 
 const FireworkLStyle = styled(FireworkL)`
-  position: relative;
-  top: -40px;
-  left: -30px;
+  position: absolute;
+  margin-left: 40px;
+  margin-top: 250px;
   animation: ${firework3} 2s infinite;
-  @media (min-width: 768px) {
-    left: -350px;
-    top: 160px;
-    }  
 ` 
 
-const WoodFireStyle = styled(WoodFire)`
-  position: relative;
-  width: 400px;
-  height: 400px;
-  top: -190px;
-`
 
 const SubTitleStyle = styled(SubTitle)`
-  position: relative;
-  text-align: center;
-  top: -20px 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 300px;
+  
 `
 
 const LoginModalStyle = styled.article`
@@ -198,7 +203,7 @@ height: 100vh;
 border-radius: 20px;
 background-color: #ffffff;
 position: relative;
-top: -100px;
+top: 700px;
 z-index: 101;
 animation: ${loginmodal} 3.6s forwards;
   ul {
@@ -220,6 +225,7 @@ animation: ${loginmodal} 3.6s forwards;
   @media (min-width: 390px) {
     width: 100%;
     }
+
 `
 const BtnSocialStyle = styled.button`
   display: flex;
