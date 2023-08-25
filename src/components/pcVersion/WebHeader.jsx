@@ -59,7 +59,7 @@ export default function WebHeader() {
           </WebLogoStyle>
           <BtnStyle>
             <DarkModeBtn style={{ width: '44px', height: '44px' }} />
-            <IconLogout onClick={openAlert} style={{ width: '30px', height: '30px', cursor: 'pointer', margin: '25px 0' }} />
+            <IconLogout onClick={openAlert} style={{ width: '24px', height: '24px', cursor: 'pointer'}} />
           </BtnStyle>
         </WebHeaderStyle>
       }
@@ -92,6 +92,7 @@ const TadakStyle = styled.div`
 
 const BtnStyle = styled.div`
   display: flex;
+  align-items: center;
   gap: 28px;
   margin-right: 10%;
 `;

@@ -35,12 +35,17 @@ function App() {
   const darkMode = useRecoilValue(DarkModeAtom);
 
   const location = useLocation();
-  const hidePaths = [
+  const basedMarginPaths = [
     '/splash',
     '/login',
     '/signup'
   ]
-  const hide = hidePaths.includes(location.pathname);
+  const basedWidthPaths = [
+    '/splash'
+  ]
+
+  const basedMargin = basedMarginPaths.includes(location.pathname);
+  const basedWidth = basedWidthPaths.includes(location.pathname);
 
   return (
     <PcStyle>
@@ -52,8 +57,8 @@ function App() {
           <WebNavBar />
         </WebNavBarStyle>
 
-        <WrapperStyle hide={hide}>
-          <BaseSizeStyle hide={hide}>
+        <WrapperStyle basedMargin={basedMargin}>
+          <BaseSizeStyle basedWidth={basedWidth}>
             <Routes>
               <Route path='/' element={<Navigate to='/splash' replace />} />
               <Route path='/404page' element={<Page404 />} />
@@ -148,14 +153,14 @@ const WrapperStyle = styled.div`
   justify-content: center;
 
   @media (min-width: 768px) {
-    margin-top: ${(props) => (props.hide ? '0px' : '26px')};
+    margin-top: ${(props) => (props.basedMargin ? '0px' : '26px')};
   }
 `;
 
 const BaseSizeStyle = styled.div`
   margin: 0; // 팔로우 추천, 네비게이션 바 간격 고정되도록 가운데에 마진값 주기
   overflow: hidden;
-  width: ${(props) => (props.hide ? '100vw' : 'var(--basic-width)')};
+  width: ${(props) => (props.basedWidth ? '100vw' : 'var(--basic-width)')};
   /* width: var(--basic-width); */
   height: var(--basic-height);
   background-color: var(--background-color);
