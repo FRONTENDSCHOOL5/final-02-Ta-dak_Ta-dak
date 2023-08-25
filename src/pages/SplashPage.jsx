@@ -134,7 +134,6 @@ height: var(--basic-height);
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -150px
   }
   @media (min-width: 390px) {
     width: 100%;
@@ -194,7 +193,6 @@ const SubTitleStyle = styled(SubTitle)`
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 300px;
-  
 `
 
 const LoginModalStyle = styled.article`
@@ -202,8 +200,8 @@ width: var(--basic-width);
 height: 100vh;
 border-radius: 20px;
 background-color: #ffffff;
-position: relative;
-top: 700px;
+position: absolute;
+top: 80vh;
 z-index: 101;
 animation: ${loginmodal} 3.6s forwards;
   ul {
