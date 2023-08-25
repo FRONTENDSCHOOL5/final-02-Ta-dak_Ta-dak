@@ -28,7 +28,6 @@ export default function TopButton({elementRef}) {
     };
   }, [elementRef]);
 
-
   return (
     <>
     {
@@ -51,7 +50,7 @@ const DarkModeBtnContainer = styled.div`
   transform: translate(-50%, -50%);
   width: var(--basic-width);
   height: var(--basic-height);
-  transition: 0.3s;
+  transition: opacity 0.3s;
   opacity: ${({ scrolling }) => (scrolling ? 1 : 0)};
   animation: visible 0.3s ease forwards;
 
