@@ -148,7 +148,7 @@ const WrapperStyle = styled.div`
   justify-content: center;
 
   @media (min-width: 768px) {
-    margin-top: ${(props) => (props.hide ? '-26px' : '26px')};
+    margin-top: ${(props) => (props.hide ? '0px' : '26px')};
   }
 `;
 
