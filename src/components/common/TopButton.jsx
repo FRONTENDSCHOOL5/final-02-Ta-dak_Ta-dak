@@ -64,7 +64,7 @@ const DarkModeBtnContainer = styled.div`
     }
   }
 
-  @media ((min-width: 768px) and (max-width: 1300px)) {
+  @media ((min-width: 768px) and (max-width: 1500px)) {
     /* WebFollowersRecommend 컴포넌트 너비/2 만큼 옆으로 밀어줌 */
     margin-left: 196px;
   }
