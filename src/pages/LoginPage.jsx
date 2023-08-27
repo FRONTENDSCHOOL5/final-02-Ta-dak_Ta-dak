@@ -115,7 +115,7 @@ export default function LoginPage() {
           className="custom-checkbox"/>체험용 계정 사용하기
           </label>
           <p>|</p>
-          <SignUpLink href="signup#/signup">회원가입 페이지로 이동</SignUpLink>
+          <SignUpLink href="signup#/signup">이메일로 회원가입</SignUpLink>
         </FeatureStyle>
       </LoginPageStyle>
     </>
@@ -159,7 +159,6 @@ const StyledInput = styled.input`
   cursor: pointer;
 
   &:checked {
-    background-color: red;
 }
 
 `
