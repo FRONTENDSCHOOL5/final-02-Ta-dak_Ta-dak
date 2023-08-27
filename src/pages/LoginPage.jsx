@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Input } from '../components/common/Input';
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button';
 import { loginReq } from '../api/loginAPI';
+import Check from '../assets/img/checkbox.svg';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -15,6 +16,7 @@ export default function LoginPage() {
   const [alertMsg, setAlertMsg] = useState('');
   const [userValue, setUserValue] = useRecoilState(UserAtom);
   const [isLogin, setIsLogin] = useRecoilState(IsLogin);
+  const [isChecked, setIsChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -63,6 +65,18 @@ export default function LoginPage() {
     }
   };
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+
+    if (!isChecked) {
+      setEmail('tadaktadak@email.com');
+      setPassword('tadaktadak');
+    } else {
+      setEmail('');
+      setPassword('');
+    }
+  };
+
   return (
     <>
       <LoginPageStyle>
@@ -93,6 +107,16 @@ export default function LoginPage() {
             <GreyLgBtn type="submit" contents={'로그인'} />
           )}
         </form>
+        <FeatureStyle>
+          <label>
+            <StyledInput type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          className="custom-checkbox"/>체험용 계정 사용하기
+          </label>
+          <p>|</p>
+          <SignUpLink href="signup#/signup">회원가입 페이지로 이동</SignUpLink>
+        </FeatureStyle>
       </LoginPageStyle>
     </>
   );
@@ -115,4 +139,35 @@ const LoginPageStyle = styled.section`
     padding-bottom: 40px;
     color: var(--text-color-1);
   }
+`;
+
+const FeatureStyle = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  gap: 10px;
+  p {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+`
+const StyledInput = styled.input`
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+
+  &:checked {
+    background-color: red;
+}
+
+`
+
+
+const SignUpLink = styled.a`
+  margin-left: 10px;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
 `;
