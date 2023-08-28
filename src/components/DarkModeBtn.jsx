@@ -26,8 +26,8 @@ export default function DarkModeBtn() {
       {!hideBtn &&
       <DarkModeBtnStyle>
         <label className="switch" htmlFor="darkModeSwitch">
-          {darkMode ? <input type="checkbox" id="darkModeSwitch" aria-label="DarkModeSwitch" onChange={handleMode}/> :
-          <input type="checkbox" id="darkModeSwitch" aria-label="DarkModeSwitch" onChange={handleMode} checked/>}
+          {darkMode ? <input type="checkbox" id="darkModeSwitch" aria-label="DarkModeSwitch" onChange={handleMode} checked={false}/> :
+          <input type="checkbox" id="darkModeSwitch" aria-label="DarkModeSwitch" onChange={handleMode} checked={true}/>}
           <span className="slider"></span>
         </label>
       </DarkModeBtnStyle>
