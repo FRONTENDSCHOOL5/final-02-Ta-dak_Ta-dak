@@ -26,7 +26,8 @@ export default function WebHeader() {
   const hideHeaderPaths = [
     '/splash',
     '/login',
-    '/signup'
+    '/signup',
+    '/signup/profile'
   ]
 
   const hideHeader = hideHeaderPaths.includes(location.pathname);
@@ -58,7 +59,7 @@ export default function WebHeader() {
             </TadakStyle>
           </WebLogoStyle>
           <BtnStyle>
-            <DarkModeBtn style={{ width: '44px', height: '44px' }} />
+            <DarkModeBtn />
             <IconLogout onClick={openAlert} style={{ width: '24px', height: '24px', cursor: 'pointer'}} />
           </BtnStyle>
         </WebHeaderStyle>

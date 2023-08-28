@@ -38,7 +38,8 @@ function App() {
   const basedMarginPaths = [
     '/splash',
     '/login',
-    '/signup'
+    '/signup',
+    '/signup/profile'
   ]
   const basedWidthPaths = [
     '/splash'

@@ -8,6 +8,7 @@ export default function WebBillboard() {
     '/splash',
     '/login',
     '/signup',
+    '/signup/profile',
     '/feed',
     '/recommendfeed',
     '/profile'

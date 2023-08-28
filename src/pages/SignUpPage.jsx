@@ -87,9 +87,13 @@ export default function SignUpPage() {
 }
 
 const SignUpPageStyle = styled.div`
-  padding: 34px;
+  padding: 34px 0 0 0;
+  @media (max-width: 768px) {
+    padding: 34px;
+  }
 
   h1 {
+    color: var(--text-color-1);
     font-weight: var(--font--Medium);
     font-size: 24px;
     text-align: center;
