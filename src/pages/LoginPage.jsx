@@ -116,7 +116,7 @@ export default function LoginPage() {
               체험용 계정 사용하기
           </Styledlabel>
           <p>|</p>
-          <SignUpLink href="signup#/signup">이메일로 회원가입</SignUpLink>
+          <SignUpLink href="#/signup">이메일로 회원가입</SignUpLink>
         </OtherStyle>
       </LoginPageStyle>
     </>
@@ -168,7 +168,7 @@ const StyledInput = styled.input`
   width: 15px;
   height: 15px;
   cursor: pointer;
-  appearance: none;
+  /* appearance: none; */
   background-color: #DCDCDC;
   border: 2px solid #DCDCDC;
   border-radius: 4px;
@@ -186,7 +186,6 @@ const StyledInput = styled.input`
     opacity: 1;
   }
 `
-
 const SignUpLink = styled.a`
   margin-left: 10px;
   color: #000000;
