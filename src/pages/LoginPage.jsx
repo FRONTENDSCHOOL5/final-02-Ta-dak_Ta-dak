@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Input } from '../components/common/Input';
 import { GreenLgBtn, GreyLgBtn } from '../components/common/Button';
 import { loginReq } from '../api/loginAPI';
+import { ReactComponent as CheckIcon } from '../assets/img/icon-check.svg';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -15,6 +16,7 @@ export default function LoginPage() {
   const [alertMsg, setAlertMsg] = useState('');
   const [userValue, setUserValue] = useRecoilState(UserAtom);
   const [isLogin, setIsLogin] = useRecoilState(IsLogin);
+  const [isChecked, setIsChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -63,6 +65,18 @@ export default function LoginPage() {
     }
   };
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+
+    if (!isChecked) {
+      setEmail('tadaktadak@email.com');
+      setPassword('tadaktadak');
+    } else {
+      setEmail('');
+      setPassword('');
+    }
+  };
+
   return (
     <>
       <LoginPageStyle>
@@ -93,6 +107,17 @@ export default function LoginPage() {
             <GreyLgBtn type="submit" contents={'로그인'} />
           )}
         </form>
+        <OtherStyle>
+          <Styledlabel>
+            <StyledInput type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+              className="custom-checkbox"/>
+              체험용 계정 사용하기
+          </Styledlabel>
+          <p>|</p>
+          <SignUpLink href="#/signup">이메일로 회원가입</SignUpLink>
+        </OtherStyle>
       </LoginPageStyle>
     </>
   );
@@ -115,4 +140,55 @@ const LoginPageStyle = styled.section`
     padding-bottom: 40px;
     color: var(--text-color-1);
   }
+`;
+
+const OtherStyle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  gap: 10px;
+
+  p {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: var(--font--size-md);
+  }
+`
+const Styledlabel = styled.label`
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const StyledInput = styled.input`
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  /* appearance: none; */
+  background-color: #DCDCDC;
+  border: 2px solid #DCDCDC;
+  border-radius: 4px;
+  position: relative;
+
+  &:checked + ${Styledlabel}::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: url(${CheckIcon}) center no-repeat;
+    opacity: 1;
+  }
+`
+const SignUpLink = styled.a`
+  margin-left: 10px;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
 `;
