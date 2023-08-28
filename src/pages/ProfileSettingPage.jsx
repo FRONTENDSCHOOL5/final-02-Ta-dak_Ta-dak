@@ -154,6 +154,7 @@ const ProfileSignUpPageStyle = styled.form`
   padding: 34px;
   
   h1 {
+    color: var(--text-color-1);
     text-align: center;
     font-weight: var(--font--Medium);
     font-size: 24px;
