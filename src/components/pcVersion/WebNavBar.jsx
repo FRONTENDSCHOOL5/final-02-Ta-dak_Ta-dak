@@ -17,7 +17,8 @@ export default function WebNavBar() {
   const hideNavbarPaths = [
     '/splash',
     '/login',
-    '/signup'
+    '/signup',
+    '/signup/profile'
   ]
   const hideNavbar = hideNavbarPaths.includes(location.pathname);
   const navItems = [
