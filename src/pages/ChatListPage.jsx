@@ -1,51 +1,41 @@
 import styled from 'styled-components';
 
-import  BasicHeader  from '../components/header/BasicHeader';
+import BasicHeader from '../components/header/BasicHeader';
 import { ProfileSm } from '../components/common/Profile';
-import { NavBar } from '../components/common/NavBar';
 import { useNavigate } from 'react-router-dom';
+
+import dummyData from '../dummyData/chatDummyData.json';
 
 export default function ChatList() {
   const navigate = useNavigate();
 
   return (
     <>
-      <BasicHeader isButton={false}/>
+      <BasicHeader isButton={false} />
       <ChatListPageStyle>
-        <ChatContainerStyle
-          onClick={() => {
-            navigate('/chatroom');
-          }}
-        >
-          <ProfileSm url={''} confirm={true} />
-          <div className="text">
-            <span>바베큐러버</span>
-            <div className="chatroomlink">
-              <p>이번에 고기 언제들어와요?</p>
-              <div className="date">2023.06.15</div>
-            </div>
-          </div>
-        </ChatContainerStyle>
-        <ChatContainerStyle>
-          <ProfileSm url={''} />
-          <div className="text">
-            <span>주말마다캠핑</span>
-            <div className="chatroomlink">
-              <p>지금 뭐해, 나랑 별 보러 가지 않을래</p>
-              <div className="date">2023.06.15</div>
-            </div>
-          </div>
-        </ChatContainerStyle>
-        <ChatContainerStyle>
-          <ProfileSm url={''} />
-          <div className="text">
-            <span>팔공산 쳐돌이</span>
-            <div className="chatroomlink">
-              <p>팔공산 정기뻗은~ 동산에 새봄을 알리는</p>
-              <div className="date">2023.06.15</div>
-            </div>
-          </div>
-        </ChatContainerStyle>
+        {
+          dummyData.map((item, index) => {
+            const lastMessageCreatedAt = item.messages[item.messages.length - 1].createdAt.split(" ");
+
+            return (
+              <ChatContainerStyle
+                key={index}
+                onClick={() => {
+                  navigate(`/chatroom/${item.accountname}`);
+                }}
+              >
+                <ProfileSm url={''} confirm={!item.messages.slice().reverse().find(message => message.receive === true).confirm}/>
+                <div className="text">
+                  <span>{item.name}</span>
+                  <div className="chatroomlink">
+                    <p>{item.messages.slice().reverse().find(message => message.Msg !== undefined).Msg}</p>
+                    <div className="date">{`${lastMessageCreatedAt[0]}${lastMessageCreatedAt[1]}${lastMessageCreatedAt[2]}`}</div>
+                  </div>
+                </div>
+              </ChatContainerStyle>
+            )
+          })
+        }
       </ChatListPageStyle>
     </>
   );
