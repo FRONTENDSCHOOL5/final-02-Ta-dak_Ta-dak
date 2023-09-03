@@ -1,0 +1,87 @@
+[
+  {
+    "name": "바베큐러버",
+    "accountname": "Barbecue_Lover",
+    "messages": [
+      {
+        "Msg": "캠핑 아이스 박스 사고 싶어서 문의드려요. 혹시 상태가 괜찮은가요? 짐도 많이 들어가는 편인지 궁급합니다. 고기도 함께 구입하고 싶어요. 다음주에 캠핑을 가야해서 급하게 연락합니다.",
+        "createdAt": "23. 09. 03. 오전 09:05",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "이번에 고기 언제 들어와요?",
+        "createdAt": "23. 09. 03. 오전 10:53",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "고기는 다 먹었는데요",
+        "createdAt": "23. 09. 03. 오후 12:53"
+      },
+      {
+        "Img": "https://api.mandarin.weniv.co.kr/1693724567052.png",
+        "createdAt": "23. 09. 03. 오후 12:54"
+      },
+      {
+        "Msg": "힝",
+        "createdAt": "23. 09. 03. 오후 01:53",
+        "receive": true,
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "name": "주말마다캠핑",
+    "accountname": "Weekend_campers",
+    "messages": [
+      {
+        "Msg": "9월 9일 ~ 9월 10일 1박2일로 캠핑가능한지 연락드립니다~!",
+        "createdAt": "23. 09. 02. 오후 03:05",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "네 가능합니다 ㅎㅎ 인원은 어떻게 되실까요?",
+        "createdAt": "23. 09. 02. 오후 04:10"
+      },
+      {
+        "Msg": "총 2명입니다 ㅎㅎ",
+        "createdAt": "23. 09. 02. 오후 04:12",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "알겠습니다 예약되셨구요^^ 당일에 도착하시면 아래 번호로 연락부탁드립니다 010-XXXX-XXXX",
+        "createdAt": "23. 09. 02. 오후 04:14"
+      }
+    ]
+  },
+  {
+    "name": "팔공산 쳐돌이",
+    "accountname": "Chidori",
+    "messages": [
+      {
+        "Msg": "팔공산만 갔더니 캠핑이 가고싶어서요 ㅎ",
+        "createdAt": "23. 08. 30. 오전 07:12",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "제가 캠핑을 안 가봐서 그러는데 혼자 오시는 분도 많은가요..?",
+        "createdAt": "23. 09. 03. 오전 07:13",
+        "receive": true,
+        "confirm": true
+      },
+      {
+        "Msg": "아뇨.",
+        "createdAt": "23. 09. 03. 오전 08:53"
+      },
+      {
+        "Msg": "쩝..",
+        "createdAt": "23. 08. 30. 오전 09:34",
+        "receive": true
+      }
+    ]
+  }
+]
