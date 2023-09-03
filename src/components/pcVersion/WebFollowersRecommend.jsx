@@ -109,5 +109,9 @@ const RecBoxStyle = styled.div`
     border: 10px solid transparent;
     border-radius: 50px;
   }
+
+  div {
+    color: var(--text-color-1);
+  }
 `;
 
