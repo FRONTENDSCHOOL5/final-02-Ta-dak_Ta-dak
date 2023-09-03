@@ -35,6 +35,14 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
     })
   }
 
+  const handleChat = () => {
+    navigate(`/chatroom/${profile.accountname}`, {
+      state: {
+        username: profile.username
+      }
+    });
+  };
+  
   return (
     <UserProfileStyle>
       <ProfileTopStyle>
@@ -78,9 +86,9 @@ export default function UserProfile({ profile, isMyAccount, loadProfilePage,}) {
         ) : (
           // 다른사람 계정일 경우
           <>
-            <LinkChatStyle to="/chat">
+            <ChatStyle onClick={handleChat}>
               <img src={IconSmMessage} alt="채팅하기" />
-            </LinkChatStyle>
+            </ChatStyle>
             {profile.isfollow ? (
               // 팔로잉 한사람일 경우 - 언팔로우
               <WhiteMdBtn
@@ -180,7 +188,7 @@ const ShareBtnStyle = styled.a`
   right: 91px;
 `;
 
-const LinkChatStyle = styled(Link)`
+const ChatStyle = styled.div`
   ${ChatShareBtnCommonStyle}
   left: 91px;
 `;
