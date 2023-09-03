@@ -84,7 +84,7 @@ function App() {
                 <Route path='/addproduct' element={<AddProductPage />} />
                 <Route path='/profilemodification' element={<ProfileModificationPage />} />
                 <Route path='/chat' element={<ChatListPage />} />
-                <Route path='/chatroom' element={<ChatRoomPage />} />
+                <Route path='/chatroom/*' element={<ChatRoomPage />} />
                 <Route path='/search' element={<SearchPage />} />
                 <Route path='/postdetail/*' element={<PostDetail />} />
                 <Route path='/addproduct' element={<AddProductPage />} />
