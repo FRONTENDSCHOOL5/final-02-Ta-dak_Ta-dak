@@ -208,7 +208,7 @@ const LoginModalStyle = styled.article`
   position: absolute;
   bottom: 0;
   transition: 1s;
-  transform: ${( props ) => (props.isLoginModal ? 'translateY(0)' : 'translateY(100%)')};
+  transform: ${( props ) => (props.isLoginModal ? 'translateY(30%)' : 'translateY(100%)')};
   z-index: 101;
 
   .toggleBtn {
