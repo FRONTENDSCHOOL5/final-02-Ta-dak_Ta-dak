@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { UserAtom } from '../../recoil/AtomUserState';
@@ -7,6 +7,9 @@ import { deletePost, reportPost } from '../../api/postAPI';
 import useModalControl from '../../hooks/useModalControl';
 import useAlertControl from '../../hooks/useAlertControl';
 import styled, { keyframes } from 'styled-components';
+
+// import { sizify } from './img.helpers';
+// import { imgWidth2WSize } from './img.types';
 
 import { Modal } from './Modal';
 import Alert from './Alert';
@@ -29,6 +32,23 @@ export default function Post({ post }) {
   const { openModal, ModalComponent } = useModalControl();
   const { openAlert, AlertComponent } = useAlertControl();
   const id = post.id || post._id;
+  const observeImage = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showImage, {threshold: 0.1}); //메인이미지 관찰
+    observer.observe(observeImage.current)
+  return () => {
+    observer.disconnect();}
+  },[])
+
+  const showImage = async([entry], observer) => {
+    if (!entry.isIntersecting) {
+      return
+    }
+    const imageUrl = [entry][0].target.dataset.src //보여진 리뷰의 인덱스
+    observeImage.current.src = imageUrl
+    observer.unobserve(entry.target) // 함수가 실행될 때, 관찰을 끝내기.
+}
 
   const postLikeReq = async () => {
     await postLike(id);
@@ -98,7 +118,9 @@ export default function Post({ post }) {
             </div>
             {contentMore && post.image && (
               <img
-                src={post.image}
+                ref={observeImage}
+                data-src={post.image} // 이미지 URL을 설정하세요
+                // src={}
                 alt={`${post.author.accountname}의 포스팅 이미지`}
                 onError={(event) => {
                   event.target.src = errorImg;
@@ -232,10 +254,8 @@ const PostContainerStyle = styled.div`
 
   img {
     animation: ${fadeIn} 1s ease-in;
-    min-width: 304px;
-    width: 100%;
-    max-height: 228px;
-    min-height: 228px;
+    width: 304px;
+    height: 228px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     margin-bottom: 16px;
@@ -244,9 +264,8 @@ const PostContainerStyle = styled.div`
 
   @media (min-width: 768px) {
     img {
-      min-width: 436px;
-      max-height: 332px;
-      min-height: 332px;
+      width: 436px;
+      height: 332px;
     }
   }
 
