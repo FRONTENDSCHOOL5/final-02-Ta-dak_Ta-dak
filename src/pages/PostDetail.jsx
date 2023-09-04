@@ -96,7 +96,7 @@ const PostContainer = styled.div`
 
 const PostStyle = styled.div`
   margin: 20px;
-  max-height: 540px;
+  max-height: 700px;
 
   @media (min-width: 768px) {
     margin: 0px;
