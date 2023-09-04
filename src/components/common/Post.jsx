@@ -232,10 +232,8 @@ const PostContainerStyle = styled.div`
 
   img {
     animation: ${fadeIn} 1s ease-in;
-    min-width: 304px;
-    width: 100%;
-    max-height: 228px;
-    min-height: 228px;
+    width: 304px;
+    height: 228px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     margin-bottom: 16px;
@@ -244,9 +242,8 @@ const PostContainerStyle = styled.div`
 
   @media (min-width: 768px) {
     img {
-      min-width: 436px;
-      max-height: 332px;
-      min-height: 332px;
+      width: 436px;
+      height: 332px;
     }
   }
 

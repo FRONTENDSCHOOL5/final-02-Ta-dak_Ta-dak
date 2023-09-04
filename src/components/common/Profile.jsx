@@ -22,7 +22,7 @@ export function ProfileSm({ url = false, confirm }) {
   return (
     <ProfileContainer confirm={confirm}>
       <ProfileSmStyle src={getProfileSrc(url)} alt="" />
-    </ProfileContainer>
+    </ProfileContainer> 
   );
 }
 
