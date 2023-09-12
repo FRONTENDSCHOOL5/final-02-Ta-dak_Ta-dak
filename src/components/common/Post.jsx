@@ -8,12 +8,10 @@ import useModalControl from '../../hooks/useModalControl';
 import useAlertControl from '../../hooks/useAlertControl';
 import styled, { keyframes } from 'styled-components';
 
-// import { sizify } from './img.helpers';
-// import { imgWidth2WSize } from './img.types';
-
 import { Modal } from './Modal';
 import Alert from './Alert';
 import SearchProfile from './SearchProfile';
+import useLazyLoading from '../../hooks/useLazyLoading';
 
 import { ReactComponent as IconLike } from './../../assets/img/s-icon-fire.svg';
 import { ReactComponent as IconComment } from './../../assets/img/s-icon-message.svg';
@@ -32,23 +30,9 @@ export default function Post({ post }) {
   const { openModal, ModalComponent } = useModalControl();
   const { openAlert, AlertComponent } = useAlertControl();
   const id = post.id || post._id;
-  const observeImage = useRef(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(showImage, {threshold: 0.1}); //메인이미지 관찰
-    observer.observe(observeImage.current)
-  return () => {
-    observer.disconnect();}
-  },[])
-
-  const showImage = async([entry], observer) => {
-    if (!entry.isIntersecting) {
-      return
-    }
-    const imageUrl = [entry][0].target.dataset.src //보여진 리뷰의 인덱스
-    observeImage.current.src = imageUrl
-    observer.unobserve(entry.target) // 함수가 실행될 때, 관찰을 끝내기.
-}
+  const observeImage = useRef(null);
+  useLazyLoading(observeImage, post.image);
 
   const postLikeReq = async () => {
     await postLike(id);
@@ -119,8 +103,8 @@ export default function Post({ post }) {
             {contentMore && post.image && (
               <img
                 ref={observeImage}
-                data-src={post.image} // 이미지 URL을 설정하세요
-                // src={}
+                // data-src={post.image} // 이미지 URL을 설정하세요
+                // src={post.image}
                 alt={`${post.author.accountname}의 포스팅 이미지`}
                 onError={(event) => {
                   event.target.src = errorImg;
