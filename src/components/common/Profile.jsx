@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import BasicProfile from '../../assets/img/basic-profile.svg';
+import { useRef } from 'react';
+import useLazyLoading from '../../hooks/useLazyLoading';
 
 function getProfileSrc(url) {
   if (!!url && typeof url === "string" && url.includes("https://") && url !== "http://146.56.183.55:5050/Ellipse.png") {
@@ -10,18 +12,23 @@ function getProfileSrc(url) {
   }
 }
 
+
 export function ProfileLg({ url = false }) {
   return <ProfileLgStyle src={url || BasicProfile} alt="" />
 }
 
 export function ProfileMd({ url = false }) {
-  return <ProfileMdStyle src={getProfileSrc(url)} alt="" />
+  const observeImage = useRef(null);
+  useLazyLoading(observeImage, getProfileSrc(url));
+  return <ProfileMdStyle ref={observeImage} alt="" />
 }
 
 export function ProfileSm({ url = false, confirm }) {
+  const observeImage = useRef(null);
+  useLazyLoading(observeImage, getProfileSrc(url));
   return (
     <ProfileContainer confirm={confirm}>
-      <ProfileSmStyle src={getProfileSrc(url)} alt="" />
+      <ProfileSmStyle ref={observeImage} alt="" />
     </ProfileContainer>
   );
 }

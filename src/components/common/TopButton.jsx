@@ -32,7 +32,7 @@ export default function TopButton({elementRef}) {
     <>
     {
       scrolling &&
-      <DarkModeBtnContainer scrolling={scrolling} onClick={handleScrollToTop}>
+      <DarkModeBtnContainer scrolling={scrolling.toString()} onClick={handleScrollToTop}>
         <DarkModeBtnStyle>
           <TopArrow />
         </DarkModeBtnStyle>

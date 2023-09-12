@@ -68,6 +68,7 @@ const SearchPageStyle = styled.div`
 
   @media (min-width: 768px) {
     width: 500px;
+    height: calc(var(--screen-height) - 48px);
   }
 `;
 
