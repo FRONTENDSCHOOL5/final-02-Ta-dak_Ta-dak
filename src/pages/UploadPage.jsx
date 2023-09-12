@@ -65,7 +65,7 @@ export default function UploadPage() {
   // formData에 담긴 이미지를 서버로 업로드
   const uploadImageToServer = async (formData) => {
     try {
-      const response = await fetch('http://localhost:3000', {
+      const response = await fetch('http://localhost:3001', {
         method: 'POST',
         body: formData,
       });
