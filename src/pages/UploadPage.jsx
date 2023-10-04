@@ -12,7 +12,6 @@ import UploadHeader from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload';
 import Alert from '../components/common/Alert';
-import imageCompression from 'browser-image-compression';
 
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath, uploadValidity } =
@@ -30,58 +29,6 @@ export default function UploadPage() {
     const newText = event.target.value;
     setText(newText);
     setValid(!!newText);
-  };
-
-  // 파일 선택을 통해 이미지를 업로드하면 실행되는 함수
-  const handleImage = async (e) => {
-    // 첫번째 파일
-    const file = e.target.files[0];
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 220,
-      // 웹워커 사용하여 이미지 압축 수행할지 여부
-      // 백그라운드 스레드 작업을 수행하여 메인 성능에 영향을 미치지 않음 (더 효율적인 처리) 
-      useWebWorker: true,
-    };
-
-    try {
-      // 압축된 이미지 compressedImg에 저장
-      const compressedImg = await imageCompression(file, options);
-      console.log('압축된 이미지 크기 :', compressedImg.size);
-
-      // Blob 객체를 File 객체로 변환하여 formData에 추가
-      const compressedFile = new File([compressedImg], file.name);
-      const formData = new FormData();
-      // 압축된 이미지를 파일로 변환 후 formData에 추가
-      formData.append("image", compressedFile);
-
-      // 'uploadImageToServer' 함수를 호출하여 이미지를 서버로 업로드
-      const imgData = await uploadImageToServer(formData);
-      console.log(imgData);
-    } catch (error) {
-      console.error('이미지 압축 및 업로드 중 오류 발생:', error);
-    }
-  };
-
-  // formData에 담긴 이미지를 서버로 업로드
-  const uploadImageToServer = async (formData) => {
-    try {
-      const response = await fetch('http://localhost:3001', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        const imgData = await response.json();
-        return imgData;
-      } else {
-        console.error('이미지 업로드 실패');
-        return null;
-      }
-    } catch (error) {
-      console.error('이미지 업로드 중 오류 발생:', error);
-      return null;
-    }
   };
 
   const handleUploadBtnClick = async () => {
@@ -139,8 +86,7 @@ export default function UploadPage() {
             ) : null}
             
             <div className="uploadImgBtn">
-              <FileUploadMd id={'uploading-img'} onChange={handleImage} aria-label="FileInput" />
-              {/* <FileUploadMd id={'uploading-img'} onChange={handleImageChange} aria-label="FileInput" /> */}
+              <FileUploadMd id={'uploading-img'} onChange={handleImageChange} aria-label="FileInput" />
             </div>
           </div>
         </PostWrapperStyle>

@@ -91,7 +91,6 @@ const YellowBtnStyle = styled.button`
   }
   @media (min-width: 768px) {
     width: 150px;
-    /* height: 48px; */
   }
 `;
 
