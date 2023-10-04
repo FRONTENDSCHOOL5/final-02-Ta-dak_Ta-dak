@@ -167,8 +167,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">스플래시</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/20f4b76f-763d-4980-8a70-fcfdf7b74b05" /></td>
@@ -178,8 +178,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">회원가입</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/5540ffd2-114e-4ad7-8c79-d3cdc5fa00d8" /></td>
@@ -189,8 +189,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">로그인</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/70fd36d0-4674-40e9-894c-90e2e438a6f1" /></td>
@@ -200,8 +200,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">홈피드</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/04dc0394-cc38-45ea-8986-f39dd354d5cb" /></td>
@@ -211,8 +211,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">게시글 업로드</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="" /></td>
@@ -222,8 +222,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">게시글 상세</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/a88cbcbb-8fb5-43d8-b183-9e75c6f88094" /></td>
@@ -233,8 +233,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">상품업로드</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/d1f3b98d-815b-4eb5-b58f-4046bccfcd99" /></td>
@@ -244,8 +244,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">프로필 페이지</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/995ff45b-7ef0-4b82-af69-832977ab1826" /></td>
@@ -255,8 +255,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">프로필 수정</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/e0e1be10-57de-48bd-b081-c6120a6d9f2e" /></td>
@@ -266,8 +266,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">검색</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr> 
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/d7efba65-db9a-4dc7-a672-3a839f029536" /></td>
@@ -277,8 +277,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">채팅</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td=><center>PC💻</center></td=>
+    <td=><center>Mobile📲</center></td=> 
   </tr>
   <tr>
     <td><img src="" /></td>
@@ -288,8 +288,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">로그아웃</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/3a9a4f73-e721-4668-808d-7de9af6ca41b" /></td>
@@ -299,8 +299,8 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">404 페이지</th>
   </tr>
   <tr>
-    <td style="text-align: center;">PC💻</td>
-    <td style="text-align: center;">Mobile📲</td> 
+    <td><center>PC💻</center></td>
+    <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
     <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/9114124a-ed4a-4a76-964f-20482cb66285" /></td>
@@ -310,7 +310,7 @@ import postImg2 from './../../assets/testImg/post2.png';
     <th colspan="2">팔로우 추천목록</th>
   </tr>
   <tr>
-     <td colspan="2"><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/479bd13c-a8f8-4a1b-abeb-0ee8e802fdde" /></td>
+     <td colspan="2"><center><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/479bd13c-a8f8-4a1b-abeb-0ee8e802fdde" /></center></td>
   </tr>
 </table>
 
