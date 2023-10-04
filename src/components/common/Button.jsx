@@ -89,6 +89,10 @@ const YellowBtnStyle = styled.button`
   &:hover {
     background-color: var(--basic-btn-color);
   }
+  @media (min-width: 768px) {
+    width: 150px;
+    /* height: 48px; */
+  }
 `;
 
 const GreenLgBtnStyle = styled.button`
