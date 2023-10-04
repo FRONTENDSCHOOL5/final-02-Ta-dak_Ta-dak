@@ -22,7 +22,7 @@
 ![개발일정](https://github.com/JoWonYeong/market-analysis/assets/92977925/c5d70d78-5959-4b66-8741-35d1080c566a)
 리팩토링 개발기간 <br />
 2023.07.18 - 2023.10.04
-![리팩토링 개발일정 7월](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/2f90ac41-67c5-41fb-9b1c-91510c904da0)
+![리팩토링 개발일정 7월](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/8222494a-d6be-496e-ac93-9330ed663c9c)
 ![리팩토링 개발일정 8월](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/1c140e7a-026a-404a-8595-23bf059f4371)
 ![리팩토링 개발일정 9~10월](https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/98686191/2a241f41-6e30-43f1-9de3-dd579d90a38b)
 
@@ -293,5 +293,3 @@ import postImg2 from './../../assets/testImg/post2.png';
     이로 인해 사용자 경험이 불필요하게 지연되었고, 로그인 절차가 번거로웠습니다.   
   - `해결`: 회원가입 프로세스를 완료한 후, 사용자를 스플래시 페이지가 아닌 직접 로그인 페이지로 리다이렉트하도록 조정했습니다.   
     이로써 사용자는 더 빠르게 로그인을 시작할 수 있으며, 웹 사이트를 더 원활하게 이용할 수 있게 되었습니다.
-
-<br />
