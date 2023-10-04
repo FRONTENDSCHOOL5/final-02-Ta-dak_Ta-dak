@@ -244,7 +244,7 @@ import postImg2 from './../../assets/testImg/post2.png';
       <th colspan="2">프로필 페이지</th>
   </tr>
   <tr>
-    <td><center>PC💻</center></td>
+    <td><div style="text-align: center">PC💻</div></td>
     <td><center>Mobile📲</center></td> 
   </tr>
   <tr>
