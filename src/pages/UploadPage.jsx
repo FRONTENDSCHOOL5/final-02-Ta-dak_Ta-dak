@@ -7,7 +7,6 @@ import { UserAtom } from '../recoil/AtomUserState';
 import { editPost } from '../api/postAPI';
 import { uploadImage } from '../api/uploadimgAPI';
 import styled from 'styled-components';
-
 import UploadHeader from '../components/header/UploadHeader';
 import { ProfileMd } from '../components/common/Profile';
 import { FileUploadMd } from '../components/common/FileUpload';
@@ -24,7 +23,6 @@ export default function UploadPage() {
   const locationValue = location.state;
   const [text, setText] = useState(locationValue?.content || '');
   const [valid, setValid] = useState(false);
-
   const handleChange = (event) => {
     const newText = event.target.value;
     setText(newText);
@@ -65,7 +63,7 @@ export default function UploadPage() {
   // formData에 담긴 이미지를 서버로 업로드
   const uploadImageToServer = async (formData) => {
     try {
-      const response = await fetch('http://localhost:3001', {
+      const response = await fetch('http://localhost:3000', {
         method: 'POST',
         body: formData,
       });
@@ -92,7 +90,6 @@ export default function UploadPage() {
       navigate(-1);
     }
   };
-
   useEffect(() => {
     if (uploadValidity === '유효하지 않은 파일') {
       openAlert();
@@ -101,13 +98,11 @@ export default function UploadPage() {
       setValid(true);
     }
   }, [uploadValidity, location.pathname]);
-
   const autoResize = (event) => {
     const textarea = event.target;
     textarea.style.height = 'auto';
     textarea.style.height = textarea.scrollHeight + 'px';
   };
-
   return (
     <>
         <h1 className="a11y-hidden">게시물 업로드</h1>
@@ -117,7 +112,6 @@ export default function UploadPage() {
           handleUploadBtnClick={handleUploadBtnClick}
         />
       <UploadPageStyle>
-
         <PostWrapperStyle>
           <ProfileMd url={userInfo.image} />
           <div className="uploading">
@@ -149,23 +143,19 @@ export default function UploadPage() {
     </>
   );
 }
-
 const UploadPageStyle = styled.section`
   position: relative;
   height: var(--screen-height);
   overflow: hidden;
-
   @media (min-width: 768px) {
     height: calc(var(--screen-height) - 48px);
   }
-
   .uploadImgBtn {
     position: absolute;
     bottom: 15px;
     right: 15px;
   }
 `;
-
 const PostWrapperStyle = styled.article`
   display: flex;
   margin: 20px 10px;
@@ -176,11 +166,9 @@ const PostWrapperStyle = styled.article`
     width: 0px;
     background-color: var(--background-color);
   }
-
   @media (min-width: 768px) {
     margin: 0px 10px 20px 10px;
   }
-
   .uploading {
     margin: 12px 0 0 12px;
     textarea {
