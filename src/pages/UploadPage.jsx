@@ -16,7 +16,8 @@ import imageCompression from 'browser-image-compression';
 
 export default function UploadPage() {
   const { handleImageChange, imageURL, imagePath, uploadValidity } =
-    useImageUploader();
+    useImageUploader();   
+    
   const { openAlert, AlertComponent } = useAlertControl();
   const navigate = useNavigate();
   const location = useLocation();
@@ -136,6 +137,7 @@ export default function UploadPage() {
                 className="showImg"
               />
             ) : null}
+            
             <div className="uploadImgBtn">
               <FileUploadMd id={'uploading-img'} onChange={handleImage} aria-label="FileInput" />
               {/* <FileUploadMd id={'uploading-img'} onChange={handleImageChange} aria-label="FileInput" /> */}
