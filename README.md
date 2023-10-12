@@ -215,7 +215,7 @@ import postImg2 from './../../assets/testImg/post2.png';
     <td>Mobile📲</td> 
   </tr>
   <tr align="center">
-    <td><img src="" /></td>
+    <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/720e6e8e-ca99-49b9-ae5a-fc7e8621085c" /></td>
     <td><img src="https://github.com/JoWonYeong/Next-study/assets/92977925/14323869-f1dd-48ec-ab41-fc65f64ab83f" /></td>
   </tr>
  <tr align="center">
@@ -281,7 +281,7 @@ import postImg2 from './../../assets/testImg/post2.png';
     <td>Mobile📲</td> 
   </tr>
   <tr align="center">
-    <td><img src="" /></td>
+    <td><img src="https://github.com/FRONTENDSCHOOL5/final-02-Ta-dak_Ta-dak/assets/126536438/eb76ff62-49a0-4abd-b06e-f1b6df0e4a38" /></td>
     <td><img src="https://github.com/JoWonYeong/Next-study/assets/92977925/6719c42b-0c80-45e5-bedd-146a44c69c7b" /></td>
   </tr> 
   <tr align="center">
